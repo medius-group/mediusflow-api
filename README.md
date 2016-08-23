@@ -1,0 +1,1 @@
+## SwaggerFiles for readme.io
