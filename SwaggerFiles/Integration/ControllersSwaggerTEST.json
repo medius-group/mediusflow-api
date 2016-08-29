@@ -7,7 +7,7 @@
     "host": "swaggerreadmeio.cloudapp.net",
     "basePath": "/MainTenantManager",
     "schemes": [
-        "https"
+        "http"
     ],
     "consumes": [
         "application/json"
