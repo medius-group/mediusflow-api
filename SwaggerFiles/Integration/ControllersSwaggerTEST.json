@@ -1,0 +1,509 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Mediusflow Web API",
+        "version": "1.0.0"
+    },
+    "host": "localhost",
+    "basePath": "/MainTenantManager",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "definitions": {
+        "IntegrationCompany": {
+            "type": "object",
+            "x-typeName": "IntegrationCompany",
+            "additionalProperties": false,
+            "required": [
+                "IsVirtual",
+                "IsActive"
+            ],
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "OrganizationNumber": {
+                    "type": "string"
+                },
+                "Parent": {
+                    "type": "string"
+                },
+                "IsVirtual": {
+                    "type": "boolean"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "AccountingCurrencyCode": {
+                    "type": "string"
+                },
+                "CompanyIdentifiers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationCompanyIdentifier"
+                    }
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationMasterData"
+                }
+            ]
+        },
+        "IntegrationCompanyIdentifier": {
+            "type": "object",
+            "x-typeName": "IntegrationCompanyIdentifier",
+            "additionalProperties": false,
+            "properties": {
+                "IdentifierType": {
+                    "type": "string"
+                },
+                "IdentifierValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationMasterData": {
+            "type": "object",
+            "x-typeName": "IntegrationMasterData",
+            "additionalProperties": false,
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationImportData"
+                }
+            ]
+        },
+        "IntegrationImportData": {
+            "type": "object",
+            "x-typeName": "IntegrationImportData",
+            "additionalProperties": false
+        },
+        "BatchDto": {
+            "type": "object",
+            "x-typeName": "BatchDto",
+            "additionalProperties": false,
+            "required": [
+                "ItemsCount",
+                "ItemsSaved",
+                "IsSuccessful"
+            ],
+            "properties": {
+                "State": {
+                    "type": "string"
+                },
+                "Details": {
+                    "type": "string"
+                },
+                "ItemType": {
+                    "type": "string"
+                },
+                "ItemsCount": {
+                    "type": "integer"
+                },
+                "ItemsSaved": {
+                    "type": "integer"
+                },
+                "IsSuccessful": {
+                    "type": "boolean"
+                },
+                "ErrorMessages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "IntegrationUser": {
+            "type": "object",
+            "x-typeName": "IntegrationUser",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "UserName": {
+                    "type": "string"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Timezone": {
+                    "type": "string"
+                },
+                "Language": {
+                    "type": "string"
+                },
+                "Format": {
+                    "type": "string"
+                },
+                "DefaultCompany": {
+                    "type": "string"
+                },
+                "Roles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationRoleCompany"
+                    }
+                },
+                "IdentityProviders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationIdentityProvider"
+                    }
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationImportData"
+                }
+            ]
+        },
+        "IntegrationRoleCompany": {
+            "type": "object",
+            "x-typeName": "IntegrationRoleCompany",
+            "additionalProperties": false,
+            "required": [
+                "ToBeRemoved"
+            ],
+            "properties": {
+                "RoleName": {
+                    "type": "string"
+                },
+                "RoleCompany": {
+                    "type": "string"
+                },
+                "ToBeRemoved": {
+                    "type": "boolean"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationImportData"
+                }
+            ]
+        },
+        "IntegrationIdentityProvider": {
+            "type": "object",
+            "x-typeName": "IntegrationIdentityProvider",
+            "additionalProperties": false,
+            "properties": {
+                "IdentityProviderName": {
+                    "type": "string"
+                },
+                "NameIdentifier": {
+                    "type": "string"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationImportData"
+                }
+            ]
+        }
+    },
+    "paths": {
+        "/api/integration/masterdata/v1/companyimportbatch": {
+            "post": {
+                "tags": [
+                    "CompanyImportBatchController"
+                ],
+                "summary": "Adds a new value",
+                "operationId": "CompanyImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dataBatch",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationCompany"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "CompanyImportBatchController"
+                ],
+                "summary": "Gets a BatchDto with a specific ID",
+                "operationId": "CompanyImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "query",
+                        "required": true,
+                        "x-nullable": true,
+                        "description": "The ID of the value to get."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "BatchDto",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "CompanyImportBatchController"
+                ],
+                "summary": "Deletes a value with a specific ID",
+                "operationId": "CompanyImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "query",
+                        "required": true,
+                        "x-nullable": true,
+                        "description": "The ID of the value to delete."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/integration/masterdata/userimportbatch": {
+            "post": {
+                "tags": [
+                    "UserImportBatchController"
+                ],
+                "summary": "Adds a new value",
+                "operationId": "UserImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dataBatch",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationUser"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "UserImportBatchController"
+                ],
+                "summary": "Gets a BatchDto with a specific ID",
+                "operationId": "UserImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "query",
+                        "required": true,
+                        "x-nullable": true,
+                        "description": "string value"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "BatchDto",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        }
+    }
+}
