@@ -5,7 +5,7 @@
         "version": "1.0.0"
     },
     "host": "localhost:19310",
-    "basePath": "/MainTenantManager",
+    "basePath": "/[[app:tenant]]",
     "schemes": [
         "https"
     ],
