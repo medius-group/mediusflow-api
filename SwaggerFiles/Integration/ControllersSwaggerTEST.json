@@ -7,7 +7,7 @@
     "host": "swaggerreadmeio.cloudapp.net:9070",
     "basePath": "/MainTenantManager",
     "schemes": [
-        "http"
+        "https"
     ],
     "consumes": [
         "application/json"
@@ -386,7 +386,8 @@
                                 "$ref": "#/definitions/IntegrationCompany"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "Value to add."
                     }
                 ],
                 "responses": {

@@ -386,7 +386,8 @@
                                 "$ref": "#/definitions/IntegrationCompany"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "Value to add."
                     }
                 ],
                 "responses": {
