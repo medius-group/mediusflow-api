@@ -4,7 +4,7 @@
         "title": "Mediusflow Web API",
         "version": "1.0.0"
     },
-    "host": "localhost:19310",
+    "host": "mediusflow.com",
     "basePath": "/MainTenantManager",
     "schemes": [
         "https"
@@ -449,7 +449,7 @@
                 }
             }
         },
-        "/api/integration/masterdata/v1/companyimportbatch/getanonym": {
+        "/api/integration/masterdata/v1/companyimportbatch/annonym": {
             "get": {
                 "tags": [
                     "CompanyImportBatchController"
