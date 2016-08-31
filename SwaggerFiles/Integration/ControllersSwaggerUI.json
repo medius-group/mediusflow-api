@@ -4,7 +4,7 @@
         "title": "Mediusflow Web API",
         "version": "1.0.0"
     },
-    "host": "mediusflow.com",
+    "host": "localhost:19310",
     "basePath": "/MainTenantManager",
     "schemes": [
         "https"
