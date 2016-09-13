@@ -1,0 +1,224 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Mediusflow Web API",
+        "version": "1.0.0"
+    },
+    "host": "localhost:19310",
+    "basePath": "/[[app:tenant]]",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "definitions": {
+        "IntegrationCompany": {
+            "type": "object",
+            "x-typeName": "IntegrationCompany",
+            "additionalProperties": false,
+            "required": [
+                "IsVirtual",
+                "IsActive"
+            ],
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "OrganizationNumber": {
+                    "type": "string"
+                },
+                "Parent": {
+                    "type": "string"
+                },
+                "IsVirtual": {
+                    "type": "boolean"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+        },
+        "IntegrationRoleCved"
+            ],
+            "properties": {
+                "RoleName": {
+                    "type": "string"
+                },
+                "RoleCompany": {
+                    "type": "string"
+                },
+                "ToBeRemoved": {
+                    "type": "boolean"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationImportData"
+                }
+            ]
+        },
+        "IntegrationIdentityProvider": {
+            "type": "object",
+            "x-typeName": "IntegrationIdentityProvider",
+            "additionalProperties": false,
+            "properties": {
+                "IdentityProviderName": {
+                    "type": "string"
+                },
+                "NameIdentifier": {
+                    "type": "string"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationImportData"
+                }
+            ]
+        }
+    },
+    "paths": {
+        "/api/integration/masterdata/v1/companyimportbatch": {
+            "post": {
+                "tags": [
+                    "CompanyImportBatchController"
+                ],
+                "summary": "Adds a new value",
+                "operationId": "CompanyImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dataBatch",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationCompany"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "Value to add."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "CompanyImportBatchController"
+                ],
+                "summary": "Gets a BatchDto with a specific ID",
+                "operationId": "CompanyImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "query",
+                        "required": true,
+                        "x-nullable": true,
+                        "description": "The ID of the value to get."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "BatchDto",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "CompanyImportBatchController"
+                ],
+                "summary": "Deletes a value with a specific ID",
+                "operationId": "CompanyImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "query",
+                        "required": true,
+                        "x-nullable": true,
+                        "description": "The ID of the value to delete."
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/integration/masterdata/userimportbatch": {
+            "post": {
+                "tags": [
+                    "UserImportBatchController"
+                ],
+                "summary": "Adds a new value",
+                "operationId": "UserImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dataBatch",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationUser"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "UserImportBatchController"
+                ],
+                "summary": "Gets a BatchDto with a specific ID",
+                "operationId": "UserImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "query",
+                        "required": true,
+                        "x-nullable": true,
+                        "description": "string value"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "BatchDto",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        }
+    }
+}
