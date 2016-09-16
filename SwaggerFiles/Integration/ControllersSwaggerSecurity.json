@@ -18,9 +18,6 @@
     "security": [
         {
             "oauthsec": ["default"]
-        },
-        {
-            "internalApiKey": []
         }
     ],
     "securityDefinitions": {
