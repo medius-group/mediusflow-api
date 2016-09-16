@@ -15,11 +15,6 @@
     "produces": [
         "application/json"
     ],
-    "security": [
-        {
-            "OauthSecurity": ["default"]
-        }
-    ],
     "securityDefinitions": {
         "OauthSecurity":{
             "type": "oauth2",
@@ -30,6 +25,11 @@
             }
         }
     },
+    "security": [
+        {
+            "OauthSecurity": ["default"]
+        }
+    ],
     "definitions": {
         "IntegrationCompany": {
             "type": "object",
