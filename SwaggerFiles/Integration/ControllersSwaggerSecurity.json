@@ -31,11 +31,6 @@
             "scopes": {
                 "default": "default scope"
             }
-        },
-        "internalApiKey": {
-            "type": "apiKey",
-            "in": "header",
-            "name": "api_key"
         }
     },
     "definitions": {
