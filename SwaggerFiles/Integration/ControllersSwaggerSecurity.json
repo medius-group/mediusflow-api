@@ -4,8 +4,8 @@
         "title": "Mediusflow Web API",
         "version": "1.0.0"
     },
-    "host": "localhost:19310",
-    "basePath": "/MainTenantManager",
+    "host": "[[app:host]]",
+    "basePath": "/[[app:tenant]]",
     "schemes": [
         "https"
     ],
@@ -16,10 +16,12 @@
         "application/json"
     ],
     "securityDefinitions": {
-        "OauthSecurity": {
-            "type": "oauth2",
-            "flow": "password",
-            "tokenUrl": "https://localhost:19310/maintenantmanager/connect/token"
+        "type": "oauth2",
+        "tokenUrl": "https://[[app:host]]/[[app:tenant]]/connect/token",
+        "flow": "password",
+        "scopes": {
+            "write:default": "write access",
+            "read:default": "read access"
         }
     },
     "definitions": {
