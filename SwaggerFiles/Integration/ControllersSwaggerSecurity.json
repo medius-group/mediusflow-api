@@ -17,11 +17,11 @@
     ],
     "security": [
         {
-            "oauthsec": ["default"]
+            "OauthSecurity": ["default"]
         }
     ],
     "securityDefinitions": {
-        "oauthsec":{
+        "OauthSecurity":{
             "type": "oauth2",
             "tokenUrl": "https://[[app:host]]/[[app:tenant]]/connect/token",
             "flow": "password",
@@ -1869,6 +1869,13 @@
                 ],
                 "summary": "Gets a BatchDto with a specific ID",
                 "operationId": "CompanyImportBatch_Get",
+                "security": [
+                    {
+                        "OauthSecurity": [
+                            "default"
+                        ]
+                    }
+                ],
                 "parameters": [
                     {
                         "type": "string",
