@@ -15,13 +15,27 @@
     "produces": [
         "application/json"
     ],
+    "security": [
+        {
+            "oauthsec": ["default"]
+        },
+        {
+            "internalApiKey": []
+        }
+    ],
     "securityDefinitions": {
-        "type": "oauth2",
-        "tokenUrl": "https://[[app:host]]/[[app:tenant]]/connect/token",
-        "flow": "password",
-        "scopes": {
-            "write:default": "write access",
-            "read:default": "read access"
+        "oauthsec":{
+            "type": "oauth2",
+            "tokenUrl": "https://[[app:host]]/[[app:tenant]]/connect/token",
+            "flow": "password",
+            "scopes": {
+                "default": "default scope"
+            }
+        },
+        "internalApiKey": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "api_key"
         }
     },
     "definitions": {
