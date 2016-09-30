@@ -4,8 +4,8 @@
         "title": "Mediusflow Web API",
         "version": "1.0.0"
     },
-    "host": "[[app:host]]",
-    "basePath": "/[[app:tenant]]",
+    "host": "localhost:19310",
+    "basePath": "/MainTenantManager",
     "schemes": [
         "https"
     ],
