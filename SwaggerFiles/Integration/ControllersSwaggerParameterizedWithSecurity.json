@@ -511,11 +511,10 @@
 	"securityDefinitions": {
 		"petstore_auth": {
 			"type": "oauth2",
-			"authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+			"authorizationUrl": "https://localhost/MainTenantManager/connect/token",
 			"flow": "implicit",
 			"scopes": {
-				"write:pets": "modify pets in your account",
-				"read:pets": "read your pets"
+				"default": "default"
 			}
 		},
 		"api_key": {
