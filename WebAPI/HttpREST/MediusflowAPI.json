@@ -16,15 +16,88 @@
         "application/json"
     ],
     "definitions": {
-        "IntegrationCompany": {
+        "IntegrationCompanyDto": {
             "type": "object",
-            "x-typeName": "IntegrationCompany",
+            "x-typeName": "IntegrationCompanyDto",
             "additionalProperties": false,
             "required": [
                 "IsVirtual",
                 "IsActive"
             ],
             "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
                 "Name": {
                     "type": "string"
                 },
@@ -49,19 +122,14 @@
                 "CompanyIdentifiers": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/IntegrationCompanyIdentifier"
+                        "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
                     }
                 }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/IntegrationMasterData"
-                }
-            ]
+            }
         },
-        "IntegrationCompanyIdentifier": {
+        "IntegrationCompanyIdentifierDto": {
             "type": "object",
-            "x-typeName": "IntegrationCompanyIdentifier",
+            "x-typeName": "IntegrationCompanyIdentifierDto",
             "additionalProperties": false,
             "properties": {
                 "IdentifierType": {
@@ -71,6 +139,876 @@
                     "type": "string"
                 }
             }
+        },
+        "IntegrationCurrencyDto": {
+            "type": "object",
+            "x-typeName": "IntegrationCurrencyDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Code": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "IntegrationCurrencyRateDto": {
+            "type": "object",
+            "x-typeName": "IntegrationCurrencyRateDto",
+            "additionalProperties": false,
+            "required": [
+                "Rate",
+                "StartDate",
+                "EndDate"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "Code": {
+                    "type": "string"
+                },
+                "Rate": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "StartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "IntegrationFixedRestrictionDto": {
+            "type": "object",
+            "x-typeName": "IntegrationFixedRestrictionDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "RestrictedDimensionKey": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "ControllingDimensionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationForbiddenRestrictionDto": {
+            "type": "object",
+            "x-typeName": "IntegrationForbiddenRestrictionDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "RestrictedDimensionName": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "ControllingDimensionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationOptionalListRestrictionDto": {
+            "type": "object",
+            "x-typeName": "IntegrationOptionalListRestrictionDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "RestrictedDimensionKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "ControllingDimensionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationRequiredListRestrictionDto": {
+            "type": "object",
+            "x-typeName": "IntegrationRequiredListRestrictionDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "RestrictedDimensionKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "ControllingDimensionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationRequiredRestrictionDto": {
+            "type": "object",
+            "x-typeName": "IntegrationRequiredRestrictionDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "RestrictedDimensionName": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "ControllingDimensionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationBasicRestrictionsDto": {
+            "type": "object",
+            "x-typeName": "IntegrationBasicRestrictionsDto",
+            "additionalProperties": false,
+            "properties": {
+                "ControllingDimensionValueKey": {
+                    "type": "string"
+                },
+                "RestrictedDimensions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
+                    }
+                }
+            }
+        },
+        "IntegrationRestrictedDimensionDto": {
+            "type": "object",
+            "x-typeName": "IntegrationRestrictedDimensionDto",
+            "additionalProperties": false,
+            "required": [
+                "RestrictionType"
+            ],
+            "properties": {
+                "DefaultDimensionValueKey": {
+                    "type": "string"
+                },
+                "FixedDimensionValueKey": {
+                    "type": "string"
+                },
+                "Dimension": {
+                    "type": "string"
+                },
+                "RestrictionType": {
+                    "$ref": "#/definitions/RestrictionType"
+                }
+            }
+        },
+        "RestrictionType": {
+            "type": "integer",
+            "x-typeName": "RestrictionType",
+            "x-enumNames": [
+                "Default",
+                "Fixed",
+                "Forbidden",
+                "Required"
+            ],
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "description": ""
+        },
+        "IntegrationDimensionValueDto": {
+            "type": "object",
+            "x-typeName": "IntegrationDimensionValueDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "IsFictive"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "DimensionName": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "IsFictive": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "IntegrationForbiddenListRestriction": {
+            "type": "object",
+            "x-typeName": "IntegrationForbiddenListRestriction",
+            "additionalProperties": false,
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationListRestriction"
+                }
+            ]
+        },
+        "IntegrationListRestriction": {
+            "type": "object",
+            "x-typeName": "IntegrationListRestriction",
+            "additionalProperties": false,
+            "properties": {
+                "RestrictedDimensionKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationRestriction"
+                }
+            ]
+        },
+        "IntegrationRestriction": {
+            "type": "object",
+            "x-typeName": "IntegrationRestriction",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "ControllingDimensionKey": {
+                    "type": "string"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/IntegrationMasterData"
+                }
+            ]
         },
         "IntegrationMasterData": {
             "type": "object",
@@ -164,50 +1102,999 @@
             "additionalProperties": false,
             "description": "StaticData used for Import"
         },
-        "BatchDto": {
+        "IntegrationItemDto": {
             "type": "object",
-            "x-typeName": "BatchDto",
-            "additionalProperties": false,
-            "required": [
-                "ItemsCount",
-                "ItemsSaved",
-                "IsSuccessful"
-            ],
-            "properties": {
-                "State": {
-                    "type": "string"
-                },
-                "Details": {
-                    "type": "string"
-                },
-                "ItemType": {
-                    "type": "string"
-                },
-                "ItemsCount": {
-                    "type": "integer"
-                },
-                "ItemsSaved": {
-                    "type": "integer"
-                },
-                "IsSuccessful": {
-                    "type": "boolean"
-                },
-                "ErrorMessages": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            }
-        },
-        "IntegrationSupplier": {
-            "type": "object",
-            "x-typeName": "IntegrationSupplier",
+            "x-typeName": "IntegrationItemDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
             ],
             "properties": {
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Number": {
+                    "type": "string"
+                },
+                "Reference": {
+                    "type": "string"
+                },
+                "SupplierItems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationSupplierItemDto"
+                    }
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "IntegrationSupplierItemDto": {
+            "type": "object",
+            "x-typeName": "IntegrationSupplierItemDto",
+            "additionalProperties": false,
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "PartNumber": {
+                    "type": "string"
+                },
+                "Supplier": {
+                    "type": "string"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationPaymentTermDto": {
+            "type": "object",
+            "x-typeName": "IntegrationPaymentTermDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "NumberOfDays",
+                "NumberOfFreeMonths"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "PaymentTermId": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "NumberOfDays": {
+                    "type": "integer"
+                },
+                "NumberOfFreeMonths": {
+                    "type": "integer"
+                }
+            }
+        },
+        "IntegrationPurchaseOrderDto": {
+            "type": "object",
+            "x-typeName": "IntegrationPurchaseOrderDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "Amount",
+                "RegisterDate"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "OrderIdentifier": {
+                    "type": "string"
+                },
+                "OrderIdentifier2": {
+                    "type": "string"
+                },
+                "RegisterDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DueDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Supplier": {
+                    "type": "string"
+                },
+                "Reference": {
+                    "type": "string"
+                },
+                "PurchaseOrderLines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
+                    }
+                }
+            }
+        },
+        "IntegrationPurchaseOrderLineDto": {
+            "type": "object",
+            "x-typeName": "IntegrationPurchaseOrderLineDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "Amount",
+                "Quantity",
+                "UnitPrice",
+                "IsServiceBased"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "OrderIdentifier": {
+                    "type": "string"
+                },
+                "OrderIdentifier2": {
+                    "type": "string"
+                },
+                "CodingLines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationPreCodingLineDto"
+                    }
+                },
+                "ConversionFactor": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "LineNumber": {
+                    "type": "string"
+                },
+                "ItemId": {
+                    "type": "string"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Reference": {
+                    "type": "string"
+                },
+                "DeliveryLines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationDeliveryLineDto"
+                    }
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "IsServiceBased": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "IntegrationPreCodingLineDto": {
+            "type": "object",
+            "x-typeName": "IntegrationPreCodingLineDto",
+            "additionalProperties": false,
+            "required": [
+                "Amount"
+            ],
+            "properties": {
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "Dimensions": {
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                },
+                "Type": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationCodingDimensionsDto": {
+            "type": "object",
+            "x-typeName": "IntegrationCodingDimensionsDto",
+            "additionalProperties": false,
+            "properties": {
+                "Dimension1": {
+                    "type": "string"
+                },
+                "Dimension2": {
+                    "type": "string"
+                },
+                "Dimension3": {
+                    "type": "string"
+                },
+                "Dimension4": {
+                    "type": "string"
+                },
+                "Dimension5": {
+                    "type": "string"
+                },
+                "Dimension6": {
+                    "type": "string"
+                },
+                "Dimension7": {
+                    "type": "string"
+                },
+                "Dimension8": {
+                    "type": "string"
+                },
+                "Dimension9": {
+                    "type": "string"
+                },
+                "Dimension10": {
+                    "type": "string"
+                },
+                "Dimension11": {
+                    "type": "string"
+                },
+                "Dimension12": {
+                    "type": "string"
+                },
+                "FreeText1": {
+                    "type": "string"
+                },
+                "FreeText2": {
+                    "type": "string"
+                },
+                "FreeText3": {
+                    "type": "string"
+                },
+                "FreeText4": {
+                    "type": "string"
+                },
+                "FreeText5": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationDeliveryLineDto": {
+            "type": "object",
+            "x-typeName": "IntegrationDeliveryLineDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "Amount",
+                "ConversionFactor",
+                "DeliveryDate",
+                "Quantity",
+                "UnitPrice",
+                "IsFictive"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ConversionFactor": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryNumber": {
+                    "type": "string"
+                },
+                "DeliveryNote": {
+                    "type": "string"
+                },
+                "ReleaseNumber": {
+                    "type": "string"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "IsFictive": {
+                    "type": "boolean"
+                },
+                "TotalInvoicedQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationRangeRestrictionDto": {
+            "type": "object",
+            "x-typeName": "IntegrationRangeRestrictionDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "RestrictedDimensionName": {
+                    "type": "string"
+                },
+                "StartValue": {
+                    "type": "string"
+                },
+                "EndValue": {
+                    "type": "string"
+                },
+                "IncludeStartAndEndValues": {
+                    "type": "boolean"
+                },
+                "UseNumericOrder": {
+                    "type": "boolean"
+                },
+                "Format": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "ControllingDimensionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationSupplierDto": {
+            "type": "object",
+            "x-typeName": "IntegrationSupplierDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
                 "IsActive": {
                     "type": "boolean"
                 },
@@ -220,7 +2107,7 @@
                 "Identifiers": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/IntegrationSupplierIdentifier"
+                        "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
                     }
                 },
                 "Name": {
@@ -412,19 +2299,14 @@
                 "PaymentDetails": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/IntegrationPaymentDetails"
+                        "$ref": "#/definitions/IntegrationPaymentDetailsDto"
                     }
                 }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/IntegrationMasterData"
-                }
-            ]
+            }
         },
-        "IntegrationSupplierIdentifier": {
+        "IntegrationSupplierIdentifierDto": {
             "type": "object",
-            "x-typeName": "IntegrationSupplierIdentifier",
+            "x-typeName": "IntegrationSupplierIdentifierDto",
             "additionalProperties": false,
             "properties": {
                 "IdentifierType": {
@@ -435,9 +2317,9 @@
                 }
             }
         },
-        "IntegrationPaymentDetails": {
+        "IntegrationPaymentDetailsDto": {
             "type": "object",
-            "x-typeName": "IntegrationPaymentDetails",
+            "x-typeName": "IntegrationPaymentDetailsDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -452,7 +2334,7 @@
                 "Identifiers": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/IntegrationPaymentDetailsIdentifier"
+                        "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
                     }
                 },
                 "IsActive": {
@@ -460,21 +2342,101 @@
                 }
             }
         },
-        "IntegrationPaymentDetailsIdentifier": {
+        "IntegrationPaymentDetailsIdentifierDto": {
             "type": "object",
-            "x-typeName": "IntegrationPaymentDetailsIdentifier",
+            "x-typeName": "IntegrationPaymentDetailsIdentifierDto",
             "additionalProperties": false,
             "properties": {
                 "Value": {
                     "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
                 }
-            },
-            "allOf": [
-                {
-                    "description": "StaticData used for Import",
-                    "$ref": "#/definitions/IntegrationImportData"
+            }
+        },
+        "ImportDocumentStatusDto": {
+            "type": "object",
+            "x-typeName": "ImportDocumentStatusDto",
+            "additionalProperties": false,
+            "properties": {
+                "Status": {
+                    "type": "string"
+                },
+                "FinalDocumentId": {
+                    "type": "integer"
                 }
-            ]
+            }
         },
         "IntegrationSupplierInvoice": {
             "type": "object",
@@ -1000,6 +2962,32 @@
                     "type": "string"
                 },
                 "FreeText5": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationCompanyIdentifier": {
+            "type": "object",
+            "x-typeName": "IntegrationCompanyIdentifier",
+            "additionalProperties": false,
+            "properties": {
+                "IdentifierType": {
+                    "type": "string"
+                },
+                "IdentifierValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationSupplierIdentifier": {
+            "type": "object",
+            "x-typeName": "IntegrationSupplierIdentifier",
+            "additionalProperties": false,
+            "properties": {
+                "IdentifierType": {
+                    "type": "string"
+                },
+                "IdentifierValue": {
                     "type": "string"
                 }
             }
@@ -1550,47 +3538,32 @@
             "x-typeName": "IntegrationDocument",
             "additionalProperties": false
         },
-        "IntegrationResponseVoucher": {
+        "IntegrationTaxGroupDto": {
             "type": "object",
-            "x-typeName": "IntegrationResponseVoucher",
+            "x-typeName": "IntegrationTaxGroupDto",
             "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "IndicatorNumber"
+            ],
             "properties": {
-                "VoucherTag": {
+                "ExternalSystemId": {
                     "type": "string"
                 },
-                "VoucherValue": {
+                "CustomField_Text1": {
                     "type": "string"
                 },
-                "VoucherDate": {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/IntegrationResponseMessage"
-                }
-            ]
-        },
-        "IntegrationResponseMessage": {
-            "type": "object",
-            "x-typeName": "IntegrationResponseMessage",
-            "additionalProperties": false,
-            "properties": {
-                "CustomField_Boolean1": {
-                    "type": "boolean"
+                "CustomField_Text2": {
+                    "type": "string"
                 },
-                "CustomField_Boolean2": {
-                    "type": "boolean"
+                "CustomField_Text3": {
+                    "type": "string"
                 },
-                "CustomField_Boolean3": {
-                    "type": "boolean"
+                "CustomField_Text4": {
+                    "type": "string"
                 },
-                "CustomField_Boolean4": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean5": {
-                    "type": "boolean"
+                "CustomField_Text5": {
+                    "type": "string"
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
@@ -1612,20 +3585,20 @@
                     "type": "number",
                     "format": "decimal"
                 },
-                "CustomField_Text1": {
-                    "type": "string"
+                "CustomField_Boolean1": {
+                    "type": "boolean"
                 },
-                "CustomField_Text2": {
-                    "type": "string"
+                "CustomField_Boolean2": {
+                    "type": "boolean"
                 },
-                "CustomField_Text3": {
-                    "type": "string"
+                "CustomField_Boolean3": {
+                    "type": "boolean"
                 },
-                "CustomField_Text4": {
-                    "type": "string"
+                "CustomField_Boolean4": {
+                    "type": "boolean"
                 },
-                "CustomField_Text5": {
-                    "type": "string"
+                "CustomField_Boolean5": {
+                    "type": "boolean"
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
@@ -1646,12 +3619,230 @@
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "GroupName": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IntegrationTaxCodeDto"
+                    }
+                },
+                "IndicatorNumber": {
+                    "type": "integer"
                 }
             }
         },
-        "IntegrationUser": {
+        "IntegrationTaxCodeDto": {
             "type": "object",
-            "x-typeName": "IntegrationUser",
+            "x-typeName": "IntegrationTaxCodeDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "Deductible",
+                "Percentage"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "Dimensions": {
+                    "$ref": "#/definitions/IntegrationCodingDimensions"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "Code": {
+                    "type": "string"
+                },
+                "Deductible": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Percentage": {
+                    "type": "number",
+                    "format": "decimal"
+                }
+            }
+        },
+        "IntegrationUnitDto": {
+            "type": "object",
+            "x-typeName": "IntegrationUnitDto",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "Description": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationUserDto": {
+            "type": "object",
+            "x-typeName": "IntegrationUserDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -1690,13 +3881,13 @@
                 "Roles": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/IntegrationRoleCompany"
+                        "$ref": "#/definitions/IntegrationRoleCompanyDto"
                     }
                 },
                 "IdentityProviders": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/IntegrationIdentityProvider"
+                        "$ref": "#/definitions/IntegrationIdentityProviderDto"
                     }
                 },
                 "CustomField_Text1": {
@@ -1769,16 +3960,11 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/IntegrationImportData"
-                }
-            ]
+            }
         },
-        "IntegrationRoleCompany": {
+        "IntegrationRoleCompanyDto": {
             "type": "object",
-            "x-typeName": "IntegrationRoleCompany",
+            "x-typeName": "IntegrationRoleCompanyDto",
             "additionalProperties": false,
             "required": [
                 "ToBeRemoved"
@@ -1793,17 +3979,11 @@
                 "ToBeRemoved": {
                     "type": "boolean"
                 }
-            },
-            "allOf": [
-                {
-                    "description": "StaticData used for Import",
-                    "$ref": "#/definitions/IntegrationImportData"
-                }
-            ]
+            }
         },
-        "IntegrationIdentityProvider": {
+        "IntegrationIdentityProviderDto": {
             "type": "object",
-            "x-typeName": "IntegrationIdentityProvider",
+            "x-typeName": "IntegrationIdentityProviderDto",
             "additionalProperties": false,
             "properties": {
                 "IdentityProviderName": {
@@ -1812,67 +3992,60 @@
                 "NameIdentifier": {
                     "type": "string"
                 }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/IntegrationImportData"
-                }
-            ]
+            }
         }
     },
     "paths": {
-        "/api/integration/masterdata/v1/companyimportbatch": {
+        "/integration/masterdata/v1/companyimportbatch": {
             "post": {
                 "tags": [
                     "CompanyImportBatchController"
                 ],
-                "summary": "Adds a new value",
                 "operationId": "CompanyImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dataBatch",
+                        "name": "dtos",
                         "in": "body",
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationCompany"
+                                "$ref": "#/definitions/IntegrationCompanyDto"
                             }
                         },
-                        "x-nullable": true,
-                        "description": "DataBatch to add."
+                        "x-nullable": true
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "string"
+                            "type": "file"
                         },
                         "x-nullable": true
                     }
                 }
-            },
+            }
+        },
+        "/integration/masterdata/v1/companyimportbatch/{importId}": {
             "get": {
                 "tags": [
                     "CompanyImportBatchController"
                 ],
-                "summary": "Gets a BatchDto with a specific ID",
                 "operationId": "CompanyImportBatch_Get",
                 "parameters": [
                     {
                         "type": "string",
                         "name": "importId",
-                        "in": "query",
+                        "in": "path",
                         "required": true,
-                        "x-nullable": true,
-                        "description": "The ID of the value to get."
+                        "x-nullable": false
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "BatchDto",
+                        "description": "",
                         "schema": {
-                            "$ref": "#/definitions/BatchDto"
+                            "type": "file"
                         },
                         "x-nullable": true
                     }
@@ -1882,26 +4055,748 @@
                 "tags": [
                     "CompanyImportBatchController"
                 ],
-                "summary": "Deletes a value with a specific ID",
                 "operationId": "CompanyImportBatch_Delete",
                 "parameters": [
                     {
                         "type": "string",
                         "name": "importId",
-                        "in": "query",
+                        "in": "path",
                         "required": true,
-                        "x-nullable": true,
-                        "description": "The ID of the value to delete."
+                        "x-nullable": false
                     }
                 ],
                 "responses": {
-                    "204": {
-                        "description": ""
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
                     }
                 }
             }
         },
-        "/api/application/inbox/count": {
+        "/integration/masterdata/v1/currencyimportbatch": {
+            "post": {
+                "tags": [
+                    "CurrencyImportBatchController"
+                ],
+                "operationId": "CurrencyImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationCurrencyDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/currencyimportbatch/{importId}": {
+            "get": {
+                "tags": [
+                    "CurrencyImportBatchController"
+                ],
+                "operationId": "CurrencyImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "CurrencyImportBatchController"
+                ],
+                "operationId": "CurrencyImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/currencyrateimportbatch": {
+            "post": {
+                "tags": [
+                    "CurrencyRateImportBatchController"
+                ],
+                "operationId": "CurrencyRateImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationCurrencyRateDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/currencyrateimportbatch/{importId}": {
+            "get": {
+                "tags": [
+                    "CurrencyRateImportBatchController"
+                ],
+                "operationId": "CurrencyRateImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "CurrencyRateImportBatchController"
+                ],
+                "operationId": "CurrencyRateImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionFixedRestrictionImportBatch": {
+            "post": {
+                "tags": [
+                    "DimensionFixedRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionFixedRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationFixedRestrictionDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionFixedRestrictionImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "DimensionFixedRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionFixedRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DimensionFixedRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionFixedRestrictionImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionForbiddenRestrictionImportBatch": {
+            "post": {
+                "tags": [
+                    "DimensionForbiddenRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionForbiddenRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationForbiddenRestrictionDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionForbiddenRestrictionImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "DimensionForbiddenRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionForbiddenRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DimensionForbiddenRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionForbiddenRestrictionImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionOptionalListRestrictionImportBatch": {
+            "post": {
+                "tags": [
+                    "DimensionOptionalListRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionOptionalListRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationOptionalListRestrictionDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionOptionalListRestrictionImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "DimensionOptionalListRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionOptionalListRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DimensionOptionalListRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionOptionalListRestrictionImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionRequiredListRestrictionImportBatch": {
+            "post": {
+                "tags": [
+                    "DimensionRequiredListRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRequiredListRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationRequiredListRestrictionDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionRequiredListRestrictionImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "DimensionRequiredListRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRequiredListRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DimensionRequiredListRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRequiredListRestrictionImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionRequiredRestrictionImportBatch": {
+            "post": {
+                "tags": [
+                    "DimensionRequiredRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRequiredRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationRequiredRestrictionDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionRequiredRestrictionImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "DimensionRequiredRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRequiredRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DimensionRequiredRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRequiredRestrictionImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionBasicRestrictionsImportBatch": {
+            "post": {
+                "tags": [
+                    "DimensionRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationBasicRestrictionsDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionBasicRestrictionsImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "DimensionRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DimensionRestrictionImportBatchController"
+                ],
+                "operationId": "DimensionRestrictionImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionValueImportBatch": {
+            "post": {
+                "tags": [
+                    "DimensionValueImportBatchController"
+                ],
+                "operationId": "DimensionValueImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationDimensionValueDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionValueImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "DimensionValueImportBatchController"
+                ],
+                "operationId": "DimensionValueImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DimensionValueImportBatchController"
+                ],
+                "operationId": "DimensionValueImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/application/inbox/count": {
             "get": {
                 "tags": [
                     "InboxController"
@@ -1920,20 +4815,20 @@
                 }
             }
         },
-        "/api/integration/masterdata/v1/supplierimportbatch": {
+        "/integration/masterdata/v1/ItemImportBatch": {
             "post": {
                 "tags": [
-                    "SupplierImportBatchController"
+                    "ItemImportBatchController"
                 ],
-                "operationId": "SupplierImportBatch_Post",
+                "operationId": "ItemImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dataBatch",
+                        "name": "dtos",
                         "in": "body",
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationSupplier"
+                                "$ref": "#/definitions/IntegrationItemDto"
                             }
                         },
                         "x-nullable": true
@@ -1943,12 +4838,334 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "string"
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/ItemImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "ItemImportBatchController"
+                ],
+                "operationId": "ItemImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
                         },
                         "x-nullable": true
                     }
                 }
             },
+            "delete": {
+                "tags": [
+                    "ItemImportBatchController"
+                ],
+                "operationId": "ItemImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/PaymentTermImportBatch": {
+            "post": {
+                "tags": [
+                    "PaymentTermImportBatchController"
+                ],
+                "operationId": "PaymentTermImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationPaymentTermDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/PaymentTermImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "PaymentTermImportBatchController"
+                ],
+                "operationId": "PaymentTermImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PaymentTermImportBatchController"
+                ],
+                "operationId": "PaymentTermImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/PurchaseOrderImportBatch": {
+            "post": {
+                "tags": [
+                    "PurchaseOrderImportBatchController"
+                ],
+                "operationId": "PurchaseOrderImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationPurchaseOrderDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/PurchaseOrderImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderImportBatchController"
+                ],
+                "operationId": "PurchaseOrderImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "PurchaseOrderImportBatchController"
+                ],
+                "operationId": "PurchaseOrderImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionRangeRestrictionImportBatch": {
+            "post": {
+                "tags": [
+                    "RangeRestrictionImportBatchController"
+                ],
+                "operationId": "RangeRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationRangeRestrictionDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DimensionRangeRestrictionImportBatch/{importId}": {
+            "get": {
+                "tags": [
+                    "RangeRestrictionImportBatchController"
+                ],
+                "operationId": "RangeRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "RangeRestrictionImportBatchController"
+                ],
+                "operationId": "RangeRestrictionImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/SupplierImportBatch": {
+            "post": {
+                "tags": [
+                    "SupplierImportBatchController"
+                ],
+                "operationId": "SupplierImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationSupplierDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/SupplierImportBatch/{importId}": {
             "get": {
                 "tags": [
                     "SupplierImportBatchController"
@@ -1958,16 +5175,16 @@
                     {
                         "type": "string",
                         "name": "importId",
-                        "in": "query",
+                        "in": "path",
                         "required": true,
-                        "x-nullable": true
+                        "x-nullable": false
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/BatchDto"
+                            "type": "file"
                         },
                         "x-nullable": true
                     }
@@ -1982,14 +5199,62 @@
                     {
                         "type": "string",
                         "name": "importId",
-                        "in": "query",
+                        "in": "path",
                         "required": true,
-                        "x-nullable": true
+                        "x-nullable": false
                     }
                 ],
                 "responses": {
-                    "204": {
-                        "description": ""
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/documentImport/v1/supplierinvoice/{id}": {
+            "get": {
+                "tags": [
+                    "SupplierInvoiceController"
+                ],
+                "operationId": "SupplierInvoice_Get",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ImportDocumentStatusDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/documentImport/v1/supplierinvoice": {
+            "post": {
+                "tags": [
+                    "SupplierInvoiceController"
+                ],
+                "operationId": "SupplierInvoice_Post",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
                     }
                 }
             }
@@ -2127,57 +5392,16 @@
                 }
             }
         },
-        "/api/integration/message/v1/supplierinvoicevoucher/{messageTag}": {
-            "post": {
-                "tags": [
-                    "SupplierInvoiceVoucherMessageController"
-                ],
-                "operationId": "SupplierInvoiceVoucherMessage_Post",
-                "parameters": [
-                    {
-                        "name": "voucher",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/IntegrationResponseVoucher"
-                        },
-                        "x-nullable": true
-                    },
-                    {
-                        "type": "string",
-                        "name": "messageTag",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false
-                    },
-                    {
-                        "type": "string",
-                        "name": "correalationKey",
-                        "in": "query",
-                        "required": true,
-                        "x-nullable": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "x-nullable": false
-                    }
-                }
-            }
-        },
-        "/api/integration/message/v1/supplierinvoicevoucher/{id}/status": {
+        "/integration/masterdata/v1/TaxGroupImportBatch/{importId}": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceVoucherMessageController"
+                    "TaxGroupImportBatchController"
                 ],
-                "operationId": "SupplierInvoiceVoucherMessage_GetStatus",
+                "operationId": "TaxGroupImportBatch_Get",
                 "parameters": [
                     {
-                        "type": "integer",
-                        "name": "id",
+                        "type": "string",
+                        "name": "importId",
                         "in": "path",
                         "required": true,
                         "x-nullable": false
@@ -2187,95 +5411,221 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "string"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
-        "/api/integration/message/v1/supplierinvoicevoucher/{id}": {
-            "put": {
-                "tags": [
-                    "SupplierInvoiceVoucherMessageController"
-                ],
-                "operationId": "SupplierInvoiceVoucherMessage_Put",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false
-                    },
-                    {
-                        "name": "newStatus",
-                        "in": "body",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "x-nullable": true
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/api/integration/masterdata/userimportbatch": {
-            "post": {
-                "tags": [
-                    "UserImportBatchController"
-                ],
-                "summary": "Adds a new value",
-                "operationId": "UserImportBatch_Post",
-                "parameters": [
-                    {
-                        "name": "dataBatch",
-                        "in": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/IntegrationUser"
-                            }
-                        },
-                        "x-nullable": true,
-                        "description": "dataBatch value"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "string"
+                            "type": "file"
                         },
                         "x-nullable": true
                     }
                 }
             },
+            "delete": {
+                "tags": [
+                    "TaxGroupImportBatchController"
+                ],
+                "operationId": "TaxGroupImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/TaxGroupImportBatch": {
+            "post": {
+                "tags": [
+                    "TaxGroupImportBatchController"
+                ],
+                "operationId": "TaxGroupImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationTaxGroupDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/unitimportbatch": {
+            "post": {
+                "tags": [
+                    "UnitImportBatchController"
+                ],
+                "operationId": "UnitImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationUnitDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/unitimportbatch/{importId}": {
+            "get": {
+                "tags": [
+                    "UnitImportBatchController"
+                ],
+                "operationId": "UnitImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "UnitImportBatchController"
+                ],
+                "operationId": "UnitImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/userimportbatch": {
+            "post": {
+                "tags": [
+                    "UserImportBatchController"
+                ],
+                "operationId": "UserImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "dtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationUserDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/userimportbatch/{importId}": {
             "get": {
                 "tags": [
                     "UserImportBatchController"
                 ],
-                "summary": "Gets a BatchDto with a specific ID",
                 "operationId": "UserImportBatch_Get",
                 "parameters": [
                     {
                         "type": "string",
                         "name": "importId",
-                        "in": "query",
+                        "in": "path",
                         "required": true,
-                        "x-nullable": true,
-                        "description": "string value"
+                        "x-nullable": false
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "BatchDto",
+                        "description": "",
                         "schema": {
-                            "$ref": "#/definitions/BatchDto"
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "UserImportBatchController"
+                ],
+                "operationId": "UserImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
                         },
                         "x-nullable": true
                     }
