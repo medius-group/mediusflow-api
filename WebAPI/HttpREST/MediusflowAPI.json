@@ -3996,6 +3996,37 @@
         }
     },
     "paths": {
+        "/integration/masterdata/v1/companies": {
+            "get": {
+                "tags": [
+                    "CompanyExportController"
+                ],
+                "operationId": "CompanyExport_Get",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "offset",
+                        "in": "query",
+                        "x-nullable": false
+                    },
+                    {
+                        "type": "integer",
+                        "name": "limit",
+                        "in": "query",
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
         "/integration/masterdata/v1/companyimportbatch": {
             "post": {
                 "tags": [
@@ -5121,6 +5152,37 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/suppliers": {
+            "get": {
+                "tags": [
+                    "SupplierExportController"
+                ],
+                "operationId": "SupplierExport_Get",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "offset",
+                        "in": "query",
+                        "x-nullable": false
+                    },
+                    {
+                        "type": "integer",
+                        "name": "limit",
+                        "in": "query",
                         "x-nullable": false
                     }
                 ],
