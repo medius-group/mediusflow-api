@@ -193,6 +193,103 @@
                 }
             }
         },
+        "ActualPaymentDateResponseDto": {
+            "type": "object",
+            "x-typeName": "ActualPaymentDateResponseDto",
+            "additionalProperties": false,
+            "properties": {
+                "ActualPaymentDate": {
+                    "$ref": "#/definitions/IntegrationActualPaymentDateDto"
+                },
+                "CorrelationKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationActualPaymentDateDto": {
+            "type": "object",
+            "x-typeName": "IntegrationActualPaymentDateDto",
+            "additionalProperties": false,
+            "required": [
+                "ActualPaymentDate"
+            ],
+            "properties": {
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ActualPaymentDate": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
         "IntegrationCompanyDto": {
             "type": "object",
             "x-typeName": "IntegrationCompanyDto",
@@ -3165,10 +3262,11 @@
                 "tags": [
                     "AccrualTemplateImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send accrual templates that will be imported by the Mediusflow master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
                 "operationId": "AccrualTemplateImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "accrualTemplates",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -3176,12 +3274,13 @@
                                 "$ref": "#/definitions/IntegrationAccrualTemplateDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The accrual templates to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -3195,6 +3294,7 @@
                 "tags": [
                     "AccrualTemplateImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "AccrualTemplateImportBatch_Get",
                 "parameters": [
                     {
@@ -3202,7 +3302,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3219,6 +3320,7 @@
                 "tags": [
                     "AccrualTemplateImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "AccrualTemplateImportBatch_Delete",
                 "parameters": [
                     {
@@ -3226,7 +3328,94 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "ActualPaymentDateController"
+                ],
+                "operationId": "ActualPaymentDate_Get",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
                         "x-nullable": false
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
+            "get": {
+                "tags": [
+                    "ActualPaymentDateController"
+                ],
+                "operationId": "ActualPaymentDate_GetStatus",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/actualpaymentdates": {
+            "post": {
+                "tags": [
+                    "ActualPaymentDateController"
+                ],
+                "operationId": "ActualPaymentDate_Post",
+                "parameters": [
+                    {
+                        "name": "dto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ActualPaymentDateResponseDto"
+                        },
+                        "x-nullable": true
                     }
                 ],
                 "responses": {
@@ -3245,25 +3434,29 @@
                 "tags": [
                     "CompanyExportController"
                 ],
+                "summary": "When calling this endpoint a list of companies will be returned. The list includes both \"real\" and \"virtual\" companies.\nThere exists one filter parameter to this request, that is updatedSince, it filters out companies that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
                 "operationId": "CompanyExport_Get",
                 "parameters": [
                     {
                         "type": "integer",
                         "name": "offset",
                         "in": "query",
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The offset"
                     },
                     {
                         "type": "integer",
                         "name": "limit",
                         "in": "query",
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The number of records returned(max 1000)"
                     },
                     {
                         "type": "string",
                         "name": "updatedSince",
                         "in": "query",
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "Tells the service that we only want companies that have been changed after this date and time"
                     }
                 ],
                 "responses": {
@@ -3282,7 +3475,7 @@
                 "tags": [
                     "CompanyImportBatchController"
                 ],
-                "summary": "The POST method allows the client to send a set of companies that will be imported by the Mediusflow master data import queue.\nThe company will be created as a child company to either the root company or to another company provided",
+                "summary": "The POST method allows the client to send a set of companies that will be imported by the Mediusflow master data import queue.\nThe company have Currency as prerequisite\nThe company will be created as a child company to either the root company or to another company provided",
                 "operationId": "CompanyImportBatch_Post",
                 "parameters": [
                     {
@@ -3314,7 +3507,7 @@
                 "tags": [
                     "CompanyImportBatchController"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointed to this mehtod",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CompanyImportBatch_Get",
                 "parameters": [
                     {
@@ -3340,8 +3533,68 @@
                 "tags": [
                     "CompanyImportBatchController"
                 ],
-                "summary": "The DELETE mehtod will allow a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "CompanyImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/CurrencyImportBatches": {
+            "post": {
+                "tags": [
+                    "CurrencyImportBatchController"
+                ],
+                "summary": "The POST method allows the client to send currencies that will be imported by the Mediusflow master data import queue.\nThe currency have no prerequisit.",
+                "operationId": "CurrencyImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "currencies",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationCurrencyDto"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The users to import"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/CurrencyImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "CurrencyImportBatchController"
+                ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "operationId": "CurrencyImportBatch_Get",
                 "parameters": [
                     {
                         "type": "string",
@@ -3361,67 +3614,12 @@
                         "x-nullable": true
                     }
                 }
-            }
-        },
-        "/integration/masterdata/v1/CurrencyImportBatches": {
-            "post": {
-                "tags": [
-                    "CurrencyImportBatchController"
-                ],
-                "operationId": "CurrencyImportBatch_Post",
-                "parameters": [
-                    {
-                        "name": "dtos",
-                        "in": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/IntegrationCurrencyDto"
-                            }
-                        },
-                        "x-nullable": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/CurrencyImportBatches/{importId}": {
-            "get": {
-                "tags": [
-                    "CurrencyImportBatchController"
-                ],
-                "operationId": "CurrencyImportBatch_Get",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
-                    }
-                }
             },
             "delete": {
                 "tags": [
                     "CurrencyImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyImportBatch_Delete",
                 "parameters": [
                     {
@@ -3429,7 +3627,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3448,10 +3647,11 @@
                 "tags": [
                     "CurrencyRateImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send currency rates that will be imported by the Mediusflow master data import queue.\nThe currency rate have currency as prerequisit.",
                 "operationId": "CurrencyRateImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "currencyRates",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -3459,12 +3659,13 @@
                                 "$ref": "#/definitions/IntegrationCurrencyRateDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The users to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -3478,6 +3679,7 @@
                 "tags": [
                     "CurrencyRateImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CurrencyRateImportBatch_Get",
                 "parameters": [
                     {
@@ -3485,7 +3687,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3502,6 +3705,7 @@
                 "tags": [
                     "CurrencyRateImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyRateImportBatch_Delete",
                 "parameters": [
                     {
@@ -3509,7 +3713,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3528,10 +3733,11 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the Mediusflow master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "integrationDimensionValueConfigurations",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -3539,12 +3745,13 @@
                                 "$ref": "#/definitions/IntegrationDimensionValueConfigurationDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The dimension value configuration to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -3558,6 +3765,7 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueConfigurationImportBatch_Get",
                 "parameters": [
                     {
@@ -3565,7 +3773,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3582,6 +3791,7 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -3589,7 +3799,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3608,10 +3819,11 @@
                 "tags": [
                     "DimensionValueImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send dimension values that will be imported by the Mediusflow master data import queue.\nThe dimension values have company as mandatory prerequisit.",
                 "operationId": "DimensionValueImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "dimensionvalues",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -3619,12 +3831,13 @@
                                 "$ref": "#/definitions/IntegrationDimensionValueDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The payment terms to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -3638,6 +3851,7 @@
                 "tags": [
                     "DimensionValueImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueImportBatch_Get",
                 "parameters": [
                     {
@@ -3645,7 +3859,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3662,6 +3877,7 @@
                 "tags": [
                     "DimensionValueImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueImportBatch_Delete",
                 "parameters": [
                     {
@@ -3669,7 +3885,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3688,6 +3905,7 @@
                 "tags": [
                     "ErrorMessageController"
                 ],
+                "summary": "This method returns the error messages content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ErrorMessage_Get",
                 "parameters": [
                     {
@@ -3695,14 +3913,16 @@
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The id of the message"
                     },
                     {
                         "type": "string",
                         "name": "messageStatus",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -3721,6 +3941,7 @@
                 "tags": [
                     "ErrorMessageController"
                 ],
+                "summary": "This method will return a status and an efective link to the real error messages content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "ErrorMessage_GetStatus",
                 "parameters": [
                     {
@@ -3728,7 +3949,8 @@
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status"
                     }
                 ],
                 "responses": {
@@ -3747,10 +3969,11 @@
                 "tags": [
                     "ErrorMessageController"
                 ],
+                "summary": "This method accepts a error message object including a list of error messages.\nThe error message object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
                 "operationId": "ErrorMessage_Post",
                 "parameters": [
                     {
-                        "name": "dto",
+                        "name": "errorMessage",
                         "in": "body",
                         "schema": {
                             "$ref": "#/definitions/ErrorResponseDto"
@@ -3774,10 +3997,11 @@
                 "tags": [
                     "ForbiddenListRestrictionImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of forbidden dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith forbidden dimension values.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "forbiddenListRestrictions",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -3785,12 +4009,13 @@
                                 "$ref": "#/definitions/IntegrationForbiddenListRestrictionDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The restrictions to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -3804,6 +4029,7 @@
                 "tags": [
                     "ForbiddenListRestrictionImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -3811,7 +4037,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3828,6 +4055,7 @@
                 "tags": [
                     "ForbiddenListRestrictionImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -3835,7 +4063,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3849,34 +4078,16 @@
                 }
             }
         },
-        "/application/inbox/count": {
-            "get": {
-                "tags": [
-                    "InboxController"
-                ],
-                "summary": "Get list",
-                "operationId": "Inbox_Get",
-                "parameters": [],
-                "responses": {
-                    "200": {
-                        "description": "List",
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "x-nullable": false
-                    }
-                }
-            }
-        },
         "/integration/masterdata/v1/ItemImportBatches": {
             "post": {
                 "tags": [
                     "ItemImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send items that will be imported by the Mediusflow master data import queue.\nThe items have supplier and company as mandatory prerequisit.",
                 "operationId": "ItemImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "items",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -3884,12 +4095,13 @@
                                 "$ref": "#/definitions/IntegrationItemDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The items to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -3903,6 +4115,7 @@
                 "tags": [
                     "ItemImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "ItemImportBatch_Get",
                 "parameters": [
                     {
@@ -3910,7 +4123,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3927,6 +4141,7 @@
                 "tags": [
                     "ItemImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "ItemImportBatch_Delete",
                 "parameters": [
                     {
@@ -3934,7 +4149,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -3953,10 +4169,11 @@
                 "tags": [
                     "OptionalListRestrictionImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of optional dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith optional dimension values.",
                 "operationId": "OptionalListRestrictionImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "optionalListRestrictions",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -3964,12 +4181,13 @@
                                 "$ref": "#/definitions/IntegrationOptionalListRestrictionDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The restrictions to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -3983,6 +4201,7 @@
                 "tags": [
                     "OptionalListRestrictionImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "OptionalListRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -3990,7 +4209,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4007,6 +4227,7 @@
                 "tags": [
                     "OptionalListRestrictionImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "OptionalListRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -4014,7 +4235,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4033,10 +4255,11 @@
                 "tags": [
                     "PaymentTermImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send payment terms that will be imported by the Mediusflow master data import queue.\nThe payment terms have company prerequisit.",
                 "operationId": "PaymentTermImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "paymentterms",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4044,12 +4267,13 @@
                                 "$ref": "#/definitions/IntegrationPaymentTermDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The payment terms to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4063,6 +4287,7 @@
                 "tags": [
                     "PaymentTermImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PaymentTermImportBatch_Get",
                 "parameters": [
                     {
@@ -4070,7 +4295,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4087,6 +4313,7 @@
                 "tags": [
                     "PaymentTermImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "PaymentTermImportBatch_Delete",
                 "parameters": [
                     {
@@ -4094,7 +4321,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4113,10 +4341,11 @@
                 "tags": [
                     "PeriodImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send periods that will be imported by the Mediusflow master data import queue.\nThe periods have Company as prerequisites.\nRemember that by sending in periods the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. For periods it might be better to keep them in XI to be able to control the\nposting dates separated from the ERP system, for flexibility reasons.",
                 "operationId": "PeriodImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "periods",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4124,12 +4353,13 @@
                                 "$ref": "#/definitions/IntegrationPeriodDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The periods to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4143,6 +4373,7 @@
                 "tags": [
                     "PeriodImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PeriodImportBatch_Get",
                 "parameters": [
                     {
@@ -4150,7 +4381,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4167,6 +4399,7 @@
                 "tags": [
                     "PeriodImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "PeriodImportBatch_Delete",
                 "parameters": [
                     {
@@ -4174,7 +4407,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4193,10 +4427,11 @@
                 "tags": [
                     "PurchaseOrderImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send a set of purchase orders that will be imported by the Mediusflow master data import queue.\nThe purchase order need to be imported after the mandatory pre requisites are imported, these are Company and Supplier.\nIf specific units and items are used, these needs to be in place allso.",
                 "operationId": "PurchaseOrderImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "purchaseorders",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4204,12 +4439,13 @@
                                 "$ref": "#/definitions/IntegrationPurchaseOrderDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The purchase orders to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4223,6 +4459,7 @@
                 "tags": [
                     "PurchaseOrderImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PurchaseOrderImportBatch_Get",
                 "parameters": [
                     {
@@ -4230,7 +4467,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4247,6 +4485,7 @@
                 "tags": [
                     "PurchaseOrderImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "PurchaseOrderImportBatch_Delete",
                 "parameters": [
                     {
@@ -4254,7 +4493,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4273,10 +4513,11 @@
                 "tags": [
                     "RangeRestrictionImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send restrictions including ranges in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it.\nAll ranges sent in is calculated on the fly in Mediusflow, so there is no connection made to dimensins within the range provided\nTry using RangeRestrictions instead of List* restrictions when it's possible, it will reduce the amount of data that need to be sent by the client.",
                 "operationId": "RangeRestrictionImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "rangeRestrictions",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4284,12 +4525,13 @@
                                 "$ref": "#/definitions/IntegrationRangeRestrictionDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The restrictions to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4303,6 +4545,7 @@
                 "tags": [
                     "RangeRestrictionImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RangeRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -4310,7 +4553,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4327,6 +4571,7 @@
                 "tags": [
                     "RangeRestrictionImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "RangeRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -4334,7 +4579,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4353,10 +4599,11 @@
                 "tags": [
                     "RequiredListRestrictionImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of required dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith required dimension values.",
                 "operationId": "RequiredListRestrictionImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "requiredListRestrictions",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4364,12 +4611,13 @@
                                 "$ref": "#/definitions/IntegrationRequiredListRestrictionDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The restrictions to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4383,6 +4631,7 @@
                 "tags": [
                     "RequiredListRestrictionImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RequiredListRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -4390,7 +4639,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4407,6 +4657,7 @@
                 "tags": [
                     "RequiredListRestrictionImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "RequiredListRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -4414,7 +4665,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4433,10 +4685,11 @@
                 "tags": [
                     "RestrictionImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send basic restrictions for a dimension value that will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restriction are mandatory.\nControlling dimension key is the dimension that will get the restriction applied on it, the property RestrictedDimension includes a list\nwith dimensions to restrict. For each restriction there is a set of RestrictionTypes, these are: Fixed, Forbidden, Default and Required",
                 "operationId": "RestrictionImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "basicRestrictions",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4444,12 +4697,13 @@
                                 "$ref": "#/definitions/IntegrationBasicRestrictionsDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The restrictions to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4463,6 +4717,7 @@
                 "tags": [
                     "RestrictionImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -4470,7 +4725,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4487,6 +4743,7 @@
                 "tags": [
                     "RestrictionImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "RestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -4494,7 +4751,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4513,10 +4771,11 @@
                 "tags": [
                     "SupplierConfigurationBatchController"
                 ],
+                "summary": "The POST method allows the client to send a set of supplier configurations that will be imported by the Mediusflow master data import queue.\nThe supplier configuration needs to have the corresponding supplier in place before being imported.\nRemember that by sending in supplier configurations the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
                 "operationId": "SupplierConfigurationBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "supplierConfigrations",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4524,12 +4783,13 @@
                                 "$ref": "#/definitions/IntegrationSupplierConfigurationDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The supplier configurations to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4543,6 +4803,7 @@
                 "tags": [
                     "SupplierConfigurationBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierConfigurationBatch_Get",
                 "parameters": [
                     {
@@ -4550,7 +4811,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4567,6 +4829,7 @@
                 "tags": [
                     "SupplierConfigurationBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierConfigurationBatch_Delete",
                 "parameters": [
                     {
@@ -4574,7 +4837,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4593,25 +4857,29 @@
                 "tags": [
                     "SupplierExportController"
                 ],
+                "summary": "When calling this endpoint a list of suppliers will be returned.\nThere exists one filter parameter to this request, that is updatedSince, it filters out suppliers that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
                 "operationId": "SupplierExport_Get",
                 "parameters": [
                     {
                         "type": "integer",
                         "name": "offset",
                         "in": "query",
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The offset"
                     },
                     {
                         "type": "integer",
                         "name": "limit",
                         "in": "query",
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The number of records returned(max 1000)"
                     },
                     {
                         "type": "string",
                         "name": "updatedSince",
                         "in": "query",
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "Tells the service that we only want suppliers that have been changed after this date and time"
                     }
                 ],
                 "responses": {
@@ -4630,10 +4898,11 @@
                 "tags": [
                     "SupplierImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send suppliers that will be imported by the Mediusflow master data import queue.\nThe supplier have payment term and company as mandatory prerequisit.\nIf additional dimensions are going to be used or Vat groups they need to be imported in advance.",
                 "operationId": "SupplierImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "suppliers",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4641,12 +4910,13 @@
                                 "$ref": "#/definitions/IntegrationSupplierDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The suppliers to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -4660,6 +4930,7 @@
                 "tags": [
                     "SupplierImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierImportBatch_Get",
                 "parameters": [
                     {
@@ -4667,7 +4938,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4684,6 +4956,7 @@
                 "tags": [
                     "SupplierImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierImportBatch_Delete",
                 "parameters": [
                     {
@@ -4691,7 +4964,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4710,6 +4984,7 @@
                 "tags": [
                     "SupplierInvoiceController"
                 ],
+                "summary": "The GET Method returns the status for a given DocumentImport document in Mediusflow.\nIt also returns the \"real\" invoice that was created by the imported document.",
                 "operationId": "SupplierInvoice_Get",
                 "parameters": [
                     {
@@ -4717,7 +4992,8 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The id of the supplier invoice sent in. A full link to this method is returned by the POST method"
                     }
                 ],
                 "responses": {
@@ -4736,6 +5012,7 @@
                 "tags": [
                     "SupplierInvoiceController"
                 ],
+                "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/reciept that Mediusflow\nrecieved the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self tested experience in Swagger UI is limited.\nPlease test this method and in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/9d47658ed979b050b468",
                 "operationId": "SupplierInvoice_Post",
                 "parameters": [],
                 "responses": {
@@ -4754,6 +5031,7 @@
                 "tags": [
                     "SupplierInvoiceMessageController"
                 ],
+                "summary": "The GET method returns the supplier invoice content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "SupplierInvoiceMessage_Get",
                 "parameters": [
                     {
@@ -4761,14 +5039,16 @@
                         "name": "messageStatus",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The id of the message"
                     }
                 ],
                 "responses": {
@@ -4785,6 +5065,7 @@
                 "tags": [
                     "SupplierInvoiceMessageController"
                 ],
+                "summary": "This method updates the status for a supplier invoice message when processing it.",
                 "operationId": "SupplierInvoiceMessage_Put",
                 "parameters": [
                     {
@@ -4793,21 +5074,24 @@
                         "schema": {
                             "$ref": "#/definitions/StatusRequest"
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The status to set. Possible statuses Fetched and InProgress, Sent"
                     },
                     {
                         "type": "integer",
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message id to change status for"
                     },
                     {
                         "type": "string",
                         "name": "messageStatus",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The status that the message is in before the status change"
                     }
                 ],
                 "responses": {
@@ -4826,6 +5110,7 @@
                 "tags": [
                     "SupplierInvoiceMessageController"
                 ],
+                "summary": "The GET method with message id as input will return a status and an efective link to the real supplier invoice content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
                 "parameters": [
                     {
@@ -4833,7 +5118,8 @@
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status"
                     }
                 ],
                 "responses": {
@@ -4852,6 +5138,7 @@
                 "tags": [
                     "SupplierInvoiceMessageController"
                 ],
+                "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correalation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_GetMessagesIds",
                 "parameters": [
                     {
@@ -4859,19 +5146,22 @@
                         "name": "messageStatus",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message statuses, these are: Posted, Fetched, InProgress, Sent, Closed or Error"
                     },
                     {
                         "type": "string",
                         "name": "tag",
                         "in": "query",
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice Preliminary, Finally or Cancel"
                     },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary"
                     }
                 ],
                 "responses": {
@@ -4888,6 +5178,7 @@
                 "tags": [
                     "SupplierInvoiceMessageController"
                 ],
+                "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Put",
                 "parameters": [
                     {
@@ -4896,26 +5187,30 @@
                         "schema": {
                             "$ref": "#/definitions/StatusRequest"
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
                     },
                     {
                         "type": "string",
                         "name": "messageStatus",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message statuses, these are: Posted, Fetched, InProgress, Sent, Closed or Error"
                     },
                     {
                         "type": "string",
                         "name": "tag",
                         "in": "query",
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice Preliminary, Finally or Cancel"
                     },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary"
                     }
                 ],
                 "responses": {
@@ -4934,6 +5229,7 @@
                 "tags": [
                     "TaxGroupImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "TaxGroupImportBatch_Get",
                 "parameters": [
                     {
@@ -4941,7 +5237,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4958,6 +5255,7 @@
                 "tags": [
                     "TaxGroupImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "TaxGroupImportBatch_Delete",
                 "parameters": [
                     {
@@ -4965,7 +5263,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -4984,10 +5283,11 @@
                 "tags": [
                     "TaxGroupImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send tax groups that will be imported by the Mediusflow master data import queue.\nThe tax group have company as mandatory prerequisit.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Mediusflow.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2.",
                 "operationId": "TaxGroupImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "taxGroups",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -4995,12 +5295,13 @@
                                 "$ref": "#/definitions/IntegrationTaxGroupDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The tax groups to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -5014,10 +5315,11 @@
                 "tags": [
                     "UnitImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send units that will be imported by the Mediusflow master data import queue.\nThe units have no prerequisit.\nRemember that the functionality around units is limited in Mediusflow and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Mediusflow => '-'",
                 "operationId": "UnitImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "currencyRates",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -5025,12 +5327,13 @@
                                 "$ref": "#/definitions/IntegrationUnitDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The users to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -5044,6 +5347,7 @@
                 "tags": [
                     "UnitImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UnitImportBatch_Get",
                 "parameters": [
                     {
@@ -5051,7 +5355,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -5068,6 +5373,7 @@
                 "tags": [
                     "UnitImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "UnitImportBatch_Delete",
                 "parameters": [
                     {
@@ -5075,7 +5381,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -5094,10 +5401,11 @@
                 "tags": [
                     "UserConfigurationImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send user configurations that will be imported by the Mediusflow master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
                 "operationId": "UserConfigurationImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "userConfigurations",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -5105,12 +5413,13 @@
                                 "$ref": "#/definitions/IntegrationUserConfigurationDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The user configurations to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -5124,6 +5433,7 @@
                 "tags": [
                     "UserConfigurationImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserConfigurationImportBatch_Get",
                 "parameters": [
                     {
@@ -5131,7 +5441,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -5148,6 +5459,7 @@
                 "tags": [
                     "UserConfigurationImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -5155,7 +5467,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -5174,10 +5487,11 @@
                 "tags": [
                     "UserImportBatchController"
                 ],
+                "summary": "The POST method allows the client to send users that will be imported by the Mediusflow master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
                 "operationId": "UserImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "dtos",
+                        "name": "users",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -5185,12 +5499,13 @@
                                 "$ref": "#/definitions/IntegrationUserDto"
                             }
                         },
-                        "x-nullable": true
+                        "x-nullable": true,
+                        "description": "The users to import"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
                         "schema": {
                             "type": "file"
                         },
@@ -5204,6 +5519,7 @@
                 "tags": [
                     "UserImportBatchController"
                 ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserImportBatch_Get",
                 "parameters": [
                     {
@@ -5211,7 +5527,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -5228,6 +5545,7 @@
                 "tags": [
                     "UserImportBatchController"
                 ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserImportBatch_Delete",
                 "parameters": [
                     {
@@ -5235,7 +5553,8 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
                     }
                 ],
                 "responses": {
@@ -5254,6 +5573,7 @@
                 "tags": [
                     "VoucherMessageController"
                 ],
+                "summary": "This method returns the vocuher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "VoucherMessage_Get",
                 "parameters": [
                     {
@@ -5261,14 +5581,16 @@
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The id of the message"
                     },
                     {
                         "type": "string",
                         "name": "messageStatus",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -5287,6 +5609,7 @@
                 "tags": [
                     "VoucherMessageController"
                 ],
+                "summary": "This method will return a status and an efective link to the real supplier invoice content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "VoucherMessage_GetStatus",
                 "parameters": [
                     {
@@ -5294,7 +5617,8 @@
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status"
                     }
                 ],
                 "responses": {
@@ -5313,10 +5637,11 @@
                 "tags": [
                     "VoucherMessageController"
                 ],
+                "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher includes a CorrelationKey that need to match the corresponding supplier invoice message.",
                 "operationId": "VoucherMessage_Post",
                 "parameters": [
                     {
-                        "name": "dto",
+                        "name": "voucher",
                         "in": "body",
                         "schema": {
                             "$ref": "#/definitions/VoucherResponseDto"
