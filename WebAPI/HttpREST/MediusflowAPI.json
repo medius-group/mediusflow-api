@@ -3348,6 +3348,7 @@
                 "tags": [
                     "ActualPaymentDateController"
                 ],
+                "summary": "This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ActualPaymentDate_Get",
                 "parameters": [
                     {
@@ -3355,14 +3356,16 @@
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The id of the message"
                     },
                     {
                         "type": "string",
                         "name": "messageStatus",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -3381,6 +3384,7 @@
                 "tags": [
                     "ActualPaymentDateController"
                 ],
+                "summary": "This method will return a status and an efective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "ActualPaymentDate_GetStatus",
                 "parameters": [
                     {
@@ -3388,7 +3392,8 @@
                         "name": "messageId",
                         "in": "path",
                         "required": true,
-                        "x-nullable": false
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status"
                     }
                 ],
                 "responses": {
@@ -3407,10 +3412,11 @@
                 "tags": [
                     "ActualPaymentDateController"
                 ],
+                "summary": "This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
                 "operationId": "ActualPaymentDate_Post",
                 "parameters": [
                     {
-                        "name": "dto",
+                        "name": "actualPaymentDate",
                         "in": "body",
                         "schema": {
                             "$ref": "#/definitions/ActualPaymentDateResponseDto"
@@ -3941,7 +3947,7 @@
                 "tags": [
                     "ErrorMessageController"
                 ],
-                "summary": "This method will return a status and an efective link to the real error messages content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "This method will return a status and an efective link to the real error messages content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "ErrorMessage_GetStatus",
                 "parameters": [
                     {
@@ -5609,7 +5615,7 @@
                 "tags": [
                     "VoucherMessageController"
                 ],
-                "summary": "This method will return a status and an efective link to the real supplier invoice content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "This method will return a status and an efective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "VoucherMessage_GetStatus",
                 "parameters": [
                     {
