@@ -18,7 +18,6 @@
     "definitions": {
         "IntegrationAccrualTemplateDto": {
             "type": "object",
-            "x-typeName": "IntegrationAccrualTemplateDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -37,6 +36,9 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationImportAccrualPeriodDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "IsActive": {
@@ -115,11 +117,13 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "AccrualTemplate"
             }
         },
         "IntegrationCodingDimensionsDto": {
             "type": "object",
-            "x-typeName": "IntegrationCodingDimensionsDto",
             "additionalProperties": false,
             "properties": {
                 "Dimension1": {
@@ -173,11 +177,13 @@
                 "FreeText5": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "CodingDimensions"
             }
         },
         "IntegrationImportAccrualPeriodDto": {
             "type": "object",
-            "x-typeName": "IntegrationImportAccrualPeriodDto",
             "additionalProperties": false,
             "required": [
                 "Period",
@@ -185,17 +191,20 @@
             ],
             "properties": {
                 "Period": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int32"
                 },
                 "Percentage": {
                     "type": "number",
                     "format": "decimal"
                 }
+            },
+            "xml": {
+                "name": "ImportAccrualPeriod"
             }
         },
         "ActualPaymentDateResponseDto": {
             "type": "object",
-            "x-typeName": "ActualPaymentDateResponseDto",
             "additionalProperties": false,
             "properties": {
                 "ActualPaymentDate": {
@@ -204,11 +213,13 @@
                 "CorrelationKey": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "ActualPaymentDateResponse"
             }
         },
         "IntegrationActualPaymentDateDto": {
             "type": "object",
-            "x-typeName": "IntegrationActualPaymentDateDto",
             "additionalProperties": false,
             "required": [
                 "ActualPaymentDate"
@@ -288,11 +299,13 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "ActualPaymentDate"
             }
         },
         "IntegrationCompanyDto": {
             "type": "object",
-            "x-typeName": "IntegrationCompanyDto",
             "additionalProperties": false,
             "required": [
                 "IsVirtual",
@@ -397,13 +410,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 }
+            },
+            "xml": {
+                "name": "Company"
             }
         },
         "IntegrationCompanyIdentifierDto": {
             "type": "object",
-            "x-typeName": "IntegrationCompanyIdentifierDto",
             "additionalProperties": false,
             "properties": {
                 "IdentifierType": {
@@ -412,11 +430,13 @@
                 "IdentifierValue": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "CompanyIdentifier"
             }
         },
         "IntegrationCurrencyDto": {
             "type": "object",
-            "x-typeName": "IntegrationCurrencyDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -501,11 +521,13 @@
                 "IsActive": {
                     "type": "boolean"
                 }
+            },
+            "xml": {
+                "name": "Currency"
             }
         },
         "IntegrationCurrencyRateDto": {
             "type": "object",
-            "x-typeName": "IntegrationCurrencyRateDto",
             "additionalProperties": false,
             "required": [
                 "Rate",
@@ -604,11 +626,13 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "CurrencyRate"
             }
         },
         "IntegrationDimensionValueConfigurationDto": {
             "type": "object",
-            "x-typeName": "IntegrationDimensionValueConfigurationDto",
             "additionalProperties": false,
             "properties": {
                 "Company": {
@@ -623,11 +647,13 @@
                 "DimensionValue": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "DimensionValueConfiguration"
             }
         },
         "IntegrationDimensionValueDto": {
             "type": "object",
-            "x-typeName": "IntegrationDimensionValueDto",
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -731,37 +757,46 @@
                 "IsFictive": {
                     "type": "boolean"
                 }
+            },
+            "xml": {
+                "name": "DimensionValue"
             }
         },
         "ErrorResponseDto": {
             "type": "object",
-            "x-typeName": "ErrorResponseDto",
             "additionalProperties": false,
             "properties": {
                 "Errors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationErrorDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "CorrelationKey": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "ErrorResponse"
             }
         },
         "IntegrationErrorDto": {
             "type": "object",
-            "x-typeName": "IntegrationErrorDto",
             "additionalProperties": false,
             "properties": {
                 "Message": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "Error"
             }
         },
         "IntegrationForbiddenListRestrictionDto": {
             "type": "object",
-            "x-typeName": "IntegrationForbiddenListRestrictionDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -770,7 +805,14 @@
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "xml": {
+                            "name": "RestrictedDimensionKey",
+                            "wrapped": true
+                        }
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "ExternalSystemId": {
@@ -852,11 +894,13 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "ForbiddenListRestriction"
             }
         },
         "IntegrationItemDto": {
             "type": "object",
-            "x-typeName": "IntegrationItemDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -881,6 +925,9 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationSupplierItemDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "ExternalSystemId": {
@@ -956,11 +1003,13 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "Item"
             }
         },
         "IntegrationSupplierItemDto": {
             "type": "object",
-            "x-typeName": "IntegrationSupplierItemDto",
             "additionalProperties": false,
             "properties": {
                 "ExternalSystemId": {
@@ -1055,11 +1104,13 @@
                 "CurrencyCode": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "SupplierItem"
             }
         },
         "IntegrationOptionalListRestrictionDto": {
             "type": "object",
-            "x-typeName": "IntegrationOptionalListRestrictionDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -1068,7 +1119,14 @@
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "xml": {
+                            "name": "RestrictedDimensionKey",
+                            "wrapped": true
+                        }
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "ExternalSystemId": {
@@ -1150,11 +1208,13 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "OptionalListRestriction"
             }
         },
         "IntegrationPaymentTermDto": {
             "type": "object",
-            "x-typeName": "IntegrationPaymentTermDto",
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1251,16 +1311,20 @@
                     "type": "string"
                 },
                 "NumberOfDays": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int32"
                 },
                 "NumberOfFreeMonths": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int32"
                 }
+            },
+            "xml": {
+                "name": "PaymentTerm"
             }
         },
         "IntegrationPeriodDto": {
             "type": "object",
-            "x-typeName": "IntegrationPeriodDto",
             "additionalProperties": false,
             "required": [
                 "IsOpen"
@@ -1366,11 +1430,13 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "Period"
             }
         },
         "IntegrationPurchaseOrderDto": {
             "type": "object",
-            "x-typeName": "IntegrationPurchaseOrderDto",
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1488,13 +1554,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 }
+            },
+            "xml": {
+                "name": "PurchaseOrder"
             }
         },
         "IntegrationPurchaseOrderLineDto": {
             "type": "object",
-            "x-typeName": "IntegrationPurchaseOrderLineDto",
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1588,6 +1659,9 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPreCodingLineDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "ConversionFactor": {
@@ -1624,6 +1698,9 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationDeliveryLineDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "TaxIndicator1": {
@@ -1635,11 +1712,13 @@
                 "IsServiceBased": {
                     "type": "boolean"
                 }
+            },
+            "xml": {
+                "name": "PurchaseOrderLine"
             }
         },
         "IntegrationPreCodingLineDto": {
             "type": "object",
-            "x-typeName": "IntegrationPreCodingLineDto",
             "additionalProperties": false,
             "required": [
                 "Amount"
@@ -1655,11 +1734,13 @@
                 "Type": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "PreCodingLine"
             }
         },
         "IntegrationDeliveryLineDto": {
             "type": "object",
-            "x-typeName": "IntegrationDeliveryLineDto",
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1786,11 +1867,13 @@
                     "type": "number",
                     "format": "decimal"
                 }
+            },
+            "xml": {
+                "name": "DeliveryLine"
             }
         },
         "IntegrationRangeRestrictionDto": {
             "type": "object",
-            "x-typeName": "IntegrationRangeRestrictionDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -1893,11 +1976,13 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "RangeRestriction"
             }
         },
         "IntegrationRequiredListRestrictionDto": {
             "type": "object",
-            "x-typeName": "IntegrationRequiredListRestrictionDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -1906,7 +1991,14 @@
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "xml": {
+                            "name": "RestrictedDimensionKey",
+                            "wrapped": true
+                        }
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "ExternalSystemId": {
@@ -1988,11 +2080,13 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "RequiredListRestriction"
             }
         },
         "IntegrationBasicRestrictionsDto": {
             "type": "object",
-            "x-typeName": "IntegrationBasicRestrictionsDto",
             "additionalProperties": false,
             "properties": {
                 "ControllingDimensionValueKey": {
@@ -2002,13 +2096,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 }
+            },
+            "xml": {
+                "name": "BasicRestriction"
             }
         },
         "IntegrationRestrictedDimensionDto": {
             "type": "object",
-            "x-typeName": "IntegrationRestrictedDimensionDto",
             "additionalProperties": false,
             "required": [
                 "RestrictionType"
@@ -2026,11 +2125,13 @@
                 "RestrictionType": {
                     "$ref": "#/definitions/RestrictionType"
                 }
+            },
+            "xml": {
+                "name": "RestrictedDimension"
             }
         },
         "RestrictionType": {
             "type": "integer",
-            "x-typeName": "RestrictionType",
             "x-enumNames": [
                 "Default",
                 "Fixed",
@@ -2047,7 +2148,6 @@
         },
         "IntegrationSupplierConfigurationDto": {
             "type": "object",
-            "x-typeName": "IntegrationSupplierConfigurationDto",
             "additionalProperties": false,
             "properties": {
                 "Company": {
@@ -2066,13 +2166,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationContactPersonDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 }
+            },
+            "xml": {
+                "name": "SupplierConfiguration"
             }
         },
         "IntegrationContactPersonDto": {
             "type": "object",
-            "x-typeName": "IntegrationContactPersonDto",
             "additionalProperties": false,
             "properties": {
                 "FirstName": {
@@ -2111,11 +2216,13 @@
                 "Type": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "ContactPerson"
             }
         },
         "IntegrationSupplierDto": {
             "type": "object",
-            "x-typeName": "IntegrationSupplierDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -2207,6 +2314,9 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "Name": {
@@ -2399,13 +2509,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPaymentDetailsDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 }
+            },
+            "xml": {
+                "name": "Supplier"
             }
         },
         "IntegrationSupplierIdentifierDto": {
             "type": "object",
-            "x-typeName": "IntegrationSupplierIdentifierDto",
             "additionalProperties": false,
             "properties": {
                 "IdentifierType": {
@@ -2414,11 +2529,13 @@
                 "IdentifierValue": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "SupplierIdentifier"
             }
         },
         "IntegrationPaymentDetailsDto": {
             "type": "object",
-            "x-typeName": "IntegrationPaymentDetailsDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -2434,16 +2551,21 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "IsActive": {
                     "type": "boolean"
                 }
+            },
+            "xml": {
+                "name": "PaymentDetails"
             }
         },
         "IntegrationPaymentDetailsIdentifierDto": {
             "type": "object",
-            "x-typeName": "IntegrationPaymentDetailsIdentifierDto",
             "additionalProperties": false,
             "properties": {
                 "Value": {
@@ -2522,24 +2644,26 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "PaymentDetailsIdentifier"
             }
         },
         "ImportDocumentStatusDto": {
             "type": "object",
-            "x-typeName": "ImportDocumentStatusDto",
             "additionalProperties": false,
             "properties": {
                 "Status": {
                     "type": "string"
                 },
                 "FinalDocumentId": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
         },
         "StatusRequest": {
             "type": "object",
-            "x-typeName": "StatusRequest",
             "additionalProperties": false,
             "properties": {
                 "NewStatus": {
@@ -2549,7 +2673,6 @@
         },
         "IntegrationTaxGroupDto": {
             "type": "object",
-            "x-typeName": "IntegrationTaxGroupDto",
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -2645,16 +2768,22 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationTaxCodeDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "IndicatorNumber": {
-                    "type": "integer"
+                    "type": "integer",
+                    "format": "int32"
                 }
+            },
+            "xml": {
+                "name": "TaxGroup"
             }
         },
         "IntegrationTaxCodeDto": {
             "type": "object",
-            "x-typeName": "IntegrationTaxCodeDto",
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -2758,11 +2887,13 @@
                     "type": "number",
                     "format": "decimal"
                 }
+            },
+            "xml": {
+                "name": "TaxCode"
             }
         },
         "IntegrationCodingDimensions": {
             "type": "object",
-            "x-typeName": "IntegrationCodingDimensions",
             "additionalProperties": false,
             "properties": {
                 "Dimension1": {
@@ -2820,7 +2951,6 @@
         },
         "IntegrationUnitDto": {
             "type": "object",
-            "x-typeName": "IntegrationUnitDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -2905,11 +3035,13 @@
                 "Description": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "Unit"
             }
         },
         "IntegrationUserConfigurationDto": {
             "type": "object",
-            "x-typeName": "IntegrationUserConfigurationDto",
             "additionalProperties": false,
             "properties": {
                 "UserName": {
@@ -2928,25 +3060,36 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "FollowupGroups": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationFollowupGroupDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "TemporaryDelegations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationTemporaryDelegationDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 }
+            },
+            "xml": {
+                "name": "UserConfiguration"
             }
         },
         "IntegrationAuthorizationGroupDto": {
             "type": "object",
-            "x-typeName": "IntegrationAuthorizationGroupDto",
             "additionalProperties": false,
             "required": [
                 "ToBeRemoved"
@@ -2961,11 +3104,13 @@
                 "ToBeRemoved": {
                     "type": "boolean"
                 }
+            },
+            "xml": {
+                "name": "AuthorizationGroup"
             }
         },
         "IntegrationFollowupGroupDto": {
             "type": "object",
-            "x-typeName": "IntegrationFollowupGroupDto",
             "additionalProperties": false,
             "required": [
                 "ToBeRemoved"
@@ -2980,11 +3125,13 @@
                 "ToBeRemoved": {
                     "type": "boolean"
                 }
+            },
+            "xml": {
+                "name": "FollowupGroup"
             }
         },
         "IntegrationTemporaryDelegationDto": {
             "type": "object",
-            "x-typeName": "IntegrationTemporaryDelegationDto",
             "additionalProperties": false,
             "required": [
                 "StartDate",
@@ -3002,11 +3149,13 @@
                 "Responsible": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "TemporaryDelegation"
             }
         },
         "IntegrationUserDto": {
             "type": "object",
-            "x-typeName": "IntegrationUserDto",
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -3046,12 +3195,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationRoleCompanyDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "IdentityProviders": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationIdentityProviderDto"
+                    },
+                    "xml": {
+                        "wrapped": true
                     }
                 },
                 "CustomField_Text1": {
@@ -3124,11 +3279,13 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "User"
             }
         },
         "IntegrationRoleCompanyDto": {
             "type": "object",
-            "x-typeName": "IntegrationRoleCompanyDto",
             "additionalProperties": false,
             "required": [
                 "ToBeRemoved"
@@ -3143,11 +3300,13 @@
                 "ToBeRemoved": {
                     "type": "boolean"
                 }
+            },
+            "xml": {
+                "name": "RoleCompany"
             }
         },
         "IntegrationIdentityProviderDto": {
             "type": "object",
-            "x-typeName": "IntegrationIdentityProviderDto",
             "additionalProperties": false,
             "properties": {
                 "IdentityProviderName": {
@@ -3156,11 +3315,13 @@
                 "NameIdentifier": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "IdentityProvider"
             }
         },
         "VoucherResponseDto": {
             "type": "object",
-            "x-typeName": "VoucherResponseDto",
             "additionalProperties": false,
             "properties": {
                 "Voucher": {
@@ -3169,11 +3330,13 @@
                 "CorrelationKey": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "VoucherResponse"
             }
         },
         "IntegrationResponseVoucherDto": {
             "type": "object",
-            "x-typeName": "IntegrationResponseVoucherDto",
             "additionalProperties": false,
             "properties": {
                 "CustomField_Boolean1": {
@@ -3253,6 +3416,9 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            },
+            "xml": {
+                "name": "Voucher"
             }
         }
     },
@@ -3260,9 +3426,9 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches": {
             "post": {
                 "tags": [
-                    "AccrualTemplateImportBatchController"
+                    "AccrualTemplateImportBatch"
                 ],
-                "summary": "The POST method allows the client to send accrual templates that will be imported by the Mediusflow master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
+                "summary": "The POST method allows the client to send accrual templates that will be imported by the Mediusflow master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
                 "operationId": "AccrualTemplateImportBatch_Post",
                 "parameters": [
                     {
@@ -3292,7 +3458,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "AccrualTemplateImportBatchController"
+                    "AccrualTemplateImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "AccrualTemplateImportBatch_Get",
@@ -3318,7 +3484,7 @@
             },
             "delete": {
                 "tags": [
-                    "AccrualTemplateImportBatchController"
+                    "AccrualTemplateImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "AccrualTemplateImportBatch_Delete",
@@ -3346,7 +3512,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "ActualPaymentDateController"
+                    "ActualPaymentDate"
                 ],
                 "summary": "This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ActualPaymentDate_Get",
@@ -3357,7 +3523,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The id of the message"
+                        "description": "The id of the message",
+                        "format": "int32"
                     },
                     {
                         "type": "string",
@@ -3382,7 +3549,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
             "get": {
                 "tags": [
-                    "ActualPaymentDateController"
+                    "ActualPaymentDate"
                 ],
                 "summary": "This method will return a status and an efective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "ActualPaymentDate_GetStatus",
@@ -3393,7 +3560,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message id of the message to find/check status"
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
@@ -3410,7 +3578,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates": {
             "post": {
                 "tags": [
-                    "ActualPaymentDateController"
+                    "ActualPaymentDate"
                 ],
                 "summary": "This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
                 "operationId": "ActualPaymentDate_Post",
@@ -3438,7 +3606,7 @@
         "/integration/masterdata/v1/companies": {
             "get": {
                 "tags": [
-                    "CompanyExportController"
+                    "CompanyExport"
                 ],
                 "summary": "When calling this endpoint a list of companies will be returned. The list includes both \"real\" and \"virtual\" companies.\nThere exists one filter parameter to this request, that is updatedSince, it filters out companies that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
                 "operationId": "CompanyExport_Get",
@@ -3448,14 +3616,16 @@
                         "name": "offset",
                         "in": "query",
                         "x-nullable": false,
-                        "description": "The offset"
+                        "description": "The offset",
+                        "format": "int32"
                     },
                     {
                         "type": "integer",
                         "name": "limit",
                         "in": "query",
                         "x-nullable": false,
-                        "description": "The number of records returned(max 1000)"
+                        "description": "The number of records returned(max 1000)",
+                        "format": "int32"
                     },
                     {
                         "type": "string",
@@ -3479,7 +3649,7 @@
         "/integration/masterdata/v1/CompanyImportBatches": {
             "post": {
                 "tags": [
-                    "CompanyImportBatchController"
+                    "CompanyImportBatch"
                 ],
                 "summary": "The POST method allows the client to send a set of companies that will be imported by the Mediusflow master data import queue.\nThe company have Currency as prerequisite\nThe company will be created as a child company to either the root company or to another company provided",
                 "operationId": "CompanyImportBatch_Post",
@@ -3511,7 +3681,7 @@
         "/integration/masterdata/v1/CompanyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "CompanyImportBatchController"
+                    "CompanyImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CompanyImportBatch_Get",
@@ -3537,7 +3707,7 @@
             },
             "delete": {
                 "tags": [
-                    "CompanyImportBatchController"
+                    "CompanyImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "CompanyImportBatch_Delete",
@@ -3565,7 +3735,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches": {
             "post": {
                 "tags": [
-                    "CurrencyImportBatchController"
+                    "CurrencyImportBatch"
                 ],
                 "summary": "The POST method allows the client to send currencies that will be imported by the Mediusflow master data import queue.\nThe currency have no prerequisit.",
                 "operationId": "CurrencyImportBatch_Post",
@@ -3597,7 +3767,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "CurrencyImportBatchController"
+                    "CurrencyImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CurrencyImportBatch_Get",
@@ -3623,7 +3793,7 @@
             },
             "delete": {
                 "tags": [
-                    "CurrencyImportBatchController"
+                    "CurrencyImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyImportBatch_Delete",
@@ -3651,7 +3821,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches": {
             "post": {
                 "tags": [
-                    "CurrencyRateImportBatchController"
+                    "CurrencyRateImportBatch"
                 ],
                 "summary": "The POST method allows the client to send currency rates that will be imported by the Mediusflow master data import queue.\nThe currency rate have currency as prerequisit.",
                 "operationId": "CurrencyRateImportBatch_Post",
@@ -3683,7 +3853,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "CurrencyRateImportBatchController"
+                    "CurrencyRateImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CurrencyRateImportBatch_Get",
@@ -3709,7 +3879,7 @@
             },
             "delete": {
                 "tags": [
-                    "CurrencyRateImportBatchController"
+                    "CurrencyRateImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyRateImportBatch_Delete",
@@ -3737,9 +3907,9 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "DimensionValueConfigurationImportBatchController"
+                    "DimensionValueConfigurationImportBatch"
                 ],
-                "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the Mediusflow master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
+                "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the Mediusflow master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
                 "parameters": [
                     {
@@ -3769,7 +3939,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "DimensionValueConfigurationImportBatchController"
+                    "DimensionValueConfigurationImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueConfigurationImportBatch_Get",
@@ -3795,7 +3965,7 @@
             },
             "delete": {
                 "tags": [
-                    "DimensionValueConfigurationImportBatchController"
+                    "DimensionValueConfigurationImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
@@ -3823,7 +3993,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches": {
             "post": {
                 "tags": [
-                    "DimensionValueImportBatchController"
+                    "DimensionValueImportBatch"
                 ],
                 "summary": "The POST method allows the client to send dimension values that will be imported by the Mediusflow master data import queue.\nThe dimension values have company as mandatory prerequisit.",
                 "operationId": "DimensionValueImportBatch_Post",
@@ -3855,7 +4025,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "DimensionValueImportBatchController"
+                    "DimensionValueImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueImportBatch_Get",
@@ -3881,7 +4051,7 @@
             },
             "delete": {
                 "tags": [
-                    "DimensionValueImportBatchController"
+                    "DimensionValueImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueImportBatch_Delete",
@@ -3909,7 +4079,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "ErrorMessageController"
+                    "ErrorMessage"
                 ],
                 "summary": "This method returns the error messages content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ErrorMessage_Get",
@@ -3920,7 +4090,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The id of the message"
+                        "description": "The id of the message",
+                        "format": "int32"
                     },
                     {
                         "type": "string",
@@ -3945,7 +4116,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageId}": {
             "get": {
                 "tags": [
-                    "ErrorMessageController"
+                    "ErrorMessage"
                 ],
                 "summary": "This method will return a status and an efective link to the real error messages content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "ErrorMessage_GetStatus",
@@ -3956,7 +4127,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message id of the message to find/check status"
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
@@ -3973,7 +4145,7 @@
         "/integration/message/v1/supplierinvoice/errors": {
             "post": {
                 "tags": [
-                    "ErrorMessageController"
+                    "ErrorMessage"
                 ],
                 "summary": "This method accepts a error message object including a list of error messages.\nThe error message object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
                 "operationId": "ErrorMessage_Post",
@@ -4001,7 +4173,7 @@
         "/integration/masterdata/v1/ForbiddenListRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "ForbiddenListRestrictionImportBatchController"
+                    "ForbiddenListRestrictionImportBatch"
                 ],
                 "summary": "The POST method allows the client to send restrictions for a dimension value with a list of forbidden dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith forbidden dimension values.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Post",
@@ -4033,7 +4205,7 @@
         "/integration/masterdata/v1/ForbiddenListRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "ForbiddenListRestrictionImportBatchController"
+                    "ForbiddenListRestrictionImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Get",
@@ -4059,7 +4231,7 @@
             },
             "delete": {
                 "tags": [
-                    "ForbiddenListRestrictionImportBatchController"
+                    "ForbiddenListRestrictionImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Delete",
@@ -4087,7 +4259,7 @@
         "/integration/masterdata/v1/ItemImportBatches": {
             "post": {
                 "tags": [
-                    "ItemImportBatchController"
+                    "ItemImportBatch"
                 ],
                 "summary": "The POST method allows the client to send items that will be imported by the Mediusflow master data import queue.\nThe items have supplier and company as mandatory prerequisit.",
                 "operationId": "ItemImportBatch_Post",
@@ -4119,7 +4291,7 @@
         "/integration/masterdata/v1/ItemImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "ItemImportBatchController"
+                    "ItemImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "ItemImportBatch_Get",
@@ -4145,7 +4317,7 @@
             },
             "delete": {
                 "tags": [
-                    "ItemImportBatchController"
+                    "ItemImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "ItemImportBatch_Delete",
@@ -4173,7 +4345,7 @@
         "/integration/masterdata/v1/OptionalListRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "OptionalListRestrictionImportBatchController"
+                    "OptionalListRestrictionImportBatch"
                 ],
                 "summary": "The POST method allows the client to send restrictions for a dimension value with a list of optional dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith optional dimension values.",
                 "operationId": "OptionalListRestrictionImportBatch_Post",
@@ -4205,7 +4377,7 @@
         "/integration/masterdata/v1/OptionalListRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "OptionalListRestrictionImportBatchController"
+                    "OptionalListRestrictionImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "OptionalListRestrictionImportBatch_Get",
@@ -4231,7 +4403,7 @@
             },
             "delete": {
                 "tags": [
-                    "OptionalListRestrictionImportBatchController"
+                    "OptionalListRestrictionImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "OptionalListRestrictionImportBatch_Delete",
@@ -4259,7 +4431,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches": {
             "post": {
                 "tags": [
-                    "PaymentTermImportBatchController"
+                    "PaymentTermImportBatch"
                 ],
                 "summary": "The POST method allows the client to send payment terms that will be imported by the Mediusflow master data import queue.\nThe payment terms have company prerequisit.",
                 "operationId": "PaymentTermImportBatch_Post",
@@ -4291,7 +4463,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "PaymentTermImportBatchController"
+                    "PaymentTermImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PaymentTermImportBatch_Get",
@@ -4317,7 +4489,7 @@
             },
             "delete": {
                 "tags": [
-                    "PaymentTermImportBatchController"
+                    "PaymentTermImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "PaymentTermImportBatch_Delete",
@@ -4345,7 +4517,7 @@
         "/integration/masterdata/v1/PeriodImportBatches": {
             "post": {
                 "tags": [
-                    "PeriodImportBatchController"
+                    "PeriodImportBatch"
                 ],
                 "summary": "The POST method allows the client to send periods that will be imported by the Mediusflow master data import queue.\nThe periods have Company as prerequisites.\nRemember that by sending in periods the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. For periods it might be better to keep them in XI to be able to control the\nposting dates separated from the ERP system, for flexibility reasons.",
                 "operationId": "PeriodImportBatch_Post",
@@ -4377,7 +4549,7 @@
         "/integration/masterdata/v1/PeriodImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "PeriodImportBatchController"
+                    "PeriodImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PeriodImportBatch_Get",
@@ -4403,7 +4575,7 @@
             },
             "delete": {
                 "tags": [
-                    "PeriodImportBatchController"
+                    "PeriodImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "PeriodImportBatch_Delete",
@@ -4431,7 +4603,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches": {
             "post": {
                 "tags": [
-                    "PurchaseOrderImportBatchController"
+                    "PurchaseOrderImportBatch"
                 ],
                 "summary": "The POST method allows the client to send a set of purchase orders that will be imported by the Mediusflow master data import queue.\nThe purchase order need to be imported after the mandatory pre requisites are imported, these are Company and Supplier.\nIf specific units and items are used, these needs to be in place allso.",
                 "operationId": "PurchaseOrderImportBatch_Post",
@@ -4463,7 +4635,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderImportBatchController"
+                    "PurchaseOrderImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PurchaseOrderImportBatch_Get",
@@ -4489,7 +4661,7 @@
             },
             "delete": {
                 "tags": [
-                    "PurchaseOrderImportBatchController"
+                    "PurchaseOrderImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "PurchaseOrderImportBatch_Delete",
@@ -4517,7 +4689,7 @@
         "/integration/masterdata/v1/RangeRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "RangeRestrictionImportBatchController"
+                    "RangeRestrictionImportBatch"
                 ],
                 "summary": "The POST method allows the client to send restrictions including ranges in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it.\nAll ranges sent in is calculated on the fly in Mediusflow, so there is no connection made to dimensins within the range provided\nTry using RangeRestrictions instead of List* restrictions when it's possible, it will reduce the amount of data that need to be sent by the client.",
                 "operationId": "RangeRestrictionImportBatch_Post",
@@ -4549,7 +4721,7 @@
         "/integration/masterdata/v1/RangeRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "RangeRestrictionImportBatchController"
+                    "RangeRestrictionImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RangeRestrictionImportBatch_Get",
@@ -4575,7 +4747,7 @@
             },
             "delete": {
                 "tags": [
-                    "RangeRestrictionImportBatchController"
+                    "RangeRestrictionImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "RangeRestrictionImportBatch_Delete",
@@ -4603,7 +4775,7 @@
         "/integration/masterdata/v1/RequiredListRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "RequiredListRestrictionImportBatchController"
+                    "RequiredListRestrictionImportBatch"
                 ],
                 "summary": "The POST method allows the client to send restrictions for a dimension value with a list of required dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith required dimension values.",
                 "operationId": "RequiredListRestrictionImportBatch_Post",
@@ -4635,7 +4807,7 @@
         "/integration/masterdata/v1/RequiredListRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "RequiredListRestrictionImportBatchController"
+                    "RequiredListRestrictionImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RequiredListRestrictionImportBatch_Get",
@@ -4661,7 +4833,7 @@
             },
             "delete": {
                 "tags": [
-                    "RequiredListRestrictionImportBatchController"
+                    "RequiredListRestrictionImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "RequiredListRestrictionImportBatch_Delete",
@@ -4689,7 +4861,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "RestrictionImportBatchController"
+                    "RestrictionImportBatch"
                 ],
                 "summary": "The POST method allows the client to send basic restrictions for a dimension value that will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restriction are mandatory.\nControlling dimension key is the dimension that will get the restriction applied on it, the property RestrictedDimension includes a list\nwith dimensions to restrict. For each restriction there is a set of RestrictionTypes, these are: Fixed, Forbidden, Default and Required",
                 "operationId": "RestrictionImportBatch_Post",
@@ -4721,7 +4893,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "RestrictionImportBatchController"
+                    "RestrictionImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RestrictionImportBatch_Get",
@@ -4747,7 +4919,7 @@
             },
             "delete": {
                 "tags": [
-                    "RestrictionImportBatchController"
+                    "RestrictionImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "RestrictionImportBatch_Delete",
@@ -4775,7 +4947,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "SupplierConfigurationBatchController"
+                    "SupplierConfigurationBatch"
                 ],
                 "summary": "The POST method allows the client to send a set of supplier configurations that will be imported by the Mediusflow master data import queue.\nThe supplier configuration needs to have the corresponding supplier in place before being imported.\nRemember that by sending in supplier configurations the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
                 "operationId": "SupplierConfigurationBatch_Post",
@@ -4807,7 +4979,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "SupplierConfigurationBatchController"
+                    "SupplierConfigurationBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierConfigurationBatch_Get",
@@ -4833,7 +5005,7 @@
             },
             "delete": {
                 "tags": [
-                    "SupplierConfigurationBatchController"
+                    "SupplierConfigurationBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierConfigurationBatch_Delete",
@@ -4861,7 +5033,7 @@
         "/integration/masterdata/v1/suppliers": {
             "get": {
                 "tags": [
-                    "SupplierExportController"
+                    "SupplierExport"
                 ],
                 "summary": "When calling this endpoint a list of suppliers will be returned.\nThere exists one filter parameter to this request, that is updatedSince, it filters out suppliers that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
                 "operationId": "SupplierExport_Get",
@@ -4871,14 +5043,16 @@
                         "name": "offset",
                         "in": "query",
                         "x-nullable": false,
-                        "description": "The offset"
+                        "description": "The offset",
+                        "format": "int32"
                     },
                     {
                         "type": "integer",
                         "name": "limit",
                         "in": "query",
                         "x-nullable": false,
-                        "description": "The number of records returned(max 1000)"
+                        "description": "The number of records returned(max 1000)",
+                        "format": "int32"
                     },
                     {
                         "type": "string",
@@ -4902,7 +5076,7 @@
         "/integration/masterdata/v1/SupplierImportBatches": {
             "post": {
                 "tags": [
-                    "SupplierImportBatchController"
+                    "SupplierImportBatch"
                 ],
                 "summary": "The POST method allows the client to send suppliers that will be imported by the Mediusflow master data import queue.\nThe supplier have payment term and company as mandatory prerequisit.\nIf additional dimensions are going to be used or Vat groups they need to be imported in advance.",
                 "operationId": "SupplierImportBatch_Post",
@@ -4934,7 +5108,7 @@
         "/integration/masterdata/v1/SupplierImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "SupplierImportBatchController"
+                    "SupplierImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierImportBatch_Get",
@@ -4960,7 +5134,7 @@
             },
             "delete": {
                 "tags": [
-                    "SupplierImportBatchController"
+                    "SupplierImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierImportBatch_Delete",
@@ -4988,7 +5162,7 @@
         "/integration/documentImport/v1/supplierinvoices/{id}": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceController"
+                    "SupplierInvoice"
                 ],
                 "summary": "The GET Method returns the status for a given DocumentImport document in Mediusflow.\nIt also returns the \"real\" invoice that was created by the imported document.",
                 "operationId": "SupplierInvoice_Get",
@@ -4999,7 +5173,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The id of the supplier invoice sent in. A full link to this method is returned by the POST method"
+                        "description": "The id of the supplier invoice sent in. A full link to this method is returned by the POST method",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
@@ -5016,7 +5191,7 @@
         "/integration/documentImport/v1/supplierinvoices": {
             "post": {
                 "tags": [
-                    "SupplierInvoiceController"
+                    "SupplierInvoice"
                 ],
                 "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/reciept that Mediusflow\nrecieved the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self tested experience in Swagger UI is limited.\nPlease test this method and in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/9d47658ed979b050b468",
                 "operationId": "SupplierInvoice_Post",
@@ -5035,7 +5210,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessageController"
+                    "SupplierInvoiceMessage"
                 ],
                 "summary": "The GET method returns the supplier invoice content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "SupplierInvoiceMessage_Get",
@@ -5054,7 +5229,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The id of the message"
+                        "description": "The id of the message",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
@@ -5069,7 +5245,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessageController"
+                    "SupplierInvoiceMessage"
                 ],
                 "summary": "This method updates the status for a supplier invoice message when processing it.",
                 "operationId": "SupplierInvoiceMessage_Put",
@@ -5089,7 +5265,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message id to change status for"
+                        "description": "The message id to change status for",
+                        "format": "int32"
                     },
                     {
                         "type": "string",
@@ -5114,7 +5291,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessageController"
+                    "SupplierInvoiceMessage"
                 ],
                 "summary": "The GET method with message id as input will return a status and an efective link to the real supplier invoice content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
@@ -5125,7 +5302,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message id of the message to find/check status"
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
@@ -5142,7 +5320,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageStatus}": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessageController"
+                    "SupplierInvoiceMessage"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correalation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_GetMessagesIds",
@@ -5167,7 +5345,7 @@
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary"
+                        "description": "The Correlation key filter as explained in the summary "
                     }
                 ],
                 "responses": {
@@ -5182,10 +5360,10 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessageController"
+                    "SupplierInvoiceMessage"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "operationId": "SupplierInvoiceMessage_Put",
+                "operationId": "SupplierInvoiceMessage_Put2",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -5216,7 +5394,7 @@
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary"
+                        "description": "The Correlation key filter as explained in the summary "
                     }
                 ],
                 "responses": {
@@ -5233,7 +5411,7 @@
         "/integration/masterdata/v1/TaxGroupImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "TaxGroupImportBatchController"
+                    "TaxGroupImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "TaxGroupImportBatch_Get",
@@ -5259,7 +5437,7 @@
             },
             "delete": {
                 "tags": [
-                    "TaxGroupImportBatchController"
+                    "TaxGroupImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "TaxGroupImportBatch_Delete",
@@ -5287,9 +5465,9 @@
         "/integration/masterdata/v1/TaxGroupImportBatches": {
             "post": {
                 "tags": [
-                    "TaxGroupImportBatchController"
+                    "TaxGroupImportBatch"
                 ],
-                "summary": "The POST method allows the client to send tax groups that will be imported by the Mediusflow master data import queue.\nThe tax group have company as mandatory prerequisit.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Mediusflow.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2.",
+                "summary": "The POST method allows the client to send tax groups that will be imported by the Mediusflow master data import queue.\nThe tax group have company as mandatory prerequisit.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Mediusflow.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
                 "operationId": "TaxGroupImportBatch_Post",
                 "parameters": [
                     {
@@ -5319,7 +5497,7 @@
         "/integration/masterdata/v1/UnitImportBatches": {
             "post": {
                 "tags": [
-                    "UnitImportBatchController"
+                    "UnitImportBatch"
                 ],
                 "summary": "The POST method allows the client to send units that will be imported by the Mediusflow master data import queue.\nThe units have no prerequisit.\nRemember that the functionality around units is limited in Mediusflow and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Mediusflow => '-'",
                 "operationId": "UnitImportBatch_Post",
@@ -5351,7 +5529,7 @@
         "/integration/masterdata/v1/UnitImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "UnitImportBatchController"
+                    "UnitImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UnitImportBatch_Get",
@@ -5377,7 +5555,7 @@
             },
             "delete": {
                 "tags": [
-                    "UnitImportBatchController"
+                    "UnitImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "UnitImportBatch_Delete",
@@ -5405,9 +5583,9 @@
         "/integration/masterdata/v1/UserConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "UserConfigurationImportBatchController"
+                    "UserConfigurationImportBatch"
                 ],
-                "summary": "The POST method allows the client to send user configurations that will be imported by the Mediusflow master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
+                "summary": "The POST method allows the client to send user configurations that will be imported by the Mediusflow master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
                 "operationId": "UserConfigurationImportBatch_Post",
                 "parameters": [
                     {
@@ -5437,7 +5615,7 @@
         "/integration/masterdata/v1/UserConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "UserConfigurationImportBatchController"
+                    "UserConfigurationImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserConfigurationImportBatch_Get",
@@ -5463,7 +5641,7 @@
             },
             "delete": {
                 "tags": [
-                    "UserConfigurationImportBatchController"
+                    "UserConfigurationImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserConfigurationImportBatch_Delete",
@@ -5491,7 +5669,7 @@
         "/integration/masterdata/v1/UserImportBatches": {
             "post": {
                 "tags": [
-                    "UserImportBatchController"
+                    "UserImportBatch"
                 ],
                 "summary": "The POST method allows the client to send users that will be imported by the Mediusflow master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
                 "operationId": "UserImportBatch_Post",
@@ -5523,7 +5701,7 @@
         "/integration/masterdata/v1/UserImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "UserImportBatchController"
+                    "UserImportBatch"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserImportBatch_Get",
@@ -5549,7 +5727,7 @@
             },
             "delete": {
                 "tags": [
-                    "UserImportBatchController"
+                    "UserImportBatch"
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserImportBatch_Delete",
@@ -5577,7 +5755,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "VoucherMessageController"
+                    "VoucherMessage"
                 ],
                 "summary": "This method returns the vocuher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "VoucherMessage_Get",
@@ -5588,7 +5766,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The id of the message"
+                        "description": "The id of the message",
+                        "format": "int32"
                     },
                     {
                         "type": "string",
@@ -5613,7 +5792,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
             "get": {
                 "tags": [
-                    "VoucherMessageController"
+                    "VoucherMessage"
                 ],
                 "summary": "This method will return a status and an efective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "VoucherMessage_GetStatus",
@@ -5624,7 +5803,8 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message id of the message to find/check status"
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
@@ -5641,7 +5821,7 @@
         "/integration/message/v1/supplierinvoice/vouchers": {
             "post": {
                 "tags": [
-                    "VoucherMessageController"
+                    "VoucherMessage"
                 ],
                 "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher includes a CorrelationKey that need to match the corresponding supplier invoice message.",
                 "operationId": "VoucherMessage_Post",
