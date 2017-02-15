@@ -36,9 +36,6 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationImportAccrualPeriodDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "IsActive": {
@@ -117,9 +114,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "AccrualTemplate"
             }
         },
         "IntegrationCodingDimensionsDto": {
@@ -177,9 +171,6 @@
                 "FreeText5": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "CodingDimensions"
             }
         },
         "IntegrationImportAccrualPeriodDto": {
@@ -198,9 +189,6 @@
                     "type": "number",
                     "format": "decimal"
                 }
-            },
-            "xml": {
-                "name": "ImportAccrualPeriod"
             }
         },
         "ActualPaymentDateResponseDto": {
@@ -213,9 +201,6 @@
                 "CorrelationKey": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "ActualPaymentDateResponse"
             }
         },
         "IntegrationActualPaymentDateDto": {
@@ -299,9 +284,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "ActualPaymentDate"
             }
         },
         "IntegrationCompanyDto": {
@@ -410,14 +392,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 }
-            },
-            "xml": {
-                "name": "Company"
             }
         },
         "IntegrationCompanyIdentifierDto": {
@@ -430,9 +406,6 @@
                 "IdentifierValue": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "CompanyIdentifier"
             }
         },
         "IntegrationCurrencyDto": {
@@ -521,9 +494,6 @@
                 "IsActive": {
                     "type": "boolean"
                 }
-            },
-            "xml": {
-                "name": "Currency"
             }
         },
         "IntegrationCurrencyRateDto": {
@@ -626,9 +596,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "CurrencyRate"
             }
         },
         "IntegrationDimensionValueConfigurationDto": {
@@ -647,9 +614,6 @@
                 "DimensionValue": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "DimensionValueConfiguration"
             }
         },
         "IntegrationDimensionValueDto": {
@@ -757,9 +721,6 @@
                 "IsFictive": {
                     "type": "boolean"
                 }
-            },
-            "xml": {
-                "name": "DimensionValue"
             }
         },
         "ErrorResponseDto": {
@@ -770,17 +731,11 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationErrorDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "CorrelationKey": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "ErrorResponse"
             }
         },
         "IntegrationErrorDto": {
@@ -790,9 +745,6 @@
                 "Message": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "Error"
             }
         },
         "IntegrationForbiddenListRestrictionDto": {
@@ -805,14 +757,7 @@
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string",
-                        "xml": {
-                            "name": "RestrictedDimensionKey",
-                            "wrapped": true
-                        }
-                    },
-                    "xml": {
-                        "wrapped": true
+                        "type": "string"
                     }
                 },
                 "ExternalSystemId": {
@@ -894,9 +839,6 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "ForbiddenListRestriction"
             }
         },
         "IntegrationItemDto": {
@@ -925,9 +867,6 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationSupplierItemDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "ExternalSystemId": {
@@ -1003,9 +942,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "Item"
             }
         },
         "IntegrationSupplierItemDto": {
@@ -1104,9 +1040,6 @@
                 "CurrencyCode": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "SupplierItem"
             }
         },
         "IntegrationOptionalListRestrictionDto": {
@@ -1119,14 +1052,7 @@
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string",
-                        "xml": {
-                            "name": "RestrictedDimensionKey",
-                            "wrapped": true
-                        }
-                    },
-                    "xml": {
-                        "wrapped": true
+                        "type": "string"
                     }
                 },
                 "ExternalSystemId": {
@@ -1208,9 +1134,6 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "OptionalListRestriction"
             }
         },
         "IntegrationPaymentTermDto": {
@@ -1318,9 +1241,6 @@
                     "type": "integer",
                     "format": "int32"
                 }
-            },
-            "xml": {
-                "name": "PaymentTerm"
             }
         },
         "IntegrationPeriodDto": {
@@ -1430,9 +1350,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "Period"
             }
         },
         "IntegrationPurchaseOrderDto": {
@@ -1554,14 +1471,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 }
-            },
-            "xml": {
-                "name": "PurchaseOrder"
             }
         },
         "IntegrationPurchaseOrderLineDto": {
@@ -1659,9 +1570,6 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPreCodingLineDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "ConversionFactor": {
@@ -1698,9 +1606,6 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationDeliveryLineDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "TaxIndicator1": {
@@ -1712,9 +1617,6 @@
                 "IsServiceBased": {
                     "type": "boolean"
                 }
-            },
-            "xml": {
-                "name": "PurchaseOrderLine"
             }
         },
         "IntegrationPreCodingLineDto": {
@@ -1734,9 +1636,6 @@
                 "Type": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "PreCodingLine"
             }
         },
         "IntegrationDeliveryLineDto": {
@@ -1867,9 +1766,6 @@
                     "type": "number",
                     "format": "decimal"
                 }
-            },
-            "xml": {
-                "name": "DeliveryLine"
             }
         },
         "IntegrationRangeRestrictionDto": {
@@ -1976,9 +1872,6 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "RangeRestriction"
             }
         },
         "IntegrationRequiredListRestrictionDto": {
@@ -1991,14 +1884,7 @@
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string",
-                        "xml": {
-                            "name": "RestrictedDimensionKey",
-                            "wrapped": true
-                        }
-                    },
-                    "xml": {
-                        "wrapped": true
+                        "type": "string"
                     }
                 },
                 "ExternalSystemId": {
@@ -2080,9 +1966,6 @@
                 "ControllingDimensionKey": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "RequiredListRestriction"
             }
         },
         "IntegrationBasicRestrictionsDto": {
@@ -2096,14 +1979,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 }
-            },
-            "xml": {
-                "name": "BasicRestriction"
             }
         },
         "IntegrationRestrictedDimensionDto": {
@@ -2125,9 +2002,6 @@
                 "RestrictionType": {
                     "$ref": "#/definitions/RestrictionType"
                 }
-            },
-            "xml": {
-                "name": "RestrictedDimension"
             }
         },
         "RestrictionType": {
@@ -2166,14 +2040,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationContactPersonDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 }
-            },
-            "xml": {
-                "name": "SupplierConfiguration"
             }
         },
         "IntegrationContactPersonDto": {
@@ -2216,9 +2084,6 @@
                 "Type": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "ContactPerson"
             }
         },
         "IntegrationSupplierDto": {
@@ -2314,9 +2179,6 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "Name": {
@@ -2509,14 +2371,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPaymentDetailsDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 }
-            },
-            "xml": {
-                "name": "Supplier"
             }
         },
         "IntegrationSupplierIdentifierDto": {
@@ -2529,9 +2385,6 @@
                 "IdentifierValue": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "SupplierIdentifier"
             }
         },
         "IntegrationPaymentDetailsDto": {
@@ -2551,17 +2404,11 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "IsActive": {
                     "type": "boolean"
                 }
-            },
-            "xml": {
-                "name": "PaymentDetails"
             }
         },
         "IntegrationPaymentDetailsIdentifierDto": {
@@ -2644,9 +2491,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "PaymentDetailsIdentifier"
             }
         },
         "ImportDocumentStatusDto": {
@@ -2768,18 +2612,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationTaxCodeDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "IndicatorNumber": {
                     "type": "integer",
                     "format": "int32"
                 }
-            },
-            "xml": {
-                "name": "TaxGroup"
             }
         },
         "IntegrationTaxCodeDto": {
@@ -2868,7 +2706,7 @@
                     "type": "string"
                 },
                 "Dimensions": {
-                    "$ref": "#/definitions/IntegrationCodingDimensions"
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "IsActive": {
                     "type": "boolean"
@@ -2886,66 +2724,6 @@
                 "Percentage": {
                     "type": "number",
                     "format": "decimal"
-                }
-            },
-            "xml": {
-                "name": "TaxCode"
-            }
-        },
-        "IntegrationCodingDimensions": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "Dimension1": {
-                    "type": "string"
-                },
-                "Dimension2": {
-                    "type": "string"
-                },
-                "Dimension3": {
-                    "type": "string"
-                },
-                "Dimension4": {
-                    "type": "string"
-                },
-                "Dimension5": {
-                    "type": "string"
-                },
-                "Dimension6": {
-                    "type": "string"
-                },
-                "Dimension7": {
-                    "type": "string"
-                },
-                "Dimension8": {
-                    "type": "string"
-                },
-                "Dimension9": {
-                    "type": "string"
-                },
-                "Dimension10": {
-                    "type": "string"
-                },
-                "Dimension11": {
-                    "type": "string"
-                },
-                "Dimension12": {
-                    "type": "string"
-                },
-                "FreeText1": {
-                    "type": "string"
-                },
-                "FreeText2": {
-                    "type": "string"
-                },
-                "FreeText3": {
-                    "type": "string"
-                },
-                "FreeText4": {
-                    "type": "string"
-                },
-                "FreeText5": {
-                    "type": "string"
                 }
             }
         },
@@ -3035,9 +2813,6 @@
                 "Description": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "Unit"
             }
         },
         "IntegrationUserConfigurationDto": {
@@ -3060,32 +2835,20 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "FollowupGroups": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationFollowupGroupDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "TemporaryDelegations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationTemporaryDelegationDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 }
-            },
-            "xml": {
-                "name": "UserConfiguration"
             }
         },
         "IntegrationAuthorizationGroupDto": {
@@ -3104,9 +2867,6 @@
                 "ToBeRemoved": {
                     "type": "boolean"
                 }
-            },
-            "xml": {
-                "name": "AuthorizationGroup"
             }
         },
         "IntegrationFollowupGroupDto": {
@@ -3125,9 +2885,6 @@
                 "ToBeRemoved": {
                     "type": "boolean"
                 }
-            },
-            "xml": {
-                "name": "FollowupGroup"
             }
         },
         "IntegrationTemporaryDelegationDto": {
@@ -3149,9 +2906,6 @@
                 "Responsible": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "TemporaryDelegation"
             }
         },
         "IntegrationUserDto": {
@@ -3195,18 +2949,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationRoleCompanyDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "IdentityProviders": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/IntegrationIdentityProviderDto"
-                    },
-                    "xml": {
-                        "wrapped": true
                     }
                 },
                 "CustomField_Text1": {
@@ -3279,9 +3027,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "User"
             }
         },
         "IntegrationRoleCompanyDto": {
@@ -3300,9 +3045,6 @@
                 "ToBeRemoved": {
                     "type": "boolean"
                 }
-            },
-            "xml": {
-                "name": "RoleCompany"
             }
         },
         "IntegrationIdentityProviderDto": {
@@ -3315,9 +3057,6 @@
                 "NameIdentifier": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "IdentityProvider"
             }
         },
         "VoucherResponseDto": {
@@ -3330,9 +3069,6 @@
                 "CorrelationKey": {
                     "type": "string"
                 }
-            },
-            "xml": {
-                "name": "VoucherResponse"
             }
         },
         "IntegrationResponseVoucherDto": {
@@ -3416,9 +3152,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            },
-            "xml": {
-                "name": "Voucher"
             }
         }
     },
