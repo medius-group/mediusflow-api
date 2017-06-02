@@ -2831,6 +2831,9 @@
                 "ResponsibleRole": {
                     "type": "string"
                 },
+                "PreCodingDimensions": {
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                },
                 "AuthorizationGroups": {
                     "type": "array",
                     "items": {
@@ -4320,6 +4323,56 @@
                         "required": true,
                         "x-nullable": false,
                         "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/purchaseorders": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderExport"
+                ],
+                "summary": "When calling this endpoint a list of purchase orders will be returned.\nThere exists one filter parameter to this request, that is updatedSince, it filters out purchase orders that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
+                "operationId": "PurchaseOrderExport_Get",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "offset",
+                        "in": "query",
+                        "x-nullable": false,
+                        "description": "The offset",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "limit",
+                        "in": "query",
+                        "x-nullable": false,
+                        "description": "The number of records returned(max 1000)",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "includeLines",
+                        "in": "query",
+                        "x-nullable": false,
+                        "description": "Include purchase order lines with delivery lines and items data in the response or not"
+                    },
+                    {
+                        "type": "string",
+                        "name": "updatedSince",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Tells the service that we only want purchase orders with or without lines that have been changed after this date and time"
                     }
                 ],
                 "responses": {
