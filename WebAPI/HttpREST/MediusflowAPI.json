@@ -44,6 +44,9 @@
                 "ExternalSystemId": {
                     "type": "string"
                 },
+                "AccrualErpIdentifier": {
+                    "type": "string"
+                },
                 "CustomField_Text1": {
                     "type": "string"
                 },
@@ -595,6 +598,106 @@
                 "EndDate": {
                     "type": "string",
                     "format": "date-time"
+                }
+            }
+        },
+        "IntegrationDeliveryTermDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "DeliveryTermId": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "ForceLocation": {
+                    "type": "boolean"
                 }
             }
         },
@@ -1467,6 +1570,9 @@
                 "Reference": {
                     "type": "string"
                 },
+                "Reference2": {
+                    "type": "string"
+                },
                 "PurchaseOrderLines": {
                     "type": "array",
                     "items": {
@@ -1600,6 +1706,9 @@
                     "format": "decimal"
                 },
                 "Reference": {
+                    "type": "string"
+                },
+                "Reference2": {
                     "type": "string"
                 },
                 "DeliveryLines": {
@@ -2187,6 +2296,9 @@
                 "PaymentTerm": {
                     "type": "string"
                 },
+                "DeliveryTerm": {
+                    "type": "string"
+                },
                 "SupplierId": {
                     "type": "string"
                 },
@@ -2364,6 +2476,9 @@
                 "EmailAddress": {
                     "type": "string"
                 },
+                "State": {
+                    "type": "string"
+                },
                 "IsProcurable": {
                     "type": "boolean"
                 },
@@ -2400,6 +2515,9 @@
                 "Description": {
                     "type": "string"
                 },
+                "PaymentDetailId": {
+                    "type": "string"
+                },
                 "Identifiers": {
                     "type": "array",
                     "items": {
@@ -2408,6 +2526,76 @@
                 },
                 "IsActive": {
                     "type": "boolean"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
                 }
             }
         },
@@ -3619,6 +3807,92 @@
                 ],
                 "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyRateImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DeliveryTermImportBatches": {
+            "post": {
+                "tags": [
+                    "DeliveryTermImportBatch"
+                ],
+                "summary": "The POST method allows the client to send delivery terms that will be imported by the Mediusflow master data import queue.\nThe delivery terms have company prerequisit.",
+                "operationId": "DeliveryTermImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "deliveryterms",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationDeliveryTermDto"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The delivery terms to import"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DeliveryTermImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "DeliveryTermImportBatch"
+                ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "operationId": "DeliveryTermImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DeliveryTermImportBatch"
+                ],
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "operationId": "DeliveryTermImportBatch_Delete",
                 "parameters": [
                     {
                         "type": "string",
