@@ -18,6 +18,9 @@
     "definitions": {
         "IntegrationAccrualTemplateDto": {
             "type": "object",
+            "xml": {
+                "name": "AccrualTemplate"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -30,12 +33,29 @@
                     "type": "string"
                 },
                 "AccrualCodeString": {
-                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                    "xml": {
+                        "name": "AccrualCodeString"
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                        }
+                    ]
                 },
                 "AccrualPeriods": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationImportAccrualPeriodDto"
+                        "xml": {
+                            "name": "IntegrationImportAccrualPeriodDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationImportAccrualPeriodDto"
+                            }
+                        ]
                     }
                 },
                 "IsActive": {
@@ -121,6 +141,9 @@
         },
         "IntegrationCodingDimensionsDto": {
             "type": "object",
+            "xml": {
+                "name": "CodingDimensions"
+            },
             "additionalProperties": false,
             "properties": {
                 "Dimension1": {
@@ -178,6 +201,9 @@
         },
         "IntegrationImportAccrualPeriodDto": {
             "type": "object",
+            "xml": {
+                "name": "ImportAccrualPeriod"
+            },
             "additionalProperties": false,
             "required": [
                 "Period",
@@ -196,10 +222,20 @@
         },
         "ActualPaymentDateResponseDto": {
             "type": "object",
+            "xml": {
+                "name": "ActualPaymentDateResponse"
+            },
             "additionalProperties": false,
             "properties": {
                 "ActualPaymentDate": {
-                    "$ref": "#/definitions/IntegrationActualPaymentDateDto"
+                    "xml": {
+                        "name": "ActualPaymentDate"
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationActualPaymentDateDto"
+                        }
+                    ]
                 },
                 "CorrelationKey": {
                     "type": "string"
@@ -208,6 +244,9 @@
         },
         "IntegrationActualPaymentDateDto": {
             "type": "object",
+            "xml": {
+                "name": "ActualPaymentDate"
+            },
             "additionalProperties": false,
             "required": [
                 "ActualPaymentDate"
@@ -291,6 +330,9 @@
         },
         "IntegrationCompanyDto": {
             "type": "object",
+            "xml": {
+                "name": "Company"
+            },
             "additionalProperties": false,
             "required": [
                 "IsVirtual",
@@ -393,14 +435,27 @@
                 },
                 "CompanyIdentifiers": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
+                        "xml": {
+                            "name": "IntegrationCompanyIdentifierDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
+                            }
+                        ]
                     }
                 }
             }
         },
         "IntegrationCompanyIdentifierDto": {
             "type": "object",
+            "xml": {
+                "name": "CompanyIdentifier"
+            },
             "additionalProperties": false,
             "properties": {
                 "IdentifierType": {
@@ -413,6 +468,9 @@
         },
         "IntegrationCurrencyDto": {
             "type": "object",
+            "xml": {
+                "name": "Currency"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -501,6 +559,9 @@
         },
         "IntegrationCurrencyRateDto": {
             "type": "object",
+            "xml": {
+                "name": "CurrencyRate"
+            },
             "additionalProperties": false,
             "required": [
                 "Rate",
@@ -603,6 +664,9 @@
         },
         "IntegrationDeliveryTermDto": {
             "type": "object",
+            "xml": {
+                "name": "DeliveryTerm"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -703,6 +767,9 @@
         },
         "IntegrationDimensionValueConfigurationDto": {
             "type": "object",
+            "xml": {
+                "name": "DimensionValueConfiguration"
+            },
             "additionalProperties": false,
             "properties": {
                 "Company": {
@@ -721,6 +788,9 @@
         },
         "IntegrationDimensionValueDto": {
             "type": "object",
+            "xml": {
+                "name": "DimensionValue"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -828,12 +898,25 @@
         },
         "ErrorResponseDto": {
             "type": "object",
+            "xml": {
+                "name": "ErrorResponse"
+            },
             "additionalProperties": false,
             "properties": {
                 "Errors": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationErrorDto"
+                        "xml": {
+                            "name": "IntegrationErrorDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationErrorDto"
+                            }
+                        ]
                     }
                 },
                 "CorrelationKey": {
@@ -843,6 +926,9 @@
         },
         "IntegrationErrorDto": {
             "type": "object",
+            "xml": {
+                "name": "Error"
+            },
             "additionalProperties": false,
             "properties": {
                 "Message": {
@@ -852,6 +938,9 @@
         },
         "IntegrationForbiddenListRestrictionDto": {
             "type": "object",
+            "xml": {
+                "name": "ForbiddenListRestriction"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -859,8 +948,15 @@
             "properties": {
                 "RestrictedDimensionKeys": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "xml": {
+                            "name": "RestrictedDimensionKey",
+                            "wrapped": true
+                        }
                     }
                 },
                 "ExternalSystemId": {
@@ -946,6 +1042,9 @@
         },
         "IntegrationItemDto": {
             "type": "object",
+            "xml": {
+                "name": "Item"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -968,8 +1067,18 @@
                 },
                 "SupplierItems": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationSupplierItemDto"
+                        "xml": {
+                            "name": "IntegrationSupplierItemDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationSupplierItemDto"
+                            }
+                        ]
                     }
                 },
                 "ExternalSystemId": {
@@ -1049,6 +1158,9 @@
         },
         "IntegrationSupplierItemDto": {
             "type": "object",
+            "xml": {
+                "name": "SupplierItem"
+            },
             "additionalProperties": false,
             "properties": {
                 "ExternalSystemId": {
@@ -1147,6 +1259,9 @@
         },
         "IntegrationOptionalListRestrictionDto": {
             "type": "object",
+            "xml": {
+                "name": "OptionalListRestriction"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -1154,8 +1269,15 @@
             "properties": {
                 "RestrictedDimensionKeys": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "xml": {
+                            "name": "RestrictedDimensionKey",
+                            "wrapped": true
+                        }
                     }
                 },
                 "ExternalSystemId": {
@@ -1241,6 +1363,9 @@
         },
         "IntegrationPaymentTermDto": {
             "type": "object",
+            "xml": {
+                "name": "PaymentTerm"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1348,6 +1473,9 @@
         },
         "IntegrationPeriodDto": {
             "type": "object",
+            "xml": {
+                "name": "Period"
+            },
             "additionalProperties": false,
             "required": [
                 "IsOpen"
@@ -1457,6 +1585,9 @@
         },
         "IntegrationPurchaseOrderDto": {
             "type": "object",
+            "xml": {
+                "name": "PurchaseOrder"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1575,14 +1706,27 @@
                 },
                 "PurchaseOrderLines": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
+                        "xml": {
+                            "name": "IntegrationPurchaseOrderLineDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
+                            }
+                        ]
                     }
                 }
             }
         },
         "IntegrationPurchaseOrderLineDto": {
             "type": "object",
+            "xml": {
+                "name": "PurchaseOrderLine"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1674,8 +1818,18 @@
                 },
                 "CodingLines": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationPreCodingLineDto"
+                        "xml": {
+                            "name": "IntegrationPreCodingLineDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationPreCodingLineDto"
+                            }
+                        ]
                     }
                 },
                 "ConversionFactor": {
@@ -1713,8 +1867,18 @@
                 },
                 "DeliveryLines": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationDeliveryLineDto"
+                        "xml": {
+                            "name": "IntegrationDeliveryLineDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationDeliveryLineDto"
+                            }
+                        ]
                     }
                 },
                 "TaxIndicator1": {
@@ -1730,6 +1894,9 @@
         },
         "IntegrationPreCodingLineDto": {
             "type": "object",
+            "xml": {
+                "name": "PreCodingLine"
+            },
             "additionalProperties": false,
             "required": [
                 "Amount"
@@ -1740,7 +1907,14 @@
                     "format": "decimal"
                 },
                 "Dimensions": {
-                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                        }
+                    ]
                 },
                 "Type": {
                     "type": "string"
@@ -1749,6 +1923,9 @@
         },
         "IntegrationDeliveryLineDto": {
             "type": "object",
+            "xml": {
+                "name": "DeliveryLine"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -1879,6 +2056,9 @@
         },
         "IntegrationRangeRestrictionDto": {
             "type": "object",
+            "xml": {
+                "name": "RangeRestriction"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -1985,6 +2165,9 @@
         },
         "IntegrationRequiredListRestrictionDto": {
             "type": "object",
+            "xml": {
+                "name": "RequiredListRestriction"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -1992,8 +2175,15 @@
             "properties": {
                 "RestrictedDimensionKeys": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "xml": {
+                            "name": "RestrictedDimensionKey",
+                            "wrapped": true
+                        }
                     }
                 },
                 "ExternalSystemId": {
@@ -2079,6 +2269,9 @@
         },
         "IntegrationBasicRestrictionsDto": {
             "type": "object",
+            "xml": {
+                "name": "BasicRestriction"
+            },
             "additionalProperties": false,
             "properties": {
                 "ControllingDimensionValueKey": {
@@ -2086,14 +2279,27 @@
                 },
                 "RestrictedDimensions": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
+                        "xml": {
+                            "name": "IntegrationRestrictedDimensionDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
+                            }
+                        ]
                     }
                 }
             }
         },
         "IntegrationRestrictedDimensionDto": {
             "type": "object",
+            "xml": {
+                "name": "RestrictedDimension"
+            },
             "additionalProperties": false,
             "required": [
                 "RestrictionType"
@@ -2109,12 +2315,20 @@
                     "type": "string"
                 },
                 "RestrictionType": {
-                    "$ref": "#/definitions/RestrictionType"
+                    "xml": {
+                        "name": "RestrictionType"
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/RestrictionType"
+                        }
+                    ]
                 }
             }
         },
         "RestrictionType": {
             "type": "integer",
+            "description": "",
             "x-enumNames": [
                 "Default",
                 "Fixed",
@@ -2126,11 +2340,13 @@
                 1,
                 2,
                 3
-            ],
-            "description": ""
+            ]
         },
         "IntegrationSupplierConfigurationDto": {
             "type": "object",
+            "xml": {
+                "name": "SupplierConfiguration"
+            },
             "additionalProperties": false,
             "properties": {
                 "Company": {
@@ -2147,14 +2363,27 @@
                 },
                 "ContactPersons": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationContactPersonDto"
+                        "xml": {
+                            "name": "IntegrationContactPersonDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationContactPersonDto"
+                            }
+                        ]
                     }
                 }
             }
         },
         "IntegrationContactPersonDto": {
             "type": "object",
+            "xml": {
+                "name": "ContactPerson"
+            },
             "additionalProperties": false,
             "properties": {
                 "FirstName": {
@@ -2197,6 +2426,9 @@
         },
         "IntegrationSupplierDto": {
             "type": "object",
+            "xml": {
+                "name": "Supplier"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -2286,8 +2518,18 @@
                 },
                 "Identifiers": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
+                        "xml": {
+                            "name": "IntegrationSupplierIdentifierDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
+                            }
+                        ]
                     }
                 },
                 "Name": {
@@ -2484,14 +2726,27 @@
                 },
                 "PaymentDetails": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationPaymentDetailsDto"
+                        "xml": {
+                            "name": "IntegrationPaymentDetailsDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationPaymentDetailsDto"
+                            }
+                        ]
                     }
                 }
             }
         },
         "IntegrationSupplierIdentifierDto": {
             "type": "object",
+            "xml": {
+                "name": "SupplierIdentifier"
+            },
             "additionalProperties": false,
             "properties": {
                 "IdentifierType": {
@@ -2504,6 +2759,9 @@
         },
         "IntegrationPaymentDetailsDto": {
             "type": "object",
+            "xml": {
+                "name": "PaymentDetails"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -2520,8 +2778,18 @@
                 },
                 "Identifiers": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
+                        "xml": {
+                            "name": "IntegrationPaymentDetailsIdentifierDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
+                            }
+                        ]
                     }
                 },
                 "IsActive": {
@@ -2601,6 +2869,9 @@
         },
         "IntegrationPaymentDetailsIdentifierDto": {
             "type": "object",
+            "xml": {
+                "name": "PaymentDetailsIdentifier"
+            },
             "additionalProperties": false,
             "properties": {
                 "Value": {
@@ -2705,6 +2976,9 @@
         },
         "IntegrationTaxGroupDto": {
             "type": "object",
+            "xml": {
+                "name": "TaxGroup"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -2798,8 +3072,18 @@
                 },
                 "Lines": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationTaxCodeDto"
+                        "xml": {
+                            "name": "IntegrationTaxCodeDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationTaxCodeDto"
+                            }
+                        ]
                     }
                 },
                 "IndicatorNumber": {
@@ -2810,6 +3094,9 @@
         },
         "IntegrationTaxCodeDto": {
             "type": "object",
+            "xml": {
+                "name": "TaxCode"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive",
@@ -2894,7 +3181,14 @@
                     "type": "string"
                 },
                 "Dimensions": {
-                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                        }
+                    ]
                 },
                 "IsActive": {
                     "type": "boolean"
@@ -2917,6 +3211,9 @@
         },
         "IntegrationUnitDto": {
             "type": "object",
+            "xml": {
+                "name": "Unit"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -3005,6 +3302,9 @@
         },
         "IntegrationUserConfigurationDto": {
             "type": "object",
+            "xml": {
+                "name": "UserConfiguration"
+            },
             "additionalProperties": false,
             "properties": {
                 "UserName": {
@@ -3020,30 +3320,70 @@
                     "type": "string"
                 },
                 "PreCodingDimensions": {
-                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                    "xml": {
+                        "name": "PreCodingDimensions"
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                        }
+                    ]
                 },
                 "AuthorizationGroups": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
+                        "xml": {
+                            "name": "IntegrationAuthorizationGroupDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
+                            }
+                        ]
                     }
                 },
                 "FollowupGroups": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationFollowupGroupDto"
+                        "xml": {
+                            "name": "IntegrationFollowupGroupDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationFollowupGroupDto"
+                            }
+                        ]
                     }
                 },
                 "TemporaryDelegations": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationTemporaryDelegationDto"
+                        "xml": {
+                            "name": "IntegrationTemporaryDelegationDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationTemporaryDelegationDto"
+                            }
+                        ]
                     }
                 }
             }
         },
         "IntegrationAuthorizationGroupDto": {
             "type": "object",
+            "xml": {
+                "name": "AuthorizationGroup"
+            },
             "additionalProperties": false,
             "required": [
                 "ToBeRemoved"
@@ -3062,6 +3402,9 @@
         },
         "IntegrationFollowupGroupDto": {
             "type": "object",
+            "xml": {
+                "name": "FollowupGroup"
+            },
             "additionalProperties": false,
             "required": [
                 "ToBeRemoved"
@@ -3080,6 +3423,9 @@
         },
         "IntegrationTemporaryDelegationDto": {
             "type": "object",
+            "xml": {
+                "name": "TemporaryDelegation"
+            },
             "additionalProperties": false,
             "required": [
                 "StartDate",
@@ -3101,6 +3447,9 @@
         },
         "IntegrationUserDto": {
             "type": "object",
+            "xml": {
+                "name": "User"
+            },
             "additionalProperties": false,
             "required": [
                 "IsActive"
@@ -3138,14 +3487,34 @@
                 },
                 "Roles": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationRoleCompanyDto"
+                        "xml": {
+                            "name": "IntegrationRoleCompanyDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationRoleCompanyDto"
+                            }
+                        ]
                     }
                 },
                 "IdentityProviders": {
                     "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
                     "items": {
-                        "$ref": "#/definitions/IntegrationIdentityProviderDto"
+                        "xml": {
+                            "name": "IntegrationIdentityProviderDto"
+                        },
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/IntegrationIdentityProviderDto"
+                            }
+                        ]
                     }
                 },
                 "CustomField_Text1": {
@@ -3222,6 +3591,9 @@
         },
         "IntegrationRoleCompanyDto": {
             "type": "object",
+            "xml": {
+                "name": "RoleCompany"
+            },
             "additionalProperties": false,
             "required": [
                 "ToBeRemoved"
@@ -3240,6 +3612,9 @@
         },
         "IntegrationIdentityProviderDto": {
             "type": "object",
+            "xml": {
+                "name": "IdentityProvider"
+            },
             "additionalProperties": false,
             "properties": {
                 "IdentityProviderName": {
@@ -3252,10 +3627,20 @@
         },
         "VoucherResponseDto": {
             "type": "object",
+            "xml": {
+                "name": "VoucherResponse"
+            },
             "additionalProperties": false,
             "properties": {
                 "Voucher": {
-                    "$ref": "#/definitions/IntegrationResponseVoucherDto"
+                    "xml": {
+                        "name": "Voucher"
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationResponseVoucherDto"
+                        }
+                    ]
                 },
                 "CorrelationKey": {
                     "type": "string"
@@ -3264,6 +3649,9 @@
         },
         "IntegrationResponseVoucherDto": {
             "type": "object",
+            "xml": {
+                "name": "Voucher"
+            },
             "additionalProperties": false,
             "properties": {
                 "CustomField_Boolean1": {
@@ -3361,7 +3749,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationAccrualTemplateDto"
+                                "xml": {
+                                    "name": "IntegrationAccrualTemplateDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationAccrualTemplateDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -3541,7 +3936,8 @@
                         "in": "query",
                         "x-nullable": false,
                         "description": "The offset",
-                        "format": "int32"
+                        "format": "int32",
+                        "default": 0
                     },
                     {
                         "type": "integer",
@@ -3549,7 +3945,8 @@
                         "in": "query",
                         "x-nullable": false,
                         "description": "The number of records returned(max 1000)",
-                        "format": "int32"
+                        "format": "int32",
+                        "default": 1000
                     },
                     {
                         "type": "string",
@@ -3584,7 +3981,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationCompanyDto"
+                                "xml": {
+                                    "name": "IntegrationCompanyDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationCompanyDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -3670,7 +4074,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationCurrencyDto"
+                                "xml": {
+                                    "name": "IntegrationCurrencyDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationCurrencyDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -3756,7 +4167,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationCurrencyRateDto"
+                                "xml": {
+                                    "name": "IntegrationCurrencyRateDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationCurrencyRateDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -3842,7 +4260,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationDeliveryTermDto"
+                                "xml": {
+                                    "name": "IntegrationDeliveryTermDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationDeliveryTermDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -3928,7 +4353,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationDimensionValueConfigurationDto"
+                                "xml": {
+                                    "name": "IntegrationDimensionValueConfigurationDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationDimensionValueConfigurationDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4014,7 +4446,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationDimensionValueDto"
+                                "xml": {
+                                    "name": "IntegrationDimensionValueDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationDimensionValueDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4073,6 +4512,138 @@
                         "required": true,
                         "x-nullable": false,
                         "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/media/v1/document/{documentId}/images": {
+            "get": {
+                "tags": [
+                    "DocumentMediaExport"
+                ],
+                "summary": "This method returns a list of file links for a document identified by parameter 'documentId'.\nEach file link consists of the original file name and a link for downloading this file.",
+                "operationId": "DocumentMediaExport_GetDocumentImagesLinks",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Document ID",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/media/v1/document/{documentId}/images/{imageHash}": {
+            "get": {
+                "tags": [
+                    "DocumentMediaExport"
+                ],
+                "summary": "This method returns a file with the given hash for a document identified by parameter 'documentId'.\nYou can get a link for this file, containing hash, by calling 'integration/media/v1/document/{documentId}/images'.",
+                "operationId": "DocumentMediaExport_GetImage",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Document ID",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "imageHash",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Hash of image"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/media/v1/document/{documentId}/attachments": {
+            "get": {
+                "tags": [
+                    "DocumentMediaExport"
+                ],
+                "summary": "This method returns the list of attachment links for a document identified by parameter 'documentId'.\nEach attachment link consists of the original attachment name, and a link for downloading this attachment.",
+                "operationId": "DocumentMediaExport_GetDocumentAttachmentsLinks",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Document ID",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/media/v1/document/{documentId}/attachments/{attachmentHash}": {
+            "get": {
+                "tags": [
+                    "DocumentMediaExport"
+                ],
+                "summary": "This method returns the attachment with a given hash for the document identified by parameter 'documentId'.\nYou can get the link for this attachment, containing hash, by calling 'integration/media/v1/document/{documentId}/attachments'.",
+                "operationId": "DocumentMediaExport_GetAttachment",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Document ID",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "attachmentHash",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Hash of attachment"
                     }
                 ],
                 "responses": {
@@ -4194,7 +4765,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationForbiddenListRestrictionDto"
+                                "xml": {
+                                    "name": "IntegrationForbiddenListRestrictionDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationForbiddenListRestrictionDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4280,7 +4858,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationItemDto"
+                                "xml": {
+                                    "name": "IntegrationItemDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationItemDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4366,7 +4951,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationOptionalListRestrictionDto"
+                                "xml": {
+                                    "name": "IntegrationOptionalListRestrictionDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationOptionalListRestrictionDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4452,7 +5044,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationPaymentTermDto"
+                                "xml": {
+                                    "name": "IntegrationPaymentTermDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationPaymentTermDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4538,7 +5137,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationPeriodDto"
+                                "xml": {
+                                    "name": "IntegrationPeriodDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationPeriodDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4624,7 +5230,8 @@
                         "in": "query",
                         "x-nullable": false,
                         "description": "The offset",
-                        "format": "int32"
+                        "format": "int32",
+                        "default": 0
                     },
                     {
                         "type": "integer",
@@ -4632,14 +5239,16 @@
                         "in": "query",
                         "x-nullable": false,
                         "description": "The number of records returned(max 1000)",
-                        "format": "int32"
+                        "format": "int32",
+                        "default": 1000
                     },
                     {
                         "type": "boolean",
                         "name": "includeLines",
                         "in": "query",
                         "x-nullable": false,
-                        "description": "Include purchase order lines with delivery lines and items data in the response or not"
+                        "description": "Include purchase order lines with delivery lines and items data in the response or not",
+                        "default": false
                     },
                     {
                         "type": "string",
@@ -4674,7 +5283,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationPurchaseOrderDto"
+                                "xml": {
+                                    "name": "IntegrationPurchaseOrderDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationPurchaseOrderDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4760,7 +5376,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationRangeRestrictionDto"
+                                "xml": {
+                                    "name": "IntegrationRangeRestrictionDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationRangeRestrictionDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4846,7 +5469,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationRequiredListRestrictionDto"
+                                "xml": {
+                                    "name": "IntegrationRequiredListRestrictionDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationRequiredListRestrictionDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -4932,7 +5562,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationBasicRestrictionsDto"
+                                "xml": {
+                                    "name": "IntegrationBasicRestrictionsDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationBasicRestrictionsDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -5018,7 +5655,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationSupplierConfigurationDto"
+                                "xml": {
+                                    "name": "IntegrationSupplierConfigurationDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationSupplierConfigurationDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -5104,7 +5748,8 @@
                         "in": "query",
                         "x-nullable": false,
                         "description": "The offset",
-                        "format": "int32"
+                        "format": "int32",
+                        "default": 0
                     },
                     {
                         "type": "integer",
@@ -5112,7 +5757,8 @@
                         "in": "query",
                         "x-nullable": false,
                         "description": "The number of records returned(max 1000)",
-                        "format": "int32"
+                        "format": "int32",
+                        "default": 1000
                     },
                     {
                         "type": "string",
@@ -5147,7 +5793,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationSupplierDto"
+                                "xml": {
+                                    "name": "IntegrationSupplierDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationSupplierDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -5398,7 +6051,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice Preliminary, Finally or Cancel"
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
                     },
                     {
                         "type": "string",
@@ -5447,7 +6100,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice Preliminary, Finally or Cancel"
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
                     },
                     {
                         "type": "string",
@@ -5536,7 +6189,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationTaxGroupDto"
+                                "xml": {
+                                    "name": "IntegrationTaxGroupDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationTaxGroupDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -5559,7 +6219,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The POST method allows the client to send units that will be imported by the Mediusflow master data import queue.\nThe units have no prerequisit.\nRemember that the functionality around units is limited in Mediusflow and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Mediusflow => '-'",
+                "summary": "The POST method allows the client to send units that will be imported by the Mediusflow master data import queue.\nThe units have no prerequisit.\nRemember that the functionality around units is limited in Mediusflow and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Mediusflow =&gt; '-'",
                 "operationId": "UnitImportBatch_Post",
                 "parameters": [
                     {
@@ -5568,7 +6228,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationUnitDto"
+                                "xml": {
+                                    "name": "IntegrationUnitDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationUnitDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -5654,7 +6321,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationUserConfigurationDto"
+                                "xml": {
+                                    "name": "IntegrationUserConfigurationDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationUserConfigurationDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
@@ -5740,7 +6414,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/IntegrationUserDto"
+                                "xml": {
+                                    "name": "IntegrationUserDto"
+                                },
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/IntegrationUserDto"
+                                    }
+                                ]
                             }
                         },
                         "x-nullable": true,
