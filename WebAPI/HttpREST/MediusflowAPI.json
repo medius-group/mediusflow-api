@@ -36,11 +36,7 @@
                     "xml": {
                         "name": "AccrualCodeString"
                     },
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
-                        }
-                    ]
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "AccrualPeriods": {
                     "type": "array",
@@ -51,11 +47,7 @@
                         "xml": {
                             "name": "IntegrationImportAccrualPeriodDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationImportAccrualPeriodDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationImportAccrualPeriodDto"
                     }
                 },
                 "IsActive": {
@@ -231,11 +223,7 @@
                     "xml": {
                         "name": "ActualPaymentDate"
                     },
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/IntegrationActualPaymentDateDto"
-                        }
-                    ]
+                    "$ref": "#/definitions/IntegrationActualPaymentDateDto"
                 },
                 "CorrelationKey": {
                     "type": "string"
@@ -442,11 +430,7 @@
                         "xml": {
                             "name": "IntegrationCompanyIdentifierDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
                     }
                 }
             }
@@ -912,11 +896,7 @@
                         "xml": {
                             "name": "IntegrationErrorDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationErrorDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationErrorDto"
                     }
                 },
                 "CorrelationKey": {
@@ -1074,11 +1054,7 @@
                         "xml": {
                             "name": "IntegrationSupplierItemDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationSupplierItemDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationSupplierItemDto"
                     }
                 },
                 "ExternalSystemId": {
@@ -1713,11 +1689,7 @@
                         "xml": {
                             "name": "IntegrationPurchaseOrderLineDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
                     }
                 }
             }
@@ -1825,11 +1797,7 @@
                         "xml": {
                             "name": "IntegrationPreCodingLineDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationPreCodingLineDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationPreCodingLineDto"
                     }
                 },
                 "ConversionFactor": {
@@ -1874,11 +1842,7 @@
                         "xml": {
                             "name": "IntegrationDeliveryLineDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationDeliveryLineDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationDeliveryLineDto"
                     }
                 },
                 "TaxIndicator1": {
@@ -1910,11 +1874,7 @@
                     "xml": {
                         "name": "Dimensions"
                     },
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
-                        }
-                    ]
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "Type": {
                     "type": "string"
@@ -2286,11 +2246,7 @@
                         "xml": {
                             "name": "IntegrationRestrictedDimensionDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
                     }
                 }
             }
@@ -2318,11 +2274,7 @@
                     "xml": {
                         "name": "RestrictionType"
                     },
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/RestrictionType"
-                        }
-                    ]
+                    "$ref": "#/definitions/RestrictionType"
                 }
             }
         },
@@ -2370,11 +2322,7 @@
                         "xml": {
                             "name": "IntegrationContactPersonDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationContactPersonDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationContactPersonDto"
                     }
                 }
             }
@@ -2525,11 +2473,7 @@
                         "xml": {
                             "name": "IntegrationSupplierIdentifierDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
                     }
                 },
                 "Name": {
@@ -2733,11 +2677,7 @@
                         "xml": {
                             "name": "IntegrationPaymentDetailsDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationPaymentDetailsDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationPaymentDetailsDto"
                     }
                 }
             }
@@ -2785,11 +2725,7 @@
                         "xml": {
                             "name": "IntegrationPaymentDetailsIdentifierDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
                     }
                 },
                 "IsActive": {
@@ -3079,11 +3015,7 @@
                         "xml": {
                             "name": "IntegrationTaxCodeDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationTaxCodeDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationTaxCodeDto"
                     }
                 },
                 "IndicatorNumber": {
@@ -3184,11 +3116,7 @@
                     "xml": {
                         "name": "Dimensions"
                     },
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
-                        }
-                    ]
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "IsActive": {
                     "type": "boolean"
@@ -3323,11 +3251,7 @@
                     "xml": {
                         "name": "PreCodingDimensions"
                     },
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
-                        }
-                    ]
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "AuthorizationGroups": {
                     "type": "array",
@@ -3338,11 +3262,7 @@
                         "xml": {
                             "name": "IntegrationAuthorizationGroupDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
                     }
                 },
                 "FollowupGroups": {
@@ -3354,11 +3274,7 @@
                         "xml": {
                             "name": "IntegrationFollowupGroupDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationFollowupGroupDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationFollowupGroupDto"
                     }
                 },
                 "TemporaryDelegations": {
@@ -3370,11 +3286,7 @@
                         "xml": {
                             "name": "IntegrationTemporaryDelegationDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationTemporaryDelegationDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationTemporaryDelegationDto"
                     }
                 }
             }
@@ -3494,11 +3406,7 @@
                         "xml": {
                             "name": "IntegrationRoleCompanyDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationRoleCompanyDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationRoleCompanyDto"
                     }
                 },
                 "IdentityProviders": {
@@ -3510,11 +3418,7 @@
                         "xml": {
                             "name": "IntegrationIdentityProviderDto"
                         },
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/IntegrationIdentityProviderDto"
-                            }
-                        ]
+                        "$ref": "#/definitions/IntegrationIdentityProviderDto"
                     }
                 },
                 "CustomField_Text1": {
@@ -3636,11 +3540,7 @@
                     "xml": {
                         "name": "Voucher"
                     },
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/IntegrationResponseVoucherDto"
-                        }
-                    ]
+                    "$ref": "#/definitions/IntegrationResponseVoucherDto"
                 },
                 "CorrelationKey": {
                     "type": "string"
@@ -3752,11 +3652,7 @@
                                 "xml": {
                                     "name": "IntegrationAccrualTemplateDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationAccrualTemplateDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationAccrualTemplateDto"
                             }
                         },
                         "x-nullable": true,
@@ -3984,11 +3880,7 @@
                                 "xml": {
                                     "name": "IntegrationCompanyDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationCompanyDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationCompanyDto"
                             }
                         },
                         "x-nullable": true,
@@ -4077,11 +3969,7 @@
                                 "xml": {
                                     "name": "IntegrationCurrencyDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationCurrencyDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationCurrencyDto"
                             }
                         },
                         "x-nullable": true,
@@ -4170,11 +4058,7 @@
                                 "xml": {
                                     "name": "IntegrationCurrencyRateDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationCurrencyRateDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationCurrencyRateDto"
                             }
                         },
                         "x-nullable": true,
@@ -4263,11 +4147,7 @@
                                 "xml": {
                                     "name": "IntegrationDeliveryTermDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationDeliveryTermDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationDeliveryTermDto"
                             }
                         },
                         "x-nullable": true,
@@ -4356,11 +4236,7 @@
                                 "xml": {
                                     "name": "IntegrationDimensionValueConfigurationDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationDimensionValueConfigurationDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationDimensionValueConfigurationDto"
                             }
                         },
                         "x-nullable": true,
@@ -4449,11 +4325,7 @@
                                 "xml": {
                                     "name": "IntegrationDimensionValueDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationDimensionValueDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationDimensionValueDto"
                             }
                         },
                         "x-nullable": true,
@@ -4768,11 +4640,7 @@
                                 "xml": {
                                     "name": "IntegrationForbiddenListRestrictionDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationForbiddenListRestrictionDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationForbiddenListRestrictionDto"
                             }
                         },
                         "x-nullable": true,
@@ -4861,11 +4729,7 @@
                                 "xml": {
                                     "name": "IntegrationItemDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationItemDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationItemDto"
                             }
                         },
                         "x-nullable": true,
@@ -4954,11 +4818,7 @@
                                 "xml": {
                                     "name": "IntegrationOptionalListRestrictionDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationOptionalListRestrictionDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationOptionalListRestrictionDto"
                             }
                         },
                         "x-nullable": true,
@@ -5047,11 +4907,7 @@
                                 "xml": {
                                     "name": "IntegrationPaymentTermDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationPaymentTermDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationPaymentTermDto"
                             }
                         },
                         "x-nullable": true,
@@ -5140,11 +4996,7 @@
                                 "xml": {
                                     "name": "IntegrationPeriodDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationPeriodDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationPeriodDto"
                             }
                         },
                         "x-nullable": true,
@@ -5286,11 +5138,7 @@
                                 "xml": {
                                     "name": "IntegrationPurchaseOrderDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationPurchaseOrderDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationPurchaseOrderDto"
                             }
                         },
                         "x-nullable": true,
@@ -5379,11 +5227,7 @@
                                 "xml": {
                                     "name": "IntegrationRangeRestrictionDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationRangeRestrictionDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationRangeRestrictionDto"
                             }
                         },
                         "x-nullable": true,
@@ -5472,11 +5316,7 @@
                                 "xml": {
                                     "name": "IntegrationRequiredListRestrictionDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationRequiredListRestrictionDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationRequiredListRestrictionDto"
                             }
                         },
                         "x-nullable": true,
@@ -5565,11 +5405,7 @@
                                 "xml": {
                                     "name": "IntegrationBasicRestrictionsDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationBasicRestrictionsDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationBasicRestrictionsDto"
                             }
                         },
                         "x-nullable": true,
@@ -5658,11 +5494,7 @@
                                 "xml": {
                                     "name": "IntegrationSupplierConfigurationDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationSupplierConfigurationDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationSupplierConfigurationDto"
                             }
                         },
                         "x-nullable": true,
@@ -5796,11 +5628,7 @@
                                 "xml": {
                                     "name": "IntegrationSupplierDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationSupplierDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationSupplierDto"
                             }
                         },
                         "x-nullable": true,
@@ -6192,11 +6020,7 @@
                                 "xml": {
                                     "name": "IntegrationTaxGroupDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationTaxGroupDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationTaxGroupDto"
                             }
                         },
                         "x-nullable": true,
@@ -6231,11 +6055,7 @@
                                 "xml": {
                                     "name": "IntegrationUnitDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationUnitDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationUnitDto"
                             }
                         },
                         "x-nullable": true,
@@ -6324,11 +6144,7 @@
                                 "xml": {
                                     "name": "IntegrationUserConfigurationDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationUserConfigurationDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationUserConfigurationDto"
                             }
                         },
                         "x-nullable": true,
@@ -6417,11 +6233,7 @@
                                 "xml": {
                                     "name": "IntegrationUserDto"
                                 },
-                                "allOf": [
-                                    {
-                                        "$ref": "#/definitions/IntegrationUserDto"
-                                    }
-                                ]
+                                "$ref": "#/definitions/IntegrationUserDto"
                             }
                         },
                         "x-nullable": true,
