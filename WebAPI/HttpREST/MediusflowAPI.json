@@ -5309,7 +5309,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "The GET method returns the purchase order content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "summary": "The GET method returns the purchase order content from a message that matches the provided status and id.\nIf the message id is in another status, nothing is returned. To find a message, use the other GET method that only requires message id as input.",
                 "operationId": "PurchaseOrderRequestMessage_Get",
                 "parameters": [
                     {
@@ -5318,7 +5318,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The id of the message"
+                        "description": "Message id"
                     },
                     {
                         "type": "integer",
@@ -5326,7 +5326,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error",
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
                         "format": "int32"
                     }
                 ],
@@ -5344,7 +5344,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method updates the status for a purchase order message when processing it.",
+                "summary": "This method updates the status of a purchase order message when processing it.",
                 "operationId": "PurchaseOrderRequestMessage_Put",
                 "parameters": [
                     {
@@ -5354,7 +5354,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "The status to set. Possible statuses Fetched and Processing, Sent"
+                        "description": "Status to set. Possible statuses are: Fetched and Processing, Sent"
                     },
                     {
                         "type": "integer",
@@ -5362,7 +5362,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message id to change status for",
+                        "description": "Message id to change the status for",
                         "format": "int32"
                     },
                     {
@@ -5371,7 +5371,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The status that the message is in before the status change"
+                        "description": "Status that the message is in before the status change"
                     }
                 ],
                 "responses": {
@@ -5390,7 +5390,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "The GET method with message id as input will return a status and an efective link to the real purchase order content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "The GET method with message id as input returns a status and an effective link to real purchase order content.\nThis method allows you to check the status of a given message.",
                 "operationId": "PurchaseOrderRequestMessage_GetStatus",
                 "parameters": [
                     {
@@ -5399,7 +5399,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message id of the message to find/check status",
+                        "description": "Message id",
                         "format": "int32"
                     }
                 ],
@@ -5419,7 +5419,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type\nThe correalation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeing all messages would be ;;;;;; for a correlation key looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nListing for a given company would give the following filter: ERPID;company[49];;;;",
+                "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_GetMessagesIds",
                 "parameters": [
                     {
@@ -5428,21 +5428,21 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message statuses, these are: Posted, Fetched, Processing, Sent, Closed or Error"
+                        "description": "Message statuses. these are: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "string",
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "The message tags, these can be the following for a purchase order REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
                     },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
+                        "description": "The correlation key filter as explained in the summary "
                     }
                 ],
                 "responses": {
@@ -5459,7 +5459,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method updates the status for all purchase order messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns purchase order messages, please read there for details.",
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Put2",
                 "parameters": [
                     {
@@ -5469,7 +5469,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "The status that you want to change"
+                        "description": "Status that you want to set"
                     },
                     {
                         "type": "string",
@@ -5477,14 +5477,14 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message statuses, these are: Posted, Fetched, Processing, Sent, Closed or Error"
+                        "description": "Message statuses. These are: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "string",
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "The message tags, these can be the following for purchase order REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
                     },
                     {
                         "type": "string",
@@ -5510,7 +5510,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a error message object including a list of error messages.\nThe error message object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
+                "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "PurchaseOrderRequestMessage_Post",
                 "parameters": [
                     {
@@ -5538,7 +5538,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a purchase order confirmation as a response to the purchase order message that was retrieved in earlier step.\nThe purchase order confirmation object includes a CorrelationKey that need to match the corresponding purchase order message.",
+                "summary": "This method accepts a purchase order confirmation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order confirmation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
                 "operationId": "PurchaseOrderRequestMessage_Post2",
                 "parameters": [
                     {
@@ -5566,7 +5566,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a purchase order cancellation as a response to the purchase order message that was retrieved in earlier step.\nThe purchase order cancellation object includes a CorrelationKey that need to match the corresponding purchase order message.",
+                "summary": "This method accepts a purchase order cancellation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order cancellation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
                 "operationId": "PurchaseOrderRequestMessage_PostCancellation",
                 "parameters": [
                     {
