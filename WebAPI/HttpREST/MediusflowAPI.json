@@ -4496,7 +4496,7 @@
                 "tags": [
                     "DocumentMediaExport"
                 ],
-                "summary": "This method returns a list of file links for a document identified by parameter 'documentId'.\nEach file link consists of the original file name and a link for downloading this file.",
+                "summary": "This method returns a list of file links for a document identified by parameter 'documentId'.\nEach file link consists of the original file name and a link for downloading this file.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetDocumentImagesLinks",
                 "parameters": [
                     {
@@ -4525,7 +4525,7 @@
                 "tags": [
                     "DocumentMediaExport"
                 ],
-                "summary": "This method returns a file with the given hash for a document identified by parameter 'documentId'.\nYou can get a link for this file, containing hash, by calling 'integration/media/v1/document/{documentId}/images'.",
+                "summary": "This method returns a file with the given hash for a document identified by parameter 'documentId'.\nYou can get a link for this file, containing hash, by calling 'integration/media/v1/document/{documentId}/images'.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetImage",
                 "parameters": [
                     {
@@ -4562,7 +4562,7 @@
                 "tags": [
                     "DocumentMediaExport"
                 ],
-                "summary": "This method returns the list of attachment links for a document identified by parameter 'documentId'.\nEach attachment link consists of the original attachment name, and a link for downloading this attachment.",
+                "summary": "This method returns the list of attachment links for a document identified by parameter 'documentId'.\nEach attachment link consists of the original attachment name, and a link for downloading this attachment.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetDocumentAttachmentsLinks",
                 "parameters": [
                     {
@@ -4591,7 +4591,7 @@
                 "tags": [
                     "DocumentMediaExport"
                 ],
-                "summary": "This method returns the attachment with a given hash for the document identified by parameter 'documentId'.\nYou can get the link for this attachment, containing hash, by calling 'integration/media/v1/document/{documentId}/attachments'.",
+                "summary": "This method returns the attachment with a given hash for the document identified by parameter 'documentId'.\nYou can get the link for this attachment, containing hash, by calling 'integration/media/v1/document/{documentId}/attachments'.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetAttachment",
                 "parameters": [
                     {
