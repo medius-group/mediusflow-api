@@ -2014,6 +2014,109 @@
                 }
             }
         },
+        "StatusRequest": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "NewStatus": {
+                    "type": "string"
+                }
+            }
+        },
+        "OrderRequestResponseDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "CorrelationKey": {
+                    "type": "string"
+                },
+                "ResponseData": {
+                    "$ref": "#/definitions/ConfirmationDataDto"
+                }
+            }
+        },
+        "ConfirmationDataDto": {
+            "type": "object",
+            "xml": {
+                "name": "ConfirmationData"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ExternalOrderNumber": {
+                    "type": "string"
+                }
+            }
+        },
         "IntegrationRangeRestrictionDto": {
             "type": "object",
             "xml": {
@@ -2324,6 +2427,10 @@
                         },
                         "$ref": "#/definitions/IntegrationContactPersonDto"
                     }
+                },
+                "ExpectedDeliveryDays": {
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
         },
@@ -2898,15 +3005,6 @@
                 "FinalDocumentId": {
                     "type": "integer",
                     "format": "int32"
-                }
-            }
-        },
-        "StatusRequest": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "NewStatus": {
-                    "type": "string"
                 }
             }
         },
@@ -5197,6 +5295,291 @@
                         "required": true,
                         "x-nullable": false,
                         "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseOrders/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "The GET method returns the purchase order content from a message that matches the provided status and id.\nIf the message id is in another status, nothing is returned. To find a message, use the other GET method that only requires message id as input.",
+                "operationId": "PurchaseOrderRequestMessage_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates the status of a purchase order message when processing it.",
+                "operationId": "PurchaseOrderRequestMessage_Put",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status to set. Possible statuses are: Fetched and Processing, Sent"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id to change the status for",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Status that the message is in before the status change"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseOrders/{messageId}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "The GET method with message id as input returns a status and an effective link to real purchase order content.\nThis method allows you to check the status of a given message.",
+                "operationId": "PurchaseOrderRequestMessage_GetStatus",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseOrders/{messageStatus}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_GetMessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message statuses. these are: Posted, Fetched, Processing, Sent, Closed or Error"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message statuses. These are: Posted, Fetched, Processing, Sent, Closed or Error"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/errors": {
+            "post": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "operationId": "PurchaseOrderRequestMessage_Post",
+                "parameters": [
+                    {
+                        "name": "dto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/PurchaseOrderRequestConfirmation": {
+            "post": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method accepts a purchase order confirmation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order confirmation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
+                "operationId": "PurchaseOrderRequestMessage_Post2",
+                "parameters": [
+                    {
+                        "name": "confirmationDto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/OrderRequestResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/PurchaseOrderCancelationConfirmation": {
+            "post": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method accepts a purchase order cancellation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order cancellation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
+                "operationId": "PurchaseOrderRequestMessage_PostCancellation",
+                "parameters": [
+                    {
+                        "name": "confirmationDto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/OrderRequestResponseDto"
+                        },
+                        "x-nullable": true
                     }
                 ],
                 "responses": {
