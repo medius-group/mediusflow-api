@@ -2428,7 +2428,7 @@
                         "$ref": "#/definitions/IntegrationContactPersonDto"
                     }
                 },
-                "ExpectedDeliveryDays": {
+                "ExpectedDeliveryTimeInDays": {
                     "type": "integer",
                     "format": "int32"
                 }
@@ -5308,7 +5308,7 @@
                 }
             }
         },
-        "/integration/message/v1/procurement/purchaseOrders/{messageStatus}/{messageId}": {
+        "/integration/message/v1/procurement/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
                     "PurchaseOrderRequestMessage"
@@ -5389,7 +5389,7 @@
                 }
             }
         },
-        "/integration/message/v1/procurement/purchaseOrders/{messageId}": {
+        "/integration/message/v1/procurement/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
                     "PurchaseOrderRequestMessage"
@@ -5418,7 +5418,7 @@
                 }
             }
         },
-        "/integration/message/v1/procurement/purchaseOrders/{messageStatus}": {
+        "/integration/message/v1/procurement/purchaseorders/{messageStatus}": {
             "get": {
                 "tags": [
                     "PurchaseOrderRequestMessage"
@@ -5537,7 +5537,7 @@
                 }
             }
         },
-        "/integration/message/v1/procurement/PurchaseOrderRequestConfirmation": {
+        "/integration/message/v1/procurement/purchaseorderrequestconfirmation": {
             "post": {
                 "tags": [
                     "PurchaseOrderRequestMessage"
@@ -5565,7 +5565,7 @@
                 }
             }
         },
-        "/integration/message/v1/procurement/PurchaseOrderCancelationConfirmation": {
+        "/integration/message/v1/procurement/purchaseordercancelationconfirmation": {
             "post": {
                 "tags": [
                     "PurchaseOrderRequestMessage"
