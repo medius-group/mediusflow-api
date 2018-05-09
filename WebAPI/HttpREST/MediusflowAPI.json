@@ -26,6 +26,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "Name": {
                     "type": "string"
                 },
@@ -327,6 +330,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -460,6 +466,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -553,6 +562,9 @@
                 "EndDate"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -656,6 +668,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -756,6 +771,9 @@
             },
             "additionalProperties": false,
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "Company": {
                     "type": "string"
                 },
@@ -781,6 +799,9 @@
                 "IsFictive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -926,6 +947,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "xml": {
@@ -1030,6 +1054,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "IsActive": {
                     "type": "boolean"
                 },
@@ -1139,6 +1166,9 @@
             },
             "additionalProperties": false,
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -1243,6 +1273,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "xml": {
@@ -1349,6 +1382,9 @@
                 "NumberOfFreeMonths"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -1457,6 +1493,9 @@
                 "IsOpen"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "Name": {
                     "type": "string"
                 },
@@ -1571,6 +1610,9 @@
                 "RegisterDate"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -1708,6 +1750,9 @@
                 "IsServiceBased"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -1897,6 +1942,9 @@
                 "IsFictive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -2014,6 +2062,46 @@
                 }
             }
         },
+        "BatchDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "ItemsCount",
+                "ItemsSaved",
+                "IsSuccessful"
+            ],
+            "properties": {
+                "State": {
+                    "type": "string"
+                },
+                "Details": {
+                    "type": "string"
+                },
+                "ItemsCount": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ItemsSaved": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "IsSuccessful": {
+                    "type": "boolean"
+                },
+                "ErrorMessages": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
+                }
+            }
+        },
         "StatusRequest": {
             "type": "object",
             "additionalProperties": false,
@@ -2127,6 +2215,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "RestrictedDimensionName": {
                     "type": "string"
                 },
@@ -2236,6 +2327,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "RestrictedDimensionKeys": {
                     "type": "array",
                     "xml": {
@@ -2337,6 +2431,9 @@
             },
             "additionalProperties": false,
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ControllingDimensionValueKey": {
                     "type": "string"
                 },
@@ -2404,6 +2501,9 @@
             },
             "additionalProperties": false,
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "Company": {
                     "type": "string"
                 },
@@ -2431,6 +2531,9 @@
                 "ExpectedDeliveryTimeInDays": {
                     "type": "integer",
                     "format": "int32"
+                },
+                "SendPurchaseOrderAsIntegrationMessage": {
+                    "type": "boolean"
                 }
             }
         },
@@ -2489,6 +2592,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -2917,6 +3023,9 @@
             },
             "additionalProperties": false,
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "Value": {
                     "type": "string"
                 },
@@ -3019,6 +3128,9 @@
                 "IndicatorNumber"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -3134,6 +3246,9 @@
                 "Percentage"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -3245,6 +3360,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "ExternalSystemId": {
                     "type": "string"
                 },
@@ -3333,6 +3451,9 @@
             },
             "additionalProperties": false,
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "UserName": {
                     "type": "string"
                 },
@@ -3465,6 +3586,9 @@
                 "IsActive"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "IsActive": {
                     "type": "boolean"
                 },
@@ -3601,6 +3725,9 @@
                 "ToBeRemoved"
             ],
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "RoleName": {
                     "type": "string"
                 },
@@ -3619,6 +3746,9 @@
             },
             "additionalProperties": false,
             "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
                 "IdentityProviderName": {
                     "type": "string"
                 },
@@ -5275,7 +5405,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
