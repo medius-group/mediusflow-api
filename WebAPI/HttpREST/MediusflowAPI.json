@@ -215,6 +215,46 @@
                 }
             }
         },
+        "BatchDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "ItemsCount",
+                "ItemsSaved",
+                "IsSuccessful"
+            ],
+            "properties": {
+                "State": {
+                    "type": "string"
+                },
+                "Details": {
+                    "type": "string"
+                },
+                "ItemsCount": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ItemsSaved": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "IsSuccessful": {
+                    "type": "boolean"
+                },
+                "ErrorMessages": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
+                }
+            }
+        },
         "ActualPaymentDateResponseDto": {
             "type": "object",
             "xml": {
@@ -316,6 +356,189 @@
                 "ActualPaymentDate": {
                     "type": "string",
                     "format": "date-time"
+                }
+            }
+        },
+        "StatusLink": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Ref": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "string"
+                }
+            }
+        },
+        "CompanyExportPageDto": {
+            "type": "object",
+            "xml": {
+                "name": "CompanyPage"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Total",
+                "Offset",
+                "Limit"
+            ],
+            "properties": {
+                "Total": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Offset": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Limit": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Companies": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "CompanyDto"
+                        },
+                        "$ref": "#/definitions/CompanyDto"
+                    }
+                },
+                "Paging": {
+                    "xml": {
+                        "name": "Paging"
+                    },
+                    "$ref": "#/definitions/Paging"
+                }
+            }
+        },
+        "CompanyDto": {
+            "type": "object",
+            "xml": {
+                "name": "Company"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsVirtualCompany",
+                "IsActive"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "OrganizationNumber": {
+                    "type": "string"
+                },
+                "ParentCompany": {
+                    "type": "string"
+                },
+                "IsVirtualCompany": {
+                    "type": "boolean"
+                },
+                "Identifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IdentifierDto"
+                        },
+                        "$ref": "#/definitions/IdentifierDto"
+                    }
+                },
+                "Addresses": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "AddressDto"
+                        },
+                        "$ref": "#/definitions/AddressDto"
+                    }
+                },
+                "IsActive": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "IdentifierDto": {
+            "type": "object",
+            "xml": {
+                "name": "Identifier"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "IdentifierType": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddressDto": {
+            "type": "object",
+            "xml": {
+                "name": "Address"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "AddressType": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "StreetAddress": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "Telephone": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "Homepage": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                }
+            }
+        },
+        "Paging": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Previous": {
+                    "type": "string"
+                },
+                "Next": {
+                    "type": "string"
                 }
             }
         },
@@ -898,6 +1121,18 @@
                 },
                 "IsFictive": {
                     "type": "boolean"
+                }
+            }
+        },
+        "FileLink": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Ref": {
+                    "type": "string"
+                },
+                "FileName": {
+                    "type": "string"
                 }
             }
         },
@@ -1598,6 +1833,312 @@
                 }
             }
         },
+        "PurchaseOrderExportPageDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderPage"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Offset",
+                "Limit",
+                "Total"
+            ],
+            "properties": {
+                "PurchaseOrders": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "PurchaseOrderDto"
+                        },
+                        "$ref": "#/definitions/PurchaseOrderDto"
+                    }
+                },
+                "Offset": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Limit": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Total": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Paging": {
+                    "xml": {
+                        "name": "Paging"
+                    },
+                    "$ref": "#/definitions/Paging"
+                }
+            }
+        },
+        "PurchaseOrderDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrder"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "SupplierId": {
+                    "type": "string"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "CompanyName": {
+                    "type": "string"
+                },
+                "PurchaseOrderLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "PurchaseOrderLineDto"
+                        },
+                        "$ref": "#/definitions/PurchaseOrderLineDto"
+                    }
+                },
+                "OrderIdentifier": {
+                    "type": "string"
+                },
+                "OrderIdentifier2": {
+                    "type": "string"
+                },
+                "SupplierName": {
+                    "type": "string"
+                },
+                "OrderType": {
+                    "type": "string"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MasterDataDto"
+                }
+            ]
+        },
+        "PurchaseOrderLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "UnitPrice",
+                "Quantity",
+                "IsServiceBased"
+            ],
+            "properties": {
+                "LineNumber": {
+                    "type": "string"
+                },
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "IsServiceBased": {
+                    "type": "boolean"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "DeliveryLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "DeliveryLineDto"
+                        },
+                        "$ref": "#/definitions/DeliveryLineDto"
+                    }
+                },
+                "SupplierItems": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "SupplierItemDto"
+                        },
+                        "$ref": "#/definitions/SupplierItemDto"
+                    }
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MasterDataDto"
+                }
+            ]
+        },
+        "DeliveryLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "DeliveryLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "DeliveredQuantity",
+                "DeliveredDate"
+            ],
+            "properties": {
+                "DeliveredQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveredDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryNote": {
+                    "type": "string"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MasterDataDto"
+                }
+            ]
+        },
+        "MasterDataDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                }
+            }
+        },
+        "SupplierItemDto": {
+            "type": "object",
+            "xml": {
+                "name": "SupplierItem"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "ItemNumber": {
+                    "type": "string"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MasterDataDto"
+                }
+            ]
+        },
         "IntegrationPurchaseOrderDto": {
             "type": "object",
             "xml": {
@@ -2062,43 +2603,242 @@
                 }
             }
         },
-        "BatchDto": {
+        "PurchaseOrderRequestMessageDto": {
             "type": "object",
+            "xml": {
+                "name": "PurchaseOrder"
+            },
             "additionalProperties": false,
             "required": [
-                "ItemsCount",
-                "ItemsSaved",
-                "IsSuccessful"
+                "DocumentId",
+                "OrderDate",
+                "Total",
+                "RequestedDeliveryDate"
             ],
             "properties": {
-                "State": {
+                "CorrelationKey": {
                     "type": "string"
                 },
-                "Details": {
+                "CompanyId": {
                     "type": "string"
                 },
-                "ItemsCount": {
+                "From": {
+                    "xml": {
+                        "name": "From"
+                    },
+                    "$ref": "#/definitions/CompanyDto"
+                },
+                "DocumentId": {
                     "type": "integer",
                     "format": "int32"
                 },
-                "ItemsSaved": {
-                    "type": "integer",
-                    "format": "int32"
+                "To": {
+                    "xml": {
+                        "name": "To"
+                    },
+                    "$ref": "#/definitions/SupplierDto"
                 },
-                "IsSuccessful": {
-                    "type": "boolean"
+                "SupplierId": {
+                    "type": "string"
                 },
-                "ErrorMessages": {
+                "OrderDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "OrderNumber": {
+                    "type": "string"
+                },
+                "RequisitionId": {
+                    "type": "string"
+                },
+                "Total": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "RequestedDeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ShipToAddress": {
+                    "type": "string"
+                },
+                "ShipToAddressDetails": {
+                    "xml": {
+                        "name": "ShipToAddressDetails"
+                    },
+                    "$ref": "#/definitions/AddressDto"
+                },
+                "BillToAddress": {
+                    "type": "string"
+                },
+                "BillToAddressDetails": {
+                    "xml": {
+                        "name": "BillToAddressDetails"
+                    },
+                    "$ref": "#/definitions/AddressDto"
+                },
+                "PaymentTermId": {
+                    "type": "string"
+                },
+                "PaymentTermName": {
+                    "type": "string"
+                },
+                "PaymentTermDescription": {
+                    "type": "string"
+                },
+                "DeliveryTermId": {
+                    "type": "string"
+                },
+                "DeliveryTermName": {
+                    "type": "string"
+                },
+                "DeliveryTermDescription": {
+                    "type": "string"
+                },
+                "DeliveryTermLocation": {
+                    "type": "string"
+                },
+                "OurReference": {
+                    "type": "string"
+                },
+                "OurReferenceEmail": {
+                    "type": "string"
+                },
+                "Buyer": {
+                    "type": "string"
+                },
+                "BuyerEmail": {
+                    "type": "string"
+                },
+                "YourReference": {
+                    "type": "string"
+                },
+                "ShippingMarks": {
+                    "type": "string"
+                },
+                "Comments": {
+                    "type": "string"
+                },
+                "ERPId": {
+                    "type": "string"
+                },
+                "Lines": {
                     "type": "array",
                     "xml": {
                         "wrapped": true
                     },
                     "items": {
-                        "type": "string",
                         "xml": {
-                            "name": "String"
-                        }
+                            "name": "PurchaseOrderLineDto"
+                        },
+                        "$ref": "#/definitions/PurchaseOrderLineDto"
                     }
+                }
+            }
+        },
+        "SupplierDto": {
+            "type": "object",
+            "xml": {
+                "name": "Supplier"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Identifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IdentifierDto"
+                        },
+                        "$ref": "#/definitions/IdentifierDto"
+                    }
+                },
+                "Address": {
+                    "xml": {
+                        "name": "Address"
+                    },
+                    "$ref": "#/definitions/AddressDto"
+                }
+            }
+        },
+        "CodingDto": {
+            "type": "object",
+            "xml": {
+                "name": "Coding"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Dimension1": {
+                    "type": "string"
+                },
+                "Dimension2": {
+                    "type": "string"
+                },
+                "Dimension3": {
+                    "type": "string"
+                },
+                "Dimension4": {
+                    "type": "string"
+                },
+                "Dimension5": {
+                    "type": "string"
+                },
+                "Dimension6": {
+                    "type": "string"
+                },
+                "Dimension7": {
+                    "type": "string"
+                },
+                "Dimension8": {
+                    "type": "string"
+                },
+                "Dimension9": {
+                    "type": "string"
+                },
+                "Dimension10": {
+                    "type": "string"
+                },
+                "Dimension11": {
+                    "type": "string"
+                },
+                "Dimension12": {
+                    "type": "string"
+                },
+                "FreeText1": {
+                    "type": "string"
+                },
+                "FreeText2": {
+                    "type": "string"
+                },
+                "FreeText3": {
+                    "type": "string"
+                },
+                "FreeText4": {
+                    "type": "string"
+                },
+                "FreeText5": {
+                    "type": "string"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                }
+            }
+        },
+        "Link": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Url": {
+                    "type": "string"
                 }
             }
         },
@@ -2579,6 +3319,50 @@
                 },
                 "Type": {
                     "type": "string"
+                }
+            }
+        },
+        "SupplierExportPageDto": {
+            "type": "object",
+            "xml": {
+                "name": "SupplierPage"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Offset",
+                "Limit",
+                "Total"
+            ],
+            "properties": {
+                "Suppliers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "SupplierDto"
+                        },
+                        "$ref": "#/definitions/SupplierDto"
+                    }
+                },
+                "Offset": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Limit": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Total": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Paging": {
+                    "xml": {
+                        "name": "Paging"
+                    },
+                    "$ref": "#/definitions/Paging"
                 }
             }
         },
@@ -3114,6 +3898,1260 @@
                 "FinalDocumentId": {
                     "type": "integer",
                     "format": "int32"
+                }
+            }
+        },
+        "InvoiceRequestDto": {
+            "type": "object",
+            "xml": {
+                "name": "SupplierInvoice"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "CorrelationKey": {
+                    "type": "string"
+                },
+                "Invoice": {
+                    "xml": {
+                        "name": "Invoice"
+                    },
+                    "$ref": "#/definitions/IntegrationSupplierInvoiceDto"
+                },
+                "Tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationSupplierInvoiceDto": {
+            "type": "object",
+            "xml": {
+                "name": "Invoice"
+            },
+            "additionalProperties": false,
+            "required": [
+                "DocumentId",
+                "CurrencyRate",
+                "IsCurrencyRateImported",
+                "InvoiceDate",
+                "NetAmount",
+                "RoundingAmount",
+                "TaxAmount",
+                "TotalAmount",
+                "TotalCodedNetAmount",
+                "TotalCodedTaxAmount",
+                "IsPaymentBlocked"
+            ],
+            "properties": {
+                "ImportedOrderIdentifier": {
+                    "type": "string"
+                },
+                "ImportedOrderIdentifier2": {
+                    "type": "string"
+                },
+                "DocumentId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "BalanceCodeString": {
+                    "xml": {
+                        "name": "BalanceCodeString"
+                    },
+                    "$ref": "#/definitions/IntegrationBalanceCodeStringDto"
+                },
+                "CompanyExternalSystemId": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "CompanyName": {
+                    "type": "string"
+                },
+                "CompanyIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationCompanyIdentifierDto"
+                        },
+                        "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
+                    }
+                },
+                "CompanyOrganizationNumber": {
+                    "type": "string"
+                },
+                "ConnectedAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ConnectedQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "CurrencyExternalSystemId": {
+                    "type": "string"
+                },
+                "CurrencyRate": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "IsCurrencyRateImported": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyCustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CompanyCustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CompanyCustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CompanyCustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CompanyCustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CompanyCustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CompanyCustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CompanyCustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CompanyCustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CompanyCustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CompanyCustomField_Text1": {
+                    "type": "string"
+                },
+                "CompanyCustomField_Text2": {
+                    "type": "string"
+                },
+                "CompanyCustomField_Text3": {
+                    "type": "string"
+                },
+                "CompanyCustomField_Text4": {
+                    "type": "string"
+                },
+                "CompanyCustomField_Text5": {
+                    "type": "string"
+                },
+                "CompanyCustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyCustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyCustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyCustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyCustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierCustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "SupplierCustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "SupplierCustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "SupplierCustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "SupplierCustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "SupplierCustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "SupplierCustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "SupplierCustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "SupplierCustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "SupplierCustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "SupplierCustomField_Text1": {
+                    "type": "string"
+                },
+                "SupplierCustomField_Text2": {
+                    "type": "string"
+                },
+                "SupplierCustomField_Text3": {
+                    "type": "string"
+                },
+                "SupplierCustomField_Text4": {
+                    "type": "string"
+                },
+                "SupplierCustomField_Text5": {
+                    "type": "string"
+                },
+                "SupplierCustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierCustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierCustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierCustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierCustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierCountry": {
+                    "type": "string"
+                },
+                "SupplierState": {
+                    "type": "string"
+                },
+                "OriginalDocumentType": {
+                    "type": "string"
+                },
+                "DueDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "FinalBookingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ImagePath": {
+                    "type": "string"
+                },
+                "ImageUNCPath": {
+                    "type": "string"
+                },
+                "DocumentURL": {
+                    "type": "string"
+                },
+                "InvoiceDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "InvoiceNumber": {
+                    "type": "string"
+                },
+                "NetAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PaymentTerm": {
+                    "type": "string"
+                },
+                "PreferredPaymentDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "PreliminaryBookingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "PreliminaryVoucherNumber": {
+                    "type": "string"
+                },
+                "FinalVoucherNumber": {
+                    "type": "string"
+                },
+                "RoundingAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "SupplierExternalSystemId": {
+                    "type": "string"
+                },
+                "SupplierId": {
+                    "type": "string"
+                },
+                "SupplierIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationSupplierIdentifierDto"
+                        },
+                        "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
+                    }
+                },
+                "SupplierName": {
+                    "type": "string"
+                },
+                "InvoiceReference": {
+                    "type": "string"
+                },
+                "PaymentReference": {
+                    "type": "string"
+                },
+                "TaxAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "TaxIndicator": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "SupplierTaxIndicator1": {
+                    "type": "string"
+                },
+                "SupplierTaxIndicator2": {
+                    "type": "string"
+                },
+                "TotalAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "TotalCodedNetAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "TotalCodedTaxAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PreliminaryPeriodExternalSystemId": {
+                    "type": "string"
+                },
+                "PreliminaryPeriodName": {
+                    "type": "string"
+                },
+                "FinalPeriodName": {
+                    "type": "string"
+                },
+                "FinalPeriodExternalSystemId": {
+                    "type": "string"
+                },
+                "InvoiceLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationSupplierInvoiceLineDto"
+                        },
+                        "$ref": "#/definitions/IntegrationSupplierInvoiceLineDto"
+                    }
+                },
+                "CodingLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationCodingLineDto"
+                        },
+                        "$ref": "#/definitions/IntegrationCodingLineDto"
+                    }
+                },
+                "TaxLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationTaxLineDto"
+                        },
+                        "$ref": "#/definitions/IntegrationTaxLineDto"
+                    }
+                },
+                "POLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationPurchaseOrderLineInformationDto"
+                        },
+                        "$ref": "#/definitions/IntegrationPurchaseOrderLineInformationDto"
+                    }
+                },
+                "POConnectionLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationPurchaseOrderLineConnectionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationPurchaseOrderLineConnectionDto"
+                    }
+                },
+                "DeviationLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationDeviationLineDto"
+                        },
+                        "$ref": "#/definitions/IntegrationDeviationLineDto"
+                    }
+                },
+                "ExceptionTypeConnections": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationExceptionTypeConnectionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationExceptionTypeConnectionDto"
+                    }
+                },
+                "OrderType": {
+                    "type": "string"
+                },
+                "IsPaymentBlocked": {
+                    "type": "boolean"
+                },
+                "PaymentDetailsExternalSystemId": {
+                    "type": "string"
+                },
+                "PaymentDetailId": {
+                    "type": "string"
+                },
+                "PaymentDetailCustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "PaymentDetailCustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "PaymentDetailCustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "PaymentDetailCustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "PaymentDetailCustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "PaymentDetailCustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PaymentDetailCustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PaymentDetailCustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PaymentDetailCustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PaymentDetailCustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PaymentDetailCustomField_Text1": {
+                    "type": "string"
+                },
+                "PaymentDetailCustomField_Text2": {
+                    "type": "string"
+                },
+                "PaymentDetailCustomField_Text3": {
+                    "type": "string"
+                },
+                "PaymentDetailCustomField_Text4": {
+                    "type": "string"
+                },
+                "PaymentDetailCustomField_Text5": {
+                    "type": "string"
+                },
+                "PaymentDetailCustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "PaymentDetailCustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "PaymentDetailCustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "PaymentDetailCustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "PaymentDetailCustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ERPId": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationBalanceCodeStringDto": {
+            "type": "object",
+            "xml": {
+                "name": "BalanceCodeString"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Amount"
+            ],
+            "properties": {
+                "Dimensions": {
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                }
+            }
+        },
+        "IntegrationSupplierInvoiceLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "InvoiceLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Amount",
+                "LineNumber",
+                "Quantity",
+                "UnitPrice"
+            ],
+            "properties": {
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "LineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "QuantityUnit": {
+                    "type": "string"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "IntegrationCodingLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "CodingLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Amount",
+                "GrossAmount",
+                "CodingLineNumber",
+                "IsEnabled"
+            ],
+            "properties": {
+                "Accrual": {
+                    "xml": {
+                        "name": "Accrual"
+                    },
+                    "$ref": "#/definitions/IntegrationAccrualInformationDto"
+                },
+                "Dimensions": {
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "GrossAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "InvoiceLineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "CodingLineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "IsEnabled": {
+                    "type": "boolean"
+                },
+                "Tag": {
+                    "type": "string"
+                },
+                "POConnectionLineNumbers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "integer",
+                        "format": "int32",
+                        "xml": {
+                            "name": "Int32"
+                        }
+                    }
+                }
+            }
+        },
+        "IntegrationAccrualInformationDto": {
+            "type": "object",
+            "xml": {
+                "name": "AccrualInformation"
+            },
+            "additionalProperties": false,
+            "required": [
+                "NumberOfPeriods",
+                "StartDate",
+                "UseLinesWithAccrualPeriods"
+            ],
+            "properties": {
+                "AccrualTemplateId": {
+                    "type": "string"
+                },
+                "Dimensions": {
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                },
+                "NumberOfPeriods": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "StartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "AccrualPeriods": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationAccrualPeriodDto"
+                        },
+                        "$ref": "#/definitions/IntegrationAccrualPeriodDto"
+                    }
+                },
+                "AccrualErpIdentifier": {
+                    "type": "string"
+                },
+                "UseLinesWithAccrualPeriods": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "IntegrationAccrualPeriodDto": {
+            "type": "object",
+            "xml": {
+                "name": "AccrualPeriod"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Period",
+                "Percentage"
+            ],
+            "properties": {
+                "Period": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Percentage": {
+                    "type": "number",
+                    "format": "decimal"
+                }
+            }
+        },
+        "IntegrationTaxLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "TaxLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Amount",
+                "TaxLineNumber"
+            ],
+            "properties": {
+                "Dimensions": {
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "NetAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "GrossAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CodingLineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "DeductiblePercentage": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Percentage": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "TaxCode": {
+                    "type": "string"
+                },
+                "TaxLineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationPurchaseOrderLineInformationDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderLineInformation"
+            },
+            "additionalProperties": false,
+            "required": [
+                "LineNumber",
+                "ConversionFactor",
+                "Quantity",
+                "UnitPrice"
+            ],
+            "properties": {
+                "LineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "PurchaseOrderNumber": {
+                    "type": "string"
+                },
+                "PurchaseOrderNumber2": {
+                    "type": "string"
+                },
+                "PurchaseOrderLineNumber": {
+                    "type": "string"
+                },
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "ConversionFactor": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Reference": {
+                    "type": "string"
+                },
+                "OrderType": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationPurchaseOrderLineConnectionDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderLineConnection"
+            },
+            "additionalProperties": false,
+            "required": [
+                "ConnectedAmount",
+                "ConnectedQuantity",
+                "ConversionFactor",
+                "IsManual",
+                "LineNumber",
+                "PurchaseOrderLineNumber",
+                "DeliveryLineIsFictive"
+            ],
+            "properties": {
+                "ConnectedAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ConnectedQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ConnectionLevel": {
+                    "type": "string"
+                },
+                "ConversionFactor": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveredQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveredAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveredUnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryNote": {
+                    "type": "string"
+                },
+                "DeliveryNumber": {
+                    "type": "string"
+                },
+                "ReleaseNumber": {
+                    "type": "string"
+                },
+                "InvoiceLineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "IsManual": {
+                    "type": "boolean"
+                },
+                "LineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "PurchaseOrderLineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "TransactionDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CodingLineNumbers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "integer",
+                        "format": "int32",
+                        "xml": {
+                            "name": "Int32"
+                        }
+                    }
+                },
+                "DeliveryLineCustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "DeliveryLineCustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "DeliveryLineCustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "DeliveryLineCustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "DeliveryLineCustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "DeliveryLineCustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryLineCustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryLineCustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryLineCustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryLineCustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryLineCustomField_Text1": {
+                    "type": "string"
+                },
+                "DeliveryLineCustomField_Text2": {
+                    "type": "string"
+                },
+                "DeliveryLineCustomField_Text3": {
+                    "type": "string"
+                },
+                "DeliveryLineCustomField_Text4": {
+                    "type": "string"
+                },
+                "DeliveryLineCustomField_Text5": {
+                    "type": "string"
+                },
+                "DeliveryLineCustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryLineCustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryLineCustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryLineCustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryLineCustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryLineExternalSystemId": {
+                    "type": "string"
+                },
+                "DeliveryLineIsFictive": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "IntegrationDeviationLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "DeviationLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsApproved",
+                "IsAutoCoded",
+                "IsRejected"
+            ],
+            "properties": {
+                "ApprovalUserFirstName": {
+                    "type": "string"
+                },
+                "ApprovalUserLastName": {
+                    "type": "string"
+                },
+                "ApprovalUserUsername": {
+                    "type": "string"
+                },
+                "DeviationAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeviationDays": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "DeviationQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeviationType": {
+                    "type": "string"
+                },
+                "IsApproved": {
+                    "type": "boolean"
+                },
+                "IsAutoCoded": {
+                    "type": "boolean"
+                },
+                "IsRejected": {
+                    "type": "boolean"
+                },
+                "IsWithinTolerance": {
+                    "type": "boolean"
+                },
+                "POConnectionLineNumbers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "integer",
+                        "format": "int32",
+                        "xml": {
+                            "name": "Int32"
+                        }
+                    }
+                },
+                "CodingLineNumbers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "integer",
+                        "format": "int32",
+                        "xml": {
+                            "name": "Int32"
+                        }
+                    }
+                }
+            }
+        },
+        "IntegrationExceptionTypeConnectionDto": {
+            "type": "object",
+            "xml": {
+                "name": "ExceptionTypeConnection"
+            },
+            "additionalProperties": false,
+            "required": [
+                "InvoiceLineNumber",
+                "IsManual"
+            ],
+            "properties": {
+                "InvoiceLineNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ExceptionType": {
+                    "type": "string"
+                },
+                "IsManual": {
+                    "type": "boolean"
                 }
             }
         },
@@ -3888,12 +5926,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -3919,7 +5953,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -3943,11 +5977,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -3982,7 +6012,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/ActualPaymentDateResponseDto"
                         },
                         "x-nullable": true
                     }
@@ -4011,7 +6041,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/StatusLink"
                         },
                         "x-nullable": true
                     }
@@ -4036,12 +6066,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": ""
                     }
                 }
             }
@@ -4084,7 +6110,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/CompanyExportPageDto"
                         },
                         "x-nullable": true
                     }
@@ -4116,12 +6142,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4147,7 +6169,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -4171,11 +6193,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -4205,12 +6223,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4236,7 +6250,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -4260,11 +6274,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -4294,12 +6304,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4325,7 +6331,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -4349,11 +6355,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -4383,12 +6385,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4414,7 +6412,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -4438,11 +6436,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -4472,12 +6466,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4503,7 +6493,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -4527,11 +6517,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -4561,12 +6547,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4592,7 +6574,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -4616,11 +6598,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -4647,7 +6625,13 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "FileLink"
+                                },
+                                "$ref": "#/definitions/FileLink"
+                            }
                         },
                         "x-nullable": true
                     }
@@ -4713,7 +6697,13 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "FileLink"
+                                },
+                                "$ref": "#/definitions/FileLink"
+                            }
                         },
                         "x-nullable": true
                     }
@@ -4787,7 +6777,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/ErrorResponseDto"
                         },
                         "x-nullable": true
                     }
@@ -4816,7 +6806,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/StatusLink"
                         },
                         "x-nullable": true
                     }
@@ -4841,12 +6831,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": ""
                     }
                 }
             }
@@ -4876,12 +6862,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4907,7 +6889,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -4931,11 +6913,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -4965,12 +6943,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -4996,7 +6970,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -5020,11 +6994,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -5054,12 +7024,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -5085,7 +7051,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -5109,11 +7075,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -5143,12 +7105,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -5174,7 +7132,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -5198,11 +7156,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -5232,12 +7186,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -5263,7 +7213,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -5287,11 +7237,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -5342,7 +7288,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/PurchaseOrderExportPageDto"
                         },
                         "x-nullable": true
                     }
@@ -5374,12 +7320,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -5429,11 +7371,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -5468,7 +7406,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/PurchaseOrderRequestMessageDto"
                         },
                         "x-nullable": true
                     }
@@ -5509,12 +7447,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "204": {
+                        "description": ""
                     }
                 }
             }
@@ -5541,7 +7475,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/StatusLink"
                         },
                         "x-nullable": true
                     }
@@ -5583,7 +7517,13 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
                         },
                         "x-nullable": true
                     }
@@ -5629,12 +7569,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "204": {
+                        "description": ""
                     }
                 }
             }
@@ -5657,12 +7593,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": ""
                     }
                 }
             }
@@ -5685,12 +7617,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": ""
                     }
                 }
             }
@@ -5713,12 +7641,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": ""
                     }
                 }
             }
@@ -5748,12 +7672,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -5779,7 +7699,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -5803,11 +7723,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -5837,12 +7753,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -5868,7 +7780,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -5892,11 +7804,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -5926,12 +7834,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -5957,7 +7861,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -5981,11 +7885,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -6015,12 +7915,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -6046,7 +7942,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -6070,11 +7966,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -6117,7 +8009,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/SupplierExportPageDto"
                         },
                         "x-nullable": true
                     }
@@ -6149,12 +8041,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -6180,7 +8068,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -6204,11 +8092,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -6291,7 +8175,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/InvoiceRequestDto"
                         },
                         "x-nullable": true
                     }
@@ -6332,12 +8216,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "204": {
+                        "description": ""
                     }
                 }
             }
@@ -6364,7 +8244,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/StatusLink"
                         },
                         "x-nullable": true
                     }
@@ -6406,7 +8286,13 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
                         },
                         "x-nullable": true
                     }
@@ -6452,12 +8338,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "204": {
+                        "description": ""
                     }
                 }
             }
@@ -6483,7 +8365,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -6507,11 +8389,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -6541,12 +8419,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -6576,12 +8450,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -6607,7 +8477,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -6631,11 +8501,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -6665,12 +8531,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -6696,7 +8558,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -6720,11 +8582,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -6754,12 +8612,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "A link to the import batch, this link will give the status of how the batch is processing within XI",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -6785,7 +8639,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/BatchDto"
                         },
                         "x-nullable": true
                     }
@@ -6809,11 +8663,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                        "description": ""
                     }
                 }
             }
@@ -6848,7 +8698,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/VoucherResponseDto"
                         },
                         "x-nullable": true
                     }
@@ -6877,7 +8727,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "type": "file"
+                            "$ref": "#/definitions/StatusLink"
                         },
                         "x-nullable": true
                     }
@@ -6902,12 +8752,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "file"
-                        },
-                        "x-nullable": true
+                    "201": {
+                        "description": ""
                     }
                 }
             }
