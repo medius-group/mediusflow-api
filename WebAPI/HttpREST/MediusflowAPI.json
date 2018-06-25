@@ -1133,6 +1133,9 @@
                 },
                 "FileName": {
                     "type": "string"
+                },
+                "Classification": {
+                    "type": "string"
                 }
             }
         },
