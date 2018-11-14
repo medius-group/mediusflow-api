@@ -2639,7 +2639,7 @@
                     "xml": {
                         "name": "To"
                     },
-                    "$ref": "#/definitions/SupplierDto"
+                    "$ref": "#/definitions/SupplierContactDto"
                 },
                 "SupplierId": {
                     "type": "string"
@@ -2742,7 +2742,7 @@
                 }
             }
         },
-        "SupplierDto": {
+        "SupplierContactDto": {
             "type": "object",
             "xml": {
                 "name": "Supplier"
@@ -3366,6 +3366,157 @@
                         "name": "Paging"
                     },
                     "$ref": "#/definitions/Paging"
+                }
+            }
+        },
+        "SupplierDto": {
+            "type": "object",
+            "xml": {
+                "name": "Supplier"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "SupplierId": {
+                    "type": "string"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "PaymentTermId": {
+                    "type": "string"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "CompanyName": {
+                    "type": "string"
+                },
+                "StreetAddress": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Telephone": {
+                    "type": "string"
+                },
+                "Homepage": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Identifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IdentifierDto"
+                        },
+                        "$ref": "#/definitions/IdentifierDto"
+                    }
                 }
             }
         },
@@ -6056,7 +6207,7 @@
                 "tags": [
                     "ActualPaymentDate"
                 ],
-                "summary": "This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
+                "summary": "This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ActualPaymentDate_Post",
                 "parameters": [
                     {
@@ -6821,7 +6972,7 @@
                 "tags": [
                     "ErrorMessage"
                 ],
-                "summary": "This method accepts a error message object including a list of error messages.\nThe error message object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
+                "summary": "This method accepts a error message object including a list of error messages.\nThe error message object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ErrorMessage_Post",
                 "parameters": [
                     {
@@ -7583,7 +7734,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding purchase order message.",
                 "operationId": "PurchaseOrderRequestMessage_Post",
                 "parameters": [
                     {
@@ -8742,7 +8893,7 @@
                 "tags": [
                     "VoucherMessage"
                 ],
-                "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher includes a CorrelationKey that need to match the corresponding supplier invoice message.",
+                "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "VoucherMessage_Post",
                 "parameters": [
                     {
