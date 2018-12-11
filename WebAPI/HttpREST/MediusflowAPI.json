@@ -252,6 +252,33 @@
                             "name": "String"
                         }
                     }
+                },
+                "Errors": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "BatchErrorDto"
+                        },
+                        "$ref": "#/definitions/BatchErrorDto"
+                    }
+                }
+            }
+        },
+        "BatchErrorDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "ValidationMessage": {
+                    "type": "string"
+                },
+                "ValidationTag": {
+                    "type": "string"
                 }
             }
         },
@@ -368,6 +395,234 @@
                 },
                 "Status": {
                     "type": "string"
+                }
+            }
+        },
+        "AdvancedRestrictionDto": {
+            "type": "object",
+            "xml": {
+                "name": "AdvancedRestriction"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "RestrictionRules": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "RestrictionRuleDto"
+                        },
+                        "$ref": "#/definitions/RestrictionRuleDto"
+                    }
+                }
+            }
+        },
+        "RestrictionRuleDto": {
+            "type": "object",
+            "xml": {
+                "name": "RestrictionRule"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "ControllingDimension": {
+                    "type": "string"
+                },
+                "ControllingDimensionValues": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ControllingDimensionDto"
+                        },
+                        "$ref": "#/definitions/ControllingDimensionDto"
+                    }
+                },
+                "RestrictedOrderedDimensionGroups": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "RestrictedDimensionGroupDto"
+                        },
+                        "$ref": "#/definitions/RestrictedDimensionGroupDto"
+                    }
+                }
+            }
+        },
+        "ControllingDimensionDto": {
+            "type": "object",
+            "xml": {
+                "name": "ControllingDimension"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IncludeEdges"
+            ],
+            "properties": {
+                "From": {
+                    "type": "string"
+                },
+                "To": {
+                    "type": "string"
+                },
+                "StartsWith": {
+                    "type": "string"
+                },
+                "EndsWith": {
+                    "type": "string"
+                },
+                "Is": {
+                    "type": "string"
+                },
+                "In": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
+                },
+                "IsAnyValue": {
+                    "type": "boolean"
+                },
+                "IncludeEdges": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "RestrictedDimensionGroupDto": {
+            "type": "object",
+            "xml": {
+                "name": "RestrictedDimensionGroup"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Dimension": {
+                    "type": "string"
+                },
+                "ChildRules": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "RuleDto"
+                        },
+                        "$ref": "#/definitions/RuleDto"
+                    }
+                }
+            }
+        },
+        "RuleDto": {
+            "type": "object",
+            "xml": {
+                "name": "Rule"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Type"
+            ],
+            "properties": {
+                "Type": {
+                    "xml": {
+                        "name": "Type"
+                    },
+                    "$ref": "#/definitions/ChildRuleType"
+                },
+                "DimensionValues": {
+                    "xml": {
+                        "name": "DimensionValues"
+                    },
+                    "$ref": "#/definitions/DimensionValueDto"
+                }
+            }
+        },
+        "ChildRuleType": {
+            "type": "integer",
+            "description": "",
+            "x-enumNames": [
+                "Required",
+                "Optional",
+                "Fixed",
+                "Forbidden",
+                "Default"
+            ],
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "DimensionValueDto": {
+            "type": "object",
+            "xml": {
+                "name": "DimensionValue"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IncludeEdges"
+            ],
+            "properties": {
+                "From": {
+                    "type": "string"
+                },
+                "To": {
+                    "type": "string"
+                },
+                "StartsWith": {
+                    "type": "string"
+                },
+                "EndsWith": {
+                    "type": "string"
+                },
+                "Is": {
+                    "type": "string"
+                },
+                "In": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
+                },
+                "IsAnyValue": {
+                    "type": "boolean"
+                },
+                "IncludeEdges": {
+                    "type": "boolean"
                 }
             }
         },
@@ -6222,6 +6477,63 @@
                 "responses": {
                     "201": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/AdvancedRestrictionImportBatches": {
+            "post": {
+                "tags": [
+                    "AdvancedRestrictionImportBatch"
+                ],
+                "operationId": "AdvancedRestrictionImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "restrictionStructuresList",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "AdvancedRestrictionDto"
+                                },
+                                "$ref": "#/definitions/AdvancedRestrictionDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/AdvancedRestrictionImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "AdvancedRestrictionImportBatch"
+                ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "operationId": "AdvancedRestrictionImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
                     }
                 }
             }
