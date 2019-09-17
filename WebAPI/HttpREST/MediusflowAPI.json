@@ -4030,6 +4030,9 @@
                 },
                 "SendPurchaseOrderAsIntegrationMessage": {
                     "type": "boolean"
+                },
+                "SendPurchaseOrderAsPdf": {
+                    "type": "boolean"
                 }
             }
         },
