@@ -964,6 +964,9 @@
                 },
                 "IsActive": {
                     "type": "boolean"
+                },
+                "MediusFlowSystemId": {
+                    "type": "string"
                 }
             }
         },
@@ -1614,6 +1617,9 @@
                     "type": "string"
                 },
                 "IsFictive": {
+                    "type": "boolean"
+                },
+                "UsableInPurchase": {
                     "type": "boolean"
                 }
             }
@@ -2641,6 +2647,9 @@
                     "type": "string"
                 },
                 "OrderType": {
+                    "type": "string"
+                },
+                "MediusFlowSystemId": {
                     "type": "string"
                 }
             },
@@ -4131,13 +4140,7 @@
                 "name": "Supplier"
             },
             "additionalProperties": false,
-            "required": [
-                "IsActive"
-            ],
             "properties": {
-                "ErpSourceId": {
-                    "type": "string"
-                },
                 "Name": {
                     "type": "string"
                 },
@@ -4146,9 +4149,6 @@
                 },
                 "CurrencyCode": {
                     "type": "string"
-                },
-                "IsActive": {
-                    "type": "boolean"
                 },
                 "PaymentTermId": {
                     "type": "string"
@@ -4192,75 +4192,8 @@
                 "Homepage": {
                     "type": "string"
                 },
-                "CustomField_Text1": {
+                "MediusFlowSystemId": {
                     "type": "string"
-                },
-                "CustomField_Text2": {
-                    "type": "string"
-                },
-                "CustomField_Text3": {
-                    "type": "string"
-                },
-                "CustomField_Text4": {
-                    "type": "string"
-                },
-                "CustomField_Text5": {
-                    "type": "string"
-                },
-                "CustomField_Numeric1": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric2": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric3": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric4": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric5": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Boolean1": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean2": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean3": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean4": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean5": {
-                    "type": "boolean"
-                },
-                "CustomField_DateTime1": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime2": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime3": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime4": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime5": {
-                    "type": "string",
-                    "format": "date-time"
                 },
                 "Identifiers": {
                     "type": "array",
@@ -4274,7 +4207,12 @@
                         "$ref": "#/definitions/IdentifierDto"
                     }
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MasterDataDto"
+                }
+            ]
         },
         "IntegrationSupplierDto": {
             "type": "object",
