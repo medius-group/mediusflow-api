@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Mediusflow Web API 2",
+        "title": "Mediusflow Web API",
         "version": "1.0.0"
     },
     "host": "localhost:19310",
@@ -9445,7 +9445,7 @@
                 "operationId": "UnitImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "currencyRates",
+                        "name": "unit",
                         "in": "body",
                         "schema": {
                             "type": "array",
@@ -9457,7 +9457,7 @@
                             }
                         },
                         "x-nullable": true,
-                        "description": "The users to import"
+                        "description": "The units to import"
                     }
                 ],
                 "responses": {
