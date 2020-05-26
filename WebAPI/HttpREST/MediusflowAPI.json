@@ -221,7 +221,8 @@
             "required": [
                 "ItemsCount",
                 "ItemsSaved",
-                "IsSuccessful"
+                "IsSuccessful",
+                "QueueItemId"
             ],
             "properties": {
                 "State": {
@@ -252,8 +253,304 @@
                             "name": "String"
                         }
                     }
+                },
+                "Errors": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "BatchErrorDto"
+                        },
+                        "$ref": "#/definitions/BatchErrorDto"
+                    }
+                },
+                "QueueItemId": {
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
+        },
+        "BatchErrorDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "ValidationTag"
+            ],
+            "properties": {
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "ValidationMessage": {
+                    "type": "string"
+                },
+                "ValidationTag": {
+                    "$ref": "#/definitions/IntegrationErrorTag"
+                }
+            }
+        },
+        "IntegrationErrorTag": {
+            "type": "integer",
+            "description": "",
+            "x-enumNames": [
+                "UNKNOWN",
+                "ACCOUNTING_CURRENY_MISSING",
+                "ADVANCED_RESTRICTION_RULES_DATA_IS_INVALID",
+                "ADVANCED_RESTRICTION_EXTERNAL_SYSTEM_ID_MISSING",
+                "AT_LEAST_ONE_CODING_LINE_OF_TYPE_COST_IS_REQUIRED",
+                "AUTHORIZATION_GROUP_NAME_MISSING",
+                "AUTHORIZATION_GROUP_NOT_FOUND",
+                "COMPANY_EXTERNAL_SYSTEM_ID_MISSING",
+                "COMPANY_IS_ALREADY_IMPORTED_WITH_ANOTHER_ACCOUNTING_CURRENCY",
+                "COMPANY_MISSING",
+                "COMPANY_MISSING_ON_CONTROLLING_DIMENSION_VALUE",
+                "COMPANY_NOT_FOUND",
+                "COMPANY_RELATED_MUST_HAVE_COMPANY",
+                "CONTROLLING_DIMENSION_VALUE_MISSING",
+                "CONTROLLING_DIMENSION_VALUE_NOT_FOUND",
+                "CONVERSION_FACTOR_MUST_BE_GREATER_THAN_ZERO",
+                "COULD_NOT_FIND_ACCOUNTING_CURRENCY",
+                "COULD_NOT_FIND_COMPANY_FOR_MASTERDATA",
+                "COULD_NOT_FIND_COMPANY_IDENTIFIER_TYPE",
+                "COULD_NOT_FIND_CONTACT_PERSON",
+                "COULD_NOT_FIND_PARENT_COMPANY",
+                "COULD_NOT_SAVE_RESTRICTIONS",
+                "COULD_NOT_SAVE_RESTRICTIONS_AND_ROLLBACK",
+                "CURRENCY_EXTERNAL_SYSTEM_ID_MISSING",
+                "CURRENCY_IS_INACTIVE",
+                "CURRENCY_MISSING",
+                "CURRENCY_MISSING_ON_SUPPLIER_ITEM",
+                "CURRENCY_MISSING_ON_SUPPLIER",
+                "CURRENCY_NOT_FOUND",
+                "CURRENCY_RATE_CODE_NOT_FOUND",
+                "CURRENCY_RATE_CURRENCY_MISSING",
+                "CURRENCY_RATE_DATE_IS_MISSING",
+                "CURRENCY_RATE_NOT_FOUND",
+                "CURRENCY_WITH_CODE_NOT_FOUND",
+                "DATE_IS_NOT_IN_VALID_RANGE",
+                "DELIVERY_NUMBER_MISSING",
+                "DELIVERY_TERM_EXTERNAL_SYSTEM_ID_MISSING",
+                "DELIVERY_TERM_NOT_FOUND",
+                "DIFFERENT_TAX_CODE_SAME_CODE_ALREADY_EXISTS",
+                "DIMENSION_DESCRIPTION_MISSING",
+                "DIMENSION_MISSING",
+                "DIMENSION_MISSING_ON_CONTROLLING_DIMENSION_VALUE",
+                "DIMENSION_MISSING_ON_RESTRICTED_DIMENSION_VALUE",
+                "DIMENSION_STRING_TAG_NOT_FOUND",
+                "DIMENSION_VALUE_MISSING",
+                "DIMENSION_VALUE_NOT_CONNECTED_WITH_PROPER_COMPANY",
+                "DIMENSION_VALUE_NOT_FOUND_FOR_DIMENSION",
+                "DIMENSION_DOES_NOT_EXIST_DIMENSION_NAME",
+                "DIMENSION_VALUE_NOT_FOUND_DIM_EXTERNAL_SYSTEM_ID",
+                "DUPLICATED_ROLES",
+                "DOCUMENT_TYPE_REQUIRED",
+                "END_VALUE_MISSING",
+                "END_DATE_REQUIRED",
+                "EXTERNAL_SYSTEM_ID_FOR_DIMENSION_VALUE_MISSING",
+                "EXTERNAL_SYSTEM_ID_MISSING",
+                "EXTERNAL_SYSTEM_ID_MISSING_FOR_TAX_GROUP",
+                "EXTERNAL_SYSTEM_ID_MISSING_FOR_COMPANY",
+                "FOLLOWUP_GROUP_NAME_MISSING",
+                "FOLLOWUP_GROUP_NOT_FOUND",
+                "INDICATOR_NUMBER1_ASSIGNED_TO_TAX_INDICATOR2",
+                "INDICATOR_NUMBER2_ASSIGNED_TO_TAX_INDICATOR1",
+                "INVALID_DATE",
+                "INVALID_DIMENSION_SPECIFIED",
+                "INVALID_DIMENSION_NAME",
+                "INVALID_USER",
+                "INVALID_ROLE",
+                "INTEGRATION_MESSAGE_TYPE_REQUIRED",
+                "ISSUE_WITH_SAVING_ITEM_PLEASE_REPROCESS",
+                "MULTIPLE_RESTRICTIONS_DEFINED_FOR_DIMENSION_DIMENSION",
+                "NAME_MISSING",
+                "NO_RESTRICTED_DIMENSION_VALUES_PROVIDED",
+                "ORDER_IDENTIFIER_MISSING",
+                "PARENT_COMPANY_MISSING",
+                "PAYMENT_TERM_EXTERNAL_SYSTEM_ID_MISSING",
+                "PAYMENT_TERM_NOT_FOUND",
+                "PRE_CODING_MISSING",
+                "PURCHASE_ORDER_CANNOT_BE_IMPORTED_FOR_VIRTUAL_COMPANY",
+                "PURCHASE_ORDER_CODING_LINES_CANNOT_BE_EMPTY",
+                "PURCHASE_ORDER_WITH_IDENTIFIER_AND_COMPANY_ALREADY_EXIST",
+                "RESPONSBILE_CONFIGURATION_MISSING",
+                "RESTRICTED_DIMENSION_HAS_INCORRECT_DIMENSION_VALUE",
+                "RESTRICTED_DIMENSION_VALUE_MISSING",
+                "RESTRICTED_DIMENSION_MISSING",
+                "RESTRICTED_DIMENSION_VALUE_NOT_FOUND_DIMENSION_VALUE",
+                "RESTRICTED_DIMENSION_VALUE_NOT_FOUND_EXTERNAL_SYSTEM_ID",
+                "RESTRICTED_DIMENSION_NOT_FOUND",
+                "START_VALUE_MISSING",
+                "START_DATE_REQUIRED",
+                "SUPPLIER_EXTERNAL_SYSTEM_ID_MISSING",
+                "SUPPLIER_MISSING",
+                "SUPPLIER_MISSING_AND_CURRENCY_NOT_PROVIDED",
+                "SUPPLIER_NOT_FOUND",
+                "TAX_CODE_DEDUCTIBLE_MISSING_IN_TAXGROUP",
+                "TAX_CODE_NOT_EXISTS",
+                "TAX_CODE_PERCENTAGE_MISSING_IN_TAXGROUP",
+                "TAX_GROUP_NOT_FOUND",
+                "TAX_GROUP_WITH_DUPLICATED_TAX_CODES",
+                "TAX_INDICATOR1_EXTERNAL_SYSTEM_ID_IS_MISSING",
+                "TAX_INDICATOR1_EXTERNAL_SYSTEM_ID_NOT_FOUND",
+                "TAX_INDICATOR2_EXTERNAL_SYSTEM_ID_IS_MISSING",
+                "TAX_INDICATOR2_EXTERNAL_SYSTEM_ID_NOT_FOUND",
+                "TAXGROUP_NOT_FOUND_FOR_COMPANY",
+                "TEMPORARY_DELEGATION_RESPONSIBLE_MISSING",
+                "TEMPORARY_DELEGATION_RESPONSIBLE_NOT_FOUND",
+                "TRYING_TO_IMPORT_DIMENSION_VALUE_TO_WRONG_DIMENSION",
+                "UNIT_IS_MISSING",
+                "UNIT_NOT_FOUND",
+                "UNIT_WITH_EXTERNAL_SYSTEM_ID_NOT_FOUND",
+                "USER_COMPANY_MISSING",
+                "USER_COMPANY_NOT_FOUND",
+                "USER_DEFAULT_COMPANY_NOT_FOUND",
+                "USER_IDENTIY_PROVIDER_NAME_MISSING",
+                "USER_IDENTIY_PROVIDER_NAME_NOT_FOUND",
+                "USER_NAME_MISSING",
+                "USER_NOT_FOUND",
+                "USER_ROLE_MISSING",
+                "USER_ROLE_NOT_FOUND",
+                "INVALID_UNIT",
+                "ADVANCED_RESTRICTION_HAS_INVALID_DATA",
+                "PAYMENT_DETAILS_EXTERNAL_SYSTEM_ID_NEEDS_TO_BE_UNIQUE",
+                "PAYMENT_DETAILS_EXTERNAL_SYSTEM_ID_FOUND_ON_ANOTHER_SUPPLIER",
+                "NUMBER_OF_MONTHS_OUTSIDE_THE_RANGE",
+                "PAYMENT_TERM_WITH_IDENTIFIER_AND_COMPANY_ALREADY_EXIST",
+                "PAYMENT_TERM_HAS_INVALID_DATA",
+                "INTERFACE_MISMATCH",
+                "SUPPLIER_ITEM_COMPANY_DOES_NOT_EXIST_IN_ITEM_COMPANY_TREE",
+                "CURRENCY_MISMATCH_ON_PO"
+            ],
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121,
+                122,
+                123,
+                124,
+                125,
+                126
+            ]
         },
         "ActualPaymentDateResponseDto": {
             "type": "object",
@@ -470,6 +767,9 @@
                 },
                 "IsActive": {
                     "type": "boolean"
+                },
+                "MediusFlowSystemId": {
+                    "type": "string"
                 }
             }
         },
@@ -1121,6 +1421,9 @@
                 },
                 "IsFictive": {
                     "type": "boolean"
+                },
+                "UsableInPurchase": {
+                    "type": "boolean"
                 }
             }
         },
@@ -1132,6 +1435,9 @@
                     "type": "string"
                 },
                 "FileName": {
+                    "type": "string"
+                },
+                "Classification": {
                     "type": "string"
                 }
             }
@@ -1605,6 +1911,151 @@
                 }
             }
         },
+        "IntegrationPaymentInformationDto": {
+            "type": "object",
+            "xml": {
+                "name": "PaymentInformation"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Invoice": {
+                    "xml": {
+                        "name": "Invoice"
+                    },
+                    "$ref": "#/definitions/IntegrationPaymentInformationInvoiceDto"
+                },
+                "PaymentLine": {
+                    "xml": {
+                        "name": "PaymentLine"
+                    },
+                    "$ref": "#/definitions/IntegrationPaymentLineDto"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "IntegrationPaymentInformationInvoiceDto": {
+            "type": "object",
+            "xml": {
+                "name": "Invoice"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierId": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "InvoiceNumber": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationPaymentLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "PaymentLine"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Status": {
+                    "type": "string"
+                },
+                "Method": {
+                    "type": "string"
+                },
+                "Identifier": {
+                    "type": "string"
+                },
+                "ExternalIdentifier": {
+                    "type": "string"
+                },
+                "AdditionalInformation": {
+                    "type": "string"
+                }
+            }
+        },
         "IntegrationPaymentTermDto": {
             "type": "object",
             "xml": {
@@ -1612,9 +2063,7 @@
             },
             "additionalProperties": false,
             "required": [
-                "IsActive",
-                "NumberOfDays",
-                "NumberOfFreeMonths"
+                "IsActive"
             ],
             "properties": {
                 "ErpSourceId": {
@@ -1696,6 +2145,18 @@
                 "IsActive": {
                     "type": "boolean"
                 },
+                "Lines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationPaymentTermLineDto"
+                        },
+                        "$ref": "#/definitions/IntegrationPaymentTermLineDto"
+                    }
+                },
                 "CompanyId": {
                     "type": "string"
                 },
@@ -1710,9 +2171,71 @@
                 },
                 "NumberOfDays": {
                     "type": "integer",
+                    "description": "Only for backward compatibility. Line with 0 cash discount should be used for NET payment term.",
                     "format": "int32"
                 },
                 "NumberOfFreeMonths": {
+                    "type": "integer",
+                    "description": "Only for backward compatibility. Line with 0 cash discount should be used for NET payment term.",
+                    "format": "int32"
+                },
+                "StartDate": {
+                    "xml": {
+                        "name": "StartDate"
+                    },
+                    "$ref": "#/definitions/IntegrationPaymentTermStartDateDto"
+                }
+            }
+        },
+        "IntegrationPaymentTermLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "PaymentTermLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "CashDiscountPercentage",
+                "EndOfMonth",
+                "NumberOfDays",
+                "NumberOfMonths"
+            ],
+            "properties": {
+                "CashDiscountPercentage": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "EndOfMonth": {
+                    "type": "boolean"
+                },
+                "FixedPaymentDay": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "NumberOfDays": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "NumberOfMonths": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "IntegrationPaymentTermStartDateDto": {
+            "type": "object",
+            "xml": {
+                "name": "StartDate"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Type": {
+                    "type": "string"
+                },
+                "FixedDay": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "NumberOfMonths": {
                     "type": "integer",
                     "format": "int32"
                 }
@@ -1927,6 +2450,9 @@
                     "type": "string"
                 },
                 "OrderType": {
+                    "type": "string"
+                },
+                "MediusFlowSystemId": {
                     "type": "string"
                 }
             },
@@ -2262,6 +2788,12 @@
                 },
                 "Reference2": {
                     "type": "string"
+                },
+                "PaymentTerm": {
+                    "type": "string"
+                },
+                "Prepayment": {
+                    "type": "boolean"
                 },
                 "PurchaseOrderLines": {
                     "type": "array",
@@ -2600,6 +3132,9 @@
                 "TotalInvoicedQuantity": {
                     "type": "number",
                     "format": "decimal"
+                },
+                "PurchaseOrderLineExternalSystemId": {
+                    "type": "string"
                 }
             }
         },
@@ -2636,7 +3171,7 @@
                     "xml": {
                         "name": "To"
                     },
-                    "$ref": "#/definitions/SupplierDto"
+                    "$ref": "#/definitions/SupplierContactDto"
                 },
                 "SupplierId": {
                     "type": "string"
@@ -2725,6 +3260,9 @@
                 "ERPId": {
                     "type": "string"
                 },
+                "RequisitionTypeName": {
+                    "type": "string"
+                },
                 "Lines": {
                     "type": "array",
                     "xml": {
@@ -2736,10 +3274,22 @@
                         },
                         "$ref": "#/definitions/PurchaseOrderLineDto"
                     }
+                },
+                "SupplierContactPersons": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "SupplierContactPersonDto"
+                        },
+                        "$ref": "#/definitions/SupplierContactPersonDto"
+                    }
                 }
             }
         },
-        "SupplierDto": {
+        "SupplierContactDto": {
             "type": "object",
             "xml": {
                 "name": "Supplier"
@@ -2830,6 +3380,27 @@
                 "Amount": {
                     "type": "number",
                     "format": "decimal"
+                }
+            }
+        },
+        "SupplierContactPersonDto": {
+            "type": "object",
+            "xml": {
+                "name": "SupplierContactPerson"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Telephone": {
+                    "type": "string"
                 }
             }
         },
@@ -3234,6 +3805,213 @@
                 3
             ]
         },
+        "RestrictionRuleGroupDto": {
+            "type": "object",
+            "xml": {
+                "name": "RestrictionRuleGroup"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsActive"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "RestrictionRules": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "RestrictionRuleDto"
+                        },
+                        "$ref": "#/definitions/RestrictionRuleDto"
+                    }
+                }
+            }
+        },
+        "RestrictionRuleDto": {
+            "type": "object",
+            "xml": {
+                "name": "RestrictionRule"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "ControllingDimension": {
+                    "type": "string"
+                },
+                "ControllingDimensionValues": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ControllingDimensionDto"
+                        },
+                        "$ref": "#/definitions/ControllingDimensionDto"
+                    }
+                },
+                "RestrictedOrderedDimensionGroups": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "RestrictedDimensionGroupDto"
+                        },
+                        "$ref": "#/definitions/RestrictedDimensionGroupDto"
+                    }
+                }
+            }
+        },
+        "ControllingDimensionDto": {
+            "type": "object",
+            "xml": {
+                "name": "ControllingDimension"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IncludeEdges"
+            ],
+            "properties": {
+                "From": {
+                    "type": "string"
+                },
+                "To": {
+                    "type": "string"
+                },
+                "StartsWith": {
+                    "type": "string"
+                },
+                "EndsWith": {
+                    "type": "string"
+                },
+                "Is": {
+                    "type": "string"
+                },
+                "In": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
+                },
+                "IsAnyValue": {
+                    "type": "boolean"
+                },
+                "IncludeEdges": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "RestrictedDimensionGroupDto": {
+            "type": "object",
+            "xml": {
+                "name": "RestrictedDimensionGroup"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Dimension": {
+                    "type": "string"
+                },
+                "ChildRules": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "RuleDto"
+                        },
+                        "$ref": "#/definitions/RuleDto"
+                    }
+                }
+            }
+        },
+        "RuleDto": {
+            "type": "object",
+            "xml": {
+                "name": "Rule"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Type": {
+                    "type": "string"
+                },
+                "DimensionValues": {
+                    "xml": {
+                        "name": "DimensionValues"
+                    },
+                    "$ref": "#/definitions/DimensionValueDto"
+                }
+            }
+        },
+        "DimensionValueDto": {
+            "type": "object",
+            "xml": {
+                "name": "DimensionValue"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IncludeEdges"
+            ],
+            "properties": {
+                "From": {
+                    "type": "string"
+                },
+                "To": {
+                    "type": "string"
+                },
+                "StartsWith": {
+                    "type": "string"
+                },
+                "EndsWith": {
+                    "type": "string"
+                },
+                "Is": {
+                    "type": "string"
+                },
+                "In": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
+                },
+                "IsAnyValue": {
+                    "type": "boolean"
+                },
+                "IsEmptyValue": {
+                    "type": "boolean"
+                },
+                "IncludeEdges": {
+                    "type": "boolean"
+                }
+            }
+        },
         "IntegrationSupplierConfigurationDto": {
             "type": "object",
             "xml": {
@@ -3273,6 +4051,9 @@
                     "format": "int32"
                 },
                 "SendPurchaseOrderAsIntegrationMessage": {
+                    "type": "boolean"
+                },
+                "SendPurchaseOrderAsPdf": {
                     "type": "boolean"
                 }
             }
@@ -3363,6 +4144,135 @@
                         "name": "Paging"
                     },
                     "$ref": "#/definitions/Paging"
+                }
+            }
+        },
+        "SupplierDto": {
+            "type": "object",
+            "xml": {
+                "name": "Supplier"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "SupplierId": {
+                    "type": "string"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "PaymentTermId": {
+                    "type": "string"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "CompanyName": {
+                    "type": "string"
+                },
+                "StreetAddress": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Telephone": {
+                    "type": "string"
+                },
+                "Homepage": {
+                    "type": "string"
+                },
+                "MediusFlowSystemId": {
+                    "type": "string"
+                },
+                "Identifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IdentifierDto"
+                        },
+                        "$ref": "#/definitions/IdentifierDto"
+                    }
+                },
+                "PaymentDetails": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "PaymentDetailsDto"
+                        },
+                        "$ref": "#/definitions/PaymentDetailsDto"
+                    }
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MasterDataDto"
+                }
+            ]
+        },
+        "PaymentDetailsDto": {
+            "type": "object",
+            "xml": {
+                "name": "PaymentDetails"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "Default"
+            ],
+            "properties": {
+                "Description": {
+                    "type": "string"
+                },
+                "Identifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "PaymentDetailId": {
+                    "type": "string"
+                },
+                "Default": {
+                    "type": "boolean"
                 }
             }
         },
@@ -3665,6 +4575,9 @@
                 "IsProcurable": {
                     "type": "boolean"
                 },
+                "Prepayment": {
+                    "type": "boolean"
+                },
                 "PaymentDetails": {
                     "type": "array",
                     "xml": {
@@ -3726,6 +4639,9 @@
                     }
                 },
                 "IsActive": {
+                    "type": "boolean"
+                },
+                "Default": {
                     "type": "boolean"
                 },
                 "CustomField_Text1": {
@@ -3932,6 +4848,7 @@
                 "DocumentId",
                 "CurrencyRate",
                 "IsCurrencyRateImported",
+                "HasCrossCompanyPostings",
                 "InvoiceDate",
                 "NetAmount",
                 "RoundingAmount",
@@ -4001,6 +4918,9 @@
                     "format": "decimal"
                 },
                 "IsCurrencyRateImported": {
+                    "type": "boolean"
+                },
+                "HasCrossCompanyPostings": {
                     "type": "boolean"
                 },
                 "CustomField_Boolean1": {
@@ -4654,6 +5574,12 @@
                 "IsEnabled"
             ],
             "properties": {
+                "CompanyId": {
+                    "type": "string"
+                },
+                "CompanyExternalSystemId": {
+                    "type": "string"
+                },
                 "Accrual": {
                     "xml": {
                         "name": "Accrual"
@@ -5369,6 +6295,12 @@
                     },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
+                "NondeductibleDimensions": {
+                    "xml": {
+                        "name": "NondeductibleDimensions"
+                    },
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                },
                 "IsActive": {
                     "type": "boolean"
                 },
@@ -6053,7 +6985,7 @@
                 "tags": [
                     "ActualPaymentDate"
                 ],
-                "summary": "This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
+                "summary": "This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ActualPaymentDate_Post",
                 "parameters": [
                     {
@@ -6818,7 +7750,7 @@
                 "tags": [
                     "ErrorMessage"
                 ],
-                "summary": "This method accepts a error message object including a list of error messages.\nThe error message object includes a CorrelationKey that need to match the corresponding supplier invoice message.",
+                "summary": "This method accepts a error message object including a list of error messages.\nThe error message object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ErrorMessage_Post",
                 "parameters": [
                     {
@@ -7080,33 +8012,92 @@
                 }
             }
         },
-        "/integration/masterdata/v1/PaymentTermImportBatches": {
-            "post": {
+        "/integration/message/v1/supplierinvoice/paymentinformations/{messageStatus}/{messageId}": {
+            "get": {
                 "tags": [
-                    "PaymentTermImportBatch"
+                    "PaymentInformationMessage"
                 ],
-                "summary": "The POST method allows the client to send payment terms that will be imported by the Mediusflow master data import queue.\nThe payment terms have company prerequisit.",
-                "operationId": "PaymentTermImportBatch_Post",
+                "summary": "This method returns the payment information content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "operationId": "PaymentInformationMessage_Get",
                 "parameters": [
                     {
-                        "name": "paymentterms",
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The id of the message",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/IntegrationPaymentInformationDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/paymentinformations/{messageId}": {
+            "get": {
+                "tags": [
+                    "PaymentInformationMessage"
+                ],
+                "summary": "This method will return a status and an effective link to the real payment information content.\nThe main idea with this method is to be able to check status for a given message and to be able to find where a message is in terms of statuses.",
+                "operationId": "PaymentInformationMessage_GetStatus",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/paymentinformations": {
+            "post": {
+                "tags": [
+                    "PaymentInformationMessage"
+                ],
+                "summary": "This method accepts a payment information as a response to the supplier invoice message that was retrieved in earlier step.\nThe payment information object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "operationId": "PaymentInformationMessage_Post",
+                "parameters": [
+                    {
+                        "name": "paymentInformationDto",
                         "in": "body",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "xml": {
-                                    "name": "IntegrationPaymentTermDto"
-                                },
-                                "$ref": "#/definitions/IntegrationPaymentTermDto"
-                            }
+                            "$ref": "#/definitions/IntegrationPaymentInformationDto"
                         },
-                        "x-nullable": true,
-                        "description": "The payment terms to import"
+                        "x-nullable": true
                     }
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": ""
                     }
                 }
             }
@@ -7116,7 +8107,7 @@
                 "tags": [
                     "PaymentTermImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PaymentTermImportBatch_Get",
                 "parameters": [
                     {
@@ -7142,7 +8133,7 @@
                 "tags": [
                     "PaymentTermImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
                 "operationId": "PaymentTermImportBatch_Delete",
                 "parameters": [
                     {
@@ -7157,6 +8148,37 @@
                 "responses": {
                     "200": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/PaymentTermImportBatches": {
+            "post": {
+                "tags": [
+                    "PaymentTermImportBatch"
+                ],
+                "summary": "The POST method allows the client to send payment terms that will be imported by the Mediusflow master data import queue.\nThe payment terms have company prerequisite.",
+                "operationId": "PaymentTermImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "paymentTerms",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "IntegrationPaymentTermDto"
+                                },
+                                "$ref": "#/definitions/IntegrationPaymentTermDto"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The payment terms to import"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
@@ -7580,7 +8602,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding purchase order message.",
                 "operationId": "PurchaseOrderRequestMessage_Post",
                 "parameters": [
                     {
@@ -7886,6 +8908,64 @@
                 "responses": {
                     "200": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/RestrictionRuleImportBatches": {
+            "post": {
+                "tags": [
+                    "RestrictionRuleImportBatch"
+                ],
+                "summary": "The POST method allows the client to send restriction rules that will be imported by data import queue.\nThe Restriction rules have company prerequisite.",
+                "operationId": "RestrictionRuleImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "restrictionStructuresList",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "RestrictionRuleGroupDto"
+                                },
+                                "$ref": "#/definitions/RestrictionRuleGroupDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/RestrictionRuleImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "RestrictionRuleImportBatch"
+                ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "operationId": "RestrictionRuleImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
                     }
                 }
             }
@@ -8739,7 +9819,7 @@
                 "tags": [
                     "VoucherMessage"
                 ],
-                "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher includes a CorrelationKey that need to match the corresponding supplier invoice message.",
+                "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "VoucherMessage_Post",
                 "parameters": [
                     {
