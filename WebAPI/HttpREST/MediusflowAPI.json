@@ -420,7 +420,11 @@
                 "PAYMENT_TERM_HAS_INVALID_DATA",
                 "INTERFACE_MISMATCH",
                 "SUPPLIER_ITEM_COMPANY_DOES_NOT_EXIST_IN_ITEM_COMPANY_TREE",
-                "CURRENCY_MISMATCH_ON_PO"
+                "CURRENCY_MISMATCH_ON_PO",
+                "INVALID_ORDER_TYPE",
+                "ORDER_TYPE_CHANGE_ATTEMPT",
+                "TWO_WAY_MATCHING_IMPORTING_GRS",
+                "TWO_WAY_MATCHING_IMPORT_GR"
             ],
             "enum": [
                 0,
@@ -549,7 +553,11 @@
                 123,
                 124,
                 125,
-                126
+                126,
+                127,
+                128,
+                129,
+                130
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -2795,6 +2803,9 @@
                 "Prepayment": {
                     "type": "boolean"
                 },
+                "OrderType": {
+                    "type": "string"
+                },
                 "PurchaseOrderLines": {
                     "type": "array",
                     "xml": {
@@ -2820,7 +2831,8 @@
                 "Amount",
                 "Quantity",
                 "UnitPrice",
-                "IsServiceBased"
+                "IsServiceBased",
+                "IsTwoWayMatch"
             ],
             "properties": {
                 "ErpSourceId": {
@@ -2970,6 +2982,9 @@
                     "type": "string"
                 },
                 "IsServiceBased": {
+                    "type": "boolean"
+                },
+                "IsTwoWayMatch": {
                     "type": "boolean"
                 }
             }
@@ -5426,7 +5441,13 @@
                 },
                 "ERPId": {
                     "type": "string"
-                }
+                },
+                "Instruction": {
+                    "type": "string"
+                },
+                "MailToAddress": {
+                    "type": "string"
+                }	                
             }
         },
         "IntegrationBalanceCodeStringDto": {
