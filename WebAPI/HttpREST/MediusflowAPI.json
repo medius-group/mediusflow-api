@@ -4060,6 +4060,8 @@
             },
             "additionalProperties": false,
             "required": [
+                "ExternalSystemId",
+                "CompanyId",
                 "IsActive"
             ],
             "properties": {
@@ -4076,7 +4078,7 @@
                 "CompanyId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "ExternalSystemId to corresponding entity."
+                    "description": "Unique identifier for the Company. I.e. CompanyId and not the ExternalSystemId for the Company."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -4104,10 +4106,26 @@
             "additionalProperties": false,
             "properties": {
                 "ControllingDimension": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Controlling dimension is the dimension the rule will be based on.",
+                    "enum":[
+                        "DIMENSION1",
+                        "DIMENSION2",
+                        "DIMENSION3",
+                        "DIMENSION4",
+                        "DIMENSION5",
+                        "DIMENSION6",
+                        "DIMENSION7",
+                        "DIMENSION8",
+                        "DIMENSION9",
+                        "DIMENSION10",
+                        "DIMENSION11",
+                        "DIMENSION12"
+                    ]
                 },
                 "ControllingDimensionValues": {
                     "type": "array",
+                    "description": "Multiple ControllingDimension sets of values are allowed, but each set will be mapped to seperate restriction rules in Mediusflow.",
                     "xml": {
                         "wrapped": true
                     },
@@ -4143,37 +4161,50 @@
             ],
             "properties": {
                 "From": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Is greater than. Use IncludeEdges for including or not."
                 },
                 "To": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Is less than. Use IncludeEdges for including or not."
                 },
                 "StartsWith": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Begins with."
                 },
                 "EndsWith": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Ends with."
                 },
                 "Is": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Is."
                 },
                 "In": {
                     "type": "array",
+                    "description": "Operator in Mediusflow: Is. Each list value will be mapped as seperate rules.",
                     "xml": {
                         "wrapped": true
                     },
                     "items": {
                         "type": "string",
                         "xml": {
-                            "name": "String"
+                            "name": "string"
                         }
                     }
                 },
                 "IsAnyValue": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Operator in Mediusflow: Is any value."
                 },
                 "IncludeEdges": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Include edges is used in combination with other operators to determin use of start and end values."
                 }
             }
         },
@@ -4185,7 +4216,27 @@
             "additionalProperties": false,
             "properties": {
                 "Dimension": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Dimension which the child rule will be based on.",
+                    "enum":[
+                        "DIMENSION1",
+                        "DIMENSION2",
+                        "DIMENSION3",
+                        "DIMENSION4",
+                        "DIMENSION5",
+                        "DIMENSION6",
+                        "DIMENSION7",
+                        "DIMENSION8",
+                        "DIMENSION9",
+                        "DIMENSION10",
+                        "DIMENSION11",
+                        "DIMENSION12",
+                        "FREETEXT1",
+                        "FREETEXT2",
+                        "FREETEXT3",
+                        "FREETEXT4",
+                        "FREETEXT5"
+                    ]
                 },
                 "ChildRules": {
                     "type": "array",
@@ -4230,40 +4281,54 @@
             ],
             "properties": {
                 "From": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Is greater than. Use IncludeEdges for including or not."
                 },
                 "To": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Is less than. Use IncludeEdges for including or not."
                 },
                 "StartsWith": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Begins with."
                 },
                 "EndsWith": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Ends with."
                 },
                 "Is": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "Operator in Mediusflow: Is."
                 },
                 "In": {
                     "type": "array",
+                    "description": "Operator in Mediusflow: Is. Each list value will be mapped as seperate rules.",
                     "xml": {
                         "wrapped": true
                     },
                     "items": {
                         "type": "string",
                         "xml": {
-                            "name": "String"
+                            "name": "string"
                         }
                     }
                 },
                 "IsAnyValue": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Operator in Mediusflow: Is any value."
                 },
                 "IsEmptyValue": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Operator in Mediusflow: Is empty value."
                 },
                 "IncludeEdges": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Include edges is used in combination with other operators to determin use of start and end values."
                 }
             }
         },
