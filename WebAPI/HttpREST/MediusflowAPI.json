@@ -499,8 +499,7 @@
                 "INVALID_ORDER_TYPE",
                 "ORDER_TYPE_CHANGE_ATTEMPT",
                 "TWO_WAY_MATCHING_IMPORTING_GRS",
-                "TWO_WAY_MATCHING_IMPORT_GR",
-                "PURCHASE_ORDER_COMMENT_MISSING"
+                "TWO_WAY_MATCHING_IMPORT_GR"
             ],
             "enum": [
                 0,
@@ -633,8 +632,7 @@
                 127,
                 128,
                 129,
-                130,
-                131
+                130
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -1521,40 +1519,6 @@
                     "type": "string",
                     "maxLength": 100,
                     "description": "ExternalSystemId to corresponding entity"
-                },
-                "Responsibles": {
-                    "type": "array",
-                    "xml": {
-                        "wrapped": true
-                    },
-                    "items": {
-                        "xml": {
-                            "name": "IntegrationDimensionValueConfigurationResponsibleDto"
-                        },
-                        "$ref": "#/definitions/IntegrationDimensionValueConfigurationResponsibleDto"
-                    }
-                }
-            }
-        },
-        "IntegrationDimensionValueConfigurationResponsibleDto": {
-            "type": "object",
-            "xml": {
-                "name": "DimensionValueConfigurationResponsible"
-            },
-            "additionalProperties": false,
-            "required": [
-                "OrderId"
-            ],
-            "properties": {
-                "ResponsibleUser": {
-                    "type": "string"
-                },
-                "ResponsibleRole": {
-                    "type": "string"
-                },
-                "OrderId": {
-                    "type": "integer",
-                    "format": "int32"
                 }
             }
         },
@@ -3146,18 +3110,6 @@
                         },
                         "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
                     }
-                },
-                "PurchaseOrderComments": {
-                    "type": "array",
-                    "xml": {
-                        "wrapped": true
-                    },
-                    "items": {
-                        "xml": {
-                            "name": "IntegrationPurchaseOrderCommentDto"
-                        },
-                        "$ref": "#/definitions/IntegrationPurchaseOrderCommentDto"
-                    }
                 }
             }
         },
@@ -3621,25 +3573,6 @@
                     "description": "Total invoiced quantity. Decimal format (28,14)"
                 },
                 "PurchaseOrderLineExternalSystemId": {
-                    "type": "string"
-                }
-            }
-        },
-        "IntegrationPurchaseOrderCommentDto": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "ErpSourceId": {
-                    "type": "string"
-                },
-                "ExternalSystemId": {
-                    "type": "string"
-                },
-                "CommentDate": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "Comment": {
                     "type": "string"
                 }
             }
