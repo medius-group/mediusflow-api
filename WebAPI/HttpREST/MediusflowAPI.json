@@ -6379,12 +6379,14 @@
                 },
                 "POConnectionLineNumbers": {
                     "type": "array",
+                    "description": "List of connected purchase order line connections.",
                     "xml": {
                         "wrapped": true
                     },
                     "items": {
                         "type": "integer",
                         "format": "int32",
+                        "description": "Reference to LineNumber in POConnectionLines.",
                         "xml": {
                             "name": "Int32"
                         }
@@ -6876,7 +6878,7 @@
                     "items": {
                         "type": "integer",
                         "format": "int32",
-                        "description": "Reference to connected purchase order line connection number.",
+                        "description": "Reference to LineNumber in POConnectionLines.",
                         "xml": {
                             "name": "Int32"
                         }
