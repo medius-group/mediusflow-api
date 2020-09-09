@@ -3173,7 +3173,6 @@
                 "IsActive",
                 "ItemNumber",
                 "LineNumber",
-                "OrderIdentifier",
                 "Quantity",
                 "Unit",
                 "UnitPrice",
@@ -3310,7 +3309,8 @@
                 "ConversionFactor": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Conversionfactor for unitprice and quantity. Default is 1. Decimal format (19,5)"
+                    "description": "Conversionfactor for unitprice and quantity. Default is 1. Decimal format (19,5)",
+                    "default": 1
                 },
                 "ItemDescription": {
                     "type": "string",
@@ -3384,7 +3384,8 @@
                     "description": "If purchase order line is service based or not. Only set during initial import, not possible to update."
                 },
                 "IsTwoWayMatch": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If true, no goods reciepts are expected and IntegrationDeliveryLineDto should not be included."
                 }
             }
         },
@@ -3444,7 +3445,6 @@
             "additionalProperties": false,
             "required": [
                 "ExternalSystemId",
-                "CurrencyCode",
                 "DeliveryNumber",
                 "IsActive",
                 "Amount",
@@ -3621,7 +3621,9 @@
                     "description": "Total invoiced quantity. Decimal format (28,14)"
                 },
                 "PurchaseOrderLineExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "ExternalSystemId to PurchaseOrderLine to which this delivery line should be connected to. Only used when doing a goods reciept import without PO header and PO line."
                 }
             }
         },
@@ -5492,14 +5494,19 @@
             ],
             "properties": {
                 "ImportedOrderIdentifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "The order identifier from invoice head"
                 },
                 "ImportedOrderIdentifier2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "The order identifier 2 from invoice head"
                 },
                 "DocumentId": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Unique Id to document in MediusFlow"
                 },
                 "BalanceCodeString": {
                     "xml": {
@@ -5508,13 +5515,19 @@
                     "$ref": "#/definitions/IntegrationBalanceCodeStringDto"
                 },
                 "CompanyExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Unique ExternalSystemId to the Company."
                 },
                 "CompanyId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Unique Company Id."
                 },
                 "CompanyName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Name of the Company."
                 },
                 "CompanyIdentifiers": {
                     "type": "array",
@@ -5529,31 +5542,42 @@
                     }
                 },
                 "CompanyOrganizationNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Organization number for the Company."
                 },
                 "ConnectedAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Total Connected amount on connected purchase orders. Decimal format (28,14)."
                 },
                 "ConnectedQuantity": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Total connected quantity on connected purchase orders. Decimal format (28,14)."
                 },
                 "CurrencyCode": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 10,
+                    "description": "ISO Code for currency on invoice."
                 },
                 "CurrencyExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to currency code."
                 },
                 "CurrencyRate": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Currency rate. Decimal format (28,14)."
                 },
                 "IsCurrencyRateImported": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Field determining whether currency rate was imported from invoice on document."
                 },
                 "HasCrossCompanyPostings": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates if CodingLines have different Line companies."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean"
@@ -5766,68 +5790,99 @@
                     "format": "date-time"
                 },
                 "SupplierCountry": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Supplier country."
                 },
                 "SupplierState": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Supplier state."
                 },
                 "OriginalDocumentType": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Type of document. [EXPENSE, ORDER_BASED, CONTRACT_BASED]"
                 },
                 "DueDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Due date."
                 },
                 "FinalBookingDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Final booking date."
                 },
                 "ImagePath": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "URL to invoice image. Requires user to be logged in to MediusFlow to access the image."
                 },
                 "ImageUNCPath": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Only available for on-premise installations."
                 },
                 "DocumentURL": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "URL to document in MediusFlow. User will be redirected to login page if not already logged in."
                 },
                 "InvoiceDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Invoice date."
                 },
                 "InvoiceNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Invoice number."
                 },
                 "NetAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Invoice total NET amount. Decimal format (28,14)."
                 },
                 "PaymentTerm": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Payment term from Supplier."
                 },
                 "PreferredPaymentDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Invoice preferred payment date."
                 },
                 "PreliminaryBookingDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Invoice preliminary booking date."
                 },
                 "PreliminaryVoucherNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Voucher number from preliminary booking. Empty if the booking is a preliminary or direct booking."
                 },
                 "FinalVoucherNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Voucher number from final booking."
                 },
                 "RoundingAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Imported rounding amount. Decimal format (28,14)."
                 },
                 "SupplierExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId for the supplier."
                 },
                 "SupplierId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Id for the Supplier."
                 },
                 "SupplierIdentifiers": {
                     "type": "array",
@@ -5842,53 +5897,79 @@
                     }
                 },
                 "SupplierName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Name of the Supplier."
                 },
                 "InvoiceReference": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Invoice reference from invoice."
                 },
                 "PaymentReference": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Payment reference from Invoice."
                 },
                 "TaxAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Invoice total tax amount (imported value). Decimal format (28,14)."
                 },
                 "TaxIndicator": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Tax group from invoice."
                 },
                 "TaxIndicator2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Tax indicator 2 from invoice."
                 },
                 "SupplierTaxIndicator1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Tax indicator 1 from invoice's supplier."
                 },
                 "SupplierTaxIndicator2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Tax indicator 2 from invoice's supplier."
                 },
                 "TotalAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Invoice total amount incl. tax."
                 },
                 "TotalCodedNetAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Total coded NET amount. Decimal format (28,14)."
                 },
                 "TotalCodedTaxAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Total coded TAX amount. Decimal format (28,14)."
                 },
                 "PreliminaryPeriodExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "ExternalSystemId to the preliminary period used. Empty if direct booking."
                 },
                 "PreliminaryPeriodName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Name of the preliminary period. Empty if direct booking."
                 },
                 "FinalPeriodName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Name of the Final period."
                 },
                 "FinalPeriodExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "ExternalSystemId to the final period used."
                 },
                 "InvoiceLines": {
                     "type": "array",
@@ -5975,16 +6056,23 @@
                     }
                 },
                 "OrderType": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Type of connected purchase order(s). Internal - when connected POs are from Procurement module, External - when connected POs are imported from ERP, Mixed - when connected to Pos from different sources."
                 },
                 "IsPaymentBlocked": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If the invoice should be blocked for payment."
                 },
                 "PaymentDetailsExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "ExternalSystemId of PaymentDetails connected with invoice. Can be empty if the PaymentDetails is not used or not found (and configured to allow empty)."
                 },
                 "PaymentDetailId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "PaymentDetailId of PaymentDetails connected with invoice. Can be empty if the PaymentDetails is not used or not found (and configured to allow empty)."
                 },
                 "PaymentDetailCustomField_Boolean1": {
                     "type": "boolean"
@@ -6057,13 +6145,19 @@
                     "format": "date-time"
                 },
                 "ERPId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "ERPId from company setting."
                 },
                 "PaymentRequestInstruction": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Instructions from the payment request. Only available for Payment request."
                 },
                 "PaymentRequestMailToAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Mail to adress for payment request. Only available for Payment request."
                 }	                
             }
         },
@@ -6104,28 +6198,38 @@
             "properties": {
                 "Amount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Imported invoice line amount. Decimal format (28,14)."
                 },
                 "ItemDescription": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Imported invoice line item description."
                 },
                 "ItemNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Imported invoice line item number."
                 },
                 "LineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Counter for Line number. Serial number, starts with 1."
                 },
                 "Quantity": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Imported invoice line quantity."
                 },
                 "QuantityUnit": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Imported invoice line quantity unit description."
                 },
                 "UnitPrice": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Imported invoice line unitprice."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean"
@@ -6213,10 +6317,14 @@
             ],
             "properties": {
                 "CompanyId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Only used with CrossCompanyPosting feature. CompanyId for company connected to coding line."
                 },
                 "CompanyExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Only used with CrossCompanyPosting feature. ExternalSystemId for company connected to coding line."
                 },
                 "Accrual": {
                     "xml": {
@@ -6232,31 +6340,42 @@
                 },
                 "Amount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Coded NET amount. Decimal format (28,14)."
                 },
                 "GrossAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Coded Gross amount. Decimal format (28,14)."
                 },
                 "InvoiceLineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Connected invoice line number. Reference value can be found in IntegrationSupplierInvoiceLineDto. Can be NULL if no connection to invoice line."
                 },
                 "CodingLineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Id reference to this specific coding line."
                 },
                 "TaxIndicator1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding entity. Only in use if Mediusflow is configured to code on tax codes and if TaxDimensions not provided."
                 },
                 "TaxIndicator2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding entity. Only in use if Mediusflow is configured to code on tax codes and if TaxDimensions not provided."
                 },
                 "IsEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If the coding line is enabled in user UI or not."
                 },
                 "Tag": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Cost etc."
                 },
                 "POConnectionLineNumbers": {
                     "type": "array",
@@ -6286,7 +6405,9 @@
             ],
             "properties": {
                 "AccrualTemplateId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding entity."
                 },
                 "Dimensions": {
                     "xml": {
@@ -6296,11 +6417,13 @@
                 },
                 "NumberOfPeriods": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Number of periods."
                 },
                 "StartDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Start date of the accruals."
                 },
                 "AccrualPeriods": {
                     "type": "array",
@@ -6315,10 +6438,13 @@
                     }
                 },
                 "AccrualErpIdentifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ERPIdentifier to corresponding entity."
                 },
                 "UseLinesWithAccrualPeriods": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If true, accrual periods are specified manually. If false, only NumberOfPeriods will be provided."
                 }
             }
         },
@@ -6335,11 +6461,13 @@
             "properties": {
                 "Period": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Number of the period."
                 },
                 "Percentage": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Percentage of the period."
                 }
             }
         },
@@ -6362,40 +6490,53 @@
                 },
                 "Amount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Tax amount. Decimal format (28,14)."
                 },
                 "NetAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Net amount for this Tax line. Decimal format (28,14)."
                 },
                 "GrossAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Gross amount for this Tax line. Decimal format (28,14)."
                 },
                 "CodingLineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Connection to Coding line. Only available if tax codes are used in coding."
                 },
                 "DeductiblePercentage": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Tax code deductible percentage. Decimal format (19,5)."
                 },
                 "Percentage": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Tax code percentage. Decimal format (19,5)."
                 },
                 "TaxCode": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Tax code."
                 },
                 "TaxLineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Counter for Tax line number. Serial number, starts with 1."
                 },
                 "TaxIndicator1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding entity. Only in use if given tax line originates from certain tax group."
                 },
                 "TaxIndicator2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding entity. Only in use if given tax line originates from certain tax group and that 2 tax indicators is in use."
                 }
             }
         },
@@ -6414,43 +6555,63 @@
             "properties": {
                 "LineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32", 
+                    "description": "Counter for Purchase order line. Serial number, starts with 1."
                 },
                 "PurchaseOrderNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Purchase order number for the given line."
                 },
                 "PurchaseOrderNumber2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Purchase order number 2 for the given line."
                 },
                 "PurchaseOrderLineNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Purchase order line number for the given line."
                 },
                 "ItemNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Item number for the given line."
                 },
                 "ItemDescription": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Item description."
                 },
                 "ConversionFactor": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Conversion factor for unit price and quantity."
                 },
                 "Quantity": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Purchase order line quantity. Decimal format (28,14)."
                 },
                 "Unit": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Unit of meassure for the purchase order line."
                 },
                 "UnitPrice": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Purchase order line unit price. Decimal format (28,14)."
                 },
                 "Reference": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Purchase order line reference."
                 },
                 "OrderType": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Type of connected purchase order line. Internal - when connected line are from Procurement module, External - when connected line are imported from ERP."
                 }
             }
         },
@@ -6472,71 +6633,92 @@
             "properties": {
                 "ConnectedAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Connected Quantity * Connected UnitPrice. Decimal format (28,14)."
                 },
                 "ConnectedQuantity": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Connected quantity between delivery line and invoice line. Decimal format (28,14)."
                 },
                 "ConnectionLevel": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Determines on what level the connection was made. Values:[LineDetail, LineTotal, Head, LineItemCharge, LineServiceBased]" 
                 },
                 "ConversionFactor": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Conversionfactor for unitprice and quantity from delivery line. Constant '1' if no delivery exists. Decimal format (19,5)."
                 },
                 "DeliveredQuantity": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Delivered quantity. Can be NULL if no delivery exists. Decimal format (28,14)."
                 },
                 "DeliveredAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Delivered amount. Can be NULL if no delivery exists. Decimal format (28,14)."
                 },
                 "DeliveredUnitPrice": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Delivered unit price. Can be NULL if no delivery exists. Decimal format (28,14)."
                 },
                 "DeliveryDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Delivery date. Can be NULL if no delivery exists."
                 },
                 "DeliveryNote": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Delivery note. Empty if no delivery exists."
                 },
                 "DeliveryNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Delivery number. Empty if no delivery exists."
                 },
                 "ReleaseNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Realese number. Empty if no delivery exists."
                 },
                 "InvoiceLineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Reference to connected invoice line number."
                 },
                 "IsManual": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Determines if the line was system created or user created."
                 },
                 "LineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Counter for Purchase order line connection. Serial number, starts with 1."
                 },
                 "PurchaseOrderLineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Reference to connected purchase order line number."
                 },
                 "TransactionDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Transaction date. Can be null if no delivery exists."
                 },
                 "CodingLineNumbers": {
                     "type": "array",
+                    "description": "List of connected coding lines.",
                     "xml": {
                         "wrapped": true
                     },
                     "items": {
                         "type": "integer",
                         "format": "int32",
+                        "description": "Reference to connected coding line number.",
                         "xml": {
                             "name": "Int32"
                         }
@@ -6613,10 +6795,13 @@
                     "format": "date-time"
                 },
                 "DeliveryLineExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Unique Identifier of the delivery line."
                 },
                 "DeliveryLineIsFictive": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If the delivery line is fictive or not. Default false."
                 }
             }
         },
@@ -6633,49 +6818,65 @@
             ],
             "properties": {
                 "ApprovalUserFirstName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "First  name for the user that approved/rejected the line."
                 },
                 "ApprovalUserLastName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Last name for the user that approved/rejected the line."
                 },
                 "ApprovalUserUsername": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Username for the user that approved/rejected the line."
                 },
                 "DeviationAmount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Total deviation amount. Decimal format (28,14)."
                 },
                 "DeviationDays": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Amount of deviation days. Due date deviation needs to be activated."
                 },
                 "DeviationQuantity": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Deviation quantity. Decimal format (28,14)."
                 },
                 "DeviationType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Describes what type of deviation occured. Possible values:'InvoiceLineAmountDeviation','LineAmountExceptionTypeDeviation','UnitPriceDeviation','UnitPriceExceptionTypeDeviation','QuantityDeviation','DueDateDeviation','NetAmountDeviation'."
                 },
                 "IsApproved": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Determines if this deviation line was approved by user."
                 },
                 "IsAutoCoded": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Determines if the deviation line was autocoded or manual coded in workflow."
                 },
                 "IsRejected": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Determines if this deviation line was rejected by user."
                 },
                 "IsWithinTolerance": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Determines if the deviation was within tolerance limit configured in the workflow."
                 },
                 "POConnectionLineNumbers": {
                     "type": "array",
+                    "description": "List of connected purchase order line connections.",
                     "xml": {
                         "wrapped": true
                     },
                     "items": {
                         "type": "integer",
                         "format": "int32",
+                        "description": "Reference to connected purchase order line connection number.",
                         "xml": {
                             "name": "Int32"
                         }
@@ -6683,12 +6884,14 @@
                 },
                 "CodingLineNumbers": {
                     "type": "array",
+                    "description": "List of connected coding lines.",
                     "xml": {
                         "wrapped": true
                     },
                     "items": {
                         "type": "integer",
                         "format": "int32",
+                        "description": "Reference to connected coding line number.",
                         "xml": {
                             "name": "Int32"
                         }
@@ -6709,13 +6912,17 @@
             "properties": {
                 "InvoiceLineNumber": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Reference to invoice line number."
                 },
                 "ExceptionType": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Exception type used in MediusFlow."
                 },
                 "IsManual": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If exception type connection was done manually or automatically."
                 }
             }
         },
