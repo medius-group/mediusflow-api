@@ -79,97 +79,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -243,27 +243,27 @@
                 "FreeText1": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "FreeText2": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "FreeText3": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "FreeText4": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "FreeText5": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 }
             }
         },
@@ -934,106 +934,153 @@
             },
             "additionalProperties": false,
             "required": [
+                "ExternalSystemId",
+                "AccountingCurrencyCode",
+                "CompanyId",
                 "IsVirtual",
-                "IsActive"
+                "IsActive",
+                "Name",
+                "OrganizationNumber",
+                "Parent"
             ],
             "properties": {
                 "ErpSourceId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Source of entity"
                 },
                 "ExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Id reference in ERP, unique key between XI and ERP"
                 },
                 "CustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "Name": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Company name."
                 },
                 "OrganizationNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Organization number for company."
                 },
                 "Parent": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to parent company in Mediusflow."
                 },
                 "IsVirtual": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Identifies if company is a virtual or real company in Mediusflow."
                 },
                 "IsActive": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "If the entity is active or inactive"
                 },
                 "CompanyId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Unique company identifier"
                 },
                 "AccountingCurrencyCode": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding Currency."
                 },
                 "CompanyIdentifiers": {
                     "type": "array",
@@ -1057,10 +1104,22 @@
             "additionalProperties": false,
             "properties": {
                 "IdentifierType": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "See list of available values for the identifier type. In GUI they are named differently, eg. Bank Account for BANK_ACCOUNT",
+                    "enum": [
+                        "BANK_ACCOUNT",
+                        "ORGANIZATION_NUMBER",
+                        "VAT_REGISTRATION_NUMBER",
+                        "GLN_NUMBER",
+                        "IBAN_NUMBER",
+                        "OTHER"
+                    ]
                 },
                 "IdentifierValue": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Identifier value, e.g. bank account number"
                 }
             }
         },
@@ -1089,97 +1148,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "Code": {
                     "type": "string",
@@ -1219,97 +1278,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CompanyId": {
                     "type": "string",
@@ -1364,97 +1423,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -1521,40 +1580,6 @@
                     "type": "string",
                     "maxLength": 100,
                     "description": "ExternalSystemId to corresponding entity"
-                },
-                "Responsibles": {
-                    "type": "array",
-                    "xml": {
-                        "wrapped": true
-                    },
-                    "items": {
-                        "xml": {
-                            "name": "IntegrationDimensionValueConfigurationResponsibleDto"
-                        },
-                        "$ref": "#/definitions/IntegrationDimensionValueConfigurationResponsibleDto"
-                    }
-                }
-            }
-        },
-        "IntegrationDimensionValueConfigurationResponsibleDto": {
-            "type": "object",
-            "xml": {
-                "name": "DimensionValueConfigurationResponsible"
-            },
-            "additionalProperties": false,
-            "required": [
-                "OrderId"
-            ],
-            "properties": {
-                "ResponsibleUser": {
-                    "type": "string"
-                },
-                "ResponsibleRole": {
-                    "type": "string"
-                },
-                "OrderId": {
-                    "type": "integer",
-                    "format": "int32"
                 }
             }
         },
@@ -1586,97 +1611,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -1837,97 +1862,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -1956,97 +1981,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -2252,97 +2277,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -2543,97 +2568,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -2977,97 +3002,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -3175,9 +3200,7 @@
                 "LineNumber",
                 "Quantity",
                 "Unit",
-                "UnitPrice",
-                "IsServiceBased",
-                "IsTwoWayMatch"
+                "UnitPrice"
             ],
             "properties": {
                 "ErpSourceId": {
@@ -3193,97 +3216,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -3448,12 +3471,10 @@
                 "DeliveryNumber",
                 "IsActive",
                 "Amount",
-                "ConversionFactor",
                 "DeliveryDate",
                 "Quantity",
                 "Unit",
-                "UnitPrice",
-                "IsFictive"
+                "UnitPrice"
             ],
             "properties": {
                 "ErpSourceId": {
@@ -3469,97 +3490,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -3632,17 +3653,24 @@
             "additionalProperties": false,
             "properties": {
                 "ErpSourceId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Source of entity"
                 },
                 "ExternalSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Id reference in ERP, unique key between XI and ERP"
                 },
                 "CommentDate": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Date of the comment."
                 },
                 "Comment": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Comment text."
                 }
             }
         },
@@ -4107,19 +4135,13 @@
             }
         },
         "RestrictionType": {
-            "type": "integer",
-            "description": "",
-            "x-enumNames": [
+            "type": "string",
+            "description": "Set which type of restriction to be used.",
+            "enum": [
                 "Default",
                 "Fixed",
                 "Forbidden",
                 "Required"
-            ],
-            "enum": [
-                0,
-                1,
-                2,
-                3
             ]
         },
         "RestrictionRuleGroupDto": {
@@ -4409,19 +4431,29 @@
             "additionalProperties": false,
             "properties": {
                 "ErpSourceId": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Source of entity."
                 },
                 "Company": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding entity."
                 },
                 "Responsible": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Used to distribute invoice to supplier responsible. Format: UserName or Fullname (FirstName + LastName) in Mediusflow. Can be used instead of ResponsibleRole."
                 },
                 "ResponsibleRole": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Role to distribute invoice to supplier responsible. Format: Needs to be Role.Name in Mediusflow. Can be used instead of Responsible."
                 },
                 "Supplier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ExternalSystemId to corresponding entity."
                 },
                 "ContactPersons": {
                     "type": "array",
@@ -4437,13 +4469,16 @@
                 },
                 "ExpectedDeliveryTimeInDays": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Number of days that invoice should be hidden when using Goods in Transit inbox filter."
                 },
                 "SendPurchaseOrderAsIntegrationMessage": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable this option to automatically send the purchase order as an integration message. Integration message setting must be active for the PO to be sent. You can combine this option with sending the order as a PDF file."
                 },
                 "SendPurchaseOrderAsPdf": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable this option to be able to send the purchase order as a PDF file attached to an email directly in MediusFlow. You can combine this option with sending the purchase order as an integration message."
                 }
             }
         },
@@ -4453,42 +4488,74 @@
                 "name": "ContactPerson"
             },
             "additionalProperties": false,
+            "description": "List of Contact persons. List in Mediusflow will be deleted and new entrie(s) in this batch will be added.",
+            "required": [
+                "Type"
+            ],
             "properties": {
                 "FirstName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 60,
+                    "description": "First name of Contact person."
                 },
                 "LastName": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 60,
+                    "description": "Last name of Contact person."
                 },
                 "StreetAddress": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Street address."
                 },
                 "City": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "City"
                 },
                 "Zip": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Zip."
                 },
                 "Country": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Country."
                 },
                 "Telephone": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Telephone."
                 },
                 "Fax": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Fax."
                 },
                 "Homepage": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Home page."
                 },
                 "Email": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "E-mail address."
                 },
                 "State": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "State."
                 },
                 "Type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of Contact person",
+                    "enum": [
+                        "AdjustmentRequest",
+                        "Order",
+                        "Short Payment"
+                    ]
                 }
             }
         },
@@ -4695,97 +4762,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -5223,97 +5290,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -5345,96 +5412,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -5580,214 +5648,289 @@
                     "description": "Indicates if CodingLines have different Line companies."
                 },
                 "CustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CompanyCustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CompanyCustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CompanyCustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CompanyCustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CompanyCustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CompanyCustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CompanyCustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CompanyCustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CompanyCustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CompanyCustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CompanyCustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CompanyCustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CompanyCustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CompanyCustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CompanyCustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CompanyCustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CompanyCustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CompanyCustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CompanyCustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CompanyCustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "SupplierCustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "SupplierCustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "SupplierCustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "SupplierCustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "SupplierCustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "SupplierCustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "SupplierCustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "SupplierCustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "SupplierCustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "SupplierCustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "SupplierCustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "SupplierCustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "SupplierCustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "SupplierCustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "SupplierCustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "SupplierCustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "SupplierCustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "SupplierCustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "SupplierCustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "SupplierCustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "SupplierCountry": {
                     "type": "string",
@@ -5802,7 +5945,13 @@
                 "OriginalDocumentType": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Type of document. [EXPENSE, ORDER_BASED, CONTRACT_BASED]"
+                    "description": "Type of document.",
+                    "enum": [
+                        "EXPENSE",
+                        "ORDER_BASED",
+                        "CONTRACT_BASED",
+                        "PAYMENT_REQUEST"
+                    ]
                 },
                 "DueDate": {
                     "type": "string",
@@ -6075,74 +6224,99 @@
                     "description": "PaymentDetailId of PaymentDetails connected with invoice. Can be empty if the PaymentDetails is not used or not found (and configured to allow empty)."
                 },
                 "PaymentDetailCustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "PaymentDetailCustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "PaymentDetailCustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "PaymentDetailCustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "PaymentDetailCustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "PaymentDetailCustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "PaymentDetailCustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "PaymentDetailCustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "PaymentDetailCustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "PaymentDetailCustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "PaymentDetailCustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "PaymentDetailCustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "PaymentDetailCustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "PaymentDetailCustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "PaymentDetailCustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "PaymentDetailCustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "PaymentDetailCustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "PaymentDetailCustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "PaymentDetailCustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "PaymentDetailCustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "ERPId": {
                     "type": "string",
@@ -6232,74 +6406,99 @@
                     "description": "Imported invoice line unitprice."
                 },
                 "CustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -6375,7 +6574,36 @@
                 "Tag": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Cost etc."
+                    "description": "Type of coding line.",
+                    "enum": [
+                        "Cost",
+                        "ExceptionType",
+                        "CostBalancing",
+                        "Clearance",
+                        "ExceptionTypeAutoApproved",
+                        "DeviationUnitPrice",
+                        "DeviationQuantity",
+                        "DeviationLineTotal",
+                        "DeviationNetAmount",
+                        "DeviationUnitPriceWithinTolerance",
+                        "DeviationQuantityWithinTolerance",
+                        "DeviationLineTotalWithinTolerance",
+                        "DeviationNetAmountWithinTolerance",
+                        "DeviationLineTotalApproved",
+                        "DeviationLineTotalRejected",
+                        "DeviationUnitPriceApproved",
+                        "DeviationUnitPriceRejected",
+                        "DeviationQuantityApproved",
+                        "DeviationQuantityRejected",
+                        "DeviationNetAmountApproved",
+                        "DeviationNetAmountRejected",
+                        "DeviationExceptionType",
+                        "DeviationExceptionTypeApproved",
+                        "DeviationExceptionTypeRejected",
+                        "ItemCharge",
+                        "Tax",
+                        "RejectedWithShortPayment"
+                    ]
                 },
                 "POConnectionLineNumbers": {
                     "type": "array",
@@ -6727,74 +6955,99 @@
                     }
                 },
                 "DeliveryLineCustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "DeliveryLineCustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "DeliveryLineCustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "DeliveryLineCustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "DeliveryLineCustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "DeliveryLineCustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "DeliveryLineCustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "DeliveryLineCustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "DeliveryLineCustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "DeliveryLineCustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "DeliveryLineCustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "DeliveryLineCustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "DeliveryLineCustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "DeliveryLineCustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "DeliveryLineCustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "DeliveryLineCustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "DeliveryLineCustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "DeliveryLineCustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "DeliveryLineCustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "DeliveryLineCustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "DeliveryLineExternalSystemId": {
                     "type": "string",
@@ -6956,97 +7209,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -7118,97 +7371,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CompanyId": {
                     "type": "string",
@@ -7277,97 +7530,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -7644,97 +7897,97 @@
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Custom field of type text"
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
                     "format": "decimal",
-                    "description": "Custom field of type numeric. Decimal format (28,14)"
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Boolean1": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
                     "type": "boolean",
-                    "description": "Custom field of type bit"
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Custom Field of type datetime"
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -7991,7 +8244,7 @@
                 "tags": [
                     "ActualPaymentDate"
                 ],
-                "summary": "This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "summary": "Deprecated API, please use paymentInformations instead. This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ActualPaymentDate_Get",
                 "parameters": [
                     {
@@ -8028,7 +8281,7 @@
                 "tags": [
                     "ActualPaymentDate"
                 ],
-                "summary": "This method will return a status and an efective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "Deprecated API, please use paymentInformations instead. This method will return a status and an efective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
                 "operationId": "ActualPaymentDate_GetStatus",
                 "parameters": [
                     {
@@ -8057,7 +8310,7 @@
                 "tags": [
                     "ActualPaymentDate"
                 ],
-                "summary": "This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "summary": "Deprecated API, please use paymentInformations instead. This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ActualPaymentDate_Post",
                 "parameters": [
                     {
