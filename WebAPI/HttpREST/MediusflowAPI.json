@@ -1580,6 +1580,40 @@
                     "type": "string",
                     "maxLength": 100,
                     "description": "ExternalSystemId to corresponding entity"
+                },
+                "Responsibles": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationDimensionValueConfigurationResponsibleDto"
+                        },
+                        "$ref": "#/definitions/IntegrationDimensionValueConfigurationResponsibleDto"
+                    }
+                }
+            }
+        },
+        "IntegrationDimensionValueConfigurationResponsibleDto": {
+            "type": "object",
+            "xml": {
+                "name": "DimensionValueConfigurationResponsible"
+            },
+            "additionalProperties": false,
+            "required": [
+                "OrderId"
+            ],
+            "properties": {
+                "ResponsibleUser": {
+                    "type": "string"
+                },
+                "ResponsibleRole": {
+                    "type": "string"
+                },
+                "OrderId": {
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
         },
