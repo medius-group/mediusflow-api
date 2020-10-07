@@ -175,9 +175,6 @@
         },
         "IntegrationCodingDimensionsDto": {
             "type": "object",
-            "xml": {
-                "name": "CodingDimensions"
-            },
             "additionalProperties": false,
             "properties": {
                 "Dimension1": {
@@ -1583,6 +1580,7 @@
                 },
                 "Responsibles": {
                     "type": "array",
+                    "description": "Beta feature. Only available for Pilot customers.",
                     "xml": {
                         "wrapped": true
                     },
@@ -1597,6 +1595,7 @@
         },
         "IntegrationDimensionValueConfigurationResponsibleDto": {
             "type": "object",
+            "description": "Beta feature. Only available for Pilot customers.",
             "xml": {
                 "name": "DimensionValueConfigurationResponsible"
             },
@@ -1606,14 +1605,17 @@
             ],
             "properties": {
                 "ResponsibleUser": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Beta feature. Only available for Pilot customers."
                 },
                 "ResponsibleRole": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Beta feature. Only available for Pilot customers."
                 },
                 "OrderId": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "Beta feature. Only available for Pilot customers."
                 }
             }
         },
@@ -8210,6 +8212,10 @@
                                     "name": "IntegrationAccrualTemplateDto"
                                 },
                                 "$ref": "#/definitions/IntegrationAccrualTemplateDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfAccrualTemplate"
                             }
                         },
                         "x-nullable": true,
