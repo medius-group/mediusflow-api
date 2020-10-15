@@ -2151,14 +2151,12 @@
                     "xml": {
                         "name": "Invoice"
                     },
-                    "description": "Required to identify which invoice that should be updated with payment informations.",
                     "$ref": "#/definitions/IntegrationPaymentInformationInvoiceDto"
                 },
                 "PaymentLine": {
                     "xml": {
                         "name": "PaymentLine"
                     },
-                    "description": "Information about the payment.",
                     "$ref": "#/definitions/IntegrationPaymentLineDto"
                 },
                 "CustomField_Boolean1": {
@@ -2263,6 +2261,7 @@
             "xml": {
                 "name": "Invoice"
             },
+            "description": "Required to identify which invoice that should be updated with payment informations.",
             "additionalProperties": false,
             "required": [
                 "Date",
@@ -2295,6 +2294,7 @@
             "xml": {
                 "name": "PaymentLine"
             },
+            "description": "Information about the payment.",
             "additionalProperties": false,
             "required": [
                 "Date",
