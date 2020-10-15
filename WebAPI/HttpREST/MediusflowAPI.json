@@ -2151,83 +2151,110 @@
                     "xml": {
                         "name": "Invoice"
                     },
+                    "description": "Required to identify which invoice that should be updated with payment informations.",
                     "$ref": "#/definitions/IntegrationPaymentInformationInvoiceDto"
                 },
                 "PaymentLine": {
                     "xml": {
                         "name": "PaymentLine"
                     },
+                    "description": "Information about the payment.",
                     "$ref": "#/definitions/IntegrationPaymentLineDto"
                 },
                 "CustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -2237,19 +2264,29 @@
                 "name": "Invoice"
             },
             "additionalProperties": false,
+            "required": [
+                "Date",
+                "SupplierId",
+                "CompanyId",
+                "InvoiceNumber"
+            ],
             "properties": {
                 "Date": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Invoice date."
                 },
                 "SupplierId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Id of the supplier. Supplier.SupplierId."
                 },
                 "CompanyId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Id of the company. Company.CompanyId."
                 },
                 "InvoiceNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Invoice number."
                 }
             }
         },
@@ -2259,29 +2296,52 @@
                 "name": "PaymentLine"
             },
             "additionalProperties": false,
+            "required": [
+                "Date",
+                "Method",
+                "ExternalIdentifier"
+            ],
             "properties": {
                 "Date": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Date of the payment."
                 },
                 "Amount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Amount of the payment. Decimal format (28,14)."
                 },
                 "Status": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Status of the payment.",
+                    "default": "Final",
+                    "enum": [
+                        "Partial",
+                        "Final",
+                        "Cancel"
+                    ]
                 },
                 "Method": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Method used for payment. I.e. Bank, Check. Free text description."
                 },
                 "Identifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Payment identifier. I.e. check number or bank account number."
                 },
                 "ExternalIdentifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Unique identifier used to match incoming payment lines with already imported in order to update them. Can be the same as Identifier but must be unique for all payment lines in given invoice."
                 },
                 "AdditionalInformation": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Additional description of the payment Method."
                 }
             }
         },
@@ -3686,6 +3746,9 @@
         },
         "IntegrationPurchaseOrderCommentDto": {
             "type": "object",
+            "xml": {
+                "name": "PurchaseOrderComment"
+            },
             "additionalProperties": false,
             "properties": {
                 "ErpSourceId": {
