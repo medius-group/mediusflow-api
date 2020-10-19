@@ -2541,12 +2541,12 @@
                 },
                 "EndOfMonth": {
                     "type": "boolean",
-                    "description": "End of month"
+                    "description": "If set to true, causes date to be set to the last day of the month the invoice was issued in. Values from the other fields are applied to the date after that."
                 },
                 "FixedPaymentDay": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Fixed payment day. Value: >=1 and <=31 or null"
+                    "description": "Day in month when the payment should be made. Value: >=1 and <=31 or null"
                 },
                 "NumberOfDays": {
                     "type": "integer",
@@ -2556,7 +2556,7 @@
                 "NumberOfMonths": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Number of months. Value: >=0"
+                    "description": "Number of months. Day of month remains the same. Value: >=0"
                 }
             }
         },
@@ -2570,17 +2570,22 @@
                 "Type": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Start date type for calculating due date. Values: [InvoiceDate, ImportDate, FixedDay] or null"
+                    "description": "Start date type for calculating due date. Can be null.",
+                    "enum": [
+                        "InvoiceDate",
+                        "ImportDate",
+                        "FixedDay"
+                    ]
                 },
                 "FixedDay": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Start date fixed day, must be set when StartDate is set to FixedDay. Value: >=1 and <=31 or null"
+                    "description": "The first day with the specified number after the invoice or imported date will be used as start date. Must be set when Type is set to FixedDay. Value: >=1 and <=31 or null"
                 },
                 "NumberOfMonths": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Value: >=0 and <= 255 or null"
+                    "description": "Adds the specified number of months to calculate the start date. Value: >=0 and <= 255 or null"
                 }
             }
         },
@@ -3254,7 +3259,12 @@
                     "description": "If the purchase order is valid for Prepayment or not"
                 },
                 "OrderType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "If the order should be treated as internal or external order in Mediusflow. T=external (default), M=internal.",
+                    "enum": [
+                        "T",
+                        "M"
+                    ]
                 },
                 "PurchaseOrderLines": {
                     "type": "array",
@@ -10273,7 +10283,7 @@
                             },
                             "xml": {
                                 "wrapped": true,
-                                "name": "ArrayOfSupplierImport"
+                                "name": "ArrayOfSupplier"
                             }
                         },
                         "x-nullable": true,
