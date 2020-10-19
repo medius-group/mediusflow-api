@@ -175,9 +175,6 @@
         },
         "IntegrationCodingDimensionsDto": {
             "type": "object",
-            "xml": {
-                "name": "CodingDimensions"
-            },
             "additionalProperties": false,
             "properties": {
                 "Dimension1": {
@@ -1580,6 +1577,45 @@
                     "type": "string",
                     "maxLength": 100,
                     "description": "ExternalSystemId to corresponding entity"
+                },
+                "Responsibles": {
+                    "type": "array",
+                    "description": "Beta feature. Only available for Pilot customers.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationDimensionValueConfigurationResponsibleDto"
+                        },
+                        "$ref": "#/definitions/IntegrationDimensionValueConfigurationResponsibleDto"
+                    }
+                }
+            }
+        },
+        "IntegrationDimensionValueConfigurationResponsibleDto": {
+            "type": "object",
+            "description": "Beta feature. Only available for Pilot customers.",
+            "xml": {
+                "name": "DimensionValueConfigurationResponsible"
+            },
+            "additionalProperties": false,
+            "required": [
+                "OrderId"
+            ],
+            "properties": {
+                "ResponsibleUser": {
+                    "type": "string",
+                    "description": "Beta feature. Only available for Pilot customers."
+                },
+                "ResponsibleRole": {
+                    "type": "string",
+                    "description": "Beta feature. Only available for Pilot customers."
+                },
+                "OrderId": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Beta feature. Only available for Pilot customers."
                 }
             }
         },
@@ -2124,74 +2160,99 @@
                     "$ref": "#/definitions/IntegrationPaymentLineDto"
                 },
                 "CustomField_Boolean1": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean2": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean3": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean4": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Boolean5": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
                 },
                 "CustomField_Numeric1": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric2": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric3": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric4": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Numeric5": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
                 },
                 "CustomField_Text1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text3": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text4": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_Text5": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
                 },
                 "CustomField_DateTime1": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime2": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime3": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime4": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 },
                 "CustomField_DateTime5": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
                 }
             }
         },
@@ -2200,20 +2261,31 @@
             "xml": {
                 "name": "Invoice"
             },
+            "description": "Required to identify which invoice that should be updated with payment informations.",
             "additionalProperties": false,
+            "required": [
+                "Date",
+                "SupplierId",
+                "CompanyId",
+                "InvoiceNumber"
+            ],
             "properties": {
                 "Date": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Invoice date."
                 },
                 "SupplierId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Id of the supplier. Supplier.SupplierId."
                 },
                 "CompanyId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Id of the company. Company.CompanyId."
                 },
                 "InvoiceNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Invoice number."
                 }
             }
         },
@@ -2222,30 +2294,54 @@
             "xml": {
                 "name": "PaymentLine"
             },
+            "description": "Information about the payment.",
             "additionalProperties": false,
+            "required": [
+                "Date",
+                "Method",
+                "ExternalIdentifier"
+            ],
             "properties": {
                 "Date": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Date of the payment."
                 },
                 "Amount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Amount of the payment. Decimal format (28,14)."
                 },
                 "Status": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Status of the payment.",
+                    "default": "Final",
+                    "enum": [
+                        "Partial",
+                        "Final",
+                        "Cancel"
+                    ]
                 },
                 "Method": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Method used for payment. I.e. Bank, Check. Free text description."
                 },
                 "Identifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Payment identifier. I.e. check number or bank account number."
                 },
                 "ExternalIdentifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Unique identifier used to match incoming payment lines with already imported in order to update them. Can be the same as Identifier but must be unique for all payment lines in given invoice."
                 },
                 "AdditionalInformation": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Additional description of the payment Method."
                 }
             }
         },
@@ -2445,12 +2541,12 @@
                 },
                 "EndOfMonth": {
                     "type": "boolean",
-                    "description": "End of month"
+                    "description": "If set to true, causes date to be set to the last day of the month the invoice was issued in. Values from the other fields are applied to the date after that."
                 },
                 "FixedPaymentDay": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Fixed payment day. Value: >=1 and <=31 or null"
+                    "description": "Day in month when the payment should be made. Value: >=1 and <=31 or null"
                 },
                 "NumberOfDays": {
                     "type": "integer",
@@ -2460,7 +2556,7 @@
                 "NumberOfMonths": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Number of months. Value: >=0"
+                    "description": "Number of months. Day of month remains the same. Value: >=0"
                 }
             }
         },
@@ -2474,17 +2570,22 @@
                 "Type": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Start date type for calculating due date. Values: [InvoiceDate, ImportDate, FixedDay] or null"
+                    "description": "Start date type for calculating due date. Can be null.",
+                    "enum": [
+                        "InvoiceDate",
+                        "ImportDate",
+                        "FixedDay"
+                    ]
                 },
                 "FixedDay": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Start date fixed day, must be set when StartDate is set to FixedDay. Value: >=1 and <=31 or null"
+                    "description": "The first day with the specified number after the invoice or imported date will be used as start date. Must be set when Type is set to FixedDay. Value: >=1 and <=31 or null"
                 },
                 "NumberOfMonths": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Value: >=0 and <= 255 or null"
+                    "description": "Adds the specified number of months to calculate the start date. Value: >=0 and <= 255 or null"
                 }
             }
         },
@@ -3158,7 +3259,12 @@
                     "description": "If the purchase order is valid for Prepayment or not"
                 },
                 "OrderType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "If the order should be treated as internal or external order in Mediusflow. T=external (default), M=internal.",
+                    "enum": [
+                        "T",
+                        "M"
+                    ]
                 },
                 "PurchaseOrderLines": {
                     "type": "array",
@@ -3650,6 +3756,9 @@
         },
         "IntegrationPurchaseOrderCommentDto": {
             "type": "object",
+            "xml": {
+                "name": "PurchaseOrderComment"
+            },
             "additionalProperties": false,
             "properties": {
                 "ErpSourceId": {
@@ -8176,6 +8285,10 @@
                                     "name": "IntegrationAccrualTemplateDto"
                                 },
                                 "$ref": "#/definitions/IntegrationAccrualTemplateDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfAccrualTemplate"
                             }
                         },
                         "x-nullable": true,
@@ -10170,7 +10283,7 @@
                             },
                             "xml": {
                                 "wrapped": true,
-                                "name": "ArrayOfSupplierImport"
+                                "name": "ArrayOfSupplier"
                             }
                         },
                         "x-nullable": true,
