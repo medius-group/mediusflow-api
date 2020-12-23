@@ -425,7 +425,12 @@
                 "ORDER_TYPE_CHANGE_ATTEMPT",
                 "TWO_WAY_MATCHING_IMPORTING_GRS",
                 "TWO_WAY_MATCHING_IMPORT_GR",
-                "PURCHASE_ORDER_COMMENT_MISSING"
+                "PURCHASE_ORDER_COMMENT_MISSING",
+                "PURCHASE_ORDER_LINE_EXTERNAL_SYSTEM_ID_ALREADY_EXISTS",
+                "PURCHASE_ORDER_LINE_NUMBER_ALREADY_EXISTS",
+                "DELIVERY_LINE_EXTERNAL_SYSTEM_ID_ALREADY_EXISTS",
+                "PURCHASE_ORDER_ALREADY_EXISTS",
+                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED"
             ],
             "enum": [
                 0,
@@ -559,7 +564,12 @@
                 128,
                 129,
                 130,
-                131
+                131,
+                132,
+                133,
+                134,
+                135,
+                136
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -3203,6 +3213,9 @@
         },
         "IntegrationPurchaseOrderCommentDto": {
             "type": "object",
+            "xml": {
+                "name": "PurchaseOrderComment"
+            },
             "additionalProperties": false,
             "properties": {
                 "ErpSourceId": {
@@ -5514,6 +5527,14 @@
                 },
                 "PaymentRequestMailToAddress": {
                     "type": "string"
+                },
+                "CashDiscountDueDate1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CashDiscountDueDate2": {
+                    "type": "string",
+                    "format": "date-time"
                 }
             }
         },
@@ -5859,7 +5880,8 @@
                 "LineNumber",
                 "ConversionFactor",
                 "Quantity",
-                "UnitPrice"
+                "UnitPrice",
+                "IsTwoWayMatch"
             ],
             "properties": {
                 "LineNumber": {
@@ -5900,6 +5922,12 @@
                     "type": "string"
                 },
                 "OrderType": {
+                    "type": "string"
+                },
+                "IsTwoWayMatch": {
+                    "type": "boolean"
+                },
+                "ExternalSystemId": {
                     "type": "string"
                 }
             }
@@ -9299,7 +9327,7 @@
                 "tags": [
                     "SupplierInvoice"
                 ],
-                "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/reciept that Mediusflow\nrecieved the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self tested experience in Swagger UI is limited.\nPlease test this method and in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/9d47658ed979b050b468",
+                "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/receipt that Mediusflow\nreceived the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self tested experience in Swagger UI is limited.\nPlease test this method and in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/9d47658ed979b050b468",
                 "operationId": "SupplierInvoice_Post",
                 "parameters": [],
                 "responses": {
