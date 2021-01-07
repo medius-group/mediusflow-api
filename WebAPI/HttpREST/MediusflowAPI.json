@@ -8294,6 +8294,54 @@
                     "format": "date-time"
                 }
             }
+        },
+        "EdiSupplierInvoiceImportEnvelope": {
+            "type": "object",
+            "xml": {
+                "name": "EdiSupplierInvoiceImportEnvelope"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Image": {
+                    "type": "string",
+                    "example": "null"
+                },
+                "Attachments": {
+                    "type": "array",
+                    "xml": {
+                        "name": "Attachments",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "Attachment"
+                        },
+                        "example": "null"
+                    }
+                },
+                "InvoiceData": {
+                    "xml": {
+                        "name": "InvoiceData"
+                    },
+                    "$ref": "#/definitions/EdiSupplierInvoiceDto"
+                }
+            }
+        },
+        "EdiSupplierInvoiceDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "SupplierId"
+            ],
+            "properties": {
+                "InvoiceType": {
+                    "type": "string"
+                },
+                "InvoiceNumber": {
+                    "type": "string"
+                }
+            }
         }
     },
     "paths": {
@@ -10413,7 +10461,17 @@
                 ],
                 "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/receipt that Mediusflow\received the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self tested experience in Swagger UI is limited.\nPlease test this method and in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/9d47658ed979b050b468",
                 "operationId": "SupplierInvoice_Post",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "supplierinvoices",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/EdiSupplierInvoiceImportEnvelope"
+                        },
+                        "x-nullable": true,
+                        "description": "test description"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
