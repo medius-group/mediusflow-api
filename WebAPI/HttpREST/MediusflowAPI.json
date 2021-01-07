@@ -497,7 +497,12 @@
                 "ORDER_TYPE_CHANGE_ATTEMPT",
                 "TWO_WAY_MATCHING_IMPORTING_GRS",
                 "TWO_WAY_MATCHING_IMPORT_GR",
-                "PURCHASE_ORDER_COMMENT_MISSING"
+                "PURCHASE_ORDER_COMMENT_MISSING",
+                "PURCHASE_ORDER_LINE_EXTERNAL_SYSTEM_ID_ALREADY_EXISTS",
+                "PURCHASE_ORDER_LINE_NUMBER_ALREADY_EXISTS",
+                "DELIVERY_LINE_EXTERNAL_SYSTEM_ID_ALREADY_EXISTS",
+                "PURCHASE_ORDER_ALREADY_EXISTS",
+                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED"
             ],
             "enum": [
                 0,
@@ -631,7 +636,12 @@
                 128,
                 129,
                 130,
-                131
+                131,
+                132,
+                133,
+                134,
+                135,
+                136
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -6441,7 +6451,17 @@
                     "type": "string",
                     "maxLength": 450,
                     "description": "Mail to address for payment request. Only available for Payment request."
-                }	                
+                },
+                "CashDiscountDueDate1": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Used when Cash Discount is available on from the Payment term."
+                },
+                "CashDiscountDueDate2": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Used when Cash Discount is available on from the Payment term."
+                }
             }
         },
         "IntegrationBalanceCodeStringDto": {
@@ -6889,7 +6909,8 @@
                 "LineNumber",
                 "ConversionFactor",
                 "Quantity",
-                "UnitPrice"
+                "UnitPrice",
+                "IsTwoWayMatch"
             ],
             "properties": {
                 "LineNumber": {
@@ -6951,6 +6972,15 @@
                     "type": "string",
                     "maxLength": 450,
                     "description": "Type of connected purchase order line. Internal - when connected line are from Procurement module, External - when connected line are imported from ERP."
+                },
+                "IsTwoWayMatch": {
+                    "type": "boolean",
+                    "description": "Indicates if the purchase order line is two way match or not."
+                },
+                "ExternalSystemId": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "ExternalSystemId to indicated purchase order line."
                 }
             }
         },
