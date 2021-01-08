@@ -8321,15 +8321,22 @@
                     }
                 },
                 "InvoiceData": {
+                    "type": "array",
                     "xml": {
-                        "name": "InvoiceData"
+                        "name": "InvoiceData",
+                        "wrapped": true
                     },
-                    "$ref": "#/definitions/EdiSupplierInvoiceDto"
+                    "items": {
+                        "$ref": "#/definitions/EdiSupplierInvoiceDto"
+                    }
                 }
             }
         },
         "EdiSupplierInvoiceDto": {
             "type": "object",
+            "xml": {
+                "name": "EdiSupplierInvoice"
+            },
             "additionalProperties": false,
             "required": [
                 "SupplierId"
