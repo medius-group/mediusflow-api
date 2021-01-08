@@ -8338,8 +8338,466 @@
                 "InvoiceType": {
                     "type": "string"
                 },
+                "CompanyIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "EdiCompanyIdentifierDto"
+                        },
+                        "$ref": "#/definitions/EdiCompanyIdentifierDto"
+                    }
+                },
                 "InvoiceNumber": {
                     "type": "string"
+                },
+                "DocumentSource": {
+                    "type": "string"
+                },
+                "CaptureUser": {
+                    "type": "string"
+                },
+                "InvoiceDate": {
+                    "type": "date-time"
+                },
+                "DueDate": {
+                    "type": "date-time"
+                },
+                "PreferredPaymentDate": {
+                    "type": "date-time"
+                },
+                "PreliminaryBookingDate": {
+                    "type": "date-time"
+                },
+                "FinalBookingDate": {
+                    "type": "date-time"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "CurrencyRate": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Gross": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Net": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Tax": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Rounding": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "Reference": {
+                    "type": "string"
+                },
+                "PaymentReference": {
+                    "type": "string"
+                },
+                "ContractNumber": {
+                    "type": "string"
+                },
+                "DeliveryNote": {
+                    "type": "string"
+                },
+                "OrderIdentifier": {
+                    "type": "string"
+                },
+                "OrderIdentifier2": {
+                    "type": "string"
+                },
+                "SupplierIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "EdiSupplierIdentifierDto"
+                        },
+                        "$ref": "#/definitions/EdiSupplierIdentifierDto"
+                    }
+                },
+                "Lines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "EdiSupplierInvoiceLineDto"
+                        },
+                        "$ref": "#/definitions/EdiSupplierInvoiceLineDto"
+                    }
+                },
+                "CodingLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "EdiCodingLineDto"
+                        },
+                        "$ref": "#/definitions/EdiCodingLineDto"
+                    }
+                },
+                "CustomTaxFields": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "EdiCustomTaxFieldDto"
+                        },
+                        "$ref": "#/definitions/EdiCustomTaxFieldDto"
+                    }
+                },
+                "IsStraightToArchive": {
+                    "type": "boolean"
+                },
+                "PaymentDetails": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text2": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text3": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text4": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text5": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                }
+            }
+        },
+        "EdiSupplierInvoiceLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "EdiSupplierInvoiceLine"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "OrderIdentifier": {
+                    "type": "string"
+                },
+                "OrderIdentifier2": {
+                    "type": "string"
+                },
+                "DeliveryNote": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text2": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text3": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text4": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Text5": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean",
+                    "description": "Custom field of type bit."
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Custom Field of type datetime."
+                }
+            }
+        },
+        "EdiCodingLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "EdiCodingLine"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "LineNumber": {
+                    "type": "string"
+                },
+                "Dimensions": {
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                }
+            }
+        },
+        "EdiCustomTaxFieldDto": {
+            "type": "object",
+            "xml": {
+                "name": "EdiCustomTaxField"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                }
+            }
+        },
+        "EdiCompanyIdentifierDto": {
+            "type": "object",
+            "xml": {
+                "name": "EdiCompanyIdentifier"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "IdentifierType": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "See list of available values for the identifier type. In GUI they are named differently, eg. Bank Account for BANK_ACCOUNT",
+                    "enum": [
+                        "BANK_ACCOUNT",
+                        "ORGANIZATION_NUMBER",
+                        "VAT_REGISTRATION_NUMBER",
+                        "GLN_NUMBER",
+                        "IBAN_NUMBER",
+                        "OTHER",
+                        "ExternalSystemIdentifier",
+                        "CompanyNameIdentifier",
+                        "CompanyIdIdentifier"
+                    ]
+                },
+                "IdentifierValue": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Identifier value, e.g. bank account number"
+                }
+            }
+        },
+        "EdiSupplierIdentifierDto": {
+            "type": "object",
+            "xml": {
+                "name": "EdiSupplierIdentifier"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "IdentifierType": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "See list of available values for the identifier type. In GUI they are named differently, e.g. Bank Account for BANK_ACCOUNT.",
+                    "enum": [
+                        "FINANCIAL_SYSTEM",
+                        "PURCHASING_SYSTEM",
+                        "BANK_ACCOUNT",
+                        "ORGANIZATION_NUMBER",
+                        "VAT_REGISTRATION_NUMBER",
+                        "EAN_NUMBER",
+                        "POSTAL_ACCOUNT",
+                        "IBAN_NUMBER",
+                        "EXTERNAL_SYSTEM_ID",
+                        "OTHER"
+                    ]
+                },
+                "IdentifierValue": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Identifier value, e.g. bank account number"
                 }
             }
         }
@@ -10469,7 +10927,7 @@
                             "$ref": "#/definitions/EdiSupplierInvoiceImportEnvelope"
                         },
                         "x-nullable": true,
-                        "description": "test description"
+                        "description": "NOTE: This is a multipart/form data type. Due to Swagger 2.0 it is impossible to visualize. Here you can see the definitions for the form data, image and attachments can not be included. For a complete specification see Postman or https://success.mediusflow.com/documentation/integration-documentation/technical/rest/scenarios/#running-the-supplier-invoice-import."
                     }
                 ],
                 "responses": {
