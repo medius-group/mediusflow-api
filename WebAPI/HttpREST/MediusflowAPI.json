@@ -8304,30 +8304,24 @@
             "properties": {
                 "Image": {
                     "type": "string",
-                    "example": "null"
+                    "example": "null",
+                    "description": "N/A in Swagger test tool. Please see Postman for full example. Leave empty value."
                 },
                 "Attachments": {
-                    "type": "array",
-                    "xml": {
-                        "name": "Attachments",
-                        "wrapped": true
-                    },
-                    "items": {
-                        "type": "string",
-                        "xml": {
-                            "name": "Attachment"
-                        },
-                        "example": "null"
-                    }
+                    "type": "string",
+                    "example": "null",
+                    "description": "N/A in Swagger test tool. Please see Postman for full example. Leave empty value."
                 },
                 "InvoiceData": {
-                    "type": "array",
+                    "type": "object",
                     "xml": {
                         "name": "InvoiceData",
                         "wrapped": true
                     },
-                    "items": {
-                        "$ref": "#/definitions/EdiSupplierInvoiceDto"
+                    "properties": {
+                        "EdiSupplierInvoice": {
+                            "$ref": "#/definitions/EdiSupplierInvoiceDto"
+                        }
                     }
                 }
             }
@@ -8339,11 +8333,21 @@
             },
             "additionalProperties": false,
             "required": [
-                "SupplierId"
+                "InvoiceNumber",
+                "CurrencyCode",
+                "Gross"
             ],
             "properties": {
                 "InvoiceType": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Type of invoice. If empty, Medius tries to set.",
+                    "enum": [
+                        "EXPENSE",
+                        "ORDER_BASED",
+                        "CONTRACT_BASED",
+                        "PAYMENT_REQUEST"
+                    ]
                 },
                 "CompanyIdentifiers": {
                     "type": "array",
@@ -8358,75 +8362,121 @@
                     }
                 },
                 "InvoiceNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Invoice number"
                 },
                 "DocumentSource": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Indicates how the invoice was created.",
+                    "enum": [
+                        "Unknown",
+                        "Paper",
+                        "EInvoice",
+                        "PDF",
+                        "ManualCreation"
+                    ]
                 },
                 "CaptureUser": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "User responsible for capturing document from external source."
                 },
                 "InvoiceDate": {
-                    "type": "date-time"
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Invoice date of the invoice. If empty, today's date will be used."
                 },
                 "DueDate": {
-                    "type": "date-time"
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Due date of the invoice. If empty, due date will be calculated based on suppliers payment terms."
                 },
                 "PreferredPaymentDate": {
-                    "type": "date-time"
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Preferred payment date of the invoice. If empty, preferred payment date will follow invoice due date."
                 },
                 "PreliminaryBookingDate": {
-                    "type": "date-time"
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Preliminary booking date."
                 },
                 "FinalBookingDate": {
-                    "type": "date-time"
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Final booking date."
                 },
                 "CurrencyCode": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Currency code of the invoice."
                 },
                 "CurrencyRate": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Currency rate can be imported if other currency rate needed than calculated based on invoice date. Currency rate expressed as ratio of company's accounting currency value to document's currency value. Decimal format (28,14)."
                 },
                 "Gross": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Gross amount. Decimal format (28,14)."
                 },
                 "Net": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Net amount. Decimal format (28,14)."
                 },
                 "Tax": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Tax amount. Decimal format (28,14)."
                 },
                 "Rounding": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Rounding amount. Decimal format (28,14)."
                 },
                 "TaxIndicator1": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "External system id to corresponding TaxIndicator1."
                 },
                 "TaxIndicator2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "External system id to corresponding TaxIndicator2."
                 },
                 "Reference": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Reference is validated against user name and First + Last name, if found invoice is distributed."
                 },
                 "PaymentReference": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Payment reference. Can be used as reference at payment."
                 },
                 "ContractNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Contract number. Note: if this fields is populated Medius will consider this document as contract based regardless of the field InvoiceType."
                 },
                 "DeliveryNote": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Delivery note. Note: if this fields is populated Medius will consider this document as order based regardless of the field InvoiceType."
                 },
                 "OrderIdentifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Order identifier, used for connection against purchase order. Note: if this fields is populated Medius will consider this document as order based regardless of the field InvoiceType."
                 },
                 "OrderIdentifier2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Order identifier 2, used as free text information. Note: if this fields is populated Medius will consider this document as order based regardless of the field InvoiceType."
                 },
                 "SupplierIdentifiers": {
                     "type": "array",
@@ -8477,10 +8527,14 @@
                     }
                 },
                 "IsStraightToArchive": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Parameter to send invoice straight to archive without approval and ERP integration.",
+                    "default": false
                 },
                 "PaymentDetails": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Identifier for payment details. Note: this field would be used to populate the PaymentDetails on invoice only when PaymentDetails is turned on for given company."
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -8585,36 +8639,55 @@
                 "name": "EdiSupplierInvoiceLine"
             },
             "additionalProperties": false,
+            "required": [
+                "Amount"
+            ],
             "properties": {
                 "ItemNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Item number to be matched on invoice line."
                 },
                 "ItemDescription": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Item description."
                 },
                 "Amount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Total NET amount of the invoice line. If not provided, amount will be 0. Decimal format (28,14)."
                 },
                 "Quantity": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Quantity of the invoice line. If not provided, quantity will be 0. Decimal format (28,14)."
                 },
                 "UnitPrice": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Unit price of the invoice line. If not provided, unit price will be calculated by Amount/Quantity. Decimal format (28,14)."
                 },
                 "Unit": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Unit of measure. If not provided, '-' will be set as default.",
+                    "default": "-"
                 },
                 "OrderIdentifier": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Order identifier of the invoice line. If this field is not populated, Order identifier from header will be used. Note: if this fields is populated Medius will consider this document as order based regardless of the field InvoiceType."
                 },
                 "OrderIdentifier2": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Order identifier 2 of the invoice line, used as free text information."
                 },
                 "DeliveryNote": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 300,
+                    "description": "Delivery note of the invoice line. Note: if this fields is populated Medius will consider this document as order based regardless of the field InvoiceType."
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -8721,7 +8794,9 @@
             "additionalProperties": false,
             "properties": {
                 "LineNumber": {
-                    "type": "string"
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Counter for Line number. Serial number, starts with 1."
                 },
                 "Dimensions": {
                     "xml": {
@@ -8739,11 +8814,14 @@
             "additionalProperties": false,
             "properties": {
                 "Name": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Name of custom tax. Note: Need to be set-up and correspond to information in given company."
                 },
                 "Amount": {
                     "type": "number",
-                    "format": "decimal"
+                    "format": "decimal",
+                    "description": "Amount of custom tax. Note: Need to be set-up and correspond to information in given company."
                 }
             }
         },
