@@ -8304,12 +8304,12 @@
             "properties": {
                 "Image": {
                     "type": "string",
-                    "example": "null",
+                    "example": "",
                     "description": "N/A in Swagger test tool. Please see Postman for full example. Leave empty value."
                 },
                 "Attachments": {
                     "type": "string",
-                    "example": "null",
+                    "example": "",
                     "description": "N/A in Swagger test tool. Please see Postman for full example. Leave empty value."
                 },
                 "InvoiceData": {
