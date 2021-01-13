@@ -8885,6 +8885,26 @@
                     "description": "Identifier value, e.g. bank account number"
                 }
             }
+        },
+        "BadRequest": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Detailed error message.",
+              "example": "Attachments: MyAttachment.txt, not found in the content body"
+            }
+          }
+        },
+        "NotFound": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Detailed error message.",
+              "example": "There exists no document imported with id 123. Remember that it's the Id of the document import type."
+            }
+          }
         }
     },
     "paths": {
@@ -10993,7 +11013,13 @@
                             "$ref": "#/definitions/ImportDocumentStatusDto"
                         },
                         "x-nullable": true
-                    }
+                    },
+                    "404": {
+                        "schema": {
+                          "$ref": "#/definitions/NotFound"
+                        },
+                        "description": "Not Found"
+                      }
                 }
             }
         },
@@ -11016,13 +11042,15 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the document is processing within Medius."
+                    },
+                    "400": {
                         "schema": {
-                            "type": "file"
+                          "$ref": "#/definitions/BadRequest"
                         },
-                        "x-nullable": true
-                    }
+                        "description": "Bad Request"
+                      }
                 }
             }
         },
