@@ -8300,18 +8300,9 @@
             "xml": {
                 "name": "EdiSupplierInvoiceImportEnvelope"
             },
+            "description": "Image and Attachment(s) are available as properties here, see above disclaimer. Please see Postman example for full specification.",
             "additionalProperties": false,
             "properties": {
-                "Image": {
-                    "type": "string",
-                    "example": "",
-                    "description": "N/A in Swagger test tool. Please see Postman for full example. Leave empty value."
-                },
-                "Attachments": {
-                    "type": "string",
-                    "example": "",
-                    "description": "N/A in Swagger test tool. Please see Postman for full example. Leave empty value."
-                },
                 "InvoiceData": {
                     "type": "object",
                     "xml": {
@@ -9238,7 +9229,7 @@
                             }
                         },
                         "x-nullable": true,
-                        "description": "The users to import"
+                        "description": "The currency to import"
                     }
                 ],
                 "responses": {
@@ -9323,7 +9314,7 @@
                             }
                         },
                         "x-nullable": true,
-                        "description": "The users to import"
+                        "description": "The currency rate to import"
                     }
                 ],
                 "responses": {
@@ -11038,7 +11029,7 @@
                             "$ref": "#/definitions/EdiSupplierInvoiceImportEnvelope"
                         },
                         "x-nullable": true,
-                        "description": "NOTE: This is a multipart/form data type. Due to Swagger 2.0 it is impossible to visualize. Here you can see the definitions for the form data, image and attachments can not be included. For a complete specification see Postman or https://success.mediusflow.com/documentation/integration-documentation/technical/rest/scenarios/#running-the-supplier-invoice-import."
+                        "description": "DISCLAIMER: This is a multipart/form data type. Due to Swagger 2.0 it is impossible to visualize. Here you can see the definitions for the form data, and you can try it out. Image and attachments can not be included. For a complete specification see Postman or https://success.mediusflow.com/documentation/integration-documentation/technical/rest/scenarios/#running-the-supplier-invoice-import."
                     }
                 ],
                 "responses": {
