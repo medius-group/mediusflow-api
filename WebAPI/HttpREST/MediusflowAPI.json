@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "MediusFlow Web API",
+        "title": "Medius Web API",
         "version": "1.0.0"
     },
     "host": "localhost:19310",
@@ -69,7 +69,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "AccrualErpIdentifier": {
                     "type": "string",
@@ -959,7 +959,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -1069,11 +1069,11 @@
                 "Parent": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "ExternalSystemId to parent company in MediusFlow."
+                    "description": "ExternalSystemId to parent company in Medius."
                 },
                 "IsVirtual": {
                     "type": "boolean",
-                    "description": "Identifies if company is a virtual or real company in MediusFlow."
+                    "description": "Identifies if company is a virtual or real company in Medius."
                 },
                 "IsActive": {
                     "type": "boolean",
@@ -1120,7 +1120,10 @@
                         "VAT_REGISTRATION_NUMBER",
                         "GLN_NUMBER",
                         "IBAN_NUMBER",
-                        "OTHER"
+                        "OTHER",
+                        "ExternalSystemIdentifier",
+                        "CompanyNameIdentifier",
+                        "CompanyIdIdentifier"
                     ]
                 },
                 "IdentifierValue": {
@@ -1150,7 +1153,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -1280,7 +1283,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -1425,7 +1428,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -1576,12 +1579,12 @@
                 "Responsible": {
                     "type": "string",
                     "maxLength": 60,
-                    "description": "Id reference in ERP, unique key between XI and ERP. Needs to be User.Username in XI, *Can be empty if ResponsibleRole is used"
+                    "description": "Id reference in ERP, unique key between Medius and ERP. Needs to be User.Username in Medius, *Can be empty if ResponsibleRole is used"
                 },
                 "ResponsibleRole": {
                     "type": "string",
                     "maxLength": 60,
-                    "description": "Same as Responsible, but instead of User name it is Role name. Needs to be Role.Name in XI, *Can be used instead of Responsible"
+                    "description": "Same as Responsible, but instead of User name it is Role name. Needs to be Role.Name in Medius, *Can be used instead of Responsible"
                 },
                 "DimensionValue": {
                     "type": "string",
@@ -1652,7 +1655,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -1903,7 +1906,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -2022,7 +2025,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -2378,7 +2381,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -2674,7 +2677,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -3108,7 +3111,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -3270,7 +3273,7 @@
                 },
                 "OrderType": {
                     "type": "string",
-                    "description": "If the order should be treated as internal or external order in MediusFlow. T=external (default), M=internal.",
+                    "description": "If the order should be treated as internal or external order in Medius. T=external (default), M=internal.",
                     "enum": [
                         "T",
                         "M"
@@ -3316,7 +3319,8 @@
                 "LineNumber",
                 "Quantity",
                 "Unit",
-                "UnitPrice"
+                "UnitPrice",
+                "CodingLines"
             ],
             "properties": {
                 "ErpSourceId": {
@@ -3327,7 +3331,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -3552,7 +3556,7 @@
                 "Type": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "See list for possible values. At least one CodingLine with Type = Cost is mandatory to provide to be able to import PO to XI.",
+                    "description": "See list for possible values. At least one CodingLine with Type = Cost is mandatory to provide to be able to import PO to Medius.",
                     "enum": [
                         "Cost",
                         "ExceptionType",
@@ -3601,7 +3605,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -3779,7 +3783,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CommentDate": {
                     "type": "string",
@@ -4283,7 +4287,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP."
+                    "description": "Id reference in ERP, unique key between Medius and ERP."
                 },
                 "CompanyId": {
                     "type": "string",
@@ -4335,7 +4339,7 @@
                 },
                 "ControllingDimensionValues": {
                     "type": "array",
-                    "description": "Multiple ControllingDimension sets of values are allowed, but each set will be mapped to separate restriction rules in Mediusflow.",
+                    "description": "Multiple ControllingDimension sets of values are allowed, but each set will be mapped to separate restriction rules in Medius.",
                     "xml": {
                         "wrapped": true
                     },
@@ -4373,31 +4377,31 @@
                 "From": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Is greater than. Use IncludeEdges for including or not."
+                    "description": "Operator in Medius: Is greater than. Use IncludeEdges for including or not."
                 },
                 "To": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Is less than. Use IncludeEdges for including or not."
+                    "description": "Operator in Medius: Is less than. Use IncludeEdges for including or not."
                 },
                 "StartsWith": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Begins with."
+                    "description": "Operator in Medius: Begins with."
                 },
                 "EndsWith": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Ends with."
+                    "description": "Operator in Medius: Ends with."
                 },
                 "Is": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Is."
+                    "description": "Operator in Medius: Is."
                 },
                 "In": {
                     "type": "array",
-                    "description": "Operator in Mediusflow: Is. Each list value will be mapped as separate rules.",
+                    "description": "Operator in Medius: Is. Each list value will be mapped as separate rules.",
                     "xml": {
                         "wrapped": true
                     },
@@ -4410,7 +4414,7 @@
                 },
                 "IsAnyValue": {
                     "type": "boolean",
-                    "description": "Operator in Mediusflow: Is any value."
+                    "description": "Operator in Medius: Is any value."
                 },
                 "IncludeEdges": {
                     "type": "boolean",
@@ -4493,31 +4497,31 @@
                 "From": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Is greater than. Use IncludeEdges for including or not."
+                    "description": "Operator in Medius: Is greater than. Use IncludeEdges for including or not."
                 },
                 "To": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Is less than. Use IncludeEdges for including or not."
+                    "description": "Operator in Medius: Is less than. Use IncludeEdges for including or not."
                 },
                 "StartsWith": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Begins with."
+                    "description": "Operator in Medius: Begins with."
                 },
                 "EndsWith": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Ends with."
+                    "description": "Operator in Medius: Ends with."
                 },
                 "Is": {
                     "type": "string",
                     "maxLength": 200,
-                    "description": "Operator in Mediusflow: Is."
+                    "description": "Operator in Medius: Is."
                 },
                 "In": {
                     "type": "array",
-                    "description": "Operator in Mediusflow: Is. Each list value will be mapped as separate rules.",
+                    "description": "Operator in Medius: Is. Each list value will be mapped as separate rules.",
                     "xml": {
                         "wrapped": true
                     },
@@ -4530,11 +4534,11 @@
                 },
                 "IsAnyValue": {
                     "type": "boolean",
-                    "description": "Operator in Mediusflow: Is any value."
+                    "description": "Operator in Medius: Is any value."
                 },
                 "IsEmptyValue": {
                     "type": "boolean",
-                    "description": "Operator in Mediusflow: Is empty value."
+                    "description": "Operator in Medius: Is empty value."
                 },
                 "IncludeEdges": {
                     "type": "boolean",
@@ -4562,12 +4566,12 @@
                 "Responsible": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Used to distribute invoice to supplier responsible. Format: UserName or Full name (FirstName + LastName) in Mediusflow. Can be used instead of ResponsibleRole."
+                    "description": "Used to distribute invoice to supplier responsible. Format: UserName or Full name (FirstName + LastName) in Medius. Can be used instead of ResponsibleRole."
                 },
                 "ResponsibleRole": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Role to distribute invoice to supplier responsible. Format: Needs to be Role.Name in Mediusflow. Can be used instead of Responsible."
+                    "description": "Role to distribute invoice to supplier responsible. Format: Needs to be Role.Name in Medius. Can be used instead of Responsible."
                 },
                 "Supplier": {
                     "type": "string",
@@ -4597,7 +4601,7 @@
                 },
                 "SendPurchaseOrderAsPdf": {
                     "type": "boolean",
-                    "description": "Enable this option to be able to send the purchase order as a PDF file attached to an email directly in MediusFlow. You can combine this option with sending the purchase order as an integration message."
+                    "description": "Enable this option to be able to send the purchase order as a PDF file attached to an email directly in Medius. You can combine this option with sending the purchase order as an integration message."
                 }
             }
         },
@@ -4607,7 +4611,7 @@
                 "name": "ContactPerson"
             },
             "additionalProperties": false,
-            "description": "List of Contact persons. List in Mediusflow will be deleted and new entrie(s) in this batch will be added.",
+            "description": "List of Contact persons. List in Medius will be deleted and new entrie(s) in this batch will be added.",
             "required": [
                 "Type"
             ],
@@ -4876,7 +4880,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -5263,12 +5267,12 @@
                 "TaxIndicator1": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "ExternalSystemId to corresponding entity (Taxgroup). Only in use if TaxDimensions not provided and MediusFlow configured to code on taxcodes"
+                    "description": "ExternalSystemId to corresponding entity (Taxgroup). Only in use if TaxDimensions not provided and Medius configured to code on taxcodes"
                 },
                 "TaxIndicator2": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "ExternalSystemId to corresponding entity (Taxgroup). Only in use if TaxDimensions not provided and MediusFlow configured to code on taxcodes"
+                    "description": "ExternalSystemId to corresponding entity (Taxgroup). Only in use if TaxDimensions not provided and Medius configured to code on taxcodes"
                 },
                 "StreetAddress": {
                     "type": "string",
@@ -5693,7 +5697,7 @@
                 "DocumentId": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Unique Id to document in MediusFlow"
+                    "description": "Unique Id to document in Medius"
                 },
                 "BalanceCodeString": {
                     "xml": {
@@ -6085,7 +6089,7 @@
                 "ImagePath": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "URL to invoice image. Requires user to be logged in to MediusFlow to access the image."
+                    "description": "URL to invoice image. Requires user to be logged in to Medius to access the image."
                 },
                 "ImageUNCPath": {
                     "type": "string",
@@ -6095,7 +6099,7 @@
                 "DocumentURL": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "URL to document in MediusFlow. User will be redirected to login page if not already logged in."
+                    "description": "URL to document in Medius. User will be redirected to login page if not already logged in."
                 },
                 "InvoiceDate": {
                     "type": "string",
@@ -6689,12 +6693,12 @@
                 "TaxIndicator1": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "ExternalSystemId to corresponding entity. Only in use if Mediusflow is configured to code on tax codes and if TaxDimensions not provided."
+                    "description": "ExternalSystemId to corresponding entity. Only in use if Medius is configured to code on tax codes and if TaxDimensions not provided."
                 },
                 "TaxIndicator2": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "ExternalSystemId to corresponding entity. Only in use if Mediusflow is configured to code on tax codes and if TaxDimensions not provided."
+                    "description": "ExternalSystemId to corresponding entity. Only in use if Medius is configured to code on tax codes and if TaxDimensions not provided."
                 },
                 "IsEnabled": {
                     "type": "boolean",
@@ -7312,7 +7316,7 @@
                 "ExceptionType": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Exception type used in MediusFlow."
+                    "description": "Exception type used in Medius."
                 },
                 "IsManual": {
                     "type": "boolean",
@@ -7343,7 +7347,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -7505,7 +7509,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -7664,7 +7668,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in ERP, unique key between XI and ERP"
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
                 },
                 "CustomField_Text1": {
                     "type": "string",
@@ -7982,7 +7986,7 @@
                 "ExternalSystemId": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "Id reference in external system (Active Directory), unique key between XI and AD"
+                    "description": "Id reference in external system (Active Directory), unique key between Medius and AD"
                 },
                 "Email": {
                     "type": "string",
@@ -8904,7 +8908,7 @@
                 "tags": [
                     "AccrualTemplateImportBatch"
                 ],
-                "summary": "The POST method allows the client to send accrual templates that will be imported by the Mediusflow master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
+                "summary": "The POST method allows the client to send accrual templates that will be imported by the Medius master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
                 "operationId": "AccrualTemplateImportBatch_Post",
                 "parameters": [
                     {
@@ -8929,7 +8933,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -8948,7 +8952,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -8965,7 +8969,7 @@
                 "tags": [
                     "AccrualTemplateImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "AccrualTemplateImportBatch_Delete",
                 "parameters": [
                     {
@@ -8974,7 +8978,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9124,7 +9128,7 @@
                 "tags": [
                     "CompanyImportBatch"
                 ],
-                "summary": "The POST method allows the client to send a set of companies that will be imported by the Mediusflow master data import queue.\nThe company have Currency as prerequisite\nThe company will be created as a child company to either the root company or to another company provided",
+                "summary": "The POST method allows the client to send a set of companies that will be imported by the Medius master data import queue.\nThe company have Currency as prerequisite\nThe company will be created as a child company to either the root company or to another company provided",
                 "operationId": "CompanyImportBatch_Post",
                 "parameters": [
                     {
@@ -9149,7 +9153,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -9168,7 +9172,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9185,7 +9189,7 @@
                 "tags": [
                     "CompanyImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "CompanyImportBatch_Delete",
                 "parameters": [
                     {
@@ -9194,7 +9198,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9209,7 +9213,7 @@
                 "tags": [
                     "CurrencyImportBatch"
                 ],
-                "summary": "The POST method allows the client to send currencies that will be imported by the Mediusflow master data import queue.\nThe currency have no prerequisite.",
+                "summary": "The POST method allows the client to send currencies that will be imported by the Medius master data import queue.\nThe currency have no prerequisite.",
                 "operationId": "CurrencyImportBatch_Post",
                 "parameters": [
                     {
@@ -9234,7 +9238,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -9253,7 +9257,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9270,7 +9274,7 @@
                 "tags": [
                     "CurrencyImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyImportBatch_Delete",
                 "parameters": [
                     {
@@ -9279,7 +9283,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9294,7 +9298,7 @@
                 "tags": [
                     "CurrencyRateImportBatch"
                 ],
-                "summary": "The POST method allows the client to send currency rates that will be imported by the Mediusflow master data import queue.\nThe currency rate have currency as prerequisite.",
+                "summary": "The POST method allows the client to send currency rates that will be imported by the Medius master data import queue.\nThe currency rate have currency as prerequisite.",
                 "operationId": "CurrencyRateImportBatch_Post",
                 "parameters": [
                     {
@@ -9319,7 +9323,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -9338,7 +9342,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9355,7 +9359,7 @@
                 "tags": [
                     "CurrencyRateImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyRateImportBatch_Delete",
                 "parameters": [
                     {
@@ -9364,7 +9368,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9379,7 +9383,7 @@
                 "tags": [
                     "DeliveryTermImportBatch"
                 ],
-                "summary": "The POST method allows the client to send delivery terms that will be imported by the Mediusflow master data import queue.\nThe delivery terms have company prerequisite.",
+                "summary": "The POST method allows the client to send delivery terms that will be imported by the Medius master data import queue.\nThe delivery terms have company prerequisite.",
                 "operationId": "DeliveryTermImportBatch_Post",
                 "parameters": [
                     {
@@ -9404,7 +9408,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -9423,7 +9427,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9440,7 +9444,7 @@
                 "tags": [
                     "DeliveryTermImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "DeliveryTermImportBatch_Delete",
                 "parameters": [
                     {
@@ -9449,7 +9453,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9464,7 +9468,7 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatch"
                 ],
-                "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the Mediusflow master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
+                "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the Medius master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
                 "parameters": [
                     {
@@ -9489,7 +9493,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -9508,7 +9512,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9525,7 +9529,7 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -9534,7 +9538,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9549,7 +9553,7 @@
                 "tags": [
                     "DimensionValueImportBatch"
                 ],
-                "summary": "The POST method allows the client to send dimension values that will be imported by the Mediusflow master data import queue.\nThe dimension values have company as mandatory prerequisite.",
+                "summary": "The POST method allows the client to send dimension values that will be imported by the Medius master data import queue.\nThe dimension values have company as mandatory prerequisite.",
                 "operationId": "DimensionValueImportBatch_Post",
                 "parameters": [
                     {
@@ -9574,7 +9578,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -9593,7 +9597,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9610,7 +9614,7 @@
                 "tags": [
                     "DimensionValueImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueImportBatch_Delete",
                 "parameters": [
                     {
@@ -9619,7 +9623,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9868,7 +9872,7 @@
                 "tags": [
                     "ItemImportBatch"
                 ],
-                "summary": "The POST method allows the client to send items that will be imported by the Mediusflow master data import queue.\nThe items have supplier and company as mandatory prerequisite.",
+                "summary": "The POST method allows the client to send items that will be imported by the Medius master data import queue.\nThe items have supplier and company as mandatory prerequisite.",
                 "operationId": "ItemImportBatch_Post",
                 "parameters": [
                     {
@@ -9893,7 +9897,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -9912,7 +9916,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -9929,7 +9933,7 @@
                 "tags": [
                     "ItemImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "ItemImportBatch_Delete",
                 "parameters": [
                     {
@@ -9938,7 +9942,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10052,7 +10056,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10069,7 +10073,7 @@
                 "tags": [
                     "PaymentTermImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PaymentTermImportBatch_Delete",
                 "parameters": [
                     {
@@ -10078,7 +10082,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10093,7 +10097,7 @@
                 "tags": [
                     "PaymentTermImportBatch"
                 ],
-                "summary": "The POST method allows the client to send payment terms that will be imported by the Mediusflow master data import queue.\nThe payment terms have company prerequisite.",
+                "summary": "The POST method allows the client to send payment terms that will be imported by the Medius master data import queue.\nThe payment terms have company prerequisite.",
                 "operationId": "PaymentTermImportBatch_Post",
                 "parameters": [
                     {
@@ -10118,7 +10122,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -10128,7 +10132,7 @@
                 "tags": [
                     "PeriodImportBatch"
                 ],
-                "summary": "The POST method allows the client to send periods that will be imported by the Mediusflow master data import queue.\nThe periods have Company as prerequisites.\nRemember that by sending in periods the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. For periods it might be better to keep them in XI to be able to control the\nposting dates separated from the ERP system, for flexibility reasons.",
+                "summary": "The POST method allows the client to send periods that will be imported by the Medius master data import queue.\nThe periods have Company as prerequisites.\nRemember that by sending in periods the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. For periods it might be better to keep them in Medius to be able to control the\nposting dates separated from the ERP system, for flexibility reasons.",
                 "operationId": "PeriodImportBatch_Post",
                 "parameters": [
                     {
@@ -10153,7 +10157,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -10172,7 +10176,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10189,7 +10193,7 @@
                 "tags": [
                     "PeriodImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PeriodImportBatch_Delete",
                 "parameters": [
                     {
@@ -10198,7 +10202,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10266,7 +10270,7 @@
                 "tags": [
                     "PurchaseOrderImportBatch"
                 ],
-                "summary": "The POST method allows the client to send a set of purchase orders that will be imported by the Mediusflow master data import queue.\nThe purchase order need to be imported after the mandatory pre requisites are imported, these are Company and Supplier.\nIf specific units and items are used, these needs to be in place also.",
+                "summary": "The POST method allows the client to send a set of purchase orders that will be imported by the Medius master data import queue.\nThe purchase order need to be imported after the mandatory pre requisites are imported, these are Company and Supplier.\nIf specific units and items are used, these needs to be in place also.",
                 "operationId": "PurchaseOrderImportBatch_Post",
                 "parameters": [
                     {
@@ -10291,7 +10295,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -10310,7 +10314,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10327,7 +10331,7 @@
                 "tags": [
                     "PurchaseOrderImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PurchaseOrderImportBatch_Delete",
                 "parameters": [
                     {
@@ -10336,7 +10340,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10622,7 +10626,7 @@
                 "tags": [
                     "RestrictionImportBatch"
                 ],
-                "summary": "The POST method allows the client to send basic restrictions for a dimension value that will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restriction are mandatory.\nControlling dimension key is the dimension that will get the restriction applied on it, the property RestrictedDimension includes a list\nwith dimensions to restrict. For each restriction there is a set of RestrictionTypes, these are: Fixed, Forbidden, Default and Required",
+                "summary": "The POST method allows the client to send basic restrictions for a dimension value that will be imported by the Medius master data import queue.\nThe dimensions involved in the restriction are mandatory.\nControlling dimension key is the dimension that will get the restriction applied on it, the property RestrictedDimension includes a list\nwith dimensions to restrict. For each restriction there is a set of RestrictionTypes, these are: Fixed, Forbidden, Default and Required",
                 "operationId": "RestrictionImportBatch_Post",
                 "parameters": [
                     {
@@ -10647,7 +10651,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -10666,7 +10670,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10683,7 +10687,7 @@
                 "tags": [
                     "RestrictionImportBatch"
                 ],
-                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "RestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -10692,7 +10696,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10731,7 +10735,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -10750,7 +10754,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10769,7 +10773,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The POST method allows the client to send a set of supplier configurations that will be imported by the Mediusflow master data import queue.\nThe supplier configuration needs to have the corresponding supplier in place before being imported.\nRemember that by sending in supplier configurations the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
+                "summary": "The POST method allows the client to send a set of supplier configurations that will be imported by the Medius master data import queue.\nThe supplier configuration needs to have the corresponding supplier in place before being imported.\nRemember that by sending in supplier configurations the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius.",
                 "operationId": "SupplierConfigurationBatch_Post",
                 "parameters": [
                     {
@@ -10794,7 +10798,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -10804,7 +10808,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierConfigurationBatch_Get",
                 "parameters": [
                     {
@@ -10813,7 +10817,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10830,7 +10834,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierConfigurationBatch_Delete",
                 "parameters": [
                     {
@@ -10839,7 +10843,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10899,7 +10903,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The POST method allows the client to send suppliers that will be imported by the Mediusflow master data import queue.\nThe supplier have payment term and company as mandatory prerequisite.\nIf additional dimensions are going to be used or Vat groups they need to be imported in advance.",
+                "summary": "The POST method allows the client to send suppliers that will be imported by the Medius master data import queue.\nThe supplier have payment term and company as mandatory prerequisite.\nIf additional dimensions are going to be used or Vat groups they need to be imported in advance.",
                 "operationId": "SupplierImportBatch_Post",
                 "parameters": [
                     {
@@ -10924,7 +10928,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -10934,7 +10938,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierImportBatch_Get",
                 "parameters": [
                     {
@@ -10943,7 +10947,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10960,7 +10964,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierImportBatch_Delete",
                 "parameters": [
                     {
@@ -10969,7 +10973,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -10984,7 +10988,7 @@
                 "tags": [
                     "SupplierInvoice"
                 ],
-                "summary": "The GET Method returns the status for a given DocumentImport document in Mediusflow.\nIt also returns the \"real\" invoice that was created by the imported document.",
+                "summary": "The GET Method returns the status for a given DocumentImport document in Medius.\nIt also returns the \"real\" invoice that was created by the imported document.",
                 "operationId": "SupplierInvoice_Get",
                 "parameters": [
                     {
@@ -11019,7 +11023,7 @@
                 "tags": [
                     "SupplierInvoice"
                 ],
-                "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/receipt that Mediusflow\received the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self tested experience in Swagger UI is limited.\nPlease test this method and in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/9d47658ed979b050b468",
+                "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/receipt that Medius received the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self testing experience in Swagger UI is limited.\nTo get the full test experience, please test this method in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/36b522ecbddf6a8934d4",
                 "operationId": "SupplierInvoice_Post",
                 "parameters": [
                     {
@@ -11258,7 +11262,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11275,7 +11279,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "TaxGroupImportBatch_Delete",
                 "parameters": [
                     {
@@ -11284,7 +11288,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11299,7 +11303,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The POST method allows the client to send tax groups that will be imported by the Mediusflow master data import queue.\nThe tax group have company as mandatory prerequisite.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Mediusflow.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
+                "summary": "The POST method allows the client to send tax groups that will be imported by the Medius master data import queue.\nThe tax group have company as mandatory prerequisite.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Medius.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
                 "operationId": "TaxGroupImportBatch_Post",
                 "parameters": [
                     {
@@ -11324,7 +11328,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -11334,7 +11338,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The POST method allows the client to send units that will be imported by the Mediusflow master data import queue.\nThe units have no prerequisite.\nRemember that the functionality around units is limited in Mediusflow and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Mediusflow =&gt; '-'",
+                "summary": "The POST method allows the client to send units that will be imported by the Medius master data import queue.\nThe units have no prerequisite.\nRemember that the functionality around units is limited in Medius and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Medius =&gt; '-'",
                 "operationId": "UnitImportBatch_Post",
                 "parameters": [
                     {
@@ -11359,7 +11363,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -11378,7 +11382,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11395,7 +11399,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UnitImportBatch_Delete",
                 "parameters": [
                     {
@@ -11404,7 +11408,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11419,7 +11423,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The POST method allows the client to send user configurations that will be imported by the Mediusflow master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
+                "summary": "The POST method allows the client to send user configurations that will be imported by the Medius master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
                 "operationId": "UserConfigurationImportBatch_Post",
                 "parameters": [
                     {
@@ -11444,7 +11448,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -11463,7 +11467,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11480,7 +11484,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -11489,7 +11493,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11504,7 +11508,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The POST method allows the client to send users that will be imported by the Mediusflow master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
+                "summary": "The POST method allows the client to send users that will be imported by the Medius master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
                 "operationId": "UserImportBatch_Post",
                 "parameters": [
                     {
@@ -11529,7 +11533,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
                     }
                 }
             }
@@ -11548,7 +11552,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11565,7 +11569,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserImportBatch_Delete",
                 "parameters": [
                     {
@@ -11574,7 +11578,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
