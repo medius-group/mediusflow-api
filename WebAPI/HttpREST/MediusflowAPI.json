@@ -10456,22 +10456,14 @@
                 }
             }
         },
-        "/integration/message/v1/procurement/purchaseorders/{messageStatus}": {
+        "/integration/message/v1/procurement/purchaseorders/posted": {
             "get": {
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
                 "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
-                "operationId": "PurchaseOrderRequestMessage_GetMessagesIds",
+                "operationId": "PurchaseOrderRequestMessage_Posted_MessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "Message statuses. these are: Posted, Fetched, Processing, Sent, Closed or Error"
-                    },
                     {
                         "type": "string",
                         "name": "tag",
@@ -10508,7 +10500,7 @@
                     "PurchaseOrderRequestMessage"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Put2",
+                "operationId": "PurchaseOrderRequestMessage_Posted_Put2",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -10521,11 +10513,388 @@
                     },
                     {
                         "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "Message statuses. These are: Posted, Fetched, Processing, Sent, Closed or Error"
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseorders/fetched": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_Fetched_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_Fetched_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseorders/processing": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_Processing_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_Processing_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseorders/sent": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_Sent_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_Sent_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseorders/closed": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_Closed_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_Closed_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/purchaseorders/error": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_Error_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_Error_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
                     },
                     {
                         "type": "string",
@@ -11155,22 +11524,14 @@
                 }
             }
         },
-        "/integration/message/v1/supplierinvoice/invoices/{messageStatus}": {
+        "/integration/message/v1/supplierinvoice/invoices/posted": {
             "get": {
                 "tags": [
                     "SupplierInvoiceMessage"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "operationId": "SupplierInvoiceMessage_GetMessagesIds",
+                "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message statuses, these are: Posted, Fetched, InProgress, Sent, Closed or Error"
-                    },
                     {
                         "type": "string",
                         "name": "tag",
@@ -11207,7 +11568,7 @@
                     "SupplierInvoiceMessage"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "operationId": "SupplierInvoiceMessage_Put2",
+                "operationId": "SupplierInvoiceMessage_Posted_Put2",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -11220,11 +11581,388 @@
                     },
                     {
                         "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message statuses, these are: Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/fetched": {
+            "get": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "operationId": "SupplierInvoiceMessage_Fetched_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/inprogress": {
+            "get": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "operationId": "SupplierInvoiceMessage_Get_InProgress_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "operationId": "SupplierInvoiceMessage_InProgress_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/sent": {
+            "get": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "operationId": "SupplierInvoiceMessage_Sent_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/closed": {
+            "get": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "operationId": "SupplierInvoiceMessage_Closed_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/error": {
+            "get": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "SupplierInvoiceMessage"
+                ],
+                "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "operationId": "SupplierInvoiceMessage_Error_Put2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
                     },
                     {
                         "type": "string",
