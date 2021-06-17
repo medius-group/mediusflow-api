@@ -9011,7 +9011,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -9800,7 +9800,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -9975,7 +9975,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -11432,7 +11432,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processin, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -11468,7 +11468,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "The status to set. Possible statuses Fetched and InProgress, Sent"
+                        "description": "The status to set. Possible statuses Fetched and Processing, Sent"
                     },
                     {
                         "type": "integer",
@@ -11678,13 +11678,13 @@
                 }
             }
         },
-        "/integration/message/v1/supplierinvoice/invoices/inprogress": {
+        "/integration/message/v1/supplierinvoice/invoices/processing": {
             "get": {
                 "tags": [
                     "SupplierInvoiceMessage"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "operationId": "SupplierInvoiceMessage_Get_InProgress_MessagesIds",
+                "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
                 "parameters": [
                     {
                         "type": "string",
@@ -11722,7 +11722,7 @@
                     "SupplierInvoiceMessage"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "operationId": "SupplierInvoiceMessage_InProgress_Put2",
+                "operationId": "SupplierInvoiceMessage_Processing_Put2",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -12349,7 +12349,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
