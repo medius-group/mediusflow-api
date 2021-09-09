@@ -4639,7 +4639,7 @@
                 },
                 "DimensionValues": {
                     "xml": {
-                        "name": "DimensionValues"
+                        "name": "DimensionValueDto"
                     },
                     "$ref": "#/definitions/DimensionValueDto"
                 }
@@ -4648,7 +4648,7 @@
         "DimensionValueDto": {
             "type": "object",
             "xml": {
-                "name": "DimensionValue"
+                "name": "DimensionValues"
             },
             "additionalProperties": false,
             "required": [
@@ -11257,7 +11257,7 @@
                             },
                             "xml": {
                                 "wrapped": true,
-                                "name": "ArrayOfRestrictionRule"
+                                "name": "ArrayOfRestrictionRuleGroup"
                             }
                         },
                         "x-nullable": true
