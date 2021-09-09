@@ -3816,11 +3816,14 @@
                 "CompanyId": {
                     "type": "string"
                 },
+                "CompanyExternalDisplayName": {
+                    "type": "string"
+                },
                 "From": {
                     "xml": {
                         "name": "From"
                     },
-                    "$ref": "#/definitions/CompanyDto"
+                    "$ref": "#/definitions/CompanyProcurementDto"
                 },
                 "DocumentId": {
                     "type": "integer",
@@ -3863,7 +3866,7 @@
                     "xml": {
                         "name": "ShipToAddressDetails"
                     },
-                    "$ref": "#/definitions/AddressDto"
+                    "$ref": "#/definitions/AddressProcurementDto"
                 },
                 "BillToAddress": {
                     "type": "string"
@@ -3872,7 +3875,7 @@
                     "xml": {
                         "name": "BillToAddressDetails"
                     },
-                    "$ref": "#/definitions/AddressDto"
+                    "$ref": "#/definitions/AddressProcurementDto"
                 },
                 "PaymentTermId": {
                     "type": "string"
@@ -3931,7 +3934,7 @@
                         "xml": {
                             "name": "PurchaseOrderLineDto"
                         },
-                        "$ref": "#/definitions/PurchaseOrderLineDto"
+                        "$ref": "#/definitions/PurchaseOrderLineProcurementDto"
                     }
                 },
                 "SupplierContactPersons": {
@@ -3945,6 +3948,102 @@
                         },
                         "$ref": "#/definitions/SupplierContactPersonDto"
                     }
+                }
+            }
+        },
+        "CompanyProcurementDto": {
+            "title": "CompanyDto",
+            "type": "object",
+            "xml": {
+                "name": "Company"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsVirtualCompany",
+                "IsActive"
+            ],
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Identifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IdentifierDto"
+                        },
+                        "$ref": "#/definitions/IdentifierDto"
+                    }
+                },
+                "Addresses": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "AddressDto"
+                        },
+                        "$ref": "#/definitions/AddressProcurementDto"
+                    }
+                }
+            }
+        },
+        "AddressProcurementDto": {
+            "title": "AddressDto",
+            "type": "object",
+            "xml": {
+                "name": "Address"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Recipient": {
+                    "type": "string"
+                },
+                "StreetAddress": {
+                    "type": "string"
+                },
+                "StreetAddress2": {
+                    "type": "string"
+                },
+                "Division": {
+                    "type": "string"
+                },
+                "Building": {
+                    "type": "string"
+                },
+                "Location": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "Telephone": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "Homepage": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
                 }
             }
         },
@@ -3974,7 +4073,7 @@
                     "xml": {
                         "name": "Address"
                     },
-                    "$ref": "#/definitions/AddressDto"
+                    "$ref": "#/definitions/AddressProcurementDto"
                 }
             }
         },
@@ -4060,6 +4159,68 @@
                 },
                 "Telephone": {
                     "type": "string"
+                }
+            }
+        },
+        "PurchaseOrderLineProcurementDto": {
+            "title": "PurchaseOrderLineDto",
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderLine"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "LineNumber": {
+                    "type": "string"
+                },
+                "RequisitionId": {
+                    "type": "string"
+                },
+                "IsServiceItem": {
+                    "type": "boolean"
+                },
+                "ContractNumber": {
+                    "type": "string"
+                },
+                "RequestedDeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "Total": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Comments": {
+                    "type": "string"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "CodingLines": {
+                    "xml": {
+                        "name": "CodingDto"
+                    },
+                    "$ref": "#/definitions/CodingDto"
                 }
             }
         },
