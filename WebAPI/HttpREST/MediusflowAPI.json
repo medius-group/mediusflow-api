@@ -430,7 +430,11 @@
                 "PURCHASE_ORDER_LINE_NUMBER_ALREADY_EXISTS",
                 "DELIVERY_LINE_EXTERNAL_SYSTEM_ID_ALREADY_EXISTS",
                 "PURCHASE_ORDER_ALREADY_EXISTS",
-                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED"
+                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED",
+                "COULD_NOT_DELETE_RESTRICTIONS",
+                "COULD_NOT_DELETE_RESTRICTIONS_AND_ROLLBACK",
+                "CURRENCY_RATE_OUT_OF_RANGE",
+                "CURRENCY_WITH_CODE_ALREADY_EXISTS"
             ],
             "enum": [
                 0,
@@ -569,7 +573,11 @@
                 133,
                 134,
                 135,
-                136
+                136,
+                137,
+                138,
+                139,
+                140
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -747,6 +755,9 @@
                     "type": "string"
                 },
                 "Name": {
+                    "type": "string"
+                },
+                "ExternalDisplayName": {
                     "type": "string"
                 },
                 "CompanyId": {
@@ -1198,6 +1209,145 @@
                 "EndDate": {
                     "type": "string",
                     "format": "date-time"
+                }
+            }
+        },
+        "IntegrationDeliveryLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "DeliveryLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsActive",
+                "Amount",
+                "ConversionFactor",
+                "DeliveryDate",
+                "Quantity",
+                "UnitPrice",
+                "IsFictive"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ConversionFactor": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryNumber": {
+                    "type": "string"
+                },
+                "DeliveryNote": {
+                    "type": "string"
+                },
+                "ReleaseNumber": {
+                    "type": "string"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "IsFictive": {
+                    "type": "boolean"
+                },
+                "TotalInvoicedQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "PurchaseOrderLineExternalSystemId": {
+                    "type": "string"
                 }
             }
         },
@@ -3044,6 +3194,10 @@
                 },
                 "IsTwoWayMatch": {
                     "type": "boolean"
+                },
+                "TwoWayMatchTotalInvoicedQuantity": {
+                    "type": "number",
+                    "format": "decimal"
                 }
             }
         },
@@ -3068,145 +3222,6 @@
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "Type": {
-                    "type": "string"
-                }
-            }
-        },
-        "IntegrationDeliveryLineDto": {
-            "type": "object",
-            "xml": {
-                "name": "DeliveryLine"
-            },
-            "additionalProperties": false,
-            "required": [
-                "IsActive",
-                "Amount",
-                "ConversionFactor",
-                "DeliveryDate",
-                "Quantity",
-                "UnitPrice",
-                "IsFictive"
-            ],
-            "properties": {
-                "ErpSourceId": {
-                    "type": "string"
-                },
-                "ExternalSystemId": {
-                    "type": "string"
-                },
-                "CustomField_Text1": {
-                    "type": "string"
-                },
-                "CustomField_Text2": {
-                    "type": "string"
-                },
-                "CustomField_Text3": {
-                    "type": "string"
-                },
-                "CustomField_Text4": {
-                    "type": "string"
-                },
-                "CustomField_Text5": {
-                    "type": "string"
-                },
-                "CustomField_Numeric1": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric2": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric3": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric4": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Numeric5": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "CustomField_Boolean1": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean2": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean3": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean4": {
-                    "type": "boolean"
-                },
-                "CustomField_Boolean5": {
-                    "type": "boolean"
-                },
-                "CustomField_DateTime1": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime2": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime3": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime4": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "CustomField_DateTime5": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "IsActive": {
-                    "type": "boolean"
-                },
-                "Amount": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "ConversionFactor": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "DeliveryDate": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "DeliveryNumber": {
-                    "type": "string"
-                },
-                "DeliveryNote": {
-                    "type": "string"
-                },
-                "ReleaseNumber": {
-                    "type": "string"
-                },
-                "Quantity": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "Unit": {
-                    "type": "string"
-                },
-                "UnitPrice": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "IsFictive": {
-                    "type": "boolean"
-                },
-                "TotalInvoicedQuantity": {
-                    "type": "number",
-                    "format": "decimal"
-                },
-                "PurchaseOrderLineExternalSystemId": {
                     "type": "string"
                 }
             }
@@ -3250,6 +3265,9 @@
                     "type": "string"
                 },
                 "CompanyId": {
+                    "type": "string"
+                },
+                "CompanyExternalDisplayName": {
                     "type": "string"
                 },
                 "From": {
@@ -6954,7 +6972,7 @@
                 "tags": [
                     "AccrualTemplateImportBatch"
                 ],
-                "summary": "The POST method allows the client to send accrual templates that will be imported by the Mediusflow master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
+                "summary": "The POST method allows the client to send accrual templates that will be imported by the APA master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within APA. ",
                 "operationId": "AccrualTemplateImportBatch_Post",
                 "parameters": [
                     {
@@ -6985,7 +7003,7 @@
                 "tags": [
                     "AccrualTemplateImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "AccrualTemplateImportBatch_Get",
                 "parameters": [
                     {
@@ -7011,7 +7029,7 @@
                 "tags": [
                     "AccrualTemplateImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "AccrualTemplateImportBatch_Delete",
                 "parameters": [
                     {
@@ -7053,7 +7071,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -7170,7 +7188,7 @@
                 "tags": [
                     "CompanyImportBatch"
                 ],
-                "summary": "The POST method allows the client to send a set of companies that will be imported by the Mediusflow master data import queue.\nThe company have Currency as prerequisite\nThe company will be created as a child company to either the root company or to another company provided",
+                "summary": "The POST method allows the client to send a set of companies that will be imported by the APA master data import queue.\nThe company have Currency as prerequisite\nThe company will be created as a child company to either the root company or to another company provided",
                 "operationId": "CompanyImportBatch_Post",
                 "parameters": [
                     {
@@ -7201,7 +7219,7 @@
                 "tags": [
                     "CompanyImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CompanyImportBatch_Get",
                 "parameters": [
                     {
@@ -7227,7 +7245,7 @@
                 "tags": [
                     "CompanyImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "CompanyImportBatch_Delete",
                 "parameters": [
                     {
@@ -7251,7 +7269,7 @@
                 "tags": [
                     "CurrencyImportBatch"
                 ],
-                "summary": "The POST method allows the client to send currencies that will be imported by the Mediusflow master data import queue.\nThe currency have no prerequisit.",
+                "summary": "The POST method allows the client to send currencies that will be imported by the APA master data import queue.\nThe currency have no prerequisite.",
                 "operationId": "CurrencyImportBatch_Post",
                 "parameters": [
                     {
@@ -7282,7 +7300,7 @@
                 "tags": [
                     "CurrencyImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CurrencyImportBatch_Get",
                 "parameters": [
                     {
@@ -7308,7 +7326,7 @@
                 "tags": [
                     "CurrencyImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyImportBatch_Delete",
                 "parameters": [
                     {
@@ -7332,7 +7350,7 @@
                 "tags": [
                     "CurrencyRateImportBatch"
                 ],
-                "summary": "The POST method allows the client to send currency rates that will be imported by the Mediusflow master data import queue.\nThe currency rate have currency as prerequisit.",
+                "summary": "The POST method allows the client to send currency rates that will be imported by the APA master data import queue.\nThe currency rate have currency as prerequisite.",
                 "operationId": "CurrencyRateImportBatch_Post",
                 "parameters": [
                     {
@@ -7363,7 +7381,7 @@
                 "tags": [
                     "CurrencyRateImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CurrencyRateImportBatch_Get",
                 "parameters": [
                     {
@@ -7389,7 +7407,7 @@
                 "tags": [
                     "CurrencyRateImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyRateImportBatch_Delete",
                 "parameters": [
                     {
@@ -7408,12 +7426,67 @@
                 }
             }
         },
+        "/integration/masterdata/v1/DeliveryLineImportBatches": {
+            "post": {
+                "tags": [
+                    "DeliveryLinesImportBatch"
+                ],
+                "operationId": "DeliveryLinesImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "deliveryLines",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "IntegrationDeliveryLineDto"
+                                },
+                                "$ref": "#/definitions/IntegrationDeliveryLineDto"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DeliveryLineImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "DeliveryLinesImportBatch"
+                ],
+                "operationId": "DeliveryLinesImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
         "/integration/masterdata/v1/DeliveryTermImportBatches": {
             "post": {
                 "tags": [
                     "DeliveryTermImportBatch"
                 ],
-                "summary": "The POST method allows the client to send delivery terms that will be imported by the Mediusflow master data import queue.\nThe delivery terms have company prerequisit.",
+                "summary": "The POST method allows the client to send delivery terms that will be imported by the APA master data import queue.\nThe delivery terms have company prerequisite.",
                 "operationId": "DeliveryTermImportBatch_Post",
                 "parameters": [
                     {
@@ -7444,7 +7517,7 @@
                 "tags": [
                     "DeliveryTermImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DeliveryTermImportBatch_Get",
                 "parameters": [
                     {
@@ -7470,7 +7543,7 @@
                 "tags": [
                     "DeliveryTermImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "DeliveryTermImportBatch_Delete",
                 "parameters": [
                     {
@@ -7494,7 +7567,7 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatch"
                 ],
-                "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the Mediusflow master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
+                "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the APA master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within APA. ",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
                 "parameters": [
                     {
@@ -7525,7 +7598,7 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueConfigurationImportBatch_Get",
                 "parameters": [
                     {
@@ -7551,7 +7624,7 @@
                 "tags": [
                     "DimensionValueConfigurationImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -7575,7 +7648,7 @@
                 "tags": [
                     "DimensionValueImportBatch"
                 ],
-                "summary": "The POST method allows the client to send dimension values that will be imported by the Mediusflow master data import queue.\nThe dimension values have company as mandatory prerequisit.",
+                "summary": "The POST method allows the client to send dimension values that will be imported by the APA master data import queue.\nThe dimension values have company as mandatory prerequisite.",
                 "operationId": "DimensionValueImportBatch_Post",
                 "parameters": [
                     {
@@ -7606,7 +7679,7 @@
                 "tags": [
                     "DimensionValueImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueImportBatch_Get",
                 "parameters": [
                     {
@@ -7632,7 +7705,7 @@
                 "tags": [
                     "DimensionValueImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueImportBatch_Delete",
                 "parameters": [
                     {
@@ -7818,7 +7891,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -7890,7 +7963,7 @@
                 "tags": [
                     "ForbiddenListRestrictionImportBatch"
                 ],
-                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of forbidden dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith forbidden dimension values.",
+                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of forbidden dimension values in related dimensions.\nThese will be imported by the APA master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith forbidden dimension values.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Post",
                 "parameters": [
                     {
@@ -7921,7 +7994,7 @@
                 "tags": [
                     "ForbiddenListRestrictionImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -7947,7 +8020,7 @@
                 "tags": [
                     "ForbiddenListRestrictionImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "ForbiddenListRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -7971,7 +8044,7 @@
                 "tags": [
                     "ItemImportBatch"
                 ],
-                "summary": "The POST method allows the client to send items that will be imported by the Mediusflow master data import queue.\nThe items have supplier and company as mandatory prerequisit.",
+                "summary": "The POST method allows the client to send items that will be imported by the APA master data import queue.\nThe items have supplier and company as mandatory prerequisite.",
                 "operationId": "ItemImportBatch_Post",
                 "parameters": [
                     {
@@ -8002,7 +8075,7 @@
                 "tags": [
                     "ItemImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "ItemImportBatch_Get",
                 "parameters": [
                     {
@@ -8028,7 +8101,7 @@
                 "tags": [
                     "ItemImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "ItemImportBatch_Delete",
                 "parameters": [
                     {
@@ -8052,7 +8125,7 @@
                 "tags": [
                     "OptionalListRestrictionImportBatch"
                 ],
-                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of optional dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith optional dimension values.",
+                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of optional dimension values in related dimensions.\nThese will be imported by the APA master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith optional dimension values.",
                 "operationId": "OptionalListRestrictionImportBatch_Post",
                 "parameters": [
                     {
@@ -8083,7 +8156,7 @@
                 "tags": [
                     "OptionalListRestrictionImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "OptionalListRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -8109,7 +8182,7 @@
                 "tags": [
                     "OptionalListRestrictionImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "OptionalListRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -8151,7 +8224,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
@@ -8304,7 +8377,7 @@
                 "tags": [
                     "PeriodImportBatch"
                 ],
-                "summary": "The POST method allows the client to send periods that will be imported by the Mediusflow master data import queue.\nThe periods have Company as prerequisites.\nRemember that by sending in periods the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. For periods it might be better to keep them in XI to be able to control the\nposting dates separated from the ERP system, for flexibility reasons.",
+                "summary": "The POST method allows the client to send periods that will be imported by the APA master data import queue.\nThe periods have Company as prerequisites.\nRemember that by sending in periods the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within APA. For periods it might be better to keep them in XI to be able to control the\nposting dates separated from the ERP system, for flexibility reasons.",
                 "operationId": "PeriodImportBatch_Post",
                 "parameters": [
                     {
@@ -8335,7 +8408,7 @@
                 "tags": [
                     "PeriodImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PeriodImportBatch_Get",
                 "parameters": [
                     {
@@ -8361,7 +8434,7 @@
                 "tags": [
                     "PeriodImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "PeriodImportBatch_Delete",
                 "parameters": [
                     {
@@ -8438,7 +8511,7 @@
                 "tags": [
                     "PurchaseOrderImportBatch"
                 ],
-                "summary": "The POST method allows the client to send a set of purchase orders that will be imported by the Mediusflow master data import queue.\nThe purchase order need to be imported after the mandatory pre requisites are imported, these are Company and Supplier.\nIf specific units and items are used, these needs to be in place allso.",
+                "summary": "The POST method allows the client to send a set of purchase orders that will be imported by the APA master data import queue.\nThe purchase order need to be imported after the mandatory pre requisites are imported, these are Company and Supplier.\nIf specific units and items are used, these needs to be in place also.",
                 "operationId": "PurchaseOrderImportBatch_Post",
                 "parameters": [
                     {
@@ -8469,7 +8542,7 @@
                 "tags": [
                     "PurchaseOrderImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PurchaseOrderImportBatch_Get",
                 "parameters": [
                     {
@@ -8495,7 +8568,7 @@
                 "tags": [
                     "PurchaseOrderImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "PurchaseOrderImportBatch_Delete",
                 "parameters": [
                     {
@@ -8790,7 +8863,7 @@
                 "tags": [
                     "RangeRestrictionImportBatch"
                 ],
-                "summary": "The POST method allows the client to send restrictions including ranges in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it.\nAll ranges sent in is calculated on the fly in Mediusflow, so there is no connection made to dimensins within the range provided\nTry using RangeRestrictions instead of List* restrictions when it's possible, it will reduce the amount of data that need to be sent by the client.",
+                "summary": "The POST method allows the client to send restrictions including ranges in related dimensions.\nThese will be imported by the APA master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it.\nAll ranges sent in is calculated on the fly in APA, so there is no connection made to dimensions within the range provided\nTry using RangeRestrictions instead of List* restrictions when it's possible, it will reduce the amount of data that need to be sent by the client.",
                 "operationId": "RangeRestrictionImportBatch_Post",
                 "parameters": [
                     {
@@ -8821,7 +8894,7 @@
                 "tags": [
                     "RangeRestrictionImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RangeRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -8847,7 +8920,7 @@
                 "tags": [
                     "RangeRestrictionImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "RangeRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -8871,7 +8944,7 @@
                 "tags": [
                     "RequiredListRestrictionImportBatch"
                 ],
-                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of required dimension values in related dimensions.\nThese will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith required dimension values.",
+                "summary": "The POST method allows the client to send restrictions for a dimension value with a list of required dimension values in related dimensions.\nThese will be imported by the APA master data import queue.\nThe dimensions involved in the restrictions needs to be sent in prior to the restrictions.\nThe property ControllingDimensionKey is the dimension that will get the restriction applied on it, the property RestrictedDimensionKeys includes a list\nwith required dimension values.",
                 "operationId": "RequiredListRestrictionImportBatch_Post",
                 "parameters": [
                     {
@@ -8902,7 +8975,7 @@
                 "tags": [
                     "RequiredListRestrictionImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RequiredListRestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -8928,7 +9001,7 @@
                 "tags": [
                     "RequiredListRestrictionImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "RequiredListRestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -8952,7 +9025,7 @@
                 "tags": [
                     "RestrictionImportBatch"
                 ],
-                "summary": "The POST method allows the client to send basic restrictions for a dimension value that will be imported by the Mediusflow master data import queue.\nThe dimensions involved in the restriction are mandatory.\nControlling dimension key is the dimension that will get the restriction applied on it, the property RestrictedDimension includes a list\nwith dimensions to restrict. For each restriction there is a set of RestrictionTypes, these are: Fixed, Forbidden, Default and Required",
+                "summary": "The POST method allows the client to send basic restrictions for a dimension value that will be imported by the APA master data import queue.\nThe dimensions involved in the restriction are mandatory.\nControlling dimension key is the dimension that will get the restriction applied on it, the property RestrictedDimension includes a list\nwith dimensions to restrict. For each restriction there is a set of RestrictionTypes, these are: Fixed, Forbidden, Default and Required",
                 "operationId": "RestrictionImportBatch_Post",
                 "parameters": [
                     {
@@ -8983,7 +9056,7 @@
                 "tags": [
                     "RestrictionImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RestrictionImportBatch_Get",
                 "parameters": [
                     {
@@ -9009,7 +9082,7 @@
                 "tags": [
                     "RestrictionImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "RestrictionImportBatch_Delete",
                 "parameters": [
                     {
@@ -9091,7 +9164,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The POST method allows the client to send a set of supplier configurations that will be imported by the Mediusflow master data import queue.\nThe supplier configuration needs to have the corresponding supplier in place before being imported.\nRemember that by sending in supplier configurations the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow.",
+                "summary": "The POST method allows the client to send a set of supplier configurations that will be imported by the APA master data import queue.\nThe supplier configuration needs to have the corresponding supplier in place before being imported.\nRemember that by sending in supplier configurations the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within APA.",
                 "operationId": "SupplierConfigurationBatch_Post",
                 "parameters": [
                     {
@@ -9122,7 +9195,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierConfigurationBatch_Get",
                 "parameters": [
                     {
@@ -9148,7 +9221,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierConfigurationBatch_Delete",
                 "parameters": [
                     {
@@ -9199,6 +9272,20 @@
                         "in": "query",
                         "x-nullable": true,
                         "description": "Tells the service that we only want suppliers that have been changed after this date and time"
+                    },
+                    {
+                        "type": "string",
+                        "name": "identifierType",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Filter suppliers by identifier type, eg. SUPPLIER_PORTAL_ID. Requires identifier value"
+                    },
+                    {
+                        "type": "string",
+                        "name": "identifierValue",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Filter suppliers by identifier value"
                     }
                 ],
                 "responses": {
@@ -9217,7 +9304,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The POST method allows the client to send suppliers that will be imported by the Mediusflow master data import queue.\nThe supplier have payment term and company as mandatory prerequisit.\nIf additional dimensions are going to be used or Vat groups they need to be imported in advance.",
+                "summary": "The POST method allows the client to send suppliers that will be imported by the APA master data import queue.\nThe supplier have payment term and company as mandatory prerequisite.\nIf additional dimensions are going to be used or Vat groups they need to be imported in advance.",
                 "operationId": "SupplierImportBatch_Post",
                 "parameters": [
                     {
@@ -9248,7 +9335,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierImportBatch_Get",
                 "parameters": [
                     {
@@ -9274,7 +9361,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierImportBatch_Delete",
                 "parameters": [
                     {
@@ -9355,7 +9442,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -9391,7 +9478,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "The status to set. Possible statuses Fetched and InProgress, Sent"
+                        "description": "The status to set. Possible statuses Fetched and Processing, Sent"
                     },
                     {
                         "type": "integer",
@@ -9461,7 +9548,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message statuses, these are: Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message statuses, these are: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "string",
@@ -9516,7 +9603,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message statuses, these are: Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message statuses, these are: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "string",
@@ -9545,7 +9632,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "TaxGroupImportBatch_Get",
                 "parameters": [
                     {
@@ -9571,7 +9658,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "TaxGroupImportBatch_Delete",
                 "parameters": [
                     {
@@ -9595,7 +9682,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The POST method allows the client to send tax groups that will be imported by the Mediusflow master data import queue.\nThe tax group have company as mandatory prerequisit.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Mediusflow.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
+                "summary": "The POST method allows the client to send tax groups that will be imported by the APA master data import queue.\nThe tax group have company as mandatory prerequisite.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in APA.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
                 "operationId": "TaxGroupImportBatch_Post",
                 "parameters": [
                     {
@@ -9626,7 +9713,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The POST method allows the client to send units that will be imported by the Mediusflow master data import queue.\nThe units have no prerequisit.\nRemember that the functionality around units is limited in Mediusflow and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Mediusflow =&gt; '-'",
+                "summary": "The POST method allows the client to send units that will be imported by the APA master data import queue.\nThe units have no prerequisite.\nRemember that the functionality around units is limited in APA and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in APA =&gt; '-'",
                 "operationId": "UnitImportBatch_Post",
                 "parameters": [
                     {
@@ -9657,7 +9744,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UnitImportBatch_Get",
                 "parameters": [
                     {
@@ -9683,7 +9770,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "UnitImportBatch_Delete",
                 "parameters": [
                     {
@@ -9707,7 +9794,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The POST method allows the client to send user configurations that will be imported by the Mediusflow master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Mediusflow. ",
+                "summary": "The POST method allows the client to send user configurations that will be imported by the APA master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within APA. ",
                 "operationId": "UserConfigurationImportBatch_Post",
                 "parameters": [
                     {
@@ -9738,7 +9825,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserConfigurationImportBatch_Get",
                 "parameters": [
                     {
@@ -9764,7 +9851,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -9788,7 +9875,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The POST method allows the client to send users that will be imported by the Mediusflow master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
+                "summary": "The POST method allows the client to send users that will be imported by the APA master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
                 "operationId": "UserImportBatch_Post",
                 "parameters": [
                     {
@@ -9819,7 +9906,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserImportBatch_Get",
                 "parameters": [
                     {
@@ -9845,7 +9932,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within APA. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserImportBatch_Delete",
                 "parameters": [
                     {
@@ -9887,7 +9974,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, InProgress, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     }
                 ],
                 "responses": {
