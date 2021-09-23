@@ -3529,6 +3529,11 @@
                 "IsTwoWayMatch": {
                     "type": "boolean",
                     "description": "If true, no goods receipts are expected and IntegrationDeliveryLineDto should not be included."
+                },
+                "TwoWayMatchTotalInvoicedQuantity": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Only for two-way match. When used, Medius can keep track of invoiced quantity in the case of two-way match."
                 }
             }
         },
