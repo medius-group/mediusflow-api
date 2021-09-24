@@ -502,7 +502,11 @@
                 "PURCHASE_ORDER_LINE_NUMBER_ALREADY_EXISTS",
                 "DELIVERY_LINE_EXTERNAL_SYSTEM_ID_ALREADY_EXISTS",
                 "PURCHASE_ORDER_ALREADY_EXISTS",
-                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED"
+                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED",
+                "COULD_NOT_DELETE_RESTRICTIONS",
+                "COULD_NOT_DELETE_RESTRICTIONS_AND_ROLLBACK",
+                "CURRENCY_RATE_OUT_OF_RANGE",
+                "CURRENCY_WITH_CODE_ALREADY_EXISTS"
             ],
             "enum": [
                 0,
@@ -641,7 +645,11 @@
                 133,
                 134,
                 135,
-                136
+                136,
+                137,
+                138,
+                139,
+                140
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -819,6 +827,9 @@
                     "type": "string"
                 },
                 "Name": {
+                    "type": "string"
+                },
+                "ExternalDisplayName": {
                     "type": "string"
                 },
                 "CompanyId": {
