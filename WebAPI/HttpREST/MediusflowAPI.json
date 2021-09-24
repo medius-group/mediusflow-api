@@ -2934,6 +2934,18 @@
                 "Unit": {
                     "type": "string"
                 },
+                "CodingLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "PurchaseOrderCodingLineDto"
+                        },
+                        "$ref": "#/definitions/PurchaseOrderCodingLineDto"
+                    }
+                },
                 "DeliveryLines": {
                     "type": "array",
                     "xml": {
@@ -2964,6 +2976,91 @@
                     "$ref": "#/definitions/MasterDataDto"
                 }
             ]
+        },
+        "PurchaseOrderCodingLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderCodingLine"
+            },
+            "additionalProperties": false,
+            "required": [
+                "Amount"
+            ],
+            "properties": {
+                "Dimensions": {
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "$ref": "#/definitions/PurchaseOrderCodingLineDimensionsDto"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "PurchaseOrderCodingLineDimensionsDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderCodingLineDimensions"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Dimension1": {
+                    "type": "string"
+                },
+                "Dimension2": {
+                    "type": "string"
+                },
+                "Dimension3": {
+                    "type": "string"
+                },
+                "Dimension4": {
+                    "type": "string"
+                },
+                "Dimension5": {
+                    "type": "string"
+                },
+                "Dimension6": {
+                    "type": "string"
+                },
+                "Dimension7": {
+                    "type": "string"
+                },
+                "Dimension8": {
+                    "type": "string"
+                },
+                "Dimension9": {
+                    "type": "string"
+                },
+                "Dimension10": {
+                    "type": "string"
+                },
+                "Dimension11": {
+                    "type": "string"
+                },
+                "Dimension12": {
+                    "type": "string"
+                },
+                "FreeText1": {
+                    "type": "string"
+                },
+                "FreeText2": {
+                    "type": "string"
+                },
+                "FreeText3": {
+                    "type": "string"
+                },
+                "FreeText4": {
+                    "type": "string"
+                },
+                "FreeText5": {
+                    "type": "string"
+                }
+            }
         },
         "DeliveryLineDto": {
             "type": "object",
