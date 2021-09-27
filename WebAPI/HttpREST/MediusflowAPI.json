@@ -7310,6 +7310,21 @@
                             "name": "Int32"
                         }
                     }
+                },
+                "LastApproverFirstName": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "First name of the person who made the last approval on given coding line in Medius."
+                },
+                "LastApproverLastName": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Last name of the person who made the last approval on given coding line in Medius."
+                },
+                "LastApproverUserName": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "User name of the person who made the last approval on given coding line in Medius."
                 }
             }
         },
