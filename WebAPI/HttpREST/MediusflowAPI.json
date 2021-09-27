@@ -5913,7 +5913,20 @@
                 "IdentifierType": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Valid types: PURCHASING_SYSTEM, BANK_ACCOUNT, ORGANIZATION_NUMBER, VAT_REGISTRATION_NUMBER, EAN_NUMBER, POSTAL_ACCOUNT, IBAN_NUMBER, OTHER. In GUI they are named differently, e.g. Bank Account for BANK_ACCOUNT."
+                    "description": "See list of available values for the identifier type. In GUI they are named differently, e.g. Bank Account for BANK_ACCOUNT.",
+                    "enum": [
+                        "FINANCIAL_SYSTEM",
+                        "PURCHASING_SYSTEM",
+                        "BANK_ACCOUNT",
+                        "ORGANIZATION_NUMBER",
+                        "VAT_REGISTRATION_NUMBER",
+                        "EAN_NUMBER",
+                        "POSTAL_ACCOUNT",
+                        "IBAN_NUMBER",
+                        "EXTERNAL_SYSTEM_ID",
+                        "SUPPLIER_PORTAL_ID",
+                        "OTHER"
+                    ]
                 },
                 "IdentifierValue": {
                     "type": "string",
@@ -9444,6 +9457,7 @@
                         "POSTAL_ACCOUNT",
                         "IBAN_NUMBER",
                         "EXTERNAL_SYSTEM_ID",
+                        "SUPPLIER_PORTAL_ID",
                         "OTHER"
                     ]
                 },
@@ -11880,7 +11894,7 @@
                         "name": "limit",
                         "in": "query",
                         "x-nullable": false,
-                        "description": "The number of records returned(max 1000)",
+                        "description": "The number of records returned(max 1000).",
                         "format": "int32",
                         "default": 1000
                     },
@@ -11889,7 +11903,21 @@
                         "name": "updatedSince",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Tells the service that we only want suppliers that have been changed after this date and time"
+                        "description": "Tells the service that we only want suppliers that have been changed after this date and time."
+                    },
+                    {
+                        "type": "string",
+                        "name": "identifierType",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Filter suppliers by identifier type, eg. BANK_ACCOUNT. Requires identifier value."
+                    },
+                    {
+                        "type": "string",
+                        "name": "identifierValue",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Filter suppliers by identifier value, e.g. bank account number."
                     }
                 ],
                 "responses": {
