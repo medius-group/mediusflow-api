@@ -5856,6 +5856,15 @@
                             "name": "Int32"
                         }
                     }
+                },
+                "LastApproverFirstName": {
+                    "type": "string"
+                },
+                "LastApproverLastName": {
+                    "type": "string"
+                },
+                "LastApproverUserName": {
+                    "type": "string"
                 }
             }
         },
