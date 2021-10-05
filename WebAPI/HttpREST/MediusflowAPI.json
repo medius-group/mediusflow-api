@@ -10843,7 +10843,7 @@
                 "tags": [
                     "PeriodImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PeriodImportBatch_Delete",
                 "parameters": [
                     {
@@ -10981,7 +10981,7 @@
                 "tags": [
                     "PurchaseOrderImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PurchaseOrderImportBatch_Delete",
                 "parameters": [
                     {
@@ -11014,7 +11014,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message id"
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -11022,7 +11022,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
+                        "description": "The message id of the message to find",
                         "format": "int32"
                     }
                 ],
@@ -11050,7 +11050,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "Status to set. Possible statuses are: Fetched and Processing, Sent"
+                        "description": "The status to set. Possible statuses are: Fetched, Processing or Sent"
                     },
                     {
                         "type": "integer",
@@ -11853,7 +11853,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierConfigurationBatch_Delete",
                 "parameters": [
                     {
@@ -11997,7 +11997,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierImportBatch_Delete",
                 "parameters": [
                     {
@@ -12096,7 +12096,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, Processin, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -12132,7 +12132,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "The status to set. Possible statuses Fetched and Processing, Sent"
+                        "description": "The status to set. Possible statuses are: Fetched, Processing or Sent"
                     },
                     {
                         "type": "integer",
@@ -12655,7 +12655,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "TaxGroupImportBatch_Get",
                 "parameters": [
                     {
@@ -12681,7 +12681,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "TaxGroupImportBatch_Delete",
                 "parameters": [
                     {
@@ -12775,7 +12775,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UnitImportBatch_Get",
                 "parameters": [
                     {
@@ -12801,7 +12801,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UnitImportBatch_Delete",
                 "parameters": [
                     {
@@ -12860,7 +12860,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserConfigurationImportBatch_Get",
                 "parameters": [
                     {
@@ -12886,7 +12886,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -12945,7 +12945,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserImportBatch_Get",
                 "parameters": [
                     {
@@ -12971,7 +12971,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserImportBatch_Delete",
                 "parameters": [
                     {
