@@ -502,7 +502,11 @@
                 "PURCHASE_ORDER_LINE_NUMBER_ALREADY_EXISTS",
                 "DELIVERY_LINE_EXTERNAL_SYSTEM_ID_ALREADY_EXISTS",
                 "PURCHASE_ORDER_ALREADY_EXISTS",
-                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED"
+                "PURCHASE_ORDER_CURRENCY_CHANGE_NOT_ALLOWED",
+                "COULD_NOT_DELETE_RESTRICTIONS",
+                "COULD_NOT_DELETE_RESTRICTIONS_AND_ROLLBACK",
+                "CURRENCY_RATE_OUT_OF_RANGE",
+                "CURRENCY_WITH_CODE_ALREADY_EXISTS"
             ],
             "enum": [
                 0,
@@ -641,7 +645,11 @@
                 133,
                 134,
                 135,
-                136
+                136,
+                137,
+                138,
+                139,
+                140
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -819,6 +827,9 @@
                     "type": "string"
                 },
                 "Name": {
+                    "type": "string"
+                },
+                "ExternalDisplayName": {
                     "type": "string"
                 },
                 "CompanyId": {
@@ -2874,13 +2885,105 @@
                 },
                 "MediusFlowSystemId": {
                     "type": "string"
+                },
+                "Amount":{
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Reference":{
+                    "type": "string"
+                },
+                "Reference2":{
+                    "type": "string"
+                },
+                "PaymentTermId":{
+                    "type": "string"
+                },
+                "RegisterDate":{
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DueDate":{
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
                 }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/MasterDataDto"
-                }
-            ]
+            }
         },
         "PurchaseOrderLineDto": {
             "type": "object",
@@ -2923,6 +3026,21 @@
                 "Unit": {
                     "type": "string"
                 },
+                "IsTwoWayMatch": {
+                    "type": "boolean"
+                },
+                "CodingLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "PurchaseOrderCodingLineDto"
+                        },
+                        "$ref": "#/definitions/PurchaseOrderCodingLineDto"
+                    }
+                },
                 "DeliveryLines": {
                     "type": "array",
                     "xml": {
@@ -2946,13 +3064,169 @@
                         },
                         "$ref": "#/definitions/SupplierItemDto"
                     }
+                },
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
                 }
+            }
+        },
+        "PurchaseOrderCodingLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderCodingLine"
             },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/MasterDataDto"
+            "additionalProperties": false,
+            "required": [
+                "Amount"
+            ],
+            "properties": {
+                "Dimensions": {
+                    "xml": {
+                        "name": "Dimensions"
+                    },
+                    "$ref": "#/definitions/PurchaseOrderCodingLineDimensionsDto"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Tag": {
+                    "type": "string"
                 }
-            ]
+            }
+        },
+        "PurchaseOrderCodingLineDimensionsDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderCodingLineDimensions"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Dimension1": {
+                    "type": "string"
+                },
+                "Dimension2": {
+                    "type": "string"
+                },
+                "Dimension3": {
+                    "type": "string"
+                },
+                "Dimension4": {
+                    "type": "string"
+                },
+                "Dimension5": {
+                    "type": "string"
+                },
+                "Dimension6": {
+                    "type": "string"
+                },
+                "Dimension7": {
+                    "type": "string"
+                },
+                "Dimension8": {
+                    "type": "string"
+                },
+                "Dimension9": {
+                    "type": "string"
+                },
+                "Dimension10": {
+                    "type": "string"
+                },
+                "Dimension11": {
+                    "type": "string"
+                },
+                "Dimension12": {
+                    "type": "string"
+                },
+                "FreeText1": {
+                    "type": "string"
+                },
+                "FreeText2": {
+                    "type": "string"
+                },
+                "FreeText3": {
+                    "type": "string"
+                },
+                "FreeText4": {
+                    "type": "string"
+                },
+                "FreeText5": {
+                    "type": "string"
+                }
+            }
         },
         "DeliveryLineDto": {
             "type": "object",
@@ -2975,13 +3249,84 @@
                 },
                 "DeliveryNote": {
                     "type": "string"
+                },
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
                 }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/MasterDataDto"
-                }
-            ]
+            }
         },
         "MasterDataDto": {
             "type": "object",
@@ -3077,13 +3422,84 @@
             "properties": {
                 "ItemNumber": {
                     "type": "string"
+                },
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
                 }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/MasterDataDto"
-                }
-            ]
+            }
         },
         "IntegrationPurchaseOrderDto": {
             "type": "object",
@@ -3529,6 +3945,11 @@
                 "IsTwoWayMatch": {
                     "type": "boolean",
                     "description": "If true, no goods receipts are expected and IntegrationDeliveryLineDto should not be included."
+                },
+                "TwoWayMatchTotalInvoicedQuantity": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Only for two-way match. When used, Medius can keep track of invoiced quantity in the case of two-way match."
                 }
             }
         },
@@ -3816,11 +4237,14 @@
                 "CompanyId": {
                     "type": "string"
                 },
+                "CompanyExternalDisplayName": {
+                    "type": "string"
+                },
                 "From": {
                     "xml": {
                         "name": "From"
                     },
-                    "$ref": "#/definitions/CompanyDto"
+                    "$ref": "#/definitions/CompanyProcurementDto"
                 },
                 "DocumentId": {
                     "type": "integer",
@@ -3863,7 +4287,7 @@
                     "xml": {
                         "name": "ShipToAddressDetails"
                     },
-                    "$ref": "#/definitions/AddressDto"
+                    "$ref": "#/definitions/AddressProcurementDto"
                 },
                 "BillToAddress": {
                     "type": "string"
@@ -3872,7 +4296,7 @@
                     "xml": {
                         "name": "BillToAddressDetails"
                     },
-                    "$ref": "#/definitions/AddressDto"
+                    "$ref": "#/definitions/AddressProcurementDto"
                 },
                 "PaymentTermId": {
                     "type": "string"
@@ -3931,7 +4355,7 @@
                         "xml": {
                             "name": "PurchaseOrderLineDto"
                         },
-                        "$ref": "#/definitions/PurchaseOrderLineDto"
+                        "$ref": "#/definitions/PurchaseOrderLineProcurementDto"
                     }
                 },
                 "SupplierContactPersons": {
@@ -3945,6 +4369,102 @@
                         },
                         "$ref": "#/definitions/SupplierContactPersonDto"
                     }
+                }
+            }
+        },
+        "CompanyProcurementDto": {
+            "title": "CompanyDto",
+            "type": "object",
+            "xml": {
+                "name": "Company"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsVirtualCompany",
+                "IsActive"
+            ],
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Identifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IdentifierDto"
+                        },
+                        "$ref": "#/definitions/IdentifierDto"
+                    }
+                },
+                "Addresses": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "AddressDto"
+                        },
+                        "$ref": "#/definitions/AddressProcurementDto"
+                    }
+                }
+            }
+        },
+        "AddressProcurementDto": {
+            "title": "AddressDto",
+            "type": "object",
+            "xml": {
+                "name": "Address"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Recipient": {
+                    "type": "string"
+                },
+                "StreetAddress": {
+                    "type": "string"
+                },
+                "StreetAddress2": {
+                    "type": "string"
+                },
+                "Division": {
+                    "type": "string"
+                },
+                "Building": {
+                    "type": "string"
+                },
+                "Location": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "Zip": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "Telephone": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "Homepage": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
                 }
             }
         },
@@ -3974,7 +4494,7 @@
                     "xml": {
                         "name": "Address"
                     },
-                    "$ref": "#/definitions/AddressDto"
+                    "$ref": "#/definitions/AddressProcurementDto"
                 }
             }
         },
@@ -4060,6 +4580,68 @@
                 },
                 "Telephone": {
                     "type": "string"
+                }
+            }
+        },
+        "PurchaseOrderLineProcurementDto": {
+            "title": "PurchaseOrderLineDto",
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderLine"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "LineNumber": {
+                    "type": "string"
+                },
+                "RequisitionId": {
+                    "type": "string"
+                },
+                "IsServiceItem": {
+                    "type": "boolean"
+                },
+                "ContractNumber": {
+                    "type": "string"
+                },
+                "RequestedDeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "Total": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Comments": {
+                    "type": "string"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "CodingLines": {
+                    "xml": {
+                        "name": "CodingDto"
+                    },
+                    "$ref": "#/definitions/CodingDto"
                 }
             }
         },
@@ -4478,7 +5060,7 @@
                 },
                 "DimensionValues": {
                     "xml": {
-                        "name": "DimensionValues"
+                        "name": "DimensionValueDto"
                     },
                     "$ref": "#/definitions/DimensionValueDto"
                 }
@@ -4487,7 +5069,7 @@
         "DimensionValueDto": {
             "type": "object",
             "xml": {
-                "name": "DimensionValue"
+                "name": "DimensionValues"
             },
             "additionalProperties": false,
             "required": [
@@ -5355,7 +5937,20 @@
                 "IdentifierType": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Valid types: PURCHASING_SYSTEM, BANK_ACCOUNT, ORGANIZATION_NUMBER, VAT_REGISTRATION_NUMBER, EAN_NUMBER, POSTAL_ACCOUNT, IBAN_NUMBER, OTHER. In GUI they are named differently, e.g. Bank Account for BANK_ACCOUNT."
+                    "description": "See list of available values for the identifier type. In GUI they are named differently, e.g. Bank Account for BANK_ACCOUNT.",
+                    "enum": [
+                        "FINANCIAL_SYSTEM",
+                        "PURCHASING_SYSTEM",
+                        "BANK_ACCOUNT",
+                        "ORGANIZATION_NUMBER",
+                        "VAT_REGISTRATION_NUMBER",
+                        "EAN_NUMBER",
+                        "POSTAL_ACCOUNT",
+                        "IBAN_NUMBER",
+                        "EXTERNAL_SYSTEM_ID",
+                        "SUPPLIER_PORTAL_ID",
+                        "OTHER"
+                    ]
                 },
                 "IdentifierValue": {
                     "type": "string",
@@ -6752,6 +7347,21 @@
                             "name": "Int32"
                         }
                     }
+                },
+                "LastApproverFirstName": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "First name of the person who made the last approval on given coding line in Medius."
+                },
+                "LastApproverLastName": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Last name of the person who made the last approval on given coding line in Medius."
+                },
+                "LastApproverUserName": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "User name of the person who made the last approval on given coding line in Medius."
                 }
             }
         },
@@ -7247,7 +7857,16 @@
                 },
                 "DeviationType": {
                     "type": "string",
-                    "description": "Describes what type of deviation occurred. Possible values:'InvoiceLineAmountDeviation','LineAmountExceptionTypeDeviation','UnitPriceDeviation','UnitPriceExceptionTypeDeviation','QuantityDeviation','DueDateDeviation','NetAmountDeviation'."
+                    "description": "Describes what type of deviation occurred. For possible values see list.",
+                    "enum": [
+                        "InvoiceLineAmountDeviation",
+                        "LineAmountExceptionTypeDeviation",
+                        "UnitPriceDeviation",
+                        "UnitPriceExceptionTypeDeviation",
+                        "QuantityDeviation",
+                        "DueDateDeviation",
+                        "NetAmountDeviation"
+                    ]
                 },
                 "IsApproved": {
                     "type": "boolean",
@@ -8871,6 +9490,7 @@
                         "POSTAL_ACCOUNT",
                         "IBAN_NUMBER",
                         "EXTERNAL_SYSTEM_ID",
+                        "SUPPLIER_PORTAL_ID",
                         "OTHER"
                     ]
                 },
@@ -9374,6 +9994,69 @@
                 "responses": {
                     "200": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DeliveryLineImportBatches": {
+            "post": {
+                "tags": [
+                    "DeliveryLinesImportBatch"
+                ],
+                "summary": "The POST method allows the client to send a set of delivery lines that will be imported by the Medius master data import queue.\nThe purchase order line header must exist in Medius before a delivery line can be imported. Use of key PurchaseOrderLineExternalSystemId is mandatory to be able to find corresponding purchase order line.",
+                "operationId": "DeliveryLinesImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "deliveryLines",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "IntegrationDeliveryLineDto"
+                                },
+                                "$ref": "#/definitions/IntegrationDeliveryLineDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfDeliveryLine"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The delivery line to import."
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/DeliveryLineImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "DeliveryLinesImportBatch"
+                ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "operationId": "DeliveryLinesImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
                     }
                 }
             }
@@ -10193,7 +10876,7 @@
                 "tags": [
                     "PeriodImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PeriodImportBatch_Delete",
                 "parameters": [
                     {
@@ -10331,7 +11014,7 @@
                 "tags": [
                     "PurchaseOrderImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PurchaseOrderImportBatch_Delete",
                 "parameters": [
                     {
@@ -10364,7 +11047,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message id"
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -10372,7 +11055,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
+                        "description": "The message id of the message to find",
                         "format": "int32"
                     }
                 ],
@@ -10400,7 +11083,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "Status to set. Possible statuses are: Fetched and Processing, Sent"
+                        "description": "The status to set. Possible statuses are: Fetched, Processing or Sent"
                     },
                     {
                         "type": "integer",
@@ -11096,7 +11779,7 @@
                             },
                             "xml": {
                                 "wrapped": true,
-                                "name": "ArrayOfRestrictionRule"
+                                "name": "ArrayOfRestrictionRuleGroup"
                             }
                         },
                         "x-nullable": true
@@ -11203,7 +11886,7 @@
                 "tags": [
                     "SupplierConfigurationBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierConfigurationBatch_Delete",
                 "parameters": [
                     {
@@ -11244,7 +11927,7 @@
                         "name": "limit",
                         "in": "query",
                         "x-nullable": false,
-                        "description": "The number of records returned(max 1000)",
+                        "description": "The number of records returned(max 1000).",
                         "format": "int32",
                         "default": 1000
                     },
@@ -11253,7 +11936,21 @@
                         "name": "updatedSince",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Tells the service that we only want suppliers that have been changed after this date and time"
+                        "description": "Tells the service that we only want suppliers that have been changed after this date and time."
+                    },
+                    {
+                        "type": "string",
+                        "name": "identifierType",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Filter suppliers by identifier type, eg. BANK_ACCOUNT. Requires identifier value."
+                    },
+                    {
+                        "type": "string",
+                        "name": "identifierValue",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Filter suppliers by identifier value, e.g. bank account number."
                     }
                 ],
                 "responses": {
@@ -11333,7 +12030,7 @@
                 "tags": [
                     "SupplierImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierImportBatch_Delete",
                 "parameters": [
                     {
@@ -11432,7 +12129,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, Processin, Sent, Closed or Error"
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -11468,7 +12165,7 @@
                             "$ref": "#/definitions/StatusRequest"
                         },
                         "x-nullable": true,
-                        "description": "The status to set. Possible statuses Fetched and Processing, Sent"
+                        "description": "The status to set. Possible statuses are: Fetched, Processing or Sent"
                     },
                     {
                         "type": "integer",
@@ -11991,7 +12688,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "TaxGroupImportBatch_Get",
                 "parameters": [
                     {
@@ -12017,7 +12714,7 @@
                 "tags": [
                     "TaxGroupImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "TaxGroupImportBatch_Delete",
                 "parameters": [
                     {
@@ -12111,7 +12808,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UnitImportBatch_Get",
                 "parameters": [
                     {
@@ -12137,7 +12834,7 @@
                 "tags": [
                     "UnitImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UnitImportBatch_Delete",
                 "parameters": [
                     {
@@ -12196,7 +12893,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserConfigurationImportBatch_Get",
                 "parameters": [
                     {
@@ -12222,7 +12919,7 @@
                 "tags": [
                     "UserConfigurationImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserConfigurationImportBatch_Delete",
                 "parameters": [
                     {
@@ -12281,7 +12978,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this mehtod.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserImportBatch_Get",
                 "parameters": [
                     {
@@ -12307,7 +13004,7 @@
                 "tags": [
                     "UserImportBatch"
                 ],
-                "summary": "The DELETE mehtod allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserImportBatch_Delete",
                 "parameters": [
                     {
