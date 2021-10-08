@@ -2886,6 +2886,27 @@
                 "MediusFlowSystemId": {
                     "type": "string"
                 },
+                "Amount":{
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Reference":{
+                    "type": "string"
+                },
+                "Reference2":{
+                    "type": "string"
+                },
+                "PaymentTermId":{
+                    "type": "string"
+                },
+                "RegisterDate":{
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DueDate":{
+                    "type": "string",
+                    "format": "date-time"
+                },
                 "ErpSourceId": {
                     "type": "string"
                 },
@@ -3004,6 +3025,9 @@
                 },
                 "Unit": {
                     "type": "string"
+                },
+                "IsTwoWayMatch": {
+                    "type": "boolean"
                 },
                 "CodingLines": {
                     "type": "array",
@@ -7833,7 +7857,16 @@
                 },
                 "DeviationType": {
                     "type": "string",
-                    "description": "Describes what type of deviation occurred. Possible values:'InvoiceLineAmountDeviation','LineAmountExceptionTypeDeviation','UnitPriceDeviation','UnitPriceExceptionTypeDeviation','QuantityDeviation','DueDateDeviation','NetAmountDeviation'."
+                    "description": "Describes what type of deviation occurred. For possible values see list.",
+                    "enum": [
+                        "InvoiceLineAmountDeviation",
+                        "LineAmountExceptionTypeDeviation",
+                        "UnitPriceDeviation",
+                        "UnitPriceExceptionTypeDeviation",
+                        "QuantityDeviation",
+                        "DueDateDeviation",
+                        "NetAmountDeviation"
+                    ]
                 },
                 "IsApproved": {
                     "type": "boolean",
