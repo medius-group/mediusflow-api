@@ -2610,6 +2610,11 @@
                 "name": "PurchaseOrder"
             },
             "additionalProperties": false,
+            "required": [
+                "Amount",
+                "RegisterDate",
+                "DueDate"
+            ],
             "properties": {
                 "Name": {
                     "type": "string"
@@ -2658,6 +2663,27 @@
                 },
                 "MediusFlowSystemId": {
                     "type": "string"
+                },
+                "Amount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Reference": {
+                    "type": "string"
+                },
+                "Reference2": {
+                    "type": "string"
+                },
+                "PaymentTermId": {
+                    "type": "string"
+                },
+                "RegisterDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DueDate": {
+                    "type": "string",
+                    "format": "date-time"
                 }
             },
             "allOf": [
@@ -2675,7 +2701,8 @@
             "required": [
                 "UnitPrice",
                 "Quantity",
-                "IsServiceBased"
+                "IsServiceBased",
+                "IsTwoWayMatch"
             ],
             "properties": {
                 "LineNumber": {
@@ -2706,6 +2733,9 @@
                 },
                 "Unit": {
                     "type": "string"
+                },
+                "IsTwoWayMatch": {
+                    "type": "boolean"
                 },
                 "CodingLines": {
                     "type": "array",
