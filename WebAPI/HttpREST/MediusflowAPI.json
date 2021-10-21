@@ -434,7 +434,8 @@
                 "COULD_NOT_DELETE_RESTRICTIONS",
                 "COULD_NOT_DELETE_RESTRICTIONS_AND_ROLLBACK",
                 "CURRENCY_RATE_OUT_OF_RANGE",
-                "CURRENCY_WITH_CODE_ALREADY_EXISTS"
+                "CURRENCY_WITH_CODE_ALREADY_EXISTS",
+                "PURCHASE_ORDER_LINE_SERVICE_BASED_FLAG_UPDATE_FAIL"
             ],
             "enum": [
                 0,
@@ -577,7 +578,8 @@
                 137,
                 138,
                 139,
-                140
+                140,
+                141
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -3644,6 +3646,196 @@
                 }
             }
         },
+        "GrnPurchaseOrderLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "Line"
+            },
+            "additionalProperties": false,
+            "required": [
+                "IsServiceItem",
+                "RequestedDeliveryDate",
+                "Quantity",
+                "UnitPrice",
+                "Total",
+                "IsTwoWayMatch",
+                "IsActive",
+                "IsOpen"
+            ],
+            "properties": {
+                "LineNumber": {
+                    "type": "string"
+                },
+                "ExternalOrderLineNumber": {
+                    "type": "string"
+                },
+                "RequisitionId": {
+                    "type": "string"
+                },
+                "IsServiceItem": {
+                    "type": "boolean"
+                },
+                "ContractNumber": {
+                    "type": "string"
+                },
+                "RequestedDeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ItemNumber": {
+                    "type": "string"
+                },
+                "ItemDescription": {
+                    "type": "string"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "Total": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "Comments": {
+                    "type": "string"
+                },
+                "TaxIndicator1": {
+                    "type": "string"
+                },
+                "TaxIndicator2": {
+                    "type": "string"
+                },
+                "CodingLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "CodingDto"
+                        },
+                        "$ref": "#/definitions/CodingDto"
+                    }
+                },
+                "IsTwoWayMatch": {
+                    "type": "boolean"
+                },
+                "CategoryExternalSystemId": {
+                    "type": "string"
+                },
+                "CategoryCode": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "IsOpen": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "GoodsReceiptNoteDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "Date"
+            ],
+            "properties": {
+                "ReferenceNumber": {
+                    "type": "string"
+                },
+                "ExternalReferenceNumber": {
+                    "type": "string"
+                },
+                "Date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Comment": {
+                    "type": "string"
+                },
+                "Lines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "",
+                            "wrapped": true,
+                            "namespace": "GoodsReceiptNote"
+                        },
+                        "$ref": "#/definitions/GoodsReceiptNoteLineDto"
+                    }
+                }
+            }
+        },
+        "GoodsReceiptNoteLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "Line"
+            },
+            "additionalProperties": false,
+            "required": [
+                "DeliveredDate",
+                "Quantity",
+                "UnitPrice",
+                "Total",
+                "IsActive"
+            ],
+            "properties": {
+                "PurchaseOrderLineNumber": {
+                    "type": "string"
+                },
+                "PurchaseOrderExternalLineNumber": {
+                    "type": "string"
+                },
+                "DeliveryNumber": {
+                    "type": "string"
+                },
+                "DeliveryNote": {
+                    "type": "string"
+                },
+                "ReleaseNumber": {
+                    "type": "string"
+                },
+                "ExternalDeliveryNumber": {
+                    "type": "string"
+                },
+                "DeliveredDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "UnitPrice": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "ReasonCode": {
+                    "type": "string"
+                },
+                "Total": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "OriginGoodsReceiptNoteReferenceNumber": {
+                    "type": "string"
+                }
+            }
+        },
         "Link": {
             "type": "object",
             "additionalProperties": false,
@@ -3752,6 +3944,112 @@
                     "format": "date-time"
                 },
                 "ExternalOrderNumber": {
+                    "type": "string"
+                }
+            }
+        },
+        "PurchaseOrderRequestResponseDto": {
+            "type": "object",
+            "xml": {
+                "name": "PurchaseOrderResponse"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "CorrelationKey": {
+                    "type": "string"
+                },
+                "PurchaseOrderConfirmation": {
+                    "xml": {
+                        "name": "PurchaseOrderConfirmation"
+                    },
+                    "$ref": "#/definitions/PurchaseOrderConfirmationDto"
+                },
+                "GoodsReceiptNoteConfirmation": {
+                    "xml": {
+                        "name": "GoodsReceiptNoteConfirmation"
+                    },
+                    "$ref": "#/definitions/GoodsReceiptNoteConfirmationDto"
+                }
+            }
+        },
+        "PurchaseOrderConfirmationDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "OrderNumber": {
+                    "type": "string"
+                },
+                "ExternalOrderNumber": {
+                    "type": "string"
+                },
+                "Lines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "",
+                            "wrapped": true,
+                            "namespace": "PurchaseOrderConfirmation"
+                        },
+                        "$ref": "#/definitions/PurchaseOrderLineConfirmationDto"
+                    }
+                }
+            }
+        },
+        "PurchaseOrderLineConfirmationDto": {
+            "type": "object",
+            "xml": {
+                "name": "Line"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "LineNumber": {
+                    "type": "string"
+                },
+                "ExternalOrderLineNumber": {
+                    "type": "string"
+                }
+            }
+        },
+        "GoodsReceiptNoteConfirmationDto": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ReferenceNumber": {
+                    "type": "string"
+                },
+                "ExternalReferenceNumber": {
+                    "type": "string"
+                },
+                "Lines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "",
+                            "wrapped": true,
+                            "namespace": "GoodsReceiptNoteConfirmation"
+                        },
+                        "$ref": "#/definitions/GoodsReceiptNoteLineConfirmationDto"
+                    }
+                }
+            }
+        },
+        "GoodsReceiptNoteLineConfirmationDto": {
+            "type": "object",
+            "xml": {
+                "name": "Line"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "DeliveryNumber": {
+                    "type": "string"
+                },
+                "ExternalDeliveryNumber": {
                     "type": "string"
                 }
             }
@@ -5233,6 +5531,21 @@
                     "type": "string",
                     "format": "date-time"
                 },
+                "CustomField_List1": {
+                    "type": "string"
+                },
+                "CustomField_List2": {
+                    "type": "string"
+                },
+                "CustomField_List3": {
+                    "type": "string"
+                },
+                "CustomField_List4": {
+                    "type": "string"
+                },
+                "CustomField_List5": {
+                    "type": "string"
+                },
                 "CompanyCustomField_Boolean1": {
                     "type": "boolean"
                 },
@@ -6035,7 +6348,8 @@
                 "ConversionFactor",
                 "Quantity",
                 "UnitPrice",
-                "IsTwoWayMatch"
+                "IsTwoWayMatch",
+                "IsSynchronizedWithExternalSystem"
             ],
             "properties": {
                 "LineNumber": {
@@ -6083,6 +6397,12 @@
                 },
                 "ExternalSystemId": {
                     "type": "string"
+                },
+                "ExternalPurchaseOrderLineNumber": {
+                    "type": "string"
+                },
+                "IsSynchronizedWithExternalSystem": {
+                    "type": "boolean"
                 }
             }
         },
@@ -6099,7 +6419,8 @@
                 "IsManual",
                 "LineNumber",
                 "PurchaseOrderLineNumber",
-                "DeliveryLineIsFictive"
+                "DeliveryLineIsFictive",
+                "IsSynchronizedWithExternalSystem"
             ],
             "properties": {
                 "ConnectedAmount": {
@@ -6248,6 +6569,12 @@
                     "type": "string"
                 },
                 "DeliveryLineIsFictive": {
+                    "type": "boolean"
+                },
+                "ExternalDeliveryNumber": {
+                    "type": "string"
+                },
+                "IsSynchronizedWithExternalSystem": {
                     "type": "boolean"
                 }
             }
@@ -8800,6 +9127,160 @@
                 }
             }
         },
+        "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "The GET method returns the goods receipt note content from a message that matches the provided status and id.\nIf the message id is in another status, nothing is returned.",
+                "operationId": "PurchaseOrderRequestMessage_GetGrn",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/PurchaseOrderDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates the status of a goods receipt note message when processing it.",
+                "operationId": "PurchaseOrderRequestMessage_PutGrn",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status to set. Possible statuses are: Fetched and Processing, Sent"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id to change the status for",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Status that the message is in before the status change"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "The GET method returns the purchase order content from a message that matches the provided status and id.\nIf the message id is in another status, nothing is returned.",
+                "operationId": "PurchaseOrderRequestMessage_GetPurchaseOrders",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/PurchaseOrderDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates the status of a purchase order message when processing it.",
+                "operationId": "PurchaseOrderRequestMessage_PutPo",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status to set. Possible statuses are: Fetched and Processing, Sent"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id to change the status for",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Status that the message is in before the status change"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
         "/integration/message/v1/procurement/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
@@ -8807,6 +9288,64 @@
                 ],
                 "summary": "The GET method with message id as input returns a status and an effective link to real purchase order content.\nThis method allows you to check the status of a given message.",
                 "operationId": "PurchaseOrderRequestMessage_GetStatus",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageId}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "The GET method with message id as input returns a status and an effective link to purchase order content.\nThis method allows you to check the status of a given message.",
+                "operationId": "PurchaseOrderRequestMessage_GetPoToErpStatus",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message id",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageId}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "The GET method with message id as input returns a status and an effective link to goods receipt note content.\nThis method allows you to check the status of a given message.",
+                "operationId": "PurchaseOrderRequestMessage_GetGrnStatus",
                 "parameters": [
                     {
                         "type": "integer",
@@ -8922,6 +9461,192 @@
                 }
             }
         },
+        "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageStatus}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_GetGrnMessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message statuses. these are: Posted, Fetched, Processing, Sent, Closed or Error"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_PutGrn2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message statuses. These are: Posted, Fetched, Processing, Sent, Closed or Error"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageStatus}": {
+            "get": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "operationId": "PurchaseOrderRequestMessage_GetPoMessagesIds",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message statuses. these are: Posted, Fetched, Processing, Sent, Closed or Error"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "Link"
+                                },
+                                "$ref": "#/definitions/Link"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
+                "operationId": "PurchaseOrderRequestMessage_PutPo2",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "Status that you want to set"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "Message statuses. These are: Posted, Fetched, Processing, Sent, Closed or Error"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
         "/integration/message/v1/procurement/errors": {
             "post": {
                 "tags": [
@@ -8959,6 +9684,54 @@
                         "in": "body",
                         "schema": {
                             "$ref": "#/definitions/OrderRequestResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/externalsystemsync/confirmations": {
+            "post": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
+                "parameters": [
+                    {
+                        "name": "confirmationDto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/PurchaseOrderRequestResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/procurement/externalsystemsync/cancellations": {
+            "post": {
+                "tags": [
+                    "PurchaseOrderRequestMessage"
+                ],
+                "summary": "This method accepts a purchase-oder-to-ERP or goods-receipt-note cancellation \nas a response to either the purchase-oder-to-ERP or the goods-receipt-note cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note cancellation message.",
+                "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnCancellation",
+                "parameters": [
+                    {
+                        "name": "confirmationDto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/PurchaseOrderRequestResponseDto"
                         },
                         "x-nullable": true
                     }
