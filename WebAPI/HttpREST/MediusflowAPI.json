@@ -506,7 +506,8 @@
                 "COULD_NOT_DELETE_RESTRICTIONS",
                 "COULD_NOT_DELETE_RESTRICTIONS_AND_ROLLBACK",
                 "CURRENCY_RATE_OUT_OF_RANGE",
-                "CURRENCY_WITH_CODE_ALREADY_EXISTS"
+                "CURRENCY_WITH_CODE_ALREADY_EXISTS",
+                "PURCHASE_ORDER_LINE_SERVICE_BASED_FLAG_UPDATE_FAIL"
             ],
             "enum": [
                 0,
@@ -649,7 +650,8 @@
                 137,
                 138,
                 139,
-                140
+                140,
+                141
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -6460,6 +6462,31 @@
                     "format": "date-time",
                     "description": "Custom Field of type datetime."
                 },
+                "CustomField_List1": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text."
+                },
+                "CustomField_List2": {
+                    "type": "string",
+                    "maxLength":50,
+                    "description": "Custom list value of type text."
+                },
+                "CustomField_List3": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text."
+                },
+                "CustomField_List4": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text."
+                },
+                "CustomField_List5": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text."
+                },
                 "CompanyCustomField_Boolean1": {
                     "type": "boolean",
                     "description": "Custom field of type bit."
@@ -9502,24 +9529,24 @@
             }
         },
         "BadRequest": {
-          "type": "object",
-          "properties": {
+            "type": "object",
+            "properties": {
             "message": {
-              "type": "string",
-              "description": "Detailed error message.",
-              "example": "Attachments: MyAttachment.txt, not found in the content body"
+                "type": "string",
+                "description": "Detailed error message.",
+                "example": "Attachments: MyAttachment.txt, not found in the content body"
+                }
             }
-          }
         },
         "NotFound": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string",
-              "description": "Detailed error message.",
-              "example": "There exists no document imported with id 123. Remember that it's the Id of the document import type."
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "description": "Detailed error message.",
+                    "example": "There exists no document imported with id 123. Remember that it's the Id of the document import type."
+                }
             }
-          }
         }
     },
     "paths": {
@@ -12077,10 +12104,10 @@
                     },
                     "404": {
                         "schema": {
-                          "$ref": "#/definitions/NotFound"
+                            "$ref": "#/definitions/NotFound"
                         },
                         "description": "Not Found"
-                      }
+                    }
                 }
             }
         },
@@ -12108,10 +12135,10 @@
                     },
                     "400": {
                         "schema": {
-                          "$ref": "#/definitions/BadRequest"
+                            "$ref": "#/definitions/BadRequest"
                         },
                         "description": "Bad Request"
-                      }
+                    }
                 }
             }
         },
