@@ -5,11 +5,6 @@
     "version": "1.0.0",
     "title": "Medius Pay"
   },
-  "tags": [
-    {
-      "name": "Payment batch import"
-    }
-  ],
   "schemes": [
     "https"
   ],
