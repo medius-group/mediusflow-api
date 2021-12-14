@@ -14,8 +14,9 @@
         "tags": [
           "Payment batch import"
         ],
-        "summary": "Adds a new payment batch to be approved and paid.",
-        "description": "When import fails, incorrect payment batch is saved in Import error inbox",
+        "summary": "The POST method allows the client to send payment batches that will be imported into Medius Pay to be approved and paid. When import fails, incorrect payment batch is saved in Import error inbox within Medius Pay.",
+        "operationId": "paymentBatches_Post",
+        "description": "This is the POST method for the US region.",
         "consumes": [
           "application/json"
         ],
