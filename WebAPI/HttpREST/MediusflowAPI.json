@@ -13636,7 +13636,7 @@
                         "in": "query",
                         "description": "External payment batch ID",
                         "required": true,
-                        "type": "integer",
+                        "type": "string",
                         "format": "int64"
                     }
                 ],
