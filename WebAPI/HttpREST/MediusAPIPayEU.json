@@ -1,0 +1,336 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Medius Pay public API documentation for European customers. Authentication: OAuth2 with Medius as identity server.",
+    "version": "1.0.0",
+    "title": "Medius Pay"
+  },
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/integration/payment/v1/paymentBatches": {
+      "post": {
+        "tags": [
+          "Payment batch import"
+        ],
+        "summary": "The POST method allows the client to send payment batches that will be imported into Medius Pay to be approved and paid. When import fails, incorrect payment batch is saved in Import error inbox within Medius Pay.",
+        "operationId": "paymentBatches_Post",
+        "description": "This is the POST method for the EU region.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Payment batch with list of payment items. Max __700__ items in a single batch, max __100__ items per payee in one batch",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PaymentBatch"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Payment batch saved in Medius Pay. IsSuccessful flag indicates the status of import.",
+            "schema": {
+              "$ref": "#/definitions/ImportResult"
+            }
+          },
+          "400": {
+            "description": "When server was unable to parse the request, 400 status code with generic parsing error is returned."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PaymentBatch": {
+      "type": "object",
+      "properties": {
+        "payorId": {
+          "type": "string",
+          "example": "Medius",
+          "description": "Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+        },
+        "externalBatchId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50,
+          "example": "WBC43728",
+          "description": "External Payment Batch identifier. If provided then it has to be unique across all successfully imported batches."
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PaymentItem"
+          }
+        }
+      },
+      "required": [
+        "payorId",
+        "items"
+      ]
+    },
+    "PaymentItem": {
+      "type": "object",
+      "properties": {
+        "invoiceNumber": {
+          "type": "string",
+          "maxLength": 50,
+          "example": "2/2021",
+          "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file."
+        },
+        "voucherNumber": {
+          "type": "string",
+          "maxLength": 50,
+          "example": "1519c142-c405-4753-bb2f-5fbec59375d4",
+          "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments"
+        },
+        "invoiceCompanyId": {
+          "type": "string",
+          "example": "Medius",
+          "description": "Company the invoice has been posted to in AP automation. Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+        },
+        "payeeId": {
+          "type": "string",
+          "maxLength": 50,
+          "example": "sinid",
+          "description": "Payee identifier - should be same as SupplierId in Medius AP Automation. Should be unique to each payee. Restricted characters: /  ? # | "
+        },
+        "remitToID": {
+          "type": "string",
+          "maxLength": 50,
+          "example": "345123R",
+          "description": "Identifier for a different remittance number or name for a payee (payees with multiple locations). Restricted characters: /  ? # | "
+        },
+        "payeeName": {
+          "type": "string",
+          "maxLength": 100,
+          "example": "Larson - Roob",
+          "description": "Payee name - should be same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
+        },
+        "payeeStreetLine1": {
+          "type": "string",
+          "maxLength": 35,
+          "example": "3346 Pagac Union",
+          "description": "Street address of the payee."
+        },
+        "payeeStreetLine2": {
+          "type": "string",
+          "maxLength": 35,
+          "example": "PO box 1202",
+          "description": "Second line of street address of the payee."
+        },
+        "payeeCity": {
+          "type": "string",
+          "maxLength": 20,
+          "example": "Lake Miller",
+          "description": "City of the payee."
+        },
+        "payeeZipOrPostalCode": {
+          "type": "string",
+          "maxLength": 10,
+          "example": "89262-8263",
+          "description": "Zip or Postal Code of the payee"
+        },
+        "payeeStateCode": {
+          "type": "string",
+          "maxLength": 2,
+          "example": "RI",
+          "description": "State of the payee. ISO Alfa 2 code"
+        },
+        "payeeCountryCode": {
+          "type": "string",
+          "maxLength": 2,
+          "example": "US",
+          "description": "Country of the payee. ISO Alpha2 code"
+        },
+        "paymentAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 732.43,
+          "description": "The amount to be paid for the invoice, may vary from invoice amount in case of partial payments or short payments. Max 12 digital places, including up to 2 decimal places. Maximum amount per item __2.000.000__, minimum amount per item __0.1__"
+        },
+        "paymentCurrencyCode": {
+          "type": "string",
+          "maxLength": 3,
+          "example": "USD",
+          "description": "Currency in which vendor will be paid. ISO Alfa 3 code."
+        },
+        "invoiceDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2021-04-10",
+          "description": "Invoice date in format yyyy-MM-dd"
+        },
+        "invoiceDueDate": {
+          "type": "string",
+          "format": "date",
+          "example": "2021-04-10",
+          "description": "Invoice Due Date in format yyyy-MM-dd."
+        },
+        "invoiceAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 732.43,
+          "description": "Original invoice amount, may vary from paymentAmount in case of partial payments or short payment. Max 12 digital places including up to 2 decimal places"
+        },
+        "invoiceCurrencyCode": {
+          "type": "string",
+          "maxLength": 3,
+          "example": "USD",
+          "description": "Currency of invoice. Required if invoiceAmount send. ISO Alfa 3 code."
+        },
+        "comment": {
+          "type": "string",
+          "maxLength": 255,
+          "example": "Comment for payee",
+          "description": "Comment for invoice from payor accounting system for information purposes during batch authorization process"
+        },
+        "payorBankAccountIdentifier": {
+          "type": "string",
+          "maxLength": 50,
+          "example": "Bank1",
+          "description": "Internal bank identifier, defined during funding bank account setup in Medius Pay."
+        },
+        "payeeBankName": {
+          "type": "string",
+          "maxLength": 50,
+          "example": "Bank Zachodni WBK S.A.",
+          "description": "Name of the beneficiary bank."
+        },
+        "payeeBankStreetLine1": {
+          "type": "string",
+          "maxLength": 35,
+          "example": "PL.WOLNOSCI 15",
+          "description": "Payees banks address line 1."
+        },
+        "payeeBankStreetLine2": {
+          "type": "string",
+          "maxLength": 35,
+          "example": "BUILDING B",
+          "description": "Payees banks address line 2."
+        },
+        "payeeBankCity": {
+          "type": "string",
+          "maxLength": 20,
+          "example": "POZNAN",
+          "description": "Payees banks city."
+        },
+        "payeeBankCountryCode": {
+          "type": "string",
+          "maxLength": 2,
+          "example": "PL",
+          "description": "Payees banks country. ISO Alpha2 code."
+        },
+        "payeeAccountNumber": {
+          "type": "string",
+          "maxLength": 34,
+          "example": "PL88109013620000000036000000",
+          "description": "IBAN or AccountNumber. No spaces or dashes permitted."
+        },
+        "payeeRoutingNumberType": {
+          "type": "string",
+          "maxLength": 20,
+          "example": 215454,
+          "description": "Required field when account number not in IBAN format, but it can be left blanc if IBAN provided."
+        },
+        "payeeRoutingNumber": {
+          "type": "string",
+          "maxLength": 15,
+          "example": "202020",
+          "description": "This could be known as RoutingNumber, BranchCode, ABA number, transit number, MICR, IFSC, etc. Required for international payments in some countries"
+        },
+        "payeeBankSwiftCode": {
+          "type": "string",
+          "maxLength": 11,
+          "example": "WBKPPLPP",
+          "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Required when AccountNumber is IBAN type."
+        },
+        "payeeType": {
+          "type": "string",
+          "example": "Individual",
+          "description": "Payee classification. Individual or Business"
+        },
+        "payeeContactPhone": {
+          "type": "string",
+          "maxLength": 15,
+          "example": "123456789",
+          "description": "Payees phone number. Do not include + or ()"
+        },
+        "payeeContactEmail": {
+          "type": "string",
+          "maxLength": 320,
+          "example": "email@email.com",
+          "description": "Used to send confirmation email to payee."
+        },
+        "paymentReference": {
+          "type": "string",
+          "maxLength": 13,
+          "example": "P012701",
+          "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice."
+        },
+        "payeeDateOfBirth": {
+          "type": "string",
+          "maxLength": 10,
+          "example": "1985-10-20",
+          "description": "Date of birth in yyyy-MM-dd format"
+        },
+        "payeePassportNumber": {
+          "type": "string",
+          "maxLength": 20,
+          "example": "PL128765",
+          "description": "The Passport number of the payee."
+        },
+        "payeeTaxRegistrationNumber": {
+          "type": "string",
+          "maxLength": 20,
+          "example": 12598,
+          "description": "The payee tax registration number."
+        }
+      },
+      "required": [
+        "invoiceAmount",
+        "invoiceCompanyId",
+        "invoiceDate",
+        "invoiceNumber",
+        "payeeAccountNumber",
+        "payeeBankCity",
+        "payeeBankCountryCode",
+        "payeeBankName",
+        "payeeBankStreetLine1",
+        "payeeCity",
+        "payeeCountryCode",
+        "payeeId",
+        "payeeName",
+        "payeeStateCode",
+        "payeeStreetLine1",
+        "payeeType",
+        "paymentAmount",
+        "paymentCurrencyCode",
+        "paymentReference",
+        "voucherNumber",
+        "payorBankAccountIdentifier"
+      ]
+    },
+    "ImportResult": {
+      "type": "object",
+      "properties": {
+        "paymentBatchId": {
+          "type": "integer",
+          "example": 100
+        },
+        "isSuccessful": {
+          "type": "boolean",
+          "example": true,
+          "description": "true when payment batch was successfully imported otherwise false."
+        }
+      }
+    }
+  }
+}
