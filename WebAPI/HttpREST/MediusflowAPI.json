@@ -9547,6 +9547,452 @@
                     "example": "There exists no document imported with id 123. Remember that it's the Id of the document import type."
                 }
             }
+        },
+        "PaymentBatch": {
+            "type": "object",
+            "required": [
+                "payorId",
+                "items"
+            ],
+            "properties": {
+                "payorId": {
+                    "type": "string",
+                    "example": "Medius",
+                    "description": "Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+                },
+                "externalBatchId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "example": "WBC43728",
+                    "description": "External Payment Batch identifier. If provided then it has to be unique across all successfully imported batches."
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PaymentItem"
+                    }
+                }
+            }
+        },
+        "PaymentItem": {
+            "type": "object",
+            "properties": {
+                "invoiceNumber": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "2/2021",
+                    "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file. Will also be presented on Remittance advice prepared by NvoicePay for the vendor"
+                },
+                "voucherNumber": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "1519c142-c405-4753-bb2f-5fbec59375d4",
+                    "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments"
+                },
+                "invoiceCompanyId": {
+                    "type": "string",
+                    "example": "Medius",
+                    "description": "Company the invoice has been posted to in AP automation. Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+                },
+                "payeeId": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "sinid",
+                    "description": "Payee identifier - should be same as SupplierId in Medius AP Automation. Should be unique to each payee. Restricted characters: /  ? #"
+                },
+                "remitToID": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "345123R",
+                    "description": "Identifier for a different remittance number or name for a payee (payees with multiple locations)"
+                },
+                "payeeName": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "example": "Larson - Roob",
+                    "description": "Payee name - should be same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
+                },
+                "payeeStreetLine1": {
+                    "type": "string",
+                    "maxLength": 35,
+                    "example": "3346 Pagac Union",
+                    "description": "Street address of the payee. Up to 60 characters allowed for domestic payments"
+                },
+                "payeeStreetLine2": {
+                    "type": "string",
+                    "maxLength": 35,
+                    "example": "PO box 1202",
+                    "description": "Second line of street address of the payee. Up to 60 characters allowed for domestic payments"
+                },
+                "payeeCity": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "example": "Lake Miller",
+                    "description": "City of the payee. Up to 50 characters allowed for domestic payments"
+                },
+                "payeeZipOrPostalCode": {
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 10,
+                    "example": "89262-8263",
+                    "description": "Zip or Postal Code of the payee. _Optional for countries other than USA and Canada - 0 to 10 characters allowed._"
+                },
+                "payeeStateCode": {
+                    "type": "string",
+                    "maxLength": 2,
+                    "example": "RI",
+                    "description": "State of the payee. Optional for international payments. ISO Alfa 2 code"
+                },
+                "payeeCountryCode": {
+                    "type": "string",
+                    "maxLength": 2,
+                    "example": "US",
+                    "description": "Country of the payee. ISO Alpha2 code"
+                },
+                "paymentAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 732.43,
+                    "description": "The amount to be paid for the invoice, may vary from invoice amount in case of partial payments or short payments. Max 12 digital places, including up to 2 decimal places"
+                },
+                "paymentCurrencyCode": {
+                    "type": "string",
+                    "maxLength": 3,
+                    "example": "USD",
+                    "description": "Currency in which vendor will be paid. ISO Alfa 3 code."
+                },
+                "invoiceDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2021-04-10",
+                    "description": "Invoice date in format yyyy-MM-dd"
+                },
+                "invoiceDueDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2021-04-10",
+                    "description": "Invoice Due Date in format yyyy-MM-dd. Note: If not specified the date payment batch was received by Nvoicepay will be displayed"
+                },
+                "invoiceAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 732.43,
+                    "description": "Original invoice amount, may vary from paymentAmount in case of partial payments or short payment. Max 12 digital places including up to 2 decimal places"
+                },
+                "invoiceCurrencyCode": {
+                    "type": "string",
+                    "maxLength": 3,
+                    "example": "USD",
+                    "description": "Currency of invoice. Required if invoiceAmount send. ISO Alfa 3 code."
+                },
+                "payorBankAccountIdentifier": {
+                    "type": "string",
+                    "maxLength": 25,
+                    "example": "BankId1",
+                    "description": "Bank account identifier from customer accounting system"
+                },
+                "payorLocationIdentifier": {
+                    "type": "string",
+                    "example": "1",
+                    "description": "Legal entity, department, branch office, etc."
+                },
+                "comment": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "example": "Comment for payee",
+                    "description": "Comment for invoice from payor accounting system. Will be displayed on remittance advice"
+                },
+                "payorIdInPayeeSystem": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "897578762",
+                    "description": "Payor assigned account number with payee. Will be displayed on remittance advice"
+                },
+                "settlementCurrencyCode": {
+                    "type": "string",
+                    "maxLength": 3,
+                    "example": "USD",
+                    "description": "Currency which will be used by the payor to settle the foreign transaction. Required for international payments"
+                },
+                "payeeBankName": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "Bank Zachodni WBK S.A.",
+                    "description": "Name of the beneficiary bank. Required for international payments"
+                },
+                "payeeBankStreetLine1": {
+                    "type": "string",
+                    "maxLength": 35,
+                    "example": "PL.WOLNOSCI 15",
+                    "description": "Payees banks address line 1. Required for international payments"
+                },
+                "payeeBankStreetLine2": {
+                    "type": "string",
+                    "maxLength": 35,
+                    "example": "BUILDING B",
+                    "description": "Payees banks address line 2. Required for international payments"
+                },
+                "payeeBankCity": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "example": "POZNAN",
+                    "description": "Payees banks city. Required for international payments"
+                },
+                "payeeBankCountryCode": {
+                    "type": "string",
+                    "maxLength": 2,
+                    "example": "PL",
+                    "description": "Payees banks country. ISO Alpha2 code. Required for international payments"
+                },
+                "payeeAccountNumber": {
+                    "type": "string",
+                    "maxLength": 34,
+                    "example": "PL88109013620000000036000000",
+                    "description": "IBAN or AccountNumber. No spaces or dashes permitted. Required for international payments"
+                },
+                "routingNumberType": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "example": 215454,
+                    "description": "Required field when account number not in IBAN format, but it can be left blanc if IBAN provided."
+                },
+                "payeeRoutingNumber": {
+                    "type": "string",
+                    "maxLength": 15,
+                    "example": "202020",
+                    "description": "This could be known as RoutingNumber, BranchCode, ABA number, transit number, MICR, IFSC, etc. Required for international payments in some countries"
+                },
+                "payeeBankSwiftCode": {
+                    "type": "string",
+                    "maxLength": 11,
+                    "example": "WBKPPLPP",
+                    "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Required for international payments"
+                },
+                "purposeOfPayment": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "BillPayment",
+                    "description": "Purpose of payment. Required for international payment. Allowed values are: BillPayment, BusinessVenture, CharitableDonation, EstateSettlementOrInheritance, GovernmentRelatedPayment, IntercompanyPayment, InvestmentRelatedPayment, PaymentForALoanOrDeposit, PayrollOrPersonnelPayment, ProfessionalFeesPayment, PurchaseOfGoods, PurchaseOfPropertyOrRealEstate, PurchaseOfServices, ResearchAndDevelopment"
+                },
+                "payeeType": {
+                    "type": "string",
+                    "example": "Business",
+                    "description": "Payee classification. Required for international payments. Individual or Business (Case Sensitive)."
+                },
+                "payeeContactPhone": {
+                    "type": "string",
+                    "maxLength": 15,
+                    "example": "123456789",
+                    "description": "Payees phone number. Do not include + or ()"
+                },
+                "payeeContactEmail": {
+                    "type": "string",
+                    "maxLength": 320,
+                    "example": "email@email.com",
+                    "description": "Used to send confirmation email to payee. Required for international payments"
+                },
+                "paymentReference": {
+                    "type": "string",
+                    "maxLength": 13,
+                    "example": "P012701",
+                    "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice. Note: If not specified, will be generated by Nvoicepay"
+                },
+                "payeeDateOfBirth": {
+                    "type": "string",
+                    "maxLength": 10,
+                    "example": "1985-10-20",
+                    "description": "Date of birth in yyyy-MM-dd format"
+                },
+                  "payeePassportNumber": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "example": "PL128765",
+                    "description": "The Passport number of the payee."
+                },
+                  "payeeTaxRegistrationNumber": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "example": 12598,
+                    "description": "The payee tax registration number."
+                },
+                "discountAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 0.00,
+                    "description": "Amount of discount subtracted from \"Invoice amount\" to arrive at \"Amount to pay\". This field is not used for calculation. It is informational only."
+                },
+                "discountCurrencyCode": {
+                    "type": "string",
+                    "maxLength": 3,
+                    "example": "USD",
+                    "description": "Currency for discount provided in \"Discount Amount\". This field is not used for calculation. It is informational only. ISO Alfa 3 code."
+                }
+            }
+        },
+        "ImportResult": {
+            "type": "object",
+            "properties": {
+                "paymentBatchId": {
+                    "type": "integer",
+                    "example": 100
+                },
+                "isSuccessful": {
+                    "type": "boolean",
+                    "example": true,
+                    "description": "true when payment batch was successfully imported otherwise false."
+                }
+            }
+        },
+        "PaymentBatchReconciliationStatusResponse": {
+            "type": "object",
+            "required": [
+                "Id",
+                "ImportDateTime",
+                "Status"
+            ],
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int",
+                    "example": 123,
+                    "description": "Payment batch id" 
+                },
+                "ExternalBatchId": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "aa123",
+                    "description": "External payment batch id"
+                },
+                "ImportDateTime": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2021-01-01T12:00:00Z",
+                    "description": "Date and time of payment batch import"
+                },
+                "PayorId": {
+                    "type": "string",
+                    "example": "Medius",
+                    "description": "Payor id"
+                },
+                "Status": {
+                    "type": "string",
+                    "example": "AwaitingApproval",
+                    "description": "Possible statuses: New, AwaitingApproval, PaymentInProgress, SentForPayment, Paid, Rejected, ImportDataError, ReadyForPayment, PaymentFailed, ReloadingPaymentInformation"
+                }
+            }
+        },
+        "PaymentItemReconciliationStatusResponse": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "Id": {
+                        "type": "integer",
+                        "example": 100
+                    },
+                    "PayorBankAccountIdentifier": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "example": "Bank1",
+                        "description": "Internal bank identifier, defined during funding bank account setup in Medius Pay"
+                    },
+                    "PayeeName": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "example": "Larson - Roob",
+                        "description": "Payee name - the same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
+                    },
+                    "PayeeId": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "example": "sinid",
+                        "description": "Payee identifier - the same as SupplierId in Medius AP Automation. Should be unique to each payee. Restricted characters: /  ? # | "
+                    },
+                    "InvoiceNumber": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "example": "2/2021",
+                        "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file"
+                    },
+                    "InvoiceDate": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2021-01-01T00:00:00Z"
+                    },
+                    "VoucherNumber": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "example": "1519c142-c405-4753-bb2f-5fbec59375d4",
+                        "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments"
+                    },
+                    "InvoiceAmount": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 732.43,
+                        "description": "Original invoice amount, may vary from paymentAmount in case of partial payments or short payment. Max 12 digital places including up to 2 decimal places"
+                    },
+                    "AmountToPay": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 732.43,
+                        "description": "The amount paid for the invoice, may vary from invoice amount in case of partial payments or short payments"
+                    },
+                    "PaymentCurrency": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 142.43,
+                        "description": "The amount paid in payment currency"
+                    },
+                    "PaidAmountInSettlementCurrency": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 142.43,
+                        "description": "The amount paid in settlement currency"
+                    },
+                    "SettlementCurrency": {
+                        "type": "string",
+                        "maxLength": 3,
+                        "example": "USD",
+                        "description": "Currency in which vendor was paid. ISO Alfa 3 code"
+                    },
+                    "ExchangeRate": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 142.43,
+                        "description": "Value of exchange rate"
+                    },
+                    "Fee": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 142.43,
+                        "description": "Value of fee"
+                    },
+                    "FeeCurrency": {
+                        "type": "string",
+                        "maxLength": 3,
+                        "example": "USD",
+                        "description": "Currency in which fee was paid. ISO Alfa 3 code"
+                    },
+                    "PaymentMethod": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "example": "Wire transfer",
+                        "description": "Payment method"
+                    },
+                    "PaymentDate": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2021-01-01T12:10:00Z"
+                    },
+                    "PaymentReference": {
+                        "type": "string",
+                        "maxLength": 13,
+                        "example": "P012701",
+                        "description": "Payment reference number or check number from the customers accounting system. Will be displayed on remittance advice"
+                    }
+                }
+            }
         }
     },
     "paths": {
@@ -13136,6 +13582,135 @@
                 "responses": {
                     "201": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/payment/v1/paymentBatches": {
+            "post": {
+                "tags": [
+                    "Payment batch import"
+                ],
+                "summary": "The POST method allows the client to send payment batches that will be imported into Medius Pay to be approved and paid. When import fails, incorrect payment batch is saved in Import error inbox within Medius Pay.",
+                "operationId": "paymentBatches_Post",
+                "description": "This API has region settings. Here we list all possible parameters without consideration of the region. To see and test region specific API, please see https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#region.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Payment batch with list of payment items.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PaymentBatch"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Payment batch saved in Medius Pay. IsSuccessful flag indicates the status of import.",
+                        "schema": {
+                            "$ref": "#/definitions/ImportResult"
+                        }
+                    },
+                    "400": {
+                        "description": "When server was unable to parse the request, 400 status code with generic parsing error is returned."
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Reconciliation API"
+                ],
+                "summary": "Get payment batch reconciliation status",
+                "operationId": "paymentBatches_Get_externalBatchId",
+                "description": "Basic information about payment batches",
+                "parameters": [
+                    {
+                        "name": "externalBatchId",
+                        "in": "query",
+                        "description": "External payment batch ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Collection of matching payment batches",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/PaymentBatchReconciliationStatusResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/integration/payment/v1/paymentBatches/{paymentBatchId}": {
+            "get": {
+                "tags": [
+                    "Reconciliation API"
+                ],
+                "summary": "Get payment batch reconciliation status",
+                "operationId": "paymentBatches_Get_paymentBatchId",
+                "description": "Basic information about payment batch",
+                "parameters": [
+                    {
+                        "name": "paymentBatchId",
+                        "in": "path",
+                        "description": "Payment batch ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Payment batch",
+                        "schema": {
+                            "$ref": "#/definitions/PaymentBatchReconciliationStatusResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Payment batch with given paymentBatchId not found"
+                    }
+                }
+            }
+        },
+        "/integration/payment/v1/paymentBatches/{paymentBatchId}/items": {
+            "get": {
+                "tags": [
+                    "Reconciliation API"
+                ],
+                "summary": "Get payment items reconciliation status",
+                "operationId": "paymentBatches_Get_paymentBatchId_Items",
+                "description": "Detailed information about the items of payment batch",
+                "parameters": [
+                    {
+                        "name": "paymentBatchId",
+                        "in": "path",
+                        "description": "Payment batch ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Batch headers",
+                        "schema": {
+                            "$ref": "#/definitions/PaymentItemReconciliationStatusResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Payment batch with given paymentBatchId not found"
                     }
                 }
             }
