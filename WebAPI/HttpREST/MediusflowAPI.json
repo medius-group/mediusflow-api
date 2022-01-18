@@ -1354,6 +1354,30 @@
                 },
                 "PurchaseOrderLineExternalSystemId": {
                     "type": "string"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                }
+            }
+        },
+        "ExternalSystemMetadataEntry": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
                 }
             }
         },
@@ -3135,6 +3159,18 @@
                 "OrderType": {
                     "type": "string"
                 },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
                 "PurchaseOrderLines": {
                     "type": "array",
                     "xml": {
@@ -3331,6 +3367,18 @@
                 "TwoWayMatchTotalInvoicedQuantity": {
                     "type": "number",
                     "format": "decimal"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -3728,6 +3776,18 @@
                         "$ref": "#/definitions/CodingDto"
                     }
                 },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
                 "IsTwoWayMatch": {
                     "type": "boolean"
                 },
@@ -3837,6 +3897,18 @@
                 },
                 "OriginGoodsReceiptNoteReferenceNumber": {
                     "type": "string"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -3986,6 +4058,18 @@
                 "ExternalOrderNumber": {
                     "type": "string"
                 },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
                 "Lines": {
                     "type": "array",
                     "xml": {
@@ -4014,6 +4098,18 @@
                 },
                 "ExternalOrderLineNumber": {
                     "type": "string"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -4055,6 +4151,18 @@
                 },
                 "ExternalDeliveryNumber": {
                     "type": "string"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -6407,6 +6515,30 @@
                 },
                 "IsSynchronizedWithExternalSystem": {
                     "type": "boolean"
+                },
+                "PurchaseOrderExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
+                "PurchaseOrderLineExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -6580,6 +6712,18 @@
                 },
                 "IsSynchronizedWithExternalSystem": {
                     "type": "boolean"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -7557,7 +7701,7 @@
                 "tags": [
                     "ActualPaymentDate"
                 ],
-                "summary": "This method will return a status and an efective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "This method will return a status and an effective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "ActualPaymentDate_GetStatus",
                 "parameters": [
                     {
@@ -8377,7 +8521,7 @@
                 "tags": [
                     "ErrorMessage"
                 ],
-                "summary": "This method will return a status and an efective link to the real error messages content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "This method will return a status and an effective link to the real error messages content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "ErrorMessage_GetStatus",
                 "parameters": [
                     {
@@ -10423,7 +10567,7 @@
                 "tags": [
                     "SupplierInvoiceMessage"
                 ],
-                "summary": "The GET method with message id as input will return a status and an efective link to the real supplier invoice content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "The GET method with message id as input will return a status and an effective link to the real supplier invoice content.\nThe main idea with this method is to be ablet o check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
                 "parameters": [
                     {
@@ -10869,7 +11013,7 @@
                 "tags": [
                     "VoucherMessage"
                 ],
-                "summary": "This method returns the vocuher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "summary": "This method returns the voucher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "VoucherMessage_Get",
                 "parameters": [
                     {
@@ -10906,7 +11050,7 @@
                 "tags": [
                     "VoucherMessage"
                 ],
-                "summary": "This method will return a status and an efective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is interms of statuses.",
+                "summary": "This method will return a status and an effective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "VoucherMessage_GetStatus",
                 "parameters": [
                     {
