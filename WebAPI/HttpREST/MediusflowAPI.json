@@ -13040,7 +13040,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13117,7 +13117,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13194,7 +13194,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13271,7 +13271,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13348,7 +13348,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13425,7 +13425,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13502,7 +13502,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13579,7 +13579,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13656,7 +13656,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13733,7 +13733,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13810,7 +13810,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
                     },
                     {
                         "type": "string",
@@ -13887,7 +13887,7 @@
                         "name": "tag",
                         "in": "query",
                         "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: REQUEST or CANCEL"
+                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
                     },
                     {
                         "type": "string",
