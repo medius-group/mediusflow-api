@@ -437,7 +437,9 @@
                 "CURRENCY_WITH_CODE_ALREADY_EXISTS",
                 "PURCHASE_ORDER_LINE_SERVICE_BASED_FLAG_UPDATE_FAIL",
                 "UPDATE_OF_DEFAULT_CURRENCY_IS_NOT_POSSIBLE",
-                "NON_LEAF_LEVEL_CATEGORY"
+                "NON_LEAF_LEVEL_CATEGORY",
+                "PURCHASE_ORDER_TOO_MANY_IDENTIFIERS",
+                "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES"
             ],
             "enum": [
                 0,
@@ -583,7 +585,9 @@
                 140,
                 141,
                 142,
-                143
+                143,
+                144,
+                145
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -2714,6 +2718,18 @@
                 "DueDate": {
                     "type": "string",
                     "format": "date-time"
+                },
+                "AdditionalOrderIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
+                    }
                 }
             },
             "allOf": [
@@ -3193,6 +3209,18 @@
                             "name": "IntegrationPurchaseOrderCommentDto"
                         },
                         "$ref": "#/definitions/IntegrationPurchaseOrderCommentDto"
+                    }
+                },
+                "AdditionalOrderIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "String"
+                        }
                     }
                 }
             }
@@ -6103,6 +6131,14 @@
                     "format": "date-time"
                 },
                 "CashDiscountDueDate2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ReceivedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "VatDate": {
                     "type": "string",
                     "format": "date-time"
                 }
