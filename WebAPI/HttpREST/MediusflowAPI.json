@@ -7087,6 +7087,16 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "Used when Cash Discount is available on from the Payment term."
+                },
+                "ReceivedDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date when an invoice arrived."
+                },
+                "VatDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "VAT date for an invoice, for example, the date when goods have been received or a service has started."
                 }
             }
         },
@@ -9177,6 +9187,11 @@
                     "maxLength": 300,
                     "description": "Identifier for payment details. Note: this field would be used to populate the PaymentDetails on invoice only when PaymentDetails is turned on for given company."
                 },
+                "VatDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "VAT date for an invoice, for example, the date when goods have been received or a service has started."
+                },
                 "CustomField_Text1": {
                     "type": "string",
                     "maxLength": 450,
@@ -9271,6 +9286,31 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "Custom Field of type datetime."
+                },
+                "CustomField_List1": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text. Needs to have a corresponding List value configured in Medius."
+                },
+                "CustomField_List2": {
+                    "type": "string",
+                    "maxLength":50,
+                    "description": "Custom list value of type text. Needs to have a corresponding List value configured in Medius."
+                },
+                "CustomField_List3": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text. Needs to have a corresponding List value configured in Medius."
+                },
+                "CustomField_List4": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text. Needs to have a corresponding List value configured in Medius."
+                },
+                "CustomField_List5": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Custom list value of type text. Needs to have a corresponding List value configured in Medius."
                 }
             }
         },
