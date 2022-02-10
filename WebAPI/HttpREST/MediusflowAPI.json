@@ -507,7 +507,11 @@
                 "COULD_NOT_DELETE_RESTRICTIONS_AND_ROLLBACK",
                 "CURRENCY_RATE_OUT_OF_RANGE",
                 "CURRENCY_WITH_CODE_ALREADY_EXISTS",
-                "PURCHASE_ORDER_LINE_SERVICE_BASED_FLAG_UPDATE_FAIL"
+                "PURCHASE_ORDER_LINE_SERVICE_BASED_FLAG_UPDATE_FAIL",
+                "UPDATE_OF_DEFAULT_CURRENCY_IS_NOT_POSSIBLE",
+                "NON_LEAF_LEVEL_CATEGORY",
+                "PURCHASE_ORDER_TOO_MANY_IDENTIFIERS",
+                "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES"
             ],
             "enum": [
                 0,
@@ -651,7 +655,11 @@
                 138,
                 139,
                 140,
-                141
+                141,
+                142,
+                143,
+                144,
+                145
             ]
         },
         "ActualPaymentDateResponseDto": {
