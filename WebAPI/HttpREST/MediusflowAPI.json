@@ -2268,6 +2268,9 @@
                 "name": "PaymentLine"
             },
             "additionalProperties": false,
+            "required": [
+                "IsDirect"
+            ],
             "properties": {
                 "Date": {
                     "type": "string",
@@ -2291,6 +2294,12 @@
                 },
                 "AdditionalInformation": {
                     "type": "string"
+                },
+                "BatchNumber": {
+                    "type": "string"
+                },
+                "IsDirect": {
+                    "type": "boolean"
                 }
             }
         },
