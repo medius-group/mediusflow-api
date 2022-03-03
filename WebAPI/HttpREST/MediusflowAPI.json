@@ -4389,10 +4389,6 @@
                 "name": "Company"
             },
             "additionalProperties": false,
-            "required": [
-                "IsVirtualCompany",
-                "IsActive"
-            ],
             "properties": {
                 "Name": {
                     "type": "string"
