@@ -106,7 +106,7 @@
           "type": "string",
           "maxLength": 50,
           "example": "345123R",
-          "description": "Identifier for a different remittance number or name for a payee (payees with multiple locations). Restricted characters: /  ? # | "
+          "description": "Identifier for a different remittance number or name for a payee (payees with multiple locations or bank accounts). Restricted characters: /  ? # | "
         },
         "payeeName": {
           "type": "string",
@@ -142,7 +142,7 @@
           "type": "string",
           "maxLength": 2,
           "example": "RI",
-          "description": "State of the payee. ISO Alfa 2 code"
+          "description": "State of the payee. ISO Alfa 2 code. Required for US and Canadian payments."
         },
         "payeeCountryCode": {
           "type": "string",
@@ -190,13 +190,13 @@
           "type": "string",
           "maxLength": 255,
           "example": "Comment for payee",
-          "description": "Comment for invoice from payor accounting system for information purposes during batch authorization process"
+          "description": "Comment for invoice from payor accounting system for information purposes during batch authorization process."
         },
         "payorBankAccountIdentifier": {
           "type": "string",
           "maxLength": 50,
           "example": "Bank1",
-          "description": "Internal bank identifier, defined during funding bank account setup in Medius Pay."
+          "description": "Internal bank identifier, defined during funding bank account setup in Medius Pay. Needs to be an unique identifier for all payment items in the batch."
         },
         "payeeBankName": {
           "type": "string",
@@ -232,36 +232,36 @@
           "type": "string",
           "maxLength": 34,
           "example": "PL88109013620000000036000000",
-          "description": "IBAN or AccountNumber. No spaces or dashes permitted."
+          "description": "IBAN or basic account number. No spaces or dashes permitted. If IBAN is provided, payeeBankSwiftCode is required. If basic account number is provided, payeeBankSwiftCode or payeeRoutingNumber is required. PayeeAccountNumber is optional if payeeBankgiroNumber is provided."
         },
-        "payeeRoutingNumberType": {
+        "payeeBankgiroNumber": {
           "type": "string",
-          "maxLength": 20,
-          "example": 215454,
-          "description": "Required field when account number not in IBAN format, but it can be left blanc if IBAN provided."
+          "maxLength": 8,
+          "example": "3452334",
+          "description": "When payeeBankgiroNumber is provided, payeeAccountNumber, payeeRoutingNumber and payeeBankSwiftCode are optional. If both payeeBankgiroNumber and combination of payeeAccountNumber, payeeRoutingNumber and payeeBankSwiftCode are provided, the combination of (payeeAccountNumber and payeeBankSwiftCode) or (payeeAccountNumber and payeeRoutingNumber) are used for payment execution."
         },
         "payeeRoutingNumber": {
           "type": "string",
           "maxLength": 15,
           "example": "202020",
-          "description": "This could be known as RoutingNumber, BranchCode, ABA number, transit number, MICR, IFSC, etc. Required for international payments in some countries"
+          "description": "Required field when basic account number provided in payeeAccountNumber field. Optional if IBAN provided. This could be known as RoutingNumber, BranchCode, ABA number, transit number, MICR, IFSC, etc. Required for international payments in some countries."
         },
         "payeeBankSwiftCode": {
           "type": "string",
           "maxLength": 11,
           "example": "WBKPPLPP",
-          "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Required when AccountNumber is IBAN type."
+          "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally."
         },
         "payeeType": {
           "type": "string",
           "example": "Individual",
-          "description": "Payee classification. Individual or Business"
+          "description": "Payee classification. Individual or Business."
         },
         "payeeContactPhone": {
           "type": "string",
           "maxLength": 15,
           "example": "123456789",
-          "description": "Payees phone number. Do not include + or ()"
+          "description": "Payees phone number. Do not include + or ()."
         },
         "payeeContactEmail": {
           "type": "string",
@@ -273,7 +273,7 @@
           "type": "string",
           "maxLength": 13,
           "example": "P012701",
-          "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice."
+          "description": "A payment reference number from the customers accounting system. If not provided, invoiceNumber will be used as payment reference."
         },
         "payeeDateOfBirth": {
           "type": "string",
@@ -296,14 +296,11 @@
       },
       "required": [
         "invoiceAmount",
+        "invoiceCurrencyCode",
         "invoiceCompanyId",
         "invoiceDate",
         "invoiceNumber",
         "payeeAccountNumber",
-        "payeeBankCity",
-        "payeeBankCountryCode",
-        "payeeBankName",
-        "payeeBankStreetLine1",
         "payeeCity",
         "payeeCountryCode",
         "payeeId",
@@ -313,7 +310,6 @@
         "payeeType",
         "paymentAmount",
         "paymentCurrencyCode",
-        "paymentReference",
         "voucherNumber",
         "payorBankAccountIdentifier"
       ]
