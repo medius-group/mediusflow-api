@@ -83,18 +83,18 @@
           "type": "string",
           "maxLength": 50,
           "example": "2/2021",
-          "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file. Will also be presented on Remittance advice prepared by NvoicePay for the vendor"
+          "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file. Will also be presented on Remittance advice for the vendor."
         },
         "voucherNumber": {
           "type": "string",
           "maxLength": 50,
           "example": "1519c142-c405-4753-bb2f-5fbec59375d4",
-          "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments"
+          "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments."
         },
         "invoiceCompanyId": {
           "type": "string",
           "example": "Medius",
-          "description": "Company the invoice has been posted to in AP automation. Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+          "description": "Company the invoice has been posted to in AP automation. Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found."
         },
         "payeeId": {
           "type": "string",
@@ -106,25 +106,25 @@
           "type": "string",
           "maxLength": 50,
           "example": "345123R",
-          "description": "Identifier for a different remittance number or name for a payee (payees with multiple locations)"
+          "description": "Identifier for a different remittance number or name for a payee (payees with multiple locations)."
         },
         "payeeName": {
           "type": "string",
           "maxLength": 100,
           "example": "Larson - Roob",
-          "description": "Payee name - should be same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
+          "description": "Payee name - should be same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments."
         },
         "payeeStreetLine1": {
           "type": "string",
           "maxLength": 35,
           "example": "3346 Pagac Union",
-          "description": "Street address of the payee. Up to 60 characters allowed for domestic payments"
+          "description": "Street address of the payee. Up to 60 characters allowed for domestic payments."
         },
         "payeeStreetLine2": {
           "type": "string",
           "maxLength": 35,
           "example": "PO box 1202",
-          "description": "Second line of street address of the payee. Up to 60 characters allowed for domestic payments"
+          "description": "Second line of street address of the payee. Up to 60 characters allowed for domestic payments."
         },
         "payeeCity": {
           "type": "string",
@@ -143,7 +143,7 @@
           "type": "string",
           "maxLength": 2,
           "example": "RI",
-          "description": "State of the payee. Optional for international payments. ISO Alfa 2 code"
+          "description": "State of the payee. Optional for international payments. ISO Alfa 2 code. Required for US and Canadian payments."
         },
         "payeeCountryCode": {
           "type": "string",
@@ -173,7 +173,7 @@
           "type": "string",
           "format": "date",
           "example": "2021-04-10",
-          "description": "Invoice Due Date in format yyyy-MM-dd. Note: If not specified the date payment batch was received by Nvoicepay will be displayed"
+          "description": "Invoice Due Date in format yyyy-MM-dd. Note: If not provided, no due date will be displayed on the remittance advice."
         },
         "invoiceAmount": {
           "type": "number",
@@ -191,7 +191,7 @@
           "type": "string",
           "maxLength": 25,
           "example": "BankId1",
-          "description": "Bank account identifier from customer accounting system"
+          "description": "Bank account identifier from customer accounting system. Needs to be an unique identifier for all payment items in the batch."
         },
         "payorLocationIdentifier": {
           "type": "string",
@@ -202,67 +202,67 @@
           "type": "string",
           "maxLength": 255,
           "example": "Comment for payee",
-          "description": "Comment for invoice from payor accounting system. Will be displayed on remittance advice"
+          "description": "Comment for invoice from payor accounting system. Will be displayed on the check and remittance advice."
         },
         "payorIdInPayeeSystem": {
           "type": "string",
           "maxLength": 50,
           "example": "897578762",
-          "description": "Payor assigned account number with payee. Will be displayed on remittance advice"
+          "description": "Payor assigned account number with payee. Will be displayed on remittance advice."
         },
         "settlementCurrencyCode": {
           "type": "string",
           "maxLength": 3,
           "example": "USD",
-          "description": "Currency which will be used by the payor to settle the foreign transaction. Required for international payments"
+          "description": "Currency which will be used by the payor to settle the foreign transaction. Required for international payments."
         },
         "payeeBankName": {
           "type": "string",
           "maxLength": 50,
           "example": "Bank Zachodni WBK S.A.",
-          "description": "Name of the beneficiary bank. Required for international payments"
+          "description": "Name of the beneficiary bank. Required for international payments."
         },
         "payeeBankStreetLine1": {
           "type": "string",
           "maxLength": 35,
           "example": "PL.WOLNOSCI 15",
-          "description": "Payees banks address line 1. Required for international payments"
+          "description": "Payees banks address line 1. Required for international payments."
         },
         "payeeBankStreetLine2": {
           "type": "string",
           "maxLength": 35,
           "example": "BUILDING B",
-          "description": "Payees banks address line 2. Required for international payments"
+          "description": "Payees banks address line 2. Required for international payments."
         },
         "payeeBankCity": {
           "type": "string",
           "maxLength": 20,
           "example": "POZNAN",
-          "description": "Payees banks city. Required for international payments"
+          "description": "Payees banks city. Required for international payments."
         },
         "payeeBankCountryCode": {
           "type": "string",
           "maxLength": 2,
           "example": "PL",
-          "description": "Payees banks country. ISO Alpha2 code. Required for international payments"
+          "description": "Payees banks country. ISO Alpha2 code. Required for international payments."
         },
         "payeeAccountNumber": {
           "type": "string",
           "maxLength": 34,
           "example": "PL88109013620000000036000000",
-          "description": "IBAN or AccountNumber. No spaces or dashes permitted. Required for international payments"
+          "description": "IBAN or AccountNumber. No spaces or dashes permitted. Required for international payments."
         },
         "payeeRoutingNumber": {
           "type": "string",
           "maxLength": 15,
           "example": "202020",
-          "description": "This could be known as RoutingNumber, BranchCode, ABA number, transit number, MICR, IFSC, etc. Required for international payments in some countries"
+          "description": "This could be known as RoutingNumber, BranchCode, ABA number, transit number, MICR, IFSC, etc. Required for international payments in some countries."
         },
         "payeeBankSwiftCode": {
           "type": "string",
           "maxLength": 11,
           "example": "WBKPPLPP",
-          "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Required for international payments"
+          "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Required for international payments."
         },
         "purposeOfPayment": {
           "type": "string",
@@ -291,7 +291,7 @@
           "type": "string",
           "maxLength": 13,
           "example": "P012701",
-          "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice. Note: If not specified, will be generated by Nvoicepay"
+          "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice. Note: If not specified, will be generated during payment process. If generated during payment process, there will be one payment reference for all invoices to be paid to a single payee."
         },
         "discountAmount": {
           "type": "number",
@@ -307,6 +307,8 @@
         }
       },
       "required": [
+        "invoiceAmount",
+        "invoiceCurrencyCode",
         "invoiceNumber",
         "invoiceDate",
         "voucherNumber",
