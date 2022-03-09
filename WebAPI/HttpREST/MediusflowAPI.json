@@ -9857,7 +9857,7 @@
                   "payeeTaxRegistrationNumber": {
                     "type": "string",
                     "maxLength": 20,
-                    "example": 12598,
+                    "example": "12598",
                     "description": "The payee tax registration number."
                 },
                 "discountAmount": {
