@@ -289,7 +289,7 @@
         },
         "paymentReference": {
           "type": "string",
-          "maxLength": 13,
+          "maxLength": 50,
           "example": "P012701",
           "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice. Note: If not specified, will be generated during payment process. If generated during payment process, there will be one payment reference for all invoices to be paid to a single payee."
         },
