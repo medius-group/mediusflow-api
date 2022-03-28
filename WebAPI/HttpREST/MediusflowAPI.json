@@ -2680,6 +2680,9 @@
                 "CompanyName": {
                     "type": "string"
                 },
+                "CompanyGlobalId": {
+                    "type": "string"
+                },
                 "PurchaseOrderLines": {
                     "type": "array",
                     "xml": {
@@ -2736,7 +2739,8 @@
                     "items": {
                         "type": "string",
                         "xml": {
-                            "name": "String"
+                            "name": "AdditionalOrderIdentifier",
+                            "wrapped": true
                         }
                     }
                 }
@@ -3228,7 +3232,8 @@
                     "items": {
                         "type": "string",
                         "xml": {
-                            "name": "String"
+                            "name": "AdditionalOrderIdentifier",
+                            "wrapped": true
                         }
                     }
                 }
@@ -4863,6 +4868,9 @@
                     "type": "string"
                 },
                 "CompanyName": {
+                    "type": "string"
+                },
+                "CompanyGlobalId": {
                     "type": "string"
                 },
                 "StreetAddress": {
