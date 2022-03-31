@@ -4757,10 +4757,16 @@
                 "OurReferenceEmail": {
                     "type": "string"
                 },
+                "OurReferenceUserName": {
+                    "type": "string"
+                },
                 "Buyer": {
                     "type": "string"
                 },
                 "BuyerEmail": {
+                    "type": "string"
+                },
+                "BuyerUserName": {
                     "type": "string"
                 },
                 "YourReference": {
