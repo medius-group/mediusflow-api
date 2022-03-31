@@ -12284,7 +12284,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Posted_Put2",
+                "operationId": "PurchaseOrderRequestMessage_Posted_Put",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -12361,7 +12361,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Fetched_Put2",
+                "operationId": "PurchaseOrderRequestMessage_Fetched_Put",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -12438,7 +12438,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Processing_Put2",
+                "operationId": "PurchaseOrderRequestMessage_Processing_Put",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -12515,7 +12515,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Sent_Put2",
+                "operationId": "PurchaseOrderRequestMessage_Sent_Put",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -12592,7 +12592,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Closed_Put2",
+                "operationId": "PurchaseOrderRequestMessage_Closed_Put",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -12669,7 +12669,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Error_Put2",
+                "operationId": "PurchaseOrderRequestMessage_Error_Put",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -12708,7 +12708,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding purchase order message.",
-                "operationId": "PurchaseOrderRequestMessage_Post",
+                "operationId": "PurchaseOrderRequestMessage_Post_Errors",
                 "parameters": [
                     {
                         "name": "dto",
@@ -12732,7 +12732,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method accepts a purchase order confirmation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order confirmation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
-                "operationId": "PurchaseOrderRequestMessage_Post2",
+                "operationId": "PurchaseOrderRequestMessage_Post_Confirmation",
                 "parameters": [
                     {
                         "name": "confirmationDto",
@@ -12756,7 +12756,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method accepts a purchase order cancellation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order cancellation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
-                "operationId": "PurchaseOrderRequestMessage_PostCancellation",
+                "operationId": "PurchaseOrderRequestMessage_Post_Cancellation",
                 "parameters": [
                     {
                         "name": "confirmationDto",
@@ -13030,7 +13030,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Posted_PutGrn2",
+                "operationId": "PurchaseOrderRequestMessage_Posted_PutGrn",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13107,7 +13107,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Fetched_PutGrn2",
+                "operationId": "PurchaseOrderRequestMessage_Fetched_PutGrn",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13184,7 +13184,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Processing_PutGrn2",
+                "operationId": "PurchaseOrderRequestMessage_Processing_PutGrn",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13261,7 +13261,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Sent_PutGrn2",
+                "operationId": "PurchaseOrderRequestMessage_Sent_PutGrn",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13338,7 +13338,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Closed_PutGrn2",
+                "operationId": "PurchaseOrderRequestMessage_Closed_PutGrn",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13415,7 +13415,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Error_PutGrn2",
+                "operationId": "PurchaseOrderRequestMessage_Error_PutGrn",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13492,7 +13492,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Posted_PutPo2",
+                "operationId": "PurchaseOrderRequestMessage_Posted_PutPo",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13569,7 +13569,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Fetched_PutPo2",
+                "operationId": "PurchaseOrderRequestMessage_Fetched_PutPo",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13646,7 +13646,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Processing_PutPo2",
+                "operationId": "PurchaseOrderRequestMessage_Processing_PutPo",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13723,7 +13723,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Sent_PutPo2",
+                "operationId": "PurchaseOrderRequestMessage_Sent_PutPo",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13800,7 +13800,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Closed_PutPo2",
+                "operationId": "PurchaseOrderRequestMessage_Closed_PutPo",
                 "parameters": [
                     {
                         "name": "statusRequest",
@@ -13877,7 +13877,7 @@
                     "PurchaseOrderRequest"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
-                "operationId": "PurchaseOrderRequestMessage_Error_PutPo2",
+                "operationId": "PurchaseOrderRequestMessage_Error_PutPo",
                 "parameters": [
                     {
                         "name": "statusRequest",
