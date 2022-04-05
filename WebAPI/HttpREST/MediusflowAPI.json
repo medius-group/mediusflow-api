@@ -12788,7 +12788,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message id"
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -12796,7 +12796,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
+                        "description": "Message id",
                         "format": "int32"
                     }
                 ],
@@ -12865,7 +12865,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message id"
+                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error"
                     },
                     {
                         "type": "integer",
@@ -12873,7 +12873,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "Message status. Can be: Posted, Fetched, Processing, Sent, Closed or Error",
+                        "description": "Message id",
                         "format": "int32"
                     }
                 ],
