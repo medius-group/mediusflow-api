@@ -13035,16 +13035,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetGrnMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13087,13 +13080,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13112,16 +13098,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetGrnMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13164,13 +13143,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13189,16 +13161,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetGrnMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13241,13 +13206,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13266,16 +13224,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetGrnMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13318,13 +13269,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13343,16 +13287,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetGrnMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13395,13 +13332,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13420,16 +13350,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetGrnMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13472,13 +13395,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For goods receipt, these can be: GOODS_RECEIPT_NOTE or GOODS_RECEIPT_NOTE_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13497,16 +13413,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetPoMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13549,13 +13458,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13574,16 +13476,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetPoMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13626,13 +13521,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13651,16 +13539,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetPoMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13703,13 +13584,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13728,16 +13602,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetPoMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13780,13 +13647,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13805,16 +13665,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetPoMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13857,13 +13710,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13882,16 +13728,9 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
+                "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetPoMessagesIds",
                 "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
                     {
                         "type": "string",
                         "name": "correlationKeyFilter",
@@ -13934,13 +13773,6 @@
                     },
                     {
                         "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Message tags. For a purchase order, these can be: ORDER or ORDER_CANCEL"
-                    },
-                    {
-                        "type": "string",
                         "name": "correlationKeyFilter",
                         "in": "query",
                         "x-nullable": true,
@@ -13959,32 +13791,8 @@
                 "tags": [
                     "PurchaseOrderRequest"
                 ],
-                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "summary": "This method accepts a purchase-order-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-order-to-ERP or the goods-receipt-note message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
                 "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
-                "parameters": [
-                    {
-                        "name": "confirmationDto",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/PurchaseOrderRequestResponseDto"
-                        },
-                        "x-nullable": true
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/procurement/externalsystemsync/cancellations": {
-            "post": {
-                "tags": [
-                    "PurchaseOrderRequest"
-                ],
-                "summary": "This method accepts a purchase-oder-to-ERP or goods-receipt-note cancellation \nas a response to either the purchase-oder-to-ERP or the goods-receipt-note cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note cancellation message.",
-                "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnCancellation",
                 "parameters": [
                     {
                         "name": "confirmationDto",
