@@ -10756,7 +10756,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead. This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ActualPaymentDate_Get",
@@ -10793,7 +10793,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead. This method will return a status and an effective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "ActualPaymentDate_GetStatus",
@@ -10822,7 +10822,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates": {
             "post": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead. This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ActualPaymentDate_Post",
@@ -11608,7 +11608,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns the error messages content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ErrorMessage_Get",
@@ -11645,7 +11645,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method will return a status and an effective link to the real error messages content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "ErrorMessage_GetStatus",
@@ -11674,7 +11674,7 @@
         "/integration/message/v1/supplierinvoice/errors": {
             "post": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method accepts a error message object including a list of error messages.\nThe error message object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ErrorMessage_Post",
@@ -11783,7 +11783,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns the payment information content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "PaymentInformationMessage_Get",
@@ -11820,7 +11820,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method will return a status and an effective link to the real payment information content.\nThe main idea with this method is to be able to check status for a given message and to be able to find where a message is in terms of statuses.",
                 "operationId": "PaymentInformationMessage_GetStatus",
@@ -11849,7 +11849,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations": {
             "post": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method accepts a payment information as a response to the supplier invoice message that was retrieved in earlier step.\nThe payment information object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "PaymentInformationMessage_Post",
@@ -14273,7 +14273,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "The GET method returns the supplier invoice content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "SupplierInvoiceMessage_Get",
@@ -14308,7 +14308,7 @@
             },
             "put": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method updates the status for a supplier invoice message when processing it.",
                 "operationId": "SupplierInvoiceMessage_Put",
@@ -14350,7 +14350,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "The GET method with message id as input will return a status and an effective link to the real supplier invoice content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
@@ -14379,7 +14379,7 @@
         "/integration/message/v1/supplierinvoice/invoices/posted": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
@@ -14417,7 +14417,7 @@
             },
             "put": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Posted_Put2",
@@ -14456,7 +14456,7 @@
         "/integration/message/v1/supplierinvoice/invoices/fetched": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
@@ -14494,7 +14494,7 @@
             },
             "put": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Fetched_Put2",
@@ -14533,7 +14533,7 @@
         "/integration/message/v1/supplierinvoice/invoices/processing": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
@@ -14571,7 +14571,7 @@
             },
             "put": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Processing_Put2",
@@ -14610,7 +14610,7 @@
         "/integration/message/v1/supplierinvoice/invoices/sent": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
@@ -14648,7 +14648,7 @@
             },
             "put": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Sent_Put2",
@@ -14687,7 +14687,7 @@
         "/integration/message/v1/supplierinvoice/invoices/closed": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
@@ -14725,7 +14725,7 @@
             },
             "put": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Closed_Put2",
@@ -14764,7 +14764,7 @@
         "/integration/message/v1/supplierinvoice/invoices/error": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
@@ -14802,7 +14802,7 @@
             },
             "put": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Error_Put2",
@@ -15181,7 +15181,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method returns the voucher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "VoucherMessage_Get",
@@ -15218,7 +15218,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method will return a status and an effective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "VoucherMessage_GetStatus",
@@ -15247,7 +15247,7 @@
         "/integration/message/v1/supplierinvoice/vouchers": {
             "post": {
                 "tags": [
-                    "Supplier invoice message"
+                    "Supplier invoice messages"
                 ],
                 "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "VoucherMessage_Post",
