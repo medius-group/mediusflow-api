@@ -10671,7 +10671,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches": {
             "post": {
                 "tags": [
-                    "AccrualTemplateImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send accrual templates that will be imported by the Medius master data import queue.\nThe accrual template have the company and the dimension values used in the template as prerequisites.\nRemember that by sending in accrual templates the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
                 "operationId": "AccrualTemplateImportBatch_Post",
@@ -10706,7 +10706,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "AccrualTemplateImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "AccrualTemplateImportBatch_Get",
@@ -10732,7 +10732,7 @@
             },
             "delete": {
                 "tags": [
-                    "AccrualTemplateImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "AccrualTemplateImportBatch_Delete",
@@ -10756,7 +10756,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "ActualPaymentDate"
+                    "Supplier invoice message"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead. This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ActualPaymentDate_Get",
@@ -10793,7 +10793,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
             "get": {
                 "tags": [
-                    "ActualPaymentDate"
+                    "Supplier invoice message"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead. This method will return a status and an effective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "ActualPaymentDate_GetStatus",
@@ -10822,7 +10822,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates": {
             "post": {
                 "tags": [
-                    "ActualPaymentDate"
+                    "Supplier invoice message"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead. This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ActualPaymentDate_Post",
@@ -10846,7 +10846,7 @@
         "/integration/masterdata/v1/companies": {
             "get": {
                 "tags": [
-                    "CompanyExport"
+                    "Export of data"
                 ],
                 "summary": "When calling this endpoint a list of companies will be returned. The list includes both \"real\" and \"virtual\" companies.\nThere exists one filter parameter to this request, that is updatedSince, it filters out companies that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
                 "operationId": "CompanyExport_Get",
@@ -10891,7 +10891,7 @@
         "/integration/masterdata/v1/CompanyImportBatches": {
             "post": {
                 "tags": [
-                    "CompanyImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send a set of companies that will be imported by the Medius master data import queue.\nThe company have Currency as prerequisite\nThe company will be created as a child company to either the root company or to another company provided",
                 "operationId": "CompanyImportBatch_Post",
@@ -10926,7 +10926,7 @@
         "/integration/masterdata/v1/CompanyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "CompanyImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CompanyImportBatch_Get",
@@ -10952,7 +10952,7 @@
             },
             "delete": {
                 "tags": [
-                    "CompanyImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "CompanyImportBatch_Delete",
@@ -10976,7 +10976,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches": {
             "post": {
                 "tags": [
-                    "CurrencyImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send currencies that will be imported by the Medius master data import queue.\nThe currency have no prerequisite.",
                 "operationId": "CurrencyImportBatch_Post",
@@ -11011,7 +11011,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "CurrencyImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CurrencyImportBatch_Get",
@@ -11037,7 +11037,7 @@
             },
             "delete": {
                 "tags": [
-                    "CurrencyImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyImportBatch_Delete",
@@ -11061,7 +11061,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches": {
             "post": {
                 "tags": [
-                    "CurrencyRateImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send currency rates that will be imported by the Medius master data import queue.\nThe currency rate have currency as prerequisite.",
                 "operationId": "CurrencyRateImportBatch_Post",
@@ -11096,7 +11096,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "CurrencyRateImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "CurrencyRateImportBatch_Get",
@@ -11122,7 +11122,7 @@
             },
             "delete": {
                 "tags": [
-                    "CurrencyRateImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "CurrencyRateImportBatch_Delete",
@@ -11146,7 +11146,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches": {
             "post": {
                 "tags": [
-                    "DeliveryLinesImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send a set of delivery lines that will be imported by the Medius master data import queue.\nThe purchase order line header must exist in Medius before a delivery line can be imported. Use of key PurchaseOrderLineExternalSystemId is mandatory to be able to find corresponding purchase order line.",
                 "operationId": "DeliveryLinesImportBatch_Post",
@@ -11181,7 +11181,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "DeliveryLinesImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DeliveryLinesImportBatch_Get",
@@ -11209,7 +11209,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches": {
             "post": {
                 "tags": [
-                    "DeliveryTermImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send delivery terms that will be imported by the Medius master data import queue.\nThe delivery terms have company prerequisite.",
                 "operationId": "DeliveryTermImportBatch_Post",
@@ -11244,7 +11244,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "DeliveryTermImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DeliveryTermImportBatch_Get",
@@ -11270,7 +11270,7 @@
             },
             "delete": {
                 "tags": [
-                    "DeliveryTermImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "DeliveryTermImportBatch_Delete",
@@ -11294,7 +11294,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "DimensionValueConfigurationImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send configurations related to dimensions value that will be imported by the Medius master data import queue.\nThe dimension value configuration have the corresponding dimension as a prerequisites.\nRemember that by sending in dimension configuration the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
@@ -11329,7 +11329,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "DimensionValueConfigurationImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueConfigurationImportBatch_Get",
@@ -11355,7 +11355,7 @@
             },
             "delete": {
                 "tags": [
-                    "DimensionValueConfigurationImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
@@ -11379,7 +11379,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches": {
             "post": {
                 "tags": [
-                    "DimensionValueImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send dimension values that will be imported by the Medius master data import queue.\nThe dimension values have company as mandatory prerequisite.",
                 "operationId": "DimensionValueImportBatch_Post",
@@ -11414,7 +11414,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "DimensionValueImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "DimensionValueImportBatch_Get",
@@ -11440,7 +11440,7 @@
             },
             "delete": {
                 "tags": [
-                    "DimensionValueImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "DimensionValueImportBatch_Delete",
@@ -11464,7 +11464,7 @@
         "/integration/media/v1/document/{documentId}/images": {
             "get": {
                 "tags": [
-                    "DocumentMediaExport"
+                    "Export of data"
                 ],
                 "summary": "This method returns a list of file links for a document identified by parameter 'documentId'.\nEach file link consists of the original file name and a link for downloading this file.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetDocumentImagesLinks",
@@ -11499,7 +11499,7 @@
         "/integration/media/v1/document/{documentId}/images/{imageHash}": {
             "get": {
                 "tags": [
-                    "DocumentMediaExport"
+                    "Export of data"
                 ],
                 "summary": "This method returns a file with the given hash for a document identified by parameter 'documentId'.\nYou can get a link for this file, containing hash, by calling 'integration/media/v1/document/{documentId}/images'.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetImage",
@@ -11536,7 +11536,7 @@
         "/integration/media/v1/document/{documentId}/attachments": {
             "get": {
                 "tags": [
-                    "DocumentMediaExport"
+                    "Export of data"
                 ],
                 "summary": "This method returns the list of attachment links for a document identified by parameter 'documentId'.\nEach attachment link consists of the original attachment name, and a link for downloading this attachment.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetDocumentAttachmentsLinks",
@@ -11571,7 +11571,7 @@
         "/integration/media/v1/document/{documentId}/attachments/{attachmentHash}": {
             "get": {
                 "tags": [
-                    "DocumentMediaExport"
+                    "Export of data"
                 ],
                 "summary": "This method returns the attachment with a given hash for the document identified by parameter 'documentId'.\nYou can get the link for this attachment, containing hash, by calling 'integration/media/v1/document/{documentId}/attachments'.\nDraft, migrated and long-term archived documents are not supported by this API.",
                 "operationId": "DocumentMediaExport_GetAttachment",
@@ -11608,7 +11608,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "ErrorMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns the error messages content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "ErrorMessage_Get",
@@ -11645,7 +11645,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageId}": {
             "get": {
                 "tags": [
-                    "ErrorMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method will return a status and an effective link to the real error messages content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "ErrorMessage_GetStatus",
@@ -11674,7 +11674,7 @@
         "/integration/message/v1/supplierinvoice/errors": {
             "post": {
                 "tags": [
-                    "ErrorMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method accepts a error message object including a list of error messages.\nThe error message object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "ErrorMessage_Post",
@@ -11698,7 +11698,7 @@
         "/integration/masterdata/v1/ItemImportBatches": {
             "post": {
                 "tags": [
-                    "ItemImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send items that will be imported by the Medius master data import queue.\nThe items have supplier and company as mandatory prerequisite.",
                 "operationId": "ItemImportBatch_Post",
@@ -11733,7 +11733,7 @@
         "/integration/masterdata/v1/ItemImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "ItemImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "ItemImportBatch_Get",
@@ -11759,7 +11759,7 @@
             },
             "delete": {
                 "tags": [
-                    "ItemImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "ItemImportBatch_Delete",
@@ -11783,7 +11783,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "PaymentInformationMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns the payment information content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "PaymentInformationMessage_Get",
@@ -11820,7 +11820,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageId}": {
             "get": {
                 "tags": [
-                    "PaymentInformationMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method will return a status and an effective link to the real payment information content.\nThe main idea with this method is to be able to check status for a given message and to be able to find where a message is in terms of statuses.",
                 "operationId": "PaymentInformationMessage_GetStatus",
@@ -11849,7 +11849,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations": {
             "post": {
                 "tags": [
-                    "PaymentInformationMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method accepts a payment information as a response to the supplier invoice message that was retrieved in earlier step.\nThe payment information object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "PaymentInformationMessage_Post",
@@ -11873,7 +11873,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "PaymentTermImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PaymentTermImportBatch_Get",
@@ -11899,7 +11899,7 @@
             },
             "delete": {
                 "tags": [
-                    "PaymentTermImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PaymentTermImportBatch_Delete",
@@ -11923,7 +11923,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches": {
             "post": {
                 "tags": [
-                    "PaymentTermImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send payment terms that will be imported by the Medius master data import queue.\nThe payment terms have company prerequisite.",
                 "operationId": "PaymentTermImportBatch_Post",
@@ -11958,7 +11958,7 @@
         "/integration/masterdata/v1/PeriodImportBatches": {
             "post": {
                 "tags": [
-                    "PeriodImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send periods that will be imported by the Medius master data import queue.\nThe periods have Company as prerequisites.\nRemember that by sending in periods the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. For periods it might be better to keep them in Medius to be able to control the\nposting dates separated from the ERP system, for flexibility reasons.",
                 "operationId": "PeriodImportBatch_Post",
@@ -11993,7 +11993,7 @@
         "/integration/masterdata/v1/PeriodImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "PeriodImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PeriodImportBatch_Get",
@@ -12019,7 +12019,7 @@
             },
             "delete": {
                 "tags": [
-                    "PeriodImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PeriodImportBatch_Delete",
@@ -12043,7 +12043,7 @@
         "/integration/masterdata/v1/purchaseorders": {
             "get": {
                 "tags": [
-                    "PurchaseOrderExport"
+                    "Export of data"
                 ],
                 "summary": "When calling this endpoint a list of purchase orders will be returned.\nThere exists one filter parameter to this request, that is updatedSince, it filters out purchase orders that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
                 "operationId": "PurchaseOrderExport_Get",
@@ -12096,7 +12096,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches": {
             "post": {
                 "tags": [
-                    "PurchaseOrderImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send a set of purchase orders that will be imported by the Medius master data import queue.\nThe purchase order need to be imported after the mandatory pre requisites are imported, these are Company and Supplier.\nIf specific units and items are used, these needs to be in place also.",
                 "operationId": "PurchaseOrderImportBatch_Post",
@@ -12131,7 +12131,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "PurchaseOrderImportBatch_Get",
@@ -12157,7 +12157,7 @@
             },
             "delete": {
                 "tags": [
-                    "PurchaseOrderImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "PurchaseOrderImportBatch_Delete",
@@ -12181,7 +12181,8 @@
         "/integration/message/v1/procurement/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "The GET method returns the purchase order content from a message that matches the provided status and id.\nIf the message id is in another status, nothing is returned. To find a message, use the other GET method that only requires message id as input.",
                 "operationId": "PurchaseOrderRequestMessage_Get",
@@ -12216,7 +12217,8 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method updates the status of a purchase order message when processing it.",
                 "operationId": "PurchaseOrderRequestMessage_Put",
@@ -12258,7 +12260,8 @@
         "/integration/message/v1/procurement/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "The GET method with message id as input returns a status and an effective link to real purchase order content.\nThis method allows you to check the status of a given message.",
                 "operationId": "PurchaseOrderRequestMessage_GetStatus",
@@ -12287,7 +12290,8 @@
         "/integration/message/v1/procurement/purchaseorders/posted": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Posted_MessagesIds",
@@ -12325,7 +12329,8 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Posted_Put",
@@ -12364,7 +12369,8 @@
         "/integration/message/v1/procurement/purchaseorders/fetched": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_MessagesIds",
@@ -12402,7 +12408,8 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_Put",
@@ -12441,7 +12448,8 @@
         "/integration/message/v1/procurement/purchaseorders/processing": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Processing_MessagesIds",
@@ -12479,7 +12487,8 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Processing_Put",
@@ -12518,7 +12527,8 @@
         "/integration/message/v1/procurement/purchaseorders/sent": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Sent_MessagesIds",
@@ -12556,7 +12566,8 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Sent_Put",
@@ -12595,7 +12606,8 @@
         "/integration/message/v1/procurement/purchaseorders/closed": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Closed_MessagesIds",
@@ -12633,7 +12645,8 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Closed_Put",
@@ -12672,7 +12685,8 @@
         "/integration/message/v1/procurement/purchaseorders/error": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method returns all messages that match the specified parameters.\nThe mandatory parameter is the status. All other parameters are sent as querystring parameters to narrow down the result.\nThe query string parameters are used, for example, to only return messages of certain type\nThe correlation key filter is used to filter out messages by the it's value, typically used to filter on invoice type or company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Error_MessagesIds",
@@ -12710,7 +12724,8 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Error_Put",
@@ -12749,7 +12764,8 @@
         "/integration/message/v1/procurement/errors": {
             "post": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method accepts an error message object, including a list of error messages.\nThe error message object includes a CorrelationKey that needs to match the corresponding purchase order message.",
                 "operationId": "PurchaseOrderRequestMessage_Post_Errors",
@@ -12773,7 +12789,8 @@
         "/integration/message/v1/procurement/purchaseorderrequestconfirmation": {
             "post": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method accepts a purchase order confirmation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order confirmation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
                 "operationId": "PurchaseOrderRequestMessage_Post_Confirmation",
@@ -12797,7 +12814,8 @@
         "/integration/message/v1/procurement/purchaseordercancelationconfirmation": {
             "post": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages",
+                    "Buy messages"
                 ],
                 "summary": "This method accepts a purchase order cancellation as a response to the purchase order message that was retrieved in the earlier step.\nThe purchase order cancellation object includes a CorrelationKey that needs to match the corresponding purchase order message.",
                 "operationId": "PurchaseOrderRequestMessage_Post_Cancellation",
@@ -12821,7 +12839,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "The GET method returns the goods receipt note content from a message that matches the provided status and id.\nIf the message id is in another status, nothing is returned.",
                 "operationId": "PurchaseOrderRequestMessage_GetGrn",
@@ -12856,7 +12874,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates the status of a goods receipt note message when processing it.",
                 "operationId": "PurchaseOrderRequestMessage_PutGrn",
@@ -12898,7 +12916,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "The GET method returns the purchase order content from a message that matches the provided status and id.\nIf the message id is in another status, nothing is returned.",
                 "operationId": "PurchaseOrderRequestMessage_GetPurchaseOrders",
@@ -12933,7 +12951,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates the status of a purchase order message when processing it.",
                 "operationId": "PurchaseOrderRequestMessage_PutPo",
@@ -12975,7 +12993,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "The GET method with message id as input returns a status and an effective link to purchase order content.\nThis method allows you to check the status of a given message.",
                 "operationId": "PurchaseOrderRequestMessage_GetPoToErpStatus",
@@ -13004,7 +13022,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageId}": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "The GET method with message id as input returns a status and an effective link to goods receipt note content.\nThis method allows you to check the status of a given message.",
                 "operationId": "PurchaseOrderRequestMessage_GetGrnStatus",
@@ -13033,7 +13051,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/posted": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetGrnMessagesIds",
@@ -13064,7 +13082,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutGrn",
@@ -13096,7 +13114,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/fetched": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetGrnMessagesIds",
@@ -13127,7 +13145,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutGrn",
@@ -13159,7 +13177,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/processing": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetGrnMessagesIds",
@@ -13190,7 +13208,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutGrn",
@@ -13222,7 +13240,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/sent": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetGrnMessagesIds",
@@ -13253,7 +13271,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutGrn",
@@ -13285,7 +13303,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/closed": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetGrnMessagesIds",
@@ -13316,7 +13334,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutGrn",
@@ -13348,7 +13366,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/error": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all goods receipt note messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetGrnMessagesIds",
@@ -13379,7 +13397,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all goods receipt note messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages. Read the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutGrn",
@@ -13411,7 +13429,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/posted": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetPoMessagesIds",
@@ -13442,7 +13460,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutPo",
@@ -13474,7 +13492,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/fetched": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetPoMessagesIds",
@@ -13505,7 +13523,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutPo",
@@ -13537,7 +13555,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/processing": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetPoMessagesIds",
@@ -13568,7 +13586,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutPo",
@@ -13600,7 +13618,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/sent": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetPoMessagesIds",
@@ -13631,7 +13649,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutPo",
@@ -13663,7 +13681,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/closed": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetPoMessagesIds",
@@ -13694,7 +13712,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutPo",
@@ -13726,7 +13744,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/error": {
             "get": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method returns all purchase order messages that match the specified parameters.\nThe mandatory parameter is the status. The other parameter is sent as querystring parameter to narrow down the result.\nThe correlation key filter is used to filter out messages by the it's value.\nThe correlation key filter is built on a set of properties on the purchase order document with a delimiter: ';'.\n(Be sure to check the number of ';' you have in your correlation key settings.)\nFor seeing all messages use ;;;;;; for a correlation key structure looking as: ERPId;company[49];supplier1;OrderItenfifier;CreatedDate;\nTo listen for a specific company, use a filter like: ERPID;company[49];;;;",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetPoMessagesIds",
@@ -13757,7 +13775,7 @@
             },
             "put": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method updates statuses of all purchase order messages that meet the filter parameters.\nThis method behaves in the same way as the GET method that returns purchase order messages.\nRead the documentation of that method for details.",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutPo",
@@ -13789,7 +13807,7 @@
         "/integration/message/v1/procurement/externalsystemsync/confirmations": {
             "post": {
                 "tags": [
-                    "PurchaseOrderRequest"
+                    "Procurement messages"
                 ],
                 "summary": "This method accepts a purchase-order-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-order-to-ERP or the goods-receipt-note message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
                 "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
@@ -13813,7 +13831,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "RestrictionImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send basic restrictions for a dimension value that will be imported by the Medius master data import queue.\nThe dimensions involved in the restriction are mandatory.\nControlling dimension key is the dimension that will get the restriction applied on it, the property RestrictedDimension includes a list\nwith dimensions to restrict. For each restriction there is a set of RestrictionTypes, these are: Fixed, Forbidden, Default and Required",
                 "operationId": "RestrictionImportBatch_Post",
@@ -13848,7 +13866,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "RestrictionImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RestrictionImportBatch_Get",
@@ -13874,7 +13892,7 @@
             },
             "delete": {
                 "tags": [
-                    "RestrictionImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "RestrictionImportBatch_Delete",
@@ -13898,7 +13916,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches": {
             "post": {
                 "tags": [
-                    "RestrictionRuleImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send restriction rules that will be imported by data import queue.\nThe Restriction rules have company prerequisite.",
                 "operationId": "RestrictionRuleImportBatch_Post",
@@ -13932,7 +13950,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "RestrictionRuleImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "RestrictionRuleImportBatch_Get",
@@ -13960,7 +13978,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "SupplierConfigurationBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send a set of supplier configurations that will be imported by the Medius master data import queue.\nThe supplier configuration needs to have the corresponding supplier in place before being imported.\nRemember that by sending in supplier configurations the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius.",
                 "operationId": "SupplierConfigurationBatch_Post",
@@ -13995,7 +14013,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "SupplierConfigurationBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierConfigurationBatch_Get",
@@ -14021,7 +14039,7 @@
             },
             "delete": {
                 "tags": [
-                    "SupplierConfigurationBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierConfigurationBatch_Delete",
@@ -14045,7 +14063,7 @@
         "/integration/masterdata/v1/suppliers": {
             "get": {
                 "tags": [
-                    "SupplierExport"
+                    "Export of data"
                 ],
                 "summary": "When calling this endpoint a list of suppliers will be returned.\nThere exists one filter parameter to this request, that is updatedSince, it filters out suppliers that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
                 "operationId": "SupplierExport_Get",
@@ -14104,7 +14122,7 @@
         "/integration/masterdata/v1/SupplierImportBatches": {
             "post": {
                 "tags": [
-                    "SupplierImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send suppliers that will be imported by the Medius master data import queue.\nThe supplier have payment term and company as mandatory prerequisite.\nIf additional dimensions are going to be used or Vat groups they need to be imported in advance.",
                 "operationId": "SupplierImportBatch_Post",
@@ -14139,7 +14157,7 @@
         "/integration/masterdata/v1/SupplierImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "SupplierImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "SupplierImportBatch_Get",
@@ -14165,7 +14183,7 @@
             },
             "delete": {
                 "tags": [
-                    "SupplierImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "SupplierImportBatch_Delete",
@@ -14189,7 +14207,7 @@
         "/integration/documentImport/v1/supplierinvoices/{id}": {
             "get": {
                 "tags": [
-                    "SupplierInvoice"
+                    "Document import"
                 ],
                 "summary": "The GET Method returns the status for a given DocumentImport document in Medius.\nIt also returns the \"real\" invoice that was created by the imported document.",
                 "operationId": "SupplierInvoice_Get",
@@ -14224,7 +14242,7 @@
         "/integration/documentImport/v1/supplierinvoices": {
             "post": {
                 "tags": [
-                    "SupplierInvoice"
+                    "Document import"
                 ],
                 "summary": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/receipt that Medius received the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self testing experience in Swagger UI is limited.\nTo get the full test experience, please test this method in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/36b522ecbddf6a8934d4",
                 "operationId": "SupplierInvoice_Post",
@@ -14255,7 +14273,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "The GET method returns the supplier invoice content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "SupplierInvoiceMessage_Get",
@@ -14290,7 +14308,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method updates the status for a supplier invoice message when processing it.",
                 "operationId": "SupplierInvoiceMessage_Put",
@@ -14332,7 +14350,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "The GET method with message id as input will return a status and an effective link to the real supplier invoice content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
@@ -14361,7 +14379,7 @@
         "/integration/message/v1/supplierinvoice/invoices/posted": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
@@ -14399,7 +14417,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Posted_Put2",
@@ -14438,7 +14456,7 @@
         "/integration/message/v1/supplierinvoice/invoices/fetched": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
@@ -14476,7 +14494,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Fetched_Put2",
@@ -14515,7 +14533,7 @@
         "/integration/message/v1/supplierinvoice/invoices/processing": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
@@ -14553,7 +14571,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Processing_Put2",
@@ -14592,7 +14610,7 @@
         "/integration/message/v1/supplierinvoice/invoices/sent": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
@@ -14630,7 +14648,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Sent_Put2",
@@ -14669,7 +14687,7 @@
         "/integration/message/v1/supplierinvoice/invoices/closed": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
@@ -14707,7 +14725,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Closed_Put2",
@@ -14746,7 +14764,7 @@
         "/integration/message/v1/supplierinvoice/invoices/error": {
             "get": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
                 "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
@@ -14784,7 +14802,7 @@
             },
             "put": {
                 "tags": [
-                    "SupplierInvoiceMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
                 "operationId": "SupplierInvoiceMessage_Error_Put2",
@@ -14823,7 +14841,7 @@
         "/integration/masterdata/v1/TaxGroupImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "TaxGroupImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "TaxGroupImportBatch_Get",
@@ -14849,7 +14867,7 @@
             },
             "delete": {
                 "tags": [
-                    "TaxGroupImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "TaxGroupImportBatch_Delete",
@@ -14873,7 +14891,7 @@
         "/integration/masterdata/v1/TaxGroupImportBatches": {
             "post": {
                 "tags": [
-                    "TaxGroupImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send tax groups that will be imported by the Medius master data import queue.\nThe tax group have company as mandatory prerequisite.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Medius.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
                 "operationId": "TaxGroupImportBatch_Post",
@@ -14908,7 +14926,7 @@
         "/integration/masterdata/v1/UnitImportBatches": {
             "post": {
                 "tags": [
-                    "UnitImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send units that will be imported by the Medius master data import queue.\nThe units have no prerequisite.\nRemember that the functionality around units is limited in Medius and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Medius =&gt; '-'",
                 "operationId": "UnitImportBatch_Post",
@@ -14943,7 +14961,7 @@
         "/integration/masterdata/v1/UnitImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "UnitImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UnitImportBatch_Get",
@@ -14969,7 +14987,7 @@
             },
             "delete": {
                 "tags": [
-                    "UnitImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UnitImportBatch_Delete",
@@ -14993,7 +15011,7 @@
         "/integration/masterdata/v1/UserConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "UserConfigurationImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send user configurations that will be imported by the Medius master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
                 "operationId": "UserConfigurationImportBatch_Post",
@@ -15028,7 +15046,7 @@
         "/integration/masterdata/v1/UserConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "UserConfigurationImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserConfigurationImportBatch_Get",
@@ -15054,7 +15072,7 @@
             },
             "delete": {
                 "tags": [
-                    "UserConfigurationImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserConfigurationImportBatch_Delete",
@@ -15078,7 +15096,7 @@
         "/integration/masterdata/v1/UserImportBatches": {
             "post": {
                 "tags": [
-                    "UserImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The POST method allows the client to send users that will be imported by the Medius master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
                 "operationId": "UserImportBatch_Post",
@@ -15113,7 +15131,7 @@
         "/integration/masterdata/v1/UserImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "UserImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "operationId": "UserImportBatch_Get",
@@ -15139,7 +15157,7 @@
             },
             "delete": {
                 "tags": [
-                    "UserImportBatch"
+                    "Master data import"
                 ],
                 "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
                 "operationId": "UserImportBatch_Delete",
@@ -15163,7 +15181,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "VoucherMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method returns the voucher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
                 "operationId": "VoucherMessage_Get",
@@ -15200,7 +15218,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
             "get": {
                 "tags": [
-                    "VoucherMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method will return a status and an effective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
                 "operationId": "VoucherMessage_GetStatus",
@@ -15229,7 +15247,7 @@
         "/integration/message/v1/supplierinvoice/vouchers": {
             "post": {
                 "tags": [
-                    "VoucherMessage"
+                    "Supplier invoice message"
                 ],
                 "summary": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
                 "operationId": "VoucherMessage_Post",
@@ -15253,7 +15271,7 @@
         "/integration/payment/v1/paymentBatches": {
             "post": {
                 "tags": [
-                    "Payment batch import"
+                    "Payments"
                 ],
                 "summary": "The POST method allows the client to send payment batches that will be imported into Medius Pay to be approved and paid. When import fails, incorrect payment batch is saved in Import error inbox within Medius Pay.",
                 "operationId": "paymentBatches_Post",
@@ -15289,7 +15307,7 @@
             },
             "get": {
                 "tags": [
-                    "Reconciliation API"
+                    "Payments"
                 ],
                 "summary": "Get payment batch reconciliation status",
                 "operationId": "paymentBatches_Get_externalBatchId",
@@ -15320,7 +15338,7 @@
         "/integration/payment/v1/paymentBatches/{paymentBatchId}": {
             "get": {
                 "tags": [
-                    "Reconciliation API"
+                    "Payments"
                 ],
                 "summary": "Get payment batch reconciliation status",
                 "operationId": "paymentBatches_Get_paymentBatchId",
@@ -15351,7 +15369,7 @@
         "/integration/payment/v1/paymentBatches/{paymentBatchId}/items": {
             "get": {
                 "tags": [
-                    "Reconciliation API"
+                    "Payments"
                 ],
                 "summary": "Get payment items reconciliation status",
                 "operationId": "paymentBatches_Get_paymentBatchId_Items",
