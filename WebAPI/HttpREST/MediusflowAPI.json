@@ -10709,117 +10709,114 @@
             }
         },
         "PaymentItemReconciliationStatusResponse": {
-            "type": "array",
+            "type": "object",
             "xml": {
                 "name": "Item"
             },
-            "items": {
-                "type": "object",
-                "properties": {
-                    "Id": {
-                        "type": "integer",
-                        "example": 100
-                    },
-                    "PayorBankAccountIdentifier": {
-                        "type": "string",
-                        "maxLength": 50,
-                        "example": "Bank1",
-                        "description": "Internal bank identifier, defined during funding bank account setup in Medius Pay"
-                    },
-                    "PayeeName": {
-                        "type": "string",
-                        "maxLength": 100,
-                        "example": "Larson - Roob",
-                        "description": "Payee name - the same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
-                    },
-                    "PayeeId": {
-                        "type": "string",
-                        "maxLength": 50,
-                        "example": "sinid",
-                        "description": "Payee identifier - the same as SupplierId in Medius AP Automation. Should be unique to each payee. Restricted characters: /  ? # | "
-                    },
-                    "InvoiceNumber": {
-                        "type": "string",
-                        "maxLength": 50,
-                        "example": "2/2021",
-                        "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file"
-                    },
-                    "InvoiceDate": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2021-01-01T00:00:00Z"
-                    },
-                    "VoucherNumber": {
-                        "type": "string",
-                        "maxLength": 50,
-                        "example": "1519c142-c405-4753-bb2f-5fbec59375d4",
-                        "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments"
-                    },
-                    "InvoiceAmount": {
-                        "type": "number",
-                        "format": "double",
-                        "example": 732.43,
-                        "description": "Original invoice amount, may vary from paymentAmount in case of partial payments or short payment. Max 12 digital places including up to 2 decimal places"
-                    },
-                    "AmountToPay": {
-                        "type": "number",
-                        "format": "double",
-                        "example": 732.43,
-                        "description": "The amount paid for the invoice, may vary from invoice amount in case of partial payments or short payments"
-                    },
-                    "PaymentCurrency": {
-                        "type": "number",
-                        "format": "double",
-                        "example": 142.43,
-                        "description": "The amount paid in payment currency"
-                    },
-                    "PaidAmountInSettlementCurrency": {
-                        "type": "number",
-                        "format": "double",
-                        "example": 142.43,
-                        "description": "The amount paid in settlement currency"
-                    },
-                    "SettlementCurrency": {
-                        "type": "string",
-                        "maxLength": 3,
-                        "example": "USD",
-                        "description": "Currency in which vendor was paid. ISO Alfa 3 code"
-                    },
-                    "ExchangeRate": {
-                        "type": "number",
-                        "format": "double",
-                        "example": 142.43,
-                        "description": "Value of exchange rate"
-                    },
-                    "Fee": {
-                        "type": "number",
-                        "format": "double",
-                        "example": 142.43,
-                        "description": "Value of fee"
-                    },
-                    "FeeCurrency": {
-                        "type": "string",
-                        "maxLength": 3,
-                        "example": "USD",
-                        "description": "Currency in which fee was paid. ISO Alfa 3 code"
-                    },
-                    "PaymentMethod": {
-                        "type": "string",
-                        "maxLength": 50,
-                        "example": "Wire transfer",
-                        "description": "Payment method"
-                    },
-                    "PaymentDate": {
-                        "type": "string",
-                        "format": "date",
-                        "example": "2021-01-01T12:10:00Z"
-                    },
-                    "PaymentReference": {
-                        "type": "string",
-                        "maxLength": 13,
-                        "example": "P012701",
-                        "description": "Payment reference number or check number from the customers accounting system. Will be displayed on remittance advice"
-                    }
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "example": 100
+                },
+                "PayorBankAccountIdentifier": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "Bank1",
+                    "description": "Internal bank identifier, defined during funding bank account setup in Medius Pay"
+                },
+                "PayeeName": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "example": "Larson - Roob",
+                    "description": "Payee name - the same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
+                },
+                "PayeeId": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "sinid",
+                    "description": "Payee identifier - the same as SupplierId in Medius AP Automation. Should be unique to each payee. Restricted characters: /  ? # | "
+                },
+                "InvoiceNumber": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "2/2021",
+                    "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file"
+                },
+                "InvoiceDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2021-01-01T00:00:00Z"
+                },
+                "VoucherNumber": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "1519c142-c405-4753-bb2f-5fbec59375d4",
+                    "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments"
+                },
+                "InvoiceAmount": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 732.43,
+                    "description": "Original invoice amount, may vary from paymentAmount in case of partial payments or short payment. Max 12 digital places including up to 2 decimal places"
+                },
+                "AmountToPay": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 732.43,
+                    "description": "The amount paid for the invoice, may vary from invoice amount in case of partial payments or short payments"
+                },
+                "PaymentCurrency": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 142.43,
+                    "description": "The amount paid in payment currency"
+                },
+                "PaidAmountInSettlementCurrency": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 142.43,
+                    "description": "The amount paid in settlement currency"
+                },
+                "SettlementCurrency": {
+                    "type": "string",
+                    "maxLength": 3,
+                    "example": "USD",
+                    "description": "Currency in which vendor was paid. ISO Alfa 3 code"
+                },
+                "ExchangeRate": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 142.43,
+                    "description": "Value of exchange rate"
+                },
+                "Fee": {
+                    "type": "number",
+                    "format": "double",
+                    "example": 142.43,
+                    "description": "Value of fee"
+                },
+                "FeeCurrency": {
+                    "type": "string",
+                    "maxLength": 3,
+                    "example": "USD",
+                    "description": "Currency in which fee was paid. ISO Alfa 3 code"
+                },
+                "PaymentMethod": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "example": "Wire transfer",
+                    "description": "Payment method"
+                },
+                "PaymentDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2021-01-01T12:10:00Z"
+                },
+                "PaymentReference": {
+                    "type": "string",
+                    "maxLength": 13,
+                    "example": "P012701",
+                    "description": "Payment reference number or check number from the customers accounting system. Will be displayed on remittance advice"
                 }
             }
         }
@@ -15543,7 +15540,15 @@
                     "200": {
                         "description": "Batch headers",
                         "schema": {
-                            "$ref": "#/definitions/PaymentItemReconciliationStatusResponse"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/PaymentItemReconciliationStatusResponse"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "Items"
+                            }
+                            
                         }
                     },
                     "404": {
