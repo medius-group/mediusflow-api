@@ -15477,9 +15477,7 @@
                     "200": {
                         "description": "Collection of matching payment batches",
                         "schema": {
-                            "items": {
-                                "$ref": "#/definitions/PaymentBatchReconciliationStatusResponse"
-                            }
+                            "$ref": "#/definitions/PaymentBatchReconciliationStatusResponse"
                         }
                     }
                 }
