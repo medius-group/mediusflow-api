@@ -439,7 +439,8 @@
                 "UPDATE_OF_DEFAULT_CURRENCY_IS_NOT_POSSIBLE",
                 "NON_LEAF_LEVEL_CATEGORY",
                 "PURCHASE_ORDER_TOO_MANY_IDENTIFIERS",
-                "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES"
+                "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES",
+                "CATEGORY_NOT_FOUND"
             ],
             "enum": [
                 0,
@@ -587,7 +588,8 @@
                 142,
                 143,
                 144,
-                145
+                145,
+                146
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -810,6 +812,9 @@
                     "type": "boolean"
                 },
                 "MediusFlowSystemId": {
+                    "type": "string"
+                },
+                "GlobalId": {
                     "type": "string"
                 }
             }
@@ -2665,6 +2670,9 @@
                 "SupplierId": {
                     "type": "string"
                 },
+                "SupplierGlobalId": {
+                    "type": "string"
+                },
                 "CurrencyCode": {
                     "type": "string"
                 },
@@ -2708,6 +2716,9 @@
                     "type": "string"
                 },
                 "MediusFlowSystemId": {
+                    "type": "string"
+                },
+                "GlobalId": {
                     "type": "string"
                 },
                 "Amount": {
@@ -4926,6 +4937,9 @@
                         },
                         "$ref": "#/definitions/PaymentDetailsDto"
                     }
+                },
+                "GlobalId": {
+                    "type": "string"
                 }
             },
             "allOf": [
@@ -9901,8 +9915,8 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
-                "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
+                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "operationId": "PurchaseOrderRequestMessage_ExternalSystemSyncConfirmation",
                 "parameters": [
                     {
                         "name": "confirmationDto",
@@ -9925,8 +9939,8 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a purchase-oder-to-ERP or goods-receipt-note cancellation \nas a response to either the purchase-oder-to-ERP or the goods-receipt-note cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note cancellation message.",
-                "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnCancellation",
+                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "operationId": "PurchaseOrderRequestMessage_ExternalSystemSyncConfirmation2",
                 "parameters": [
                     {
                         "name": "confirmationDto",
