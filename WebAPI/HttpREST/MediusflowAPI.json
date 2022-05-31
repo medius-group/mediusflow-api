@@ -6871,6 +6871,14 @@
                 }
             }
         },
+        "ImportDocumentSupplierInvoiceFile" : {
+          "type": "string",
+          "xml":{
+            "wrapped": true,
+            "name": "Invoice",
+            "namespace": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+          }
+        },
         "InvoiceRequestDto": {
             "type": "object",
             "xml": {
@@ -10210,6 +10218,16 @@
                 }
             }
         },
+        "BadRequestInvalidFile": {
+          "type": "object",
+          "properties": {
+          "message": {
+              "type": "string",
+              "description": "Detailed error message.",
+              "example": "No valid file sent."
+              }
+          }
+      },
         "NotFound": {
             "type": "object",
             "properties": {
@@ -14354,6 +14372,43 @@
                 "responses": {
                     "200": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/documentImport/file/supplierinvoices/": {
+            "post": {
+                "tags": [
+                    "Document import"
+                ],
+                "summary": "The POST method uploads a PDF or XML invoice file from body to Capture.\nIt returns id of uploaded file.",
+                "operationId": "File_SupplierInvoice_Post",
+                "consumes":[
+                  "application/xml",
+                  "application/pdf"
+                ],
+                "parameters": [
+                    {
+                        "name": "invoice",
+                        "in": "body",
+                        "required": true,
+                        "x-nullable": false,
+                        "schema":{
+                          "type": "file",
+                          "$ref": "#/definitions/ImportDocumentSupplierInvoiceFile"
+                        },
+                        "description": "A PEPPOL BIS Billing 3.0 XML or PDF file containing invoice for Capture"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes the id of uploaded file"
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/BadRequestInvalidFile"
+                        },
+                        "description": "Bad Request"
                     }
                 }
             }
