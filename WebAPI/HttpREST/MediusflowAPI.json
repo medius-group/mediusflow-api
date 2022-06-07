@@ -2917,6 +2917,19 @@
                     "type": "string",
                     "format": "date-time"
                 },
+                "AdditionalOrderIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AdditionalOrderIdentifier",
+                            "wrapped": true
+                        }
+                    }
+                },
                 "ErpSourceId": {
                     "type": "string"
                 },
@@ -3727,6 +3740,19 @@
                             "name": "IntegrationPurchaseOrderCommentDto"
                         },
                         "$ref": "#/definitions/IntegrationPurchaseOrderCommentDto"
+                    }
+                },
+                "AdditionalOrderIdentifiers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AdditionalOrderIdentifier",
+                            "wrapped": true
+                        }
                     }
                 }
             }
@@ -7713,12 +7739,12 @@
                 "CashDiscountDueDate1": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Used when Cash Discount is available on from the Payment term."
+                    "description": "Used when Cash Discount is available from the Payment term."
                 },
                 "CashDiscountDueDate2": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Used when Cash Discount is available on from the Payment term."
+                    "description": "Used when Cash Discount is available from the Payment term."
                 },
                 "ReceivedDate": {
                     "type": "string",
