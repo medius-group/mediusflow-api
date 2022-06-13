@@ -6897,6 +6897,14 @@
                 }
             }
         },
+        "ImportDocumentSupplierInvoiceFile" : {
+            "type": "string",
+            "xml":{
+                "wrapped": true,
+                "name": "Invoice",
+                "namespace": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+            }
+        },
         "InvoiceRequestDto": {
             "type": "object",
             "xml": {
@@ -14440,6 +14448,41 @@
                 "responses": {
                     "201": {
                         "description": "Response includes Location header with a link to the import batch, this link will give the status of how the document is processing within Medius."
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/BadRequest"
+                        },
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/integration/documentImport/v1/file/supplierinvoices/": {
+            "post": {
+                "tags": [
+                    "Document import"
+                ],
+                "summary": "The POST method uploads a PDF or XML invoice file from body to Capture.\nIt returns id of uploaded file. Note: the self testing experience in Swagger UI is limited. It is only possible to paste the XML body. Please use Postman or other test tools to send in PDF and XML files as binary.",
+                "operationId": "File_SupplierInvoice_Post",
+                "consumes":[
+                  "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "invoice",
+                        "in": "body",
+                        "required": true,
+                        "x-nullable": false,
+                        "schema":{
+                          "$ref": "#/definitions/ImportDocumentSupplierInvoiceFile"
+                        },
+                        "description": "A PEPPOL BIS Billing 3.0 XML or PDF file containing invoice for Capture"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes the id of uploaded file"
                     },
                     "400": {
                         "schema": {
