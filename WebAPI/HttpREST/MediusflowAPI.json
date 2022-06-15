@@ -14477,7 +14477,7 @@
                         "schema":{
                           "$ref": "#/definitions/ImportDocumentSupplierInvoiceFile"
                         },
-                        "description": "A PEPPOL BIS Billing 3.0 XML or PDF file containing invoice for Capture"
+                        "description": "A PEPPOL BIS Billing 3.0 XML or PDF file containing invoice for Capture. Maximum file size is 50 MB."
                     },
                     {
                       "name": "companyGlobalId",
