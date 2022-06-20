@@ -14483,8 +14483,8 @@
                       "name": "companyGlobalId",
                       "in": "query",
                       "type":"string",
-                      "required": false,
-                      "x-nullable": true,
+                      "required": true,
+                      "x-nullable": false,
                       "description": "Unique company identifier"
                     },
                     {
