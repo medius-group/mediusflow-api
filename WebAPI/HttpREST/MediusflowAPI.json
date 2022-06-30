@@ -9323,12 +9323,28 @@
                 "Language": {
                     "type": "string",
                     "maxLength": 60,
-                    "description": "Default language for user. Example: 'SV-SE'"
+                    "description": "Default language for user. Example: English(US) 'en-US', Swedish 'sv'. See list for possible values.",
+                    "enum": [
+                        "zh-CN",
+                        "cs",
+                        "da",
+                        "nl",
+                        "en-US",
+                        "fi",
+                        "fr",
+                        "de",
+                        "hu",
+                        "ja",
+                        "no",
+                        "pl",
+                        "es",
+                        "sv"
+                    ]
                 },
                 "Format": {
                     "type": "string",
                     "maxLength": 60,
-                    "description": "Default format for user. Example: 'SV-SE'"
+                    "description": "Default format for user. Based on .NET CultureInfo code. Example: English (United kingdom) 'en-GB', English (United States) 'en-US', Swedish (Sweden) 'sv-SE'. List of possible values can be seen on User configuration in Medius AP Automation."
                 },
                 "DefaultCompany": {
                     "type": "string",
