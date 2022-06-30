@@ -10270,7 +10270,7 @@
                         "name": "PayorId"
                     },
                     "example": "Medius",
-                    "description": "Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+                    "description": "Same as one of the company identifiers from Medius AP Automation. In order to import payment batch, matching identifier must be found"
                 },
                 "externalBatchId": {
                     "type": "string",
@@ -10288,6 +10288,7 @@
                         "name": "Items",
                         "wrapped": true
                     },
+                    "description": "Adding items to the import batch is mandatory. The limit is 5000 items per batch.",
                     "items": {
                         "$ref": "#/definitions/PaymentItem"
                     }
@@ -10484,7 +10485,7 @@
                     "xml": {
                         "name": "Comment"
                     },
-                    "maxLength": 255,
+                    "maxLength": 80,
                     "example": "Comment for payee",
                     "description": "Comment for invoice from payor accounting system. Will be displayed on remittance advice"
                 },
@@ -10712,33 +10713,60 @@
                 "Status"
             ],
             "properties": {
-                "Id": {
+                "id": {
                     "type": "integer",
                     "format": "int",
+                    "xml": {
+                        "name": "Id"
+                    },
                     "example": 123,
                     "description": "Payment batch id" 
                 },
-                "ExternalBatchId": {
+                "externalBatchId": {
                     "type": "string",
                     "format": "string",
+                    "xml": {
+                        "name": "ExternalBatchId"
+                    },
                     "example": "aa123",
                     "description": "External payment batch id"
                 },
-                "ImportDateTime": {
+                "importDateTime": {
                     "type": "string",
                     "format": "date",
+                    "xml": {
+                        "name": "ImportDateTime"
+                    },
                     "example": "2021-01-01T12:00:00Z",
                     "description": "Date and time of payment batch import"
                 },
-                "PayorId": {
+                "payorId": {
                     "type": "string",
+                    "xml": {
+                        "name": "PayorId"
+                    },
                     "example": "Medius",
                     "description": "Payor id"
                 },
-                "Status": {
+                "status": {
                     "type": "string",
+                    "xml": {
+                        "name": "Status"
+                    },
                     "example": "AwaitingApproval",
-                    "description": "Possible statuses: New, AwaitingApproval, PaymentInProgress, SentForPayment, Paid, Rejected, ImportDataError, ReadyForPayment, PaymentFailed, ReloadingPaymentInformation"
+                    "description": "Possible statuses, see list.",
+                    "enum": [
+                        "Processing",
+                        "AwaitingApproval",
+                        "PaymentInProgress",
+                        "SentForPayment",
+                        "Paid",
+                        "Rejected",
+                        "ImportDataError",
+                        "ReadyForPayment",
+                        "PaymentFailed",
+                        "ReloadingPaymentInformation"
+                    ]
                 }
             }
         },
@@ -10748,109 +10776,196 @@
                 "name": "Item"
             },
             "properties": {
-                "Id": {
+                "id": {
                     "type": "integer",
+                    "xml": {
+                        "name": "Id"
+                    },
                     "example": 100
                 },
-                "PayorBankAccountIdentifier": {
+                "payorBankAccountIdentifier": {
                     "type": "string",
+                    "xml": {
+                        "name": "PayorBankAccountIdentifier"
+                    },
                     "maxLength": 50,
                     "example": "Bank1",
                     "description": "Internal bank identifier, defined during funding bank account setup in Medius Pay"
                 },
-                "PayeeName": {
+                "payeeName": {
                     "type": "string",
+                    "xml": {
+                        "name": "PayeeName"
+                    },
                     "maxLength": 100,
                     "example": "Larson - Roob",
                     "description": "Payee name - the same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
                 },
-                "PayeeId": {
+                "payeeId": {
                     "type": "string",
+                    "xml": {
+                        "name": "PayeeId"
+                    },
                     "maxLength": 50,
                     "example": "sinid",
                     "description": "Payee identifier - the same as SupplierId in Medius AP Automation. Should be unique to each payee. Restricted characters: /  ? # | "
                 },
-                "InvoiceNumber": {
+                "invoiceNumber": {
                     "type": "string",
+                    "xml": {
+                        "name": "InvoiceNumber"
+                    },
                     "maxLength": 50,
                     "example": "2/2021",
                     "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file"
                 },
-                "InvoiceDate": {
+                "invoiceDate": {
                     "type": "string",
                     "format": "date",
+                    "xml": {
+                        "name": "InvoiceDate"
+                    },
                     "example": "2021-01-01T00:00:00Z"
                 },
-                "VoucherNumber": {
+                "voucherNumber": {
                     "type": "string",
+                    "xml": {
+                        "name": "VoucherNumber"
+                    },
                     "maxLength": 50,
                     "example": "1519c142-c405-4753-bb2f-5fbec59375d4",
                     "description": "Voucher number from ERP, used to validate inside a single batch and between batches for possible duplicate payments"
                 },
-                "InvoiceAmount": {
+                "invoiceAmount": {
                     "type": "number",
                     "format": "double",
+                    "xml": {
+                        "name": "InvoiceAmount"
+                    },
                     "example": 732.43,
                     "description": "Original invoice amount, may vary from paymentAmount in case of partial payments or short payment. Max 12 digital places including up to 2 decimal places"
                 },
-                "AmountToPay": {
+                "amountToPay": {
                     "type": "number",
                     "format": "double",
+                    "xml": {
+                        "name": "AmountToPay"
+                    },
                     "example": 732.43,
                     "description": "The amount paid for the invoice, may vary from invoice amount in case of partial payments or short payments"
                 },
-                "PaymentCurrency": {
+                "paymentCurrency": {
                     "type": "number",
                     "format": "double",
+                    "xml": {
+                        "name": "PaymentCurrency"
+                    },
                     "example": 142.43,
                     "description": "The amount paid in payment currency"
                 },
-                "PaidAmountInSettlementCurrency": {
+                "paidAmountInSettlementCurrency": {
                     "type": "number",
                     "format": "double",
+                    "xml": {
+                        "name": "PaidAmountInSettlementCurrency"
+                    },
                     "example": 142.43,
                     "description": "The amount paid in settlement currency"
                 },
-                "SettlementCurrency": {
+                "settlementCurrency": {
                     "type": "string",
+                    "xml": {
+                        "name": "SettlementCurrency"
+                    },
                     "maxLength": 3,
                     "example": "USD",
                     "description": "Currency in which vendor was paid. ISO Alfa 3 code"
                 },
-                "ExchangeRate": {
+                "exchangeRate": {
                     "type": "number",
                     "format": "double",
+                    "xml": {
+                        "name": "ExchangeRate"
+                    },
                     "example": 142.43,
                     "description": "Value of exchange rate"
                 },
-                "Fee": {
+                "fee": {
                     "type": "number",
                     "format": "double",
+                    "xml": {
+                        "name": "Fee"
+                    },
                     "example": 142.43,
                     "description": "Value of fee"
                 },
-                "FeeCurrency": {
+                "feeCurrency": {
                     "type": "string",
+                    "xml": {
+                        "name": "FeeCurrency"
+                    },
                     "maxLength": 3,
                     "example": "USD",
                     "description": "Currency in which fee was paid. ISO Alfa 3 code"
                 },
-                "PaymentMethod": {
+                "paymentMethod": {
                     "type": "string",
+                    "xml": {
+                        "name": "PaymentMethod"
+                    },
                     "maxLength": 50,
                     "example": "Wire transfer",
                     "description": "Payment method"
                 },
-                "PaymentDate": {
+                "paymentDate": {
                     "type": "string",
                     "format": "date",
+                    "xml": {
+                        "name": "PaymentDate"
+                    },
                     "example": "2021-01-01T12:10:00Z"
                 },
-                "PaymentReference": {
+                "paymentReference": {
                     "type": "string",
+                    "xml": {
+                        "name": "PaymentReference"
+                    },
                     "maxLength": 13,
                     "example": "P012701",
                     "description": "Payment reference number or check number from the customers accounting system. Will be displayed on remittance advice"
+                },
+                "status": {
+                    "type": "string",
+                    "xml": {
+                        "name": "Status"
+                    },
+                    "example": "AwaitingApproval",
+                    "description": "Possible statuses, see list.",
+                    "enum": [
+                        "New",
+                        "AwaitingApproval",
+                        "PaymentInProgress",
+                        "SentForPayment",
+                        "AwaitingFunds",
+                        "FundsReceived",
+                        "Paid",
+                        "Rejected",
+                        "ReadyForPayment",
+                        "PaymentFailed",
+                        "ReloadingPaymentInformation",
+                        "Cancelled",
+                        "Recalled",
+                        "Issued"
+                    ]
+                },
+                "checkNumber": {
+                    "type": "string",
+                    "xml": {
+                        "name": "CheckNumber"
+                    },
+                    "maxLength": 500,
+                    "example": "0000000001",
+                    "description": "Provided only for payments processed with payment method check"
                 }
             }
         }
@@ -15522,7 +15637,7 @@
                 ],
                 "summary": "The POST method allows the client to send payment batches that will be imported into Medius Pay to be approved and paid. When import fails, incorrect payment batch is saved in Import error inbox within Medius Pay.",
                 "operationId": "paymentBatches_Post",
-                "description": "This API has region settings. Here we list all possible parameters without consideration of the region. To see and test region specific API, please see https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#region.",
+                "description": "This API has region settings. Here we list all possible parameters without consideration of the region. To see and test region specific API, please see the [Success portal](https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#region) or use the direct links below to specific API:  \n [Direct link to EU region](https://cloud.mediusflow.com/dummytenant/api/documentation/index.html?url=https://cloud.mediusflow.com/dummytenant/api/swagger/payEU/) \n [Direct link to US region](https://cloud.mediusflow.com/dummytenant/api/documentation/index.html?url=https://cloud.mediusflow.com/dummytenant/api/swagger/payUS/) \n Note: Please change tenant name in the URL for a complete testing experience.",
                 "parameters": [
                     {
                         "in": "body",

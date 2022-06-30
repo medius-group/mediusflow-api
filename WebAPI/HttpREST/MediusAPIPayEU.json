@@ -55,7 +55,7 @@
             "name": "PayorId"
           },
           "example": "Medius",
-          "description": "Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+          "description": "Same as one of the company identifiers from Medius AP Automation. In order to import payment batch, matching identifier must be found"
         },
         "externalBatchId": {
           "type": "string",
@@ -73,6 +73,7 @@
             "name": "Items",
             "wrapped": true
           },
+          "description": "Adding items to the import batch is mandatory. The limit is 5000 items per batch.",
           "items": {
             "$ref": "#/definitions/PaymentItem"
           }
@@ -176,7 +177,7 @@
           },
           "maxLength": 10,
           "example": "89262-8263",
-          "description": "Zip or Postal Code of the payee"
+          "description": "Zip or Postal Code of the payee. __Note:__ required for international payments."
         },
         "payeeStateCode": {
           "type": "string",
@@ -185,7 +186,7 @@
           },
           "maxLength": 2,
           "example": "RI",
-          "description": "State of the payee. ISO Alfa 2 code. Required for US and Canadian payments."
+          "description": "State of the payee. ISO Alfa 2 code. __Note:__ required for international payments."
         },
         "payeeCountryCode": {
           "type": "string",
@@ -255,7 +256,7 @@
           "xml": {
             "name": "Comment"
           },
-          "maxLength": 255,
+          "maxLength": 80,
           "example": "Comment for payee",
           "description": "Comment for invoice from payor accounting system for information purposes during batch authorization process."
         },

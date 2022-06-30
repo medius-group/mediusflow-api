@@ -55,7 +55,7 @@
             "name": "PayorId"
           },
           "example": "Medius",
-          "description": "Same as Company Id in Medius AP Automation. In order to import payment batch, matching identifier must be found"
+          "description": "Same as one of the company identifiers from Medius AP Automation. In order to import payment batch, matching identifier must be found"
         },
         "externalBatchId": {
           "type": "string",
@@ -73,6 +73,7 @@
             "name": "Items",
             "wrapped": true
           },
+          "description": "Adding items to the import batch is mandatory. The limit is 5000 items per batch.",
           "items": {
             "$ref": "#/definitions/PaymentItem"
           }
@@ -273,7 +274,7 @@
           "xml": {
             "name": "Comment"
           },
-          "maxLength": 255,
+          "maxLength": 80,
           "example": "Comment for payee",
           "description": "Comment for invoice from payor accounting system. Will be displayed on the check and remittance advice."
         },
@@ -407,7 +408,7 @@
           "xml": {
             "name": "PaymentReference"
           },
-          "maxLength": 50,
+          "maxLength": 30,
           "example": "P012701",
           "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice. Note: If not specified, will be generated during payment process. If generated during payment process, there will be one payment reference for all invoices to be paid to a single payee."
         },
