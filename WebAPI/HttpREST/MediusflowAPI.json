@@ -8298,6 +8298,15 @@
                     "type": "string",
                     "maxLength": 450,
                     "description": "ExternalSystemId to indicated purchase order line."
+                },
+                "ExternalPurchaseOrderLineNumber": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Used with Procurement module. Purchase order line number from external system. Fetched from the procurement purchase order."
+                },
+                "IsSynchronizedWithExternalSystem": {
+                    "type": "boolean",
+                    "description": "Used with Procurement module. Indicates that the purchase order has been synchronized with external system."
                 }
             }
         },
@@ -8513,6 +8522,15 @@
                 "DeliveryLineIsFictive": {
                     "type": "boolean",
                     "description": "If the delivery line is fictive or not. Default false."
+                },
+                "ExternalDeliveryNumber": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Used with Procurement module. Delivery number from external system. Fetched from the procurement purchase order."
+                },
+                "IsSynchronizedWithExternalSystem": {
+                    "type": "boolean",
+                    "description": "Used with Procurement module. Indicates that the delivery line has been synchronized with external system."
                 }
             }
         },
