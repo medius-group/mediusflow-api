@@ -440,7 +440,9 @@
                 "NON_LEAF_LEVEL_CATEGORY",
                 "PURCHASE_ORDER_TOO_MANY_IDENTIFIERS",
                 "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES",
-                "CATEGORY_NOT_FOUND"
+                "CATEGORY_NOT_FOUND",
+                "COMPANY_ALREADY_EXIST",
+                "SUPPLIER_ALREADY_EXIST"
             ],
             "enum": [
                 0,
@@ -589,7 +591,9 @@
                 143,
                 144,
                 145,
-                146
+                146,
+                147,
+                148
             ]
         },
         "ActualPaymentDateResponseDto": {
