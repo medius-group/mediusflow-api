@@ -1,19 +1,23 @@
 {
     "swagger": "2.0",
     "info": {
+        "description": "Beneath are the full list of available API:s in your environment. Please use the tools below to try it out! Remember to activate the SwaggerUI client application in Medius([click here](../../#Administration/Medius.Core.Entities.Api.ClientApplication))",
         "title": "Medius Web API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "termsOfService": "http://www.medius.com"
     },
-    "host": "localhost:19310",
+    "host": "cloud.mediusflow.com",
     "basePath": "/MainTenantManager",
     "schemes": [
         "https"
     ],
     "consumes": [
-        "application/json"
+        "application/json",
+        "application/xml"
     ],
     "produces": [
-        "application/json"
+        "application/json",
+        "application/xml"
     ],
     "definitions": {
         "IntegrationAccrualTemplateDto": {
@@ -511,7 +515,10 @@
                 "UPDATE_OF_DEFAULT_CURRENCY_IS_NOT_POSSIBLE",
                 "NON_LEAF_LEVEL_CATEGORY",
                 "PURCHASE_ORDER_TOO_MANY_IDENTIFIERS",
-                "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES"
+                "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES",
+                "CATEGORY_NOT_FOUND",
+                "COMPANY_ALREADY_EXIST",
+                "SUPPLIER_ALREADY_EXIST"
             ],
             "enum": [
                 0,
@@ -659,7 +666,10 @@
                 142,
                 143,
                 144,
-                145
+                145,
+                146,
+                147,
+                148
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -882,6 +892,9 @@
                     "type": "boolean"
                 },
                 "MediusFlowSystemId": {
+                    "type": "string"
+                },
+                "GlobalId": {
                     "type": "string"
                 }
             }
@@ -2854,6 +2867,9 @@
                 "SupplierId": {
                     "type": "string"
                 },
+                "SupplierGlobalId": {
+                    "type": "string"
+                },
                 "CurrencyCode": {
                     "type": "string"
                 },
@@ -2867,6 +2883,9 @@
                     "type": "string"
                 },
                 "CompanyName": {
+                    "type": "string"
+                },
+                "CompanyGlobalId": {
                     "type": "string"
                 },
                 "PurchaseOrderLines": {
@@ -2894,6 +2913,9 @@
                     "type": "string"
                 },
                 "MediusFlowSystemId": {
+                    "type": "string"
+                },
+                "GlobalId": {
                     "type": "string"
                 },
                 "Amount":{
@@ -3718,6 +3740,19 @@
                         "M"
                     ]
                 },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
                 "PurchaseOrderLines": {
                     "type": "array",
                     "xml": {
@@ -3986,6 +4021,19 @@
                     "type": "number",
                     "format": "decimal",
                     "description": "Only for two-way match. When used, Medius can keep track of invoiced quantity in the case of two-way match."
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -4222,6 +4270,35 @@
                     "type": "string",
                     "maxLength": 450,
                     "description": "ExternalSystemId to PurchaseOrderLine to which this delivery line should be connected to. Only used when doing a goods receipt import without PO header and PO line."
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                }
+            }
+        },
+        "ExternalSystemMetadataEntry": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "maxLength": 25,
+                    "description": "Name of the entry key. Custom value that will pass through Medius. The value will be available in the supplier invoice posting message."
+                },
+                "Value": {
+                    "type": "string",
+                    "maxLength": 350,
+                    "description": "Custom value that will pass through Medius. The value will be available in the supplier invoice posting message."
                 }
             }
         },
@@ -5087,6 +5164,19 @@
                         "$ref": "#/definitions/CodingDto"
                     }
                 },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
                 "IsTwoWayMatch": {
                     "type": "boolean"
                 },
@@ -5196,6 +5286,19 @@
                 },
                 "OriginGoodsReceiptNoteReferenceNumber": {
                     "type": "string"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -5345,6 +5448,19 @@
                 "ExternalOrderNumber": {
                     "type": "string"
                 },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
                 "Lines": {
                     "type": "array",
                     "xml": {
@@ -5373,6 +5489,19 @@
                 },
                 "ExternalOrderLineNumber": {
                     "type": "string"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -5414,6 +5543,19 @@
                 },
                 "ExternalDeliveryNumber": {
                     "type": "string"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -5999,6 +6141,9 @@
                 "CompanyName": {
                     "type": "string"
                 },
+                "CompanyGlobalId": {
+                    "type": "string"
+                },
                 "StreetAddress": {
                     "type": "string"
                 },
@@ -6052,6 +6197,9 @@
                         },
                         "$ref": "#/definitions/PaymentDetailsDto"
                     }
+                },
+                "GlobalId": {
+                    "type": "string"
                 }
             },
             "allOf": [
@@ -8307,6 +8455,30 @@
                 "IsSynchronizedWithExternalSystem": {
                     "type": "boolean",
                     "description": "Used with Procurement module. Indicates that the purchase order has been synchronized with external system."
+                },
+                "PurchaseOrderExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
+                },
+                "PurchaseOrderLineExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -8531,6 +8703,19 @@
                 "IsSynchronizedWithExternalSystem": {
                     "type": "boolean",
                     "description": "Used with Procurement module. Indicates that the delivery line has been synchronized with external system."
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "description": "ExternalSystemMetadata is a custom property that allows you to transfer data between systems. ExternalSystemMetadata is not accessible from the GUI, but is rather used for information or identifiers that need to be passed through Medius.",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry"
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntry"
+                    }
                 }
             }
         },
@@ -11054,7 +11239,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11274,7 +11459,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11359,7 +11544,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11444,7 +11629,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11529,7 +11714,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11592,7 +11777,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11677,7 +11862,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -11762,7 +11947,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -12081,7 +12266,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -12221,7 +12406,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -12341,7 +12526,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -12479,7 +12664,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -14146,7 +14331,7 @@
                 "tags": [
                     "Procurement messages"
                 ],
-                "summary": "This method accepts a purchase-order-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-order-to-ERP or the goods-receipt-note message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "summary": "This method accepts a purchase-order-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-order-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
                 "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
                 "parameters": [
                     {
@@ -14214,7 +14399,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -14298,7 +14483,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -14361,7 +14546,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -14505,7 +14690,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -15248,7 +15433,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -15368,7 +15553,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -15453,7 +15638,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -15538,7 +15723,7 @@
                         "in": "path",
                         "required": true,
                         "x-nullable": false,
-                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the Medius master data import queue"
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
                     }
                 ],
                 "responses": {
@@ -15799,5 +15984,9 @@
                 }
             }
         }
+    },
+    "externalDocs": {
+        "description": "Find out more information in the success portal",
+        "url": "https://success.mediusflow.com/documentation/integration-documentation/technical/rest/general/"
     }
 }
