@@ -518,7 +518,8 @@
                 "PURCHASE_ORDER_IDENTIFIERS_CONTAIN_DUPLICATES",
                 "CATEGORY_NOT_FOUND",
                 "COMPANY_ALREADY_EXIST",
-                "SUPPLIER_ALREADY_EXIST"
+                "SUPPLIER_ALREADY_EXIST",
+                "LOCAL_DATETIME"
             ],
             "enum": [
                 0,
@@ -669,7 +670,8 @@
                 145,
                 146,
                 147,
-                148
+                148,
+                149
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -4288,6 +4290,9 @@
         },
         "ExternalSystemMetadataEntry": {
             "type": "object",
+            "xml": {
+                "name": "ExternalSystemMetadataEntry"
+            },
             "additionalProperties": false,
             "properties": {
                 "Name": {
@@ -6402,7 +6407,7 @@
                 "PaymentTerm": {
                     "type": "string",
                     "maxLength": 100,
-                    "description": "User-presented description of payment details"
+                    "description": "ExternalSystemId to corresponding entity"
                 },
                 "DeliveryTerm": {
                     "type": "string",
