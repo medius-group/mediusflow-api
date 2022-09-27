@@ -443,7 +443,15 @@
                 "CATEGORY_NOT_FOUND",
                 "COMPANY_ALREADY_EXIST",
                 "SUPPLIER_ALREADY_EXIST",
-                "LOCAL_DATETIME"
+                "LOCAL_DATETIME",
+                "AUTHORIZATION_GROUP_WITH_NAME_AND_COMPANY_ALREADY_EXIST",
+                "AUTHORIZATION_GROUP_CANNOT_UPDATE_COMPANY",
+                "DOCUMENTTYPE_NOT_FOUND",
+                "AUTHORIZATION_GROUP_CANNOT_UPDATE_CURRENCY",
+                "AUTHORIZATION_GROUP_SUPPLIER_DOES_NOT_EXIST_IN_COMPANY_TREE",
+                "AUTHORIZATION_GROUP_DIMENSION_DOES_NOT_EXIST",
+                "AUTHORIZATION_GROUP_CREDITLIMIT_MUST_BE_NEGATIVE",
+                "AUTHORIZATION_GROUP_DEBITLIMIT_MUST_BE_POSITIVE"
             ],
             "enum": [
                 0,
@@ -595,7 +603,15 @@
                 146,
                 147,
                 148,
-                149
+                149,
+                150,
+                151,
+                152,
+                153,
+                154,
+                155,
+                156,
+                157
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -710,6 +726,160 @@
                     "type": "string"
                 },
                 "Status": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationAuthorizationGroupDto": {
+            "type": "object",
+            "xml": {
+                "name": "AuthorizationGroup"
+            },
+            "additionalProperties": false,
+            "required": [
+                "ExternalSystemId",
+                "IsActive",
+                "CompanyId",
+                "Name"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string"
+                },
+                "ExternalSystemId": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "boolean"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "DocumentTypes": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "DocumentType",
+                            "wrapped": true
+                        }
+                    }
+                },
+                "GeneralDebitLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "GeneralDebitUnlimited": {
+                    "type": "boolean"
+                },
+                "GeneralCreditLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "GeneralCreditUnlimited": {
+                    "type": "boolean"
+                },
+                "DeviationDebitLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeviationDebitUnlimited": {
+                    "type": "boolean"
+                },
+                "DeviationCreditLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DeviationCreditUnlimited": {
+                    "type": "boolean"
+                },
+                "DimensionPermissions": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationDimensionPermissionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationDimensionPermissionDto"
+                    }
+                }
+            }
+        },
+        "IntegrationDimensionPermissionDto": {
+            "type": "object",
+            "xml": {
+                "name": "DimensionPermission"
+            },
+            "additionalProperties": false,
+            "required": [
+                "DimensionName"
+            ],
+            "properties": {
+                "DebitLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DebitUnlimited": {
+                    "type": "boolean"
+                },
+                "CreditLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CreditUnlimited": {
+                    "type": "boolean"
+                },
+                "ApprovalRights": {
+                    "type": "boolean"
+                },
+                "CodingRights": {
+                    "type": "boolean"
+                },
+                "DimensionName": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                },
+                "ExceptionPermissions": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationExceptionPermissionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationExceptionPermissionDto"
+                    }
+                }
+            }
+        },
+        "IntegrationExceptionPermissionDto": {
+            "type": "object",
+            "xml": {
+                "name": "ExceptionPermission"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Description": {
+                    "type": "string"
+                },
+                "Value": {
                     "type": "string"
                 }
             }
@@ -7298,27 +7468,6 @@
                 }
             }
         },
-        "IntegrationAuthorizationGroupDto": {
-            "type": "object",
-            "xml": {
-                "name": "AuthorizationGroup"
-            },
-            "additionalProperties": false,
-            "required": [
-                "ToBeRemoved"
-            ],
-            "properties": {
-                "CompanyId": {
-                    "type": "string"
-                },
-                "AuthorizationGroupName": {
-                    "type": "string"
-                },
-                "ToBeRemoved": {
-                    "type": "boolean"
-                }
-            }
-        },
         "IntegrationFollowupGroupDto": {
             "type": "object",
             "xml": {
@@ -7818,6 +7967,87 @@
                 "responses": {
                     "201": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/AuthorizationGroupImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "AuthorizationGroupBatchImportBatch"
+                ],
+                "summary": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "operationId": "AuthorizationGroupBatchImportBatch_Get",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "AuthorizationGroupBatchImportBatch"
+                ],
+                "summary": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Mediusflow. it's only possible to remove items that are not in a running state.",
+                "operationId": "AuthorizationGroupBatchImportBatch_Delete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the XI master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/AuthorizationGroupImportBatches": {
+            "post": {
+                "tags": [
+                    "AuthorizationGroupBatchImportBatch"
+                ],
+                "summary": "The POST method allows the client to send authorization groups that will be imported by the Mediusflow master data import queue.\nThe authorization groups have company and currency prerequisite.",
+                "operationId": "AuthorizationGroupBatchImportBatch_Post",
+                "parameters": [
+                    {
+                        "name": "authorizationGroupDtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "IntegrationAuthorizationGroupDto"
+                                },
+                                "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The authorization groups to import"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within XI"
                     }
                 }
             }
