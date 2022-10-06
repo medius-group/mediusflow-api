@@ -802,6 +802,18 @@
                 "DeviationCreditUnlimited": {
                     "type": "boolean"
                 },
+                "SupplierPermissions": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationSupplierPermissionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationSupplierPermissionDto"
+                    }
+                },
                 "DimensionPermissions": {
                     "type": "array",
                     "xml": {
@@ -813,6 +825,35 @@
                         },
                         "$ref": "#/definitions/IntegrationDimensionPermissionDto"
                     }
+                }
+            }
+        },
+        "IntegrationSupplierPermissionDto": {
+            "type": "object",
+            "xml": {
+                "name": "SupplierPermission"
+            },
+            "additionalProperties": false,
+            "required": [
+                "SupplierId"
+            ],
+            "properties": {
+                "DebitLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "DebitUnlimited": {
+                    "type": "boolean"
+                },
+                "CreditLimit": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CreditUnlimited": {
+                    "type": "boolean"
+                },
+                "SupplierId": {
+                    "type": "string"
                 }
             }
         },
@@ -4306,9 +4347,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "",
-                            "wrapped": true,
-                            "namespace": "PurchaseOrderConfirmation"
+                            "name": "PurchaseOrderLineConfirmationDto"
                         },
                         "$ref": "#/definitions/PurchaseOrderLineConfirmationDto"
                     }
@@ -4318,7 +4357,7 @@
         "PurchaseOrderLineConfirmationDto": {
             "type": "object",
             "xml": {
-                "name": "Line"
+                "name": "PurchaseOrderLineConfirmation"
             },
             "additionalProperties": false,
             "properties": {
@@ -4359,9 +4398,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "",
-                            "wrapped": true,
-                            "namespace": "GoodsReceiptNoteConfirmation"
+                            "name": "GoodsReceiptNoteLineConfirmationDto"
                         },
                         "$ref": "#/definitions/GoodsReceiptNoteLineConfirmationDto"
                     }
@@ -4371,7 +4408,7 @@
         "GoodsReceiptNoteLineConfirmationDto": {
             "type": "object",
             "xml": {
-                "name": "Line"
+                "name": "GoodsReceiptNoteLineConfirmation"
             },
             "additionalProperties": false,
             "properties": {
@@ -4934,6 +4971,12 @@
                 },
                 "SendPurchaseOrderAsPdf": {
                     "type": "boolean"
+                },
+                "RegisterGoodsReceiptType": {
+                    "xml": {
+                        "name": "RegisterGoodsReceiptType"
+                    },
+                    "$ref": "#/definitions/RegisterGoodsReceiptType"
                 }
             }
         },
@@ -4981,6 +5024,20 @@
                     "type": "string"
                 }
             }
+        },
+        "RegisterGoodsReceiptType": {
+            "type": "integer",
+            "description": "",
+            "x-enumNames": [
+                "Yes_ThreeWayMatch",
+                "Yes_ExceptForService",
+                "No_TwoWayMatch"
+            ],
+            "enum": [
+                0,
+                1,
+                2
+            ]
         },
         "SupplierExportPageDto": {
             "type": "object",
