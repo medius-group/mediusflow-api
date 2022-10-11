@@ -8200,7 +8200,7 @@
                         "format": "int32",
                         "description": "Reference to LineNumber in POConnectionLines.",
                         "xml": {
-                            "name": "Int32"
+                            "name": "int"
                         }
                     }
                 },
@@ -8592,7 +8592,7 @@
                         "format": "int32",
                         "description": "Reference to connected coding line number.",
                         "xml": {
-                            "name": "Int32"
+                            "name": "int"
                         }
                     }
                 },
@@ -8806,7 +8806,7 @@
                         "format": "int32",
                         "description": "Reference to LineNumber in POConnectionLines.",
                         "xml": {
-                            "name": "Int32"
+                            "name": "int"
                         }
                     }
                 },
@@ -8821,7 +8821,7 @@
                         "format": "int32",
                         "description": "Reference to connected coding line number.",
                         "xml": {
-                            "name": "Int32"
+                            "name": "int"
                         }
                     }
                 }
@@ -9907,10 +9907,20 @@
                     "maxLength": 450,
                     "description": "Invoice number"
                 },
+                "DocumentFormat": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Format of the invoice. To administrate and list possible values, see 'Administration/Document source management' in APA."
+                },
+                "DocumentProvider": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Provider of the invoice. To administrate and list possible values, see 'Administration/Document source management' in APA."
+                },
                 "DocumentSource": {
                     "type": "string",
                     "maxLength": 450,
-                    "description": "Indicates how the invoice was created.",
+                    "description": "Obsolete. When 'DocumentFormat' and 'DocumentProvider' is used, 'DocumentSource' is set automatically.",
                     "enum": [
                         "Unknown",
                         "Paper",
@@ -10053,6 +10063,19 @@
                             "name": "EdiCodingLineDto"
                         },
                         "$ref": "#/definitions/EdiCodingLineDto"
+                    }
+                },
+                "SplitTaxLines": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "description": "For information on how to set-up Split tax, see Success documentation.",
+                    "items": {
+                        "xml": {
+                            "name": "EdiSplitTaxLineDto"
+                        },
+                        "$ref": "#/definitions/EdiSplitTaxLineDto"
                     }
                 },
                 "CustomTaxFields": {
@@ -10374,6 +10397,35 @@
                         "name": "Dimensions"
                     },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                }
+            }
+        },
+        "EdiSplitTaxLineDto": {
+            "type": "object",
+            "xml": {
+                "name": "EdiSplitTaxLine"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "TaxCode": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Name of tax code. See Success documentation for further information on Split tax."
+                },
+                "TaxPercentage": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Tax percentage. See Success documentation for further information on Split tax. Decimal format (19,5)."
+                },
+                "NetAmount": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Net amount of the tax line. See Success documentation for further information on Split tax. Decimal format (28,14)."
+                },
+                "TaxAmount": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Tax amount of the tax line. See Success documentation for further information on Split tax. Decimal format (28,14)."
                 }
             }
         },
