@@ -855,7 +855,7 @@
                     },
                     "items": {
                         "type": "string",
-                        "description": "Type of document the authorization group will be connected to.",
+                        "description": "Type of document the authorization group will be connected to. Defaults to 'Document' if not provided.",
                         "xml": {
                             "name": "DocumentType",
                             "wrapped": true
@@ -863,11 +863,12 @@
                         "enum": [
                             "Document",
                             "Invoice",
-                            "Expense invoice",
-                            "Payment request",
-                            "Order based invoice",
-                            "Purchase requisition",
-                            "Supplier invoice"
+                            "SupplierInvoice",
+                            "ExpenseInvoice",
+                            "OrderbasedInvoice",
+                            "PaymentRequest",
+                            "PurchaseRequisition",
+                            "ContractbasedInvoice"
                         ]
                     }
                 },
@@ -11710,7 +11711,7 @@
                 "tags": [
                     "Master data import"
                 ],
-                "summary": "",
+                "summary": "Beta feature. Only available for Pilot customers.",
                 "operationId": "AuthorizationGroupBatchImportBatch_Get",
                 "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
                 "parameters": [
@@ -11762,7 +11763,7 @@
                 "tags": [
                     "Master data import"
                 ],
-                "summary": "",
+                "summary": "Beta feature. Only available for Pilot customers.",
                 "operationId": "AuthorizationGroupBatchImportBatch_Post",
                 "description": "The POST method allows the client to send authorization groups that will be imported by the Medius master data import queue.\nThe authorization groups have company and currency prerequisite.\n\n For detailed information on authorization group set-up, see [Success portal](https://success.medius.com/documentation/administration_guide/administration_pages/authorization_groups/)",
                 "parameters": [
