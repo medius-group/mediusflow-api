@@ -519,7 +519,15 @@
                 "CATEGORY_NOT_FOUND",
                 "COMPANY_ALREADY_EXIST",
                 "SUPPLIER_ALREADY_EXIST",
-                "LOCAL_DATETIME"
+                "LOCAL_DATETIME",
+                "AUTHORIZATION_GROUP_WITH_NAME_AND_COMPANY_ALREADY_EXIST",
+                "AUTHORIZATION_GROUP_CANNOT_UPDATE_COMPANY",
+                "DOCUMENTTYPE_NOT_FOUND",
+                "AUTHORIZATION_GROUP_CANNOT_UPDATE_CURRENCY",
+                "AUTHORIZATION_GROUP_SUPPLIER_DOES_NOT_EXIST_IN_COMPANY_TREE",
+                "AUTHORIZATION_GROUP_DIMENSION_DOES_NOT_EXIST",
+                "AUTHORIZATION_GROUP_CREDITLIMIT_MUST_BE_NEGATIVE",
+                "AUTHORIZATION_GROUP_DEBITLIMIT_MUST_BE_POSITIVE"
             ],
             "enum": [
                 0,
@@ -671,7 +679,15 @@
                 146,
                 147,
                 148,
-                149
+                149,
+                150,
+                151,
+                152,
+                153,
+                154,
+                155,
+                156,
+                157
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -787,6 +803,267 @@
                 },
                 "Status": {
                     "type": "string"
+                }
+            }
+        },
+        "IntegrationAuthorizationGroupImportDto": {
+            "type": "object",
+            "xml": {
+                "name": "AuthorizationGroup"
+            },
+            "additionalProperties": false,
+            "required": [
+                "ExternalSystemId",
+                "IsActive",
+                "CompanyId",
+                "Name"
+            ],
+            "properties": {
+                "ErpSourceId": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Source of entity"
+                },
+                "ExternalSystemId": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Id reference in ERP, unique key between Medius and ERP"
+                },
+                "IsActive": {
+                    "type": "boolean",
+                    "description": "If the entity is active or inactive."
+                },
+                "CompanyId": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "Unique identifier for the Company. I.e. CompanyId and not the ExternalSystemId for the Company."
+                },
+                "CurrencyCode": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "description": "ISO Code of currency."
+                },
+                "Name": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Name of the Authorization group."
+                },
+                "DocumentTypes": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "description": "Type of document the authorization group will be connected to.",
+                        "xml": {
+                            "name": "DocumentType",
+                            "wrapped": true
+                        },
+                        "enum": [
+                            "Document",
+                            "Invoice",
+                            "Expense invoice",
+                            "Payment request",
+                            "Order based invoice",
+                            "Purchase requisition",
+                            "Supplier invoice"
+                        ]
+                    }
+                },
+                "GeneralDebitLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "A general debit limit for the selected document types. This is often used as fallback limit if no other limit is specified. Can be set to a fixed value, unlimited, or undefined."
+                },
+                "GeneralDebitUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the debit limit is unlimited."
+                },
+                "GeneralCreditLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "A general credit limit for the selected document types. This is often used as fallback limit if no other limit is specified. Can be set to a fixed value, unlimited, or undefined."
+                },
+                "GeneralCreditUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the credit limit is unlimited."
+                },
+                "DeviationDebitLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Deviation limit specifies the authorization limit for a sum of all deviations on a single document."
+                },
+                "DeviationDebitUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the deviation debit limit is unlimited."
+                },
+                "DeviationCreditLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "Deviation limit specifies the authorization limit for a sum of all deviations on a single document."
+                },
+                "DeviationCreditUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the deviation credit limit is unlimited."
+                },
+                "SupplierPermissions": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationSupplierPermissionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationSupplierPermissionDto"
+                    }
+                },
+                "DimensionPermissions": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationDimensionPermissionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationDimensionPermissionDto"
+                    }
+                }
+            }
+        },
+        "IntegrationSupplierPermissionDto": {
+            "type": "object",
+            "xml": {
+                "name": "SupplierPermission"
+            },
+            "additionalProperties": false,
+            "required": [
+                "SupplierId"
+            ],
+            "properties": {
+                "DebitLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "A debit limit set for a specific supplier."
+                },
+                "DebitUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the debit limit is unlimited for specific supplier."
+                },
+                "CreditLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "A credit limit set for a specific supplier."
+                },
+                "CreditUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the debit limit is unlimited for specific supplier."
+                },
+                "SupplierId": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Unique identifier for the Supplier. I.e. SupplierId and not the ExternalSystemId for the Supplier."
+                }
+            }
+        },
+        "IntegrationDimensionPermissionDto": {
+            "type": "object",
+            "xml": {
+                "name": "DimensionPermission"
+            },
+            "additionalProperties": false,
+            "required": [
+                "DimensionName"
+            ],
+            "properties": {
+                "DebitLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "A debit limit set for a specific dimension value."
+                },
+                "DebitUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the debit limit is unlimited for specific dimension value."
+                },
+                "CreditLimit": {
+                    "type": "number",
+                    "format": "decimal",
+                    "description": "A credit limit set for a specific dimension value."
+                },
+                "CreditUnlimited": {
+                    "type": "boolean",
+                    "description": "Set to true if the debit limit is unlimited for specific dimension value."
+                },
+                "ApprovalRights": {
+                    "type": "boolean",
+                    "description": "Approval right gives a user the right to approve a certain coding line."
+                },
+                "CodingRights": {
+                    "type": "boolean",
+                    "description": "Coding right for a specific dimension value gives a user the right to add and modify coding with that value."
+                },
+                "DimensionName": {
+                    "type": "string",
+                    "description": "Name of the dimension.",
+                    "enum":[
+                        "Dimension1",
+                        "Dimension2",
+                        "Dimension3",
+                        "Dimension4",
+                        "Dimension5",
+                        "Dimension6",
+                        "Dimension7",
+                        "Dimension8",
+                        "Dimension9",
+                        "Dimension10",
+                        "Dimension11",
+                        "Dimension12",
+                        "FreeText1",
+                        "FreeText2",
+                        "FreeText3",
+                        "FreeText4",
+                        "FreeText5"
+                    ]
+                },
+                "Description": {
+                    "type": "string",
+                    "maxLength": 450,
+                    "description": "Referring to Dimension description. Used to include certain dimension descriptions from a range. The asterisk (*) is used as wildcard."
+                },
+                "Value": {
+                    "type": "string",
+                    "description": "Referring to Dimension value. Used to include certain dimension values from a range. The asterisk (*) is used as wildcard."
+                },
+                "ExceptionPermissions": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationExceptionPermissionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationExceptionPermissionDto"
+                    }
+                }
+            }
+        },
+        "IntegrationExceptionPermissionDto": {
+            "type": "object",
+            "xml": {
+                "name": "ExceptionPermission"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Description": {
+                    "type": "string",
+                    "description": "Referring to Dimension description. Used to exclude certain dimension descriptions from a range. The asterisk (*) is used as wildcard."
+                },
+                "Value": {
+                    "type": "string",
+                    "description": "Referring to Dimension value. Used to include certain dimension values from a range. The asterisk (*) is used as wildcard."
                 }
             }
         },
@@ -11424,6 +11701,94 @@
                 "responses": {
                     "201": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/AuthorizationGroupImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "Master data import"
+                ],
+                "summary": "",
+                "operationId": "AuthorizationGroupBatchImportBatch_Get",
+                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved byt he full link from the result of the POST or from within Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Master data import"
+                ],
+                "summary": "",
+                "operationId": "AuthorizationGroupBatchImportBatch_Delete",
+                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/AuthorizationGroupImportBatches": {
+            "post": {
+                "tags": [
+                    "Master data import"
+                ],
+                "summary": "",
+                "operationId": "AuthorizationGroupBatchImportBatch_Post",
+                "description": "The POST method allows the client to send authorization groups that will be imported by the Medius master data import queue.\nThe authorization groups have company and currency prerequisite.\n\n For detailed information on authorization group set-up, see [Success portal](https://success.medius.com/documentation/administration_guide/administration_pages/authorization_groups/)",
+                "parameters": [
+                    {
+                        "name": "authorizationGroupDtos",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "xml": {
+                                    "name": "IntegrationAuthorizationGroupDto"
+                                },
+                                "$ref": "#/definitions/IntegrationAuthorizationGroupImportDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfAuthorizationGroup"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The authorization groups to import"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius."
                     }
                 }
             }
