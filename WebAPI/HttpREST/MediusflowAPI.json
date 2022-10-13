@@ -5472,11 +5472,6 @@
                         "wrapped": true
                     },
                     "items": {
-                        "xml": {
-                            "name": "",
-                            "wrapped": true,
-                            "namespace": "PurchaseOrderConfirmation"
-                        },
                         "$ref": "#/definitions/PurchaseOrderLineConfirmationDto"
                     }
                 }
@@ -5485,7 +5480,7 @@
         "PurchaseOrderLineConfirmationDto": {
             "type": "object",
             "xml": {
-                "name": "Line"
+                "name": "PurchaseOrderLineConfirmation"
             },
             "additionalProperties": false,
             "properties": {
@@ -5526,11 +5521,6 @@
                         "wrapped": true
                     },
                     "items": {
-                        "xml": {
-                            "name": "",
-                            "wrapped": true,
-                            "namespace": "GoodsReceiptNoteConfirmation"
-                        },
                         "$ref": "#/definitions/GoodsReceiptNoteLineConfirmationDto"
                     }
                 }
@@ -5539,7 +5529,7 @@
         "GoodsReceiptNoteLineConfirmationDto": {
             "type": "object",
             "xml": {
-                "name": "Line"
+                "name": "GoodsReceiptNoteLineConfirmation"
             },
             "additionalProperties": false,
             "properties": {
