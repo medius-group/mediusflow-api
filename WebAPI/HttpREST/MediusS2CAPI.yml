@@ -1,0 +1,1176 @@
+openapi: 3.0.0
+info:
+  version: 2.0.0
+  title: Medius Supplier & Contracts Data Model
+  license:
+    name: MIT
+servers:
+  - url: https://tenant.wax-uat.com/S2C
+    description: UAT server for testing
+  - url: https://tenant.wax-live.com/S2C
+    description: PRODUCTION server
+security:
+  - ApiKeyAuth: []
+paths:
+  /S2CAPI/v1/suppliers:
+    get:
+      summary: Gets a list of basic supplier information
+      operationId: GetSuppliers
+      tags:
+        - Suppliers
+      responses:
+        '200':
+          description: List of basic supplier details
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ArrayOfSupplier'
+              examples:
+                GetSuppliers:
+                  value: >-
+                    <ArrayOfSupplier
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                      <Supplier>
+                          <Name>Sodales At Corp.</Name>
+                          <Code>SUP001</Code>
+                          <SupplierApprovalStatus>New</SupplierApprovalStatus>
+                      </Supplier>
+                      <Supplier>
+                          <Name>Nulla Magna Malesuada Company</Name>
+                          <SupplierApprovalStatus>New</SupplierApprovalStatus>
+                      </Supplier>
+                        </ArrayOfSupplier>
+            application/json:
+              examples:
+                GetSuppliers:
+                  value:
+                    Supplier:
+                      - Name: Sodales At Corp.
+                        Code: SUP001
+                        SupplierApprovalStatus: New
+                      - Name: Nulla Magna Malesuada Company
+                        Code: null
+                        SupplierApprovalStatus: New
+        default:
+          description: Error response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/json:
+              examples:
+                ' Error response':
+                  value: |-
+                    {
+                       "Type": "https://tenant.wax-live.com/S2C/bespoke/tenant/api-errors/",
+                       "Status": "401",
+                       "Title": "API key is missing or invalid",
+                       "Instance": "07c8c057-89ae-45a1-98b3-2fcb92725289"
+                    }
+    put:
+      summary: Update/Create details of a supplier
+      operationId: PutSupplier
+      tags:
+        - Suppliers
+      requestBody:
+        required: true
+        description: >-
+          This request is used to create or update a new supplier including
+          supplier contacts.
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Supplier'
+            examples:
+              CreateSupplier:
+                value: |-
+                  <?xml version="1.0" encoding="utf-8"?>
+                   <Supplier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                       <Name>Supplier At Corp.</Name>
+                       <Code>SUP005</Code>
+                       <Active>True</Active>
+                       <Description>Steel industry</Description>
+                       <SupplierNumber>234234</SupplierNumber>
+                       <EmailAddress>sup001@supplier.com</EmailAddress>
+                       <SupplierApprovalStatus>New</SupplierApprovalStatus>
+                       <SupplierWebsite>www.corp.com</SupplierWebsite>
+                       <TaxRegistrationNumber>4565666666</TaxRegistrationNumber>
+                       <Telephone>012546895698</Telephone>
+                       <Mobile>023564895689</Mobile>
+                       <Fax>345345</Fax>
+                       <AddressLine1>32</AddressLine1>
+                       <AddressLine2>Rurree Drive</AddressLine2>
+                       <AddressLine3>Hyde</AddressLine3>
+                       <City>Manchester</City>
+                       <PostCode>SK14 2AX</PostCode>
+                       <OperatingCountry>Albania</OperatingCountry>
+                       <Currency>GBP</Currency>
+                       <AdditionalAttributes>
+                           <Attribute>
+                               <Name>AttributeX</Name>
+                               <Value>123456789</Value>
+                           </Attribute>
+                       </AdditionalAttributes>
+                       <TradingPartners>
+                           <TradingPartner>
+                               <PartnerID>americas</PartnerID>
+                               <PartnerName>Americas</PartnerName>
+                           </TradingPartner>
+                           <TradingPartner>
+                               <PartnerID />
+                               <PartnerName>Asia</PartnerName>
+                           </TradingPartner>
+                           <TradingPartner>
+                               <PartnerID />
+                               <PartnerName>EU</PartnerName>
+                           </TradingPartner>
+                           <TradingPartner>
+                               <PartnerID>waxdev</PartnerID>
+                               <PartnerName>Wax Dev Site</PartnerName>
+                           </TradingPartner>
+                       </TradingPartners>
+                       <Contacts>
+                           <Contact>
+                               <Code>VA001504</Code>
+                               <Name>John Russel</Name>
+                               <Username>jack.russel@corp.com</Username>
+                               <EmailAddress>jack.russel@corp.com</EmailAddress>
+                           </Contact>
+                       </Contacts>
+                   </Supplier>
+              UpdateSupplier:
+                value: |-
+                  <Supplier>
+                    <Name>Supplier At Corp.</Name>
+                    <Code>SUP005</Code>
+                    <Active>True</Active>
+                    <Description>Steel industry</Description>
+                    <SupplierNumber>234234</SupplierNumber>
+                    <EmailAddress>sup001@supplier.com</EmailAddress>
+                    <SupplierApprovalStatus>New</SupplierApprovalStatus>
+                    <SupplierWebsite>www.corp.com</SupplierWebsite>
+                    <TaxRegistrationNumber>4565666666</TaxRegistrationNumber>
+                    <Telephone>012546895698</Telephone>
+                    <Mobile>023564895689</Mobile>
+                    <Fax>345345</Fax>
+                    <AddressLine1>32</AddressLine1>
+                    <AddressLine2>Rurree Drive</AddressLine2>
+                    <AddressLine3>Hyde</AddressLine3>
+                    <City>Manchester</City>
+                    <PostCode>SK14 2AX</PostCode>
+                    <OperatingCountry>Albania</OperatingCountry>
+                     <Currency>GBP</Currency>
+                    <AdditionalAttributes>
+                        <Attribute>
+                            <Name>AttributeX</Name>
+                            <Value>123456789</Value>
+                        </Attribute>
+                    </AdditionalAttributes>
+                    <TradingPartners>
+                        <TradingPartner>
+                            <PartnerID>americas</PartnerID>
+                            <PartnerName>Americas</PartnerName>
+                        </TradingPartner>
+                        <TradingPartner>
+                            <PartnerID />
+                            <PartnerName>Asia</PartnerName>
+                        </TradingPartner>
+                        <TradingPartner>
+                            <PartnerID />
+                            <PartnerName>EU</PartnerName>
+                        </TradingPartner>
+                        <TradingPartner>
+                            <PartnerID>waxdev</PartnerID>
+                            <PartnerName>Wax Dev Site</PartnerName>
+                        </TradingPartner>
+                    </TradingPartners>
+                    <Contacts>
+                        <Contact>
+                            <Code>VA001504</Code>
+                            <Name>John Hamilton</Name>
+                            <Username>jack.hamilton@corp.com</Username>
+                            <EmailAddress>jack.hamilton@corp.com</EmailAddress>
+                        </Contact>
+                        <Contact>
+                            <Code>VA001504</Code>
+                            <Name>John Russel</Name>
+                            <Username>jack.russel@corp.com</Username>
+                            <EmailAddress>jack.russel@corp.com</EmailAddress>
+                        </Contact>
+                    </Contacts>
+                  </Supplier>
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Supplier'
+            examples:
+              CreateSupplier:
+                value:
+                  Name: Supplier At Corp.
+                  Code: SUP005
+                  Active: 'True'
+                  Description: Steel industry
+                  SupplierNumber: '234234'
+                  EmailAddress: sup001@supplier.com
+                  SupplierApprovalStatus: New
+                  SupplierWebsite: www.corp.com
+                  TaxRegistrationNumber: '4565666666'
+                  TaxRegistrationCountry: United Kingdom
+                  Telephone: '012546895698'
+                  Mobile: '023564895689'
+                  Fax: '345345'
+                  AddressLine1: '32'
+                  AddressLine2: Rurree Drive
+                  AddressLine3: Hyde
+                  City: Manchester
+                  PostCode: SK14 2AX
+                  OperatingCountry: Albania
+                  Currency: GBP
+                  AdditionalAttributes:
+                    Attribute:
+                      - Name: AttributeX
+                        Value: '123456789'
+                  TradingPartners:
+                    TradingPartner:
+                      - PartnerID: americas
+                        PartnerName: Americas
+                      - PartnerID: ''
+                        PartnerName: Asia
+                      - PartnerID: ''
+                        PartnerName: EU
+                      - PartnerID: waxdev
+                        PartnerName: Wax Dev Site
+                  Contacts:
+                    Contact:
+                      - Code: VA001504
+                        Name: John Russel
+                        Username: jack.russel@corp.com
+                        EmailAddress: jack.russel@corp.com
+              UpdateSupplier:
+                value:
+                  Name: Supplier At Corp.
+                  Code: SUP005
+                  Active: 'True'
+                  Description: Steel industry
+                  SupplierNumber: '234234'
+                  EmailAddress: sup001@supplier.com
+                  SupplierApprovalStatus: New
+                  SupplierWebsite: www.corp.com
+                  TaxRegistrationNumber: '4565666666'
+                  TaxRegistrationCountry: United Kingdom
+                  Telephone: '012546895698'
+                  Mobile: '023564895689'
+                  Fax: '345345'
+                  AddressLine1: '32'
+                  AddressLine2: Rurree Drive
+                  AddressLine3: Hyde
+                  City: Manchester
+                  PostCode: SK14 2AX
+                  OperatingCountry: Albania
+                  Currency: GBP
+                  AdditionalAttributes:
+                    Attribute:
+                      - Name: AttributeX
+                        Value: '123456789'
+                  TradingPartners:
+                    TradingPartner:
+                      - PartnerID: americas
+                        PartnerName: Americas
+                      - PartnerID: ''
+                        PartnerName: Asia
+                      - PartnerID: ''
+                        PartnerName: EU
+                      - PartnerID: waxdev
+                        PartnerName: Wax Dev Site
+                  Contacts:
+                    Contact:
+                      - Code: VA001505
+                        Name: John Hamilton
+                        Username: jack.hamilton@corp.com
+                        EmailAddress: jack.hamilton@corp.com
+                      - Code: VA001504
+                        Name: John Russel
+                        Username: jack.russel@corp.com
+                        EmailAddress: jack.russel@corp.com
+      responses:
+        '200':
+          description: Supplier details document
+        default:
+          description: Error response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/json:
+              examples:
+                ' Error response':
+                  value: |-
+                    {
+                       "Type": "https://tenant.wax-live.com/S2C/bespoke/tenant/api-errors/",
+                       "Status": "401",
+                       "Title": "API key is missing or invalid",
+                       "Instance": "07c8c057-89ae-45a1-98b3-2fcb92725289"
+                    }
+  /S2CAPI/v1/suppliers/{Code}:
+    get:
+      summary: Get details of a particular supplier
+      operationId: GetSupplier
+      tags:
+        - Suppliers
+      parameters:
+        - name: Code
+          in: path
+          required: true
+          description: The medius/Tenant identifier for the supplier (Supplier code)
+          example: VA001504
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Supplier details document
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+              examples:
+                GetSupplier:
+                  value: |-
+                    <?xml version="1.0" encoding="UTF-8" ?>
+                     <Supplier>
+                       <Name>Supplier At Corp.</Name>
+                       <Code>SUP005</Code>
+                       <Active>True</Active>
+                       <Description>Steel industry</Description>
+                       <SupplierNumber>234234</SupplierNumber>
+                       <EmailAddress>sup001@supplier.com</EmailAddress>
+                       <SupplierApprovalStatus>New</SupplierApprovalStatus>
+                       <SupplierWebsite>www.corp.com</SupplierWebsite>
+                       <TaxRegistrationNumber>4565666666</TaxRegistrationNumber>
+                       <Telephone>012546895698</Telephone>
+                       <Mobile>023564895689</Mobile>
+                       <Fax>345345</Fax>
+                       <AddressLine1>32</AddressLine1>
+                       <AddressLine2>Rurree Drive</AddressLine2>
+                       <AddressLine3>Hyde</AddressLine3>
+                       <City>Manchester</City>
+                       <PostCode>SK14 2AX</PostCode>
+                       <OperatingCountry>Albania</OperatingCountry>
+                       <Currency>GBP</Currency>
+                       <AdditionalAttributes>
+                           <Attribute>
+                               <Name>AttributeX</Name>
+                               <Value>123456789</Value>
+                           </Attribute>
+                       </AdditionalAttributes>
+                       <TradingPartners>
+                           <TradingPartner>
+                               <PartnerID>americas</PartnerID>
+                               <PartnerName>Americas</PartnerName>
+                           </TradingPartner>
+                           <TradingPartner>
+                               <PartnerID />
+                               <PartnerName>Asia</PartnerName>
+                           </TradingPartner>
+                           <TradingPartner>
+                               <PartnerID />
+                               <PartnerName>EU</PartnerName>
+                           </TradingPartner>
+                           <TradingPartner>
+                               <PartnerID>waxdev</PartnerID>
+                               <PartnerName>Wax Dev Site</PartnerName>
+                           </TradingPartner>
+                       </TradingPartners>
+                       <Contacts>
+                           <Contact>
+                               <Code>VA001504</Code>
+                               <Name>John Hamilton</Name>
+                               <Username>jack.hamilton@corp.com</Username>
+                               <EmailAddress>jack.hamilton@corp.com</EmailAddress>
+                           </Contact>
+                           <Contact>
+                               <Code>VA001504</Code>
+                               <Name>John Russel</Name>
+                               <Username>jack.russel@corp.com</Username>
+                               <EmailAddress>jack.russel@corp.com</EmailAddress>
+                           </Contact>
+                       </Contacts>
+                     </Supplier>
+            application/json:
+              examples:
+                GetSupplier:
+                  value:
+                    Name: Supplier At Corp.
+                    Code: SUP005
+                    Active: 'True'
+                    Description: Steel industry
+                    SupplierNumber: '234234'
+                    EmailAddress: sup001@supplier.com
+                    SupplierApprovalStatus: New
+                    SupplierWebsite: www.corp.com
+                    TaxRegistrationNumber: '4565666666'
+                    TaxRegistrationCountry: United Kingdom
+                    Telephone: '012546895698'
+                    Mobile: '023564895689'
+                    Fax: '345345'
+                    AddressLine1: '32'
+                    AddressLine2: Rurree Drive
+                    AddressLine3: Hyde
+                    City: Manchester
+                    PostCode: SK14 2AX
+                    OperatingCountry: Albania
+                    Currency: GBP
+                    AdditionalAttributes:
+                      Attribute:
+                        - Name: AttributeX
+                          Value: '123456789'
+                    TradingPartners:
+                      TradingPartner:
+                        - PartnerID: americas
+                          PartnerName: Americas
+                        - PartnerID: ''
+                          PartnerName: Asia
+                        - PartnerID: ''
+                          PartnerName: EU
+                        - PartnerID: waxdev
+                          PartnerName: Wax Dev Site
+                    Contacts:
+                      Contact:
+                        - Code: VA001504
+                          Name: John Russel
+                          Username: jack.russel@corp.com
+                          EmailAddress: jack.russel@corp.com
+        default:
+          description: Error response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/json:
+              examples:
+                ' Error response':
+                  value: |-
+                    {
+                       "Type": "https://tenant.wax-live.com/S2C/bespoke/tenant/api-errors/",
+                       "Status": "401",
+                       "Title": "API key is missing or invalid",
+                       "Instance": "07c8c057-89ae-45a1-98b3-2fcb92725289"
+                    }
+  /S2CAPI/v1/contracts:
+    description: Contract Management
+    get:
+      summary: Get all contracts
+      description: >-
+        Get all contracts filtered between the last modified date and the last
+        integrated date
+      parameters:
+        - name: LastMediusUpdate
+          in: query
+          required: true
+          description: The date to filter the last modified contracts by (Integrated date), using ISO 8601 format yyyy-MM-ddTHH:mm:ssZ (2021-20-10T14:01:54.9571247Z)
+          
+          example: "2008-09-22T14:01:54.9571247Z"
+          schema:
+            type: string
+      operationId: GetContracts
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+              examples:
+                GetContracts:
+                  value: |-
+                    {
+                       
+                         "Contract": [
+                           {
+                             "EntityId": "Company X",
+                             "VendorEntityID": "Paddy Ltd",
+                             "ContractReferenceNumber": "C00861",
+                             "Title": "Software Licence",
+                             "Description": "This is a test contract",
+                             "OwnerId": "Gareth Mawdesley",
+                             "LegalContactId": "Gareth Mawdesley",
+                             "EstimatedContractValue": "500.34",
+                             "CurrencyId": "GBP",
+                             "StartDate": "2012-03-01",
+                             "EffectiveDate": "2012-03-01",
+                             "EndDate": "2012-06-01",
+                             "ReviewDate": "2012-05-01",
+                             "Created": "2012-02-01",
+                             "Modified": "2012-02-03",
+                             "TagContainer": {
+                               "Tags": [
+                                   "Category 1",
+                                   "Category 2"
+                               ]
+                             },
+                             
+                             "SourcingEventName": "RFI_001",
+                             "NoticePeriodValue": "5",
+                             "NoticePeriodUnit": "Days",
+                             "AutoExtensionDurationType": "AutoExtensionMonthly",
+                             "AutoExtensionDurationInMonths": "5",
+                             "ContractDurationInMonths": "5",
+                             "NoticeDate": "2012-06-01",
+                             "Suspended": "false",
+                             "TerminationDate": "2012-06-01",
+                             "TerminationReference": "Contract expired",
+                             "PendingTermination": "true",
+                             "ContractStatus": "Expired",
+                             "LastMediusUpdate": "10/12/2020 11:57:05",
+                             "AdditionalProperties": [
+                                 {
+                                     "PropertyId": "BespokeAdditionPropertyX",
+                                     "PropertyValue": "Bespoke value"
+                                 }
+                             ],
+                             "AdditionalPropertiesMultiValue": [
+                                 {
+                                     "PropertyId": "EDFCompanyCodesId",
+                                     "PropertyValues": [
+                                         "(4641) Willville Solar Limited",
+                                         "(4632) Wicklow Windfarm Holdings",
+                                         "(4643) TDC Community Solar Park",
+                                         "(4636) Blusheens Solar Limited",
+                                         "(4637) Coolroe Solar Limited"
+                                     ]
+                                 }
+                             ]
+                           },
+                           {
+                             "EntityId": "Company Y",
+                             "VendorEntityID": "Supplier At Corp",
+                             "ContractReferenceNumber": "C00865",
+                             "Title": "Hardware",
+                             "Description": "This is a test contract",
+                             "OwnerId": "John Wasby",
+                             "LegalContactId": "John Wasby",
+                             "EstimatedContractValue": "345.34",
+                             "CurrencyId": "GBP",
+                             "StartDate": "2015-03-01",
+                             "EffectiveDate": "2015-03-01",
+                             "EndDate": "2025-06-01",
+                             "ReviewDate": "2016-05-01",
+                             "Created": "2012-02-01",
+                             "Modified": "2012-02-03",
+                             "TagContainer": {
+                               "Tags": [
+                                   "Category 1",
+                                   "Category 2"
+                               ]
+                             },
+                             "SourcingEventName": "RFI_002",
+                             "NoticePeriodValue": "5",
+                             "NoticePeriodUnit": "Days",
+                             "AutoExtensionDurationType": "AutoExtensionMonthly",
+                             "AutoExtensionDurationInMonths": "5",
+                             "ContractDurationInMonths": "5",
+                             "NoticeDate": "2025-06-01",
+                             "Suspended": "false",
+                             "TerminationDate": "2025-06-01",
+                             "TerminationReference": "Contract expired",
+                             "PendingTermination": "true",
+                             "ContractStatus": "Expired",
+                             "LastMediusUpdate": "10/12/2020 11:57:05",
+                             "AdditionalProperties": [
+                                 {
+                                     "PropertyId": "BespokeAdditionPropertyX",
+                                     "PropertyValue": "Bespoke value"
+                                 }
+                             ],
+                             "AdditionalPropertiesMultiValue": [
+                                 {
+                                     "PropertyId": "EDFCompanyCodesId",
+                                     "PropertyValues": [
+                                         "(4641) Willville Solar Limited",
+                                         "(4632) Wicklow Windfarm Holdings",
+                                         "(4643) TDC Community Solar Park",
+                                         "(4636) Blusheens Solar Limited",
+                                         "(4637) Coolroe Solar Limited"
+                                     ]
+                                 }
+                             ]
+                           }
+                         ]
+                       }
+                     
+            application/xml:
+              examples:
+                GetContracts:
+                  value:  |-
+                          "<?xml version="1.0" encoding="UTF-8" ?>
+                          <root>
+                            <Contract>
+                              <EntityId>Company X</EntityId>
+                              <VendorEntityID>Paddy Ltd</VendorEntityID>
+                              <ContractReferenceNumber>C00861</ContractReferenceNumber>
+                              <Title>Software Licence</Title>
+                              <Description>This is a test contract</Description>
+                              <OwnerId>Gareth Mawdesley</OwnerId>
+                              <LegalContactId>Gareth Mawdesley</LegalContactId>
+                              <EstimatedContractValue>500.34</EstimatedContractValue>
+                              <CurrencyId>GBP</CurrencyId>
+                              <StartDate>2012-03-01</StartDate>
+                              <EffectiveDate>2012-03-01</EffectiveDate>
+                              <EndDate>2012-06-01</EndDate>
+                              <ReviewDate>2012-05-01</ReviewDate>
+                              <Created>2012-02-01</Created>
+                              <Modified>2012-02-03</Modified>
+                              <TagContainer>
+                                <Tags>Category 1</Tags>
+                                <Tags>Category 2</Tags>
+                              </TagContainer>
+                              <SourcingEventName>RFI_001</SourcingEventName>
+                              <NoticePeriodValue>5</NoticePeriodValue>
+                              <NoticePeriodUnit>Days</NoticePeriodUnit>
+                              <AutoExtensionDurationType>AutoExtensionMonthly</AutoExtensionDurationType>
+                              <AutoExtensionDurationInMonths>5</AutoExtensionDurationInMonths>
+                              <ContractDurationInMonths>5</ContractDurationInMonths>
+                              <NoticeDate>2012-06-01</NoticeDate>
+                              <Suspended>false</Suspended>
+                              <TerminationDate>2012-06-01</TerminationDate>
+                              <TerminationReference>Contract expired</TerminationReference>
+                              <PendingTermination>true</PendingTermination>
+                              <ContractStatus>Expired</ContractStatus>
+                              <LastMediusUpdate>10/12/2020 11:57:05</LastMediusUpdate>
+                              <AdditionalProperties>
+                                <PropertyId>BespokeAdditionPropertyX</PropertyId>
+                                <PropertyValue>Bespoke value</PropertyValue>
+                              </AdditionalProperties>
+                              <AdditionalPropertiesMultiValue>
+                                <PropertyId>EDFCompanyCodesId</PropertyId>
+                                <PropertyValues>(4641) Willville Solar Limited</PropertyValues>
+                                <PropertyValues>(4632) Wicklow Windfarm Holdings</PropertyValues>
+                                <PropertyValues>(4643) TDC Community Solar Park</PropertyValues>
+                                <PropertyValues>(4636) Blusheens Solar Limited</PropertyValues>
+                                <PropertyValues>(4637) Coolroe Solar Limited</PropertyValues>
+                              </AdditionalPropertiesMultiValue>
+                            </Contract>
+                            <Contract>
+                              <EntityId>Company Y</EntityId>
+                              <VendorEntityID>Supplier At Corp</VendorEntityID>
+                              <ContractReferenceNumber>C00865</ContractReferenceNumber>
+                              <Title>Hardware</Title>
+                              <Description>This is a test contract</Description>
+                              <OwnerId>John Wasby</OwnerId>
+                              <LegalContactId>John Wasby</LegalContactId>
+                              <EstimatedContractValue>345.34</EstimatedContractValue>
+                              <CurrencyId>GBP</CurrencyId>
+                              <StartDate>2015-03-01</StartDate>
+                              <EffectiveDate>2015-03-01</EffectiveDate>
+                              <EndDate>2025-06-01</EndDate>
+                              <ReviewDate>2016-05-01</ReviewDate>
+                              <Created>2012-02-01</Created>
+                              <Modified>2012-02-03</Modified>
+                              <TagContainer>
+                                <Tags>Category 1</Tags>
+                                <Tags>Category 2</Tags>
+                              </TagContainer>
+                              <SourcingEventName>RFI_002</SourcingEventName>
+                              <NoticePeriodValue>5</NoticePeriodValue>
+                              <NoticePeriodUnit>Days</NoticePeriodUnit>
+                              <AutoExtensionDurationType>AutoExtensionMonthly</AutoExtensionDurationType>
+                              <AutoExtensionDurationInMonths>5</AutoExtensionDurationInMonths>
+                              <ContractDurationInMonths>5</ContractDurationInMonths>
+                              <NoticeDate>2025-06-01</NoticeDate>
+                              <Suspended>false</Suspended>
+                              <TerminationDate>2025-06-01</TerminationDate>
+                              <TerminationReference>Contract expired</TerminationReference>
+                              <PendingTermination>true</PendingTermination>
+                              <ContractStatus>Expired</ContractStatus>
+                              <LastMediusUpdate>10/12/2020 11:57:05</LastMediusUpdate>
+                              <AdditionalProperties>
+                                <PropertyId>BespokeAdditionPropertyX</PropertyId>
+                                <PropertyValue>Bespoke value</PropertyValue>
+                              </AdditionalProperties>
+                              <AdditionalPropertiesMultiValue>
+                                <PropertyId>EDFCompanyCodesId</PropertyId>
+                                <PropertyValues>(4641) Willville Solar Limited</PropertyValues>
+                                <PropertyValues>(4632) Wicklow Windfarm Holdings</PropertyValues>
+                                <PropertyValues>(4643) TDC Community Solar Park</PropertyValues>
+                                <PropertyValues>(4636) Blusheens Solar Limited</PropertyValues>
+                                <PropertyValues>(4637) Coolroe Solar Limited</PropertyValues>
+                              </AdditionalPropertiesMultiValue>
+                            </Contract>
+                          </root>
+      tags:
+        - Contracts
+  /S2CAPI/v1/contracts/{ContractNumber}:
+    put:
+      summary: Update the contract
+      description: Update the contract by passing in list of properties
+      operationId: PutContract
+      parameters:
+        - name: ContractNumber
+          in: path
+          required: true
+          description: The medius contract reference number
+          example: C01192
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: The updated contract details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContractUpdate'
+            examples:
+              ContractUpdate:
+                value: |-
+                  {
+                    "AdditionalProperties": [
+                    {
+                    "PropertyId": "EstimatedContractValue",
+                    "PropertyValue": "Bespoke value"
+                    },
+                    {
+                    "PropertyId": "SAPIntegrationStatus",
+                    "PropertyValue": "Success"
+                    }
+                    ]
+                  }
+                    
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ContractUpdate'
+            examples:
+              ContractUpdate:
+                value: |-
+                  <?xml version="1.0" encoding="UTF-8" ?>
+                  <root>
+                    <AdditionalProperties>
+                      <PropertyId>EstimatedContractValue</PropertyId>
+                      <PropertyValue>Bespoke value</PropertyValue>
+                    </AdditionalProperties>
+                    <AdditionalProperties>
+                      <PropertyId>SAPIntegrationStatus</PropertyId>
+                      <PropertyValue>Success</PropertyValue>
+                    </AdditionalProperties>
+                  </root>
+      responses:
+        '200':
+          description: Contract details document
+        default:
+          description: Error response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Contracts
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    ArrayOfSupplier:
+      type: array
+      xml:
+        name: Supplier
+        wrapped: false
+      items:
+        $ref: '#/components/schemas/MinimalSupplier'
+    MinimalSupplier:
+      xml:
+        name: Supplier
+        wrapped: false
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Familiar name for supplier
+          example: Acme Inc
+        Code:
+          type: string
+          description: <Tenant> Id , Unique Id of the supplier.
+          example: ED0001
+    Supplier:
+      xml:
+        name: Supplier
+        wrapped: false
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Familiar name for supplier
+          example: Acme Inc
+        Code:
+          type: string
+          description: <Tenant> Id , Unique Id of the supplier.
+          example: ED0001
+        Active:
+          type: string
+          description: Is the supplier active
+          example: true
+        Description:
+          type: string
+          description: Description of the supplier
+          example: Business in IT
+        SupplierNumber:
+          type: string
+          description: Registered Company Number
+          example: '4220636'
+        SupplierApprovalStatus:
+          type: string
+          description: >-
+            Supplier approval status mapped in medius, values to use are
+            "approved","New","rejected"
+          example: approved
+        SupplierWebsite:
+          type: string
+          description: Suplier website
+          example: www.acme.com
+        TaxRegistrationNumber:
+          type: string
+          description: Tax registration number or supplier number
+          example: 123456789
+        Telephone:
+          type: string
+          description: Telephone Number
+          example: 2254664858
+        Mobile:
+          type: string
+          description: Mobile Number
+          example: 7897895895
+        Fax:
+          type: string
+          description: Fax
+          example: 44565689562
+        AddressLine1:
+          type: string
+          description: Address Line 1
+          example: P.O. Box 784
+        AddressLine2:
+          type: string
+          description: Address Line 2
+          example: 2018 Laoreet Av
+        AddressLine3:
+          type: string
+          description: Address Line 3
+          example: Oswestry
+        City:
+          type: string
+          description: City
+          example: Hyde
+        PostCode:
+          type: string
+          description: PostCode
+          example: SK14 2AX
+        OperatingCountry:
+          type: string
+          description: Operating Country
+          example: United Kingdom
+        Currency:
+          type: string
+          description: 3 Letter Medius currency code
+          example: GBP
+        AdditionalProperties:
+          type: array
+          xml:
+            name: AdditionalProperties
+            wrapped: false
+          description: Custom attributes linked to Medius (Key/Value)
+          items:
+            $ref: '#/components/schemas/AdditionalProperties'
+        AdditionalPropertiesMultiValue:
+          type: array
+          xml:
+            name: AdditionalPropertiesMultiValue
+            wrapped: false
+          description: Custom attributes linked to Medius (Key/Value)
+          items:
+            $ref: '#/components/schemas/AdditionalPropertiesMultiValue'
+        TradingPartners:
+          type: array
+          xml:
+            name: TradingPartners
+            wrapped: false
+          description: Contact list for the organisation
+          items:
+            $ref: '#/components/schemas/TradingPartner'
+        Contacts:
+          type: array
+          xml:
+            name: Contacts
+            wrapped: false
+          description: Contact list for the organisation
+          items:
+            $ref: '#/components/schemas/Contact'
+    Contact:
+      required:
+        - Code
+        - Name
+        - Username
+      properties:
+        Code:
+          type: string
+          description: Unique <Tenant> contact code, if available
+          example: ED0001_1
+        Name:
+          type: string
+          description: Common name of the contact
+          example: Fred Bloggs
+        Username:
+          type: string
+          format: email
+          description: >-
+            Username for the supplier contact,if not provided the email address
+            will be used
+          example: joe-bloggs@acme.com
+        Email:
+          type: string
+          format: email
+          description: Business email address for the contact
+          example: joe-bloggs@acme.com
+    AdditionalProperties:
+      required:
+        - PropertyId
+        - PropertyValue
+      properties:
+        PropertyId:
+          type: string
+          description: >-
+            Name of the custom property
+          example: AttributeX
+        PropertyValue:
+          type: string
+          description: Value of the custom property
+          example: 123456789
+    AdditionalPropertiesMultiValue:
+      required:
+        - PropertyId
+        - PropertyValues
+      properties:
+        PropertyId:
+          type: string
+          description: >-
+            Name of the custom property
+          example: EDFCompanyCodesId
+        PropertyValue:
+          type: array
+          description: Mulitple values
+          example: "Material Group,(4641) Willville Solar Limited"
+    TagContainer:
+      required:
+        - Tags
+      properties:
+        Tags:
+          type: array
+          description: Name of the cateogory
+          example: Mechanical,Engineering
+    TradingPartner:
+      required:
+        - PartnerID
+        - PartnerName
+      properties:
+        PartnerID:
+          type: string
+          description: Medius code assigned to the trading relationship entity
+          example: Org_001
+        PartnerName:
+          type: string
+          description: Name of the trading partner in Medius
+          example: Organisation
+    Contract:
+      xml:
+        name: Contract
+        wrapped: false
+      required:
+        - ContractRefereceNumber
+      properties:
+        EntityId:
+          type: string
+          description: Name of the entity.
+          example: Company X
+        VendorEntityID:
+          type: string
+          description: Name of the supplier
+          example: Paddy Ltd
+        ContractReferenceNumber:
+          type: string
+          description: Medius contract number
+          example: C00861
+        Description:
+          type: string
+          description: Description of the contract
+          example: This is a test contract
+        OwnerId:
+          type: string
+          description: Owner of the contract
+          example: Gareth Mawdesley
+        LegalContactId:
+          type: string
+          description: Legal contact of the contract
+          example: Gareth Mawdesley
+        EstimatedContractValue:
+          type: string
+          description: Estimated contract value
+          example: 500.34
+        CurrencyId:
+          type: string
+          description: ISO list of currency
+          example: GBP
+        StartDate:
+          type: string
+          description: Start date of the contract
+          example: {}
+        EffectiveDate:
+          type: string
+          description: Effective date of the contract
+          example: {}
+        EndDate:
+          type: string
+          description: End date of the contract
+          example: {}
+        ReviewDate:
+          type: string
+          description: Review date of the contract
+          example: {}
+        Created:
+          type: string
+          description: Date the contract was initially created
+          example: {}
+        Modified:
+          type: string
+          description: Date the contract was modified
+          example: {}
+        TagContainer:
+          type: array
+          xml:
+            name: TagContainer
+            wrapped: false
+          description: Categories listed against the contract
+          items:
+            $ref: '#/components/schemas/TagContainer'
+        SourcingEventName:
+          type: string
+          description: >-
+            If the contract was created from a sourcing event, the sourcing
+            reference will be populated
+          example: RFI_001
+        NoticePeriodValue:
+          type: integer
+          description: Used with NoticePeriodUnit to state when the notice period is hit
+          example: 5
+        NoticePeriodUnit:
+          type: string
+          description: >-
+            Used with NoticePeriodValue to state when the notice period is hit.
+            Will be one of Days, Months, Years
+          example: Days
+        AutoExtensionDurationType:
+          type: string
+          description: >-
+            Determines the type of auto extension. Will be one of NoExtension,
+            AutoExtensionFull, AutoExtensionMonthly
+          example: AutoExtensionMonthly
+        AutoExtensionDurationInMonths:
+          type: integer
+          description: >-
+            Used when AutoExtensionDurationType is set to AutoExtensionMonthly
+            to determine how many months the duration will increase by when the
+            contract auto extensions
+          example: 5
+        ContractDurationInMonths:
+          type: integer
+          description: >-
+            The duration of the contract from its Effective date to its End
+            Date. If the contract is Evergreen then this will be the duration
+            from the EffectiveDate to the current date
+          example: 5
+        NoticeDate:
+          type: string
+          description: Notice date of the contract
+          example: {}
+        Suspended:
+          type: boolean
+          description: >-
+            Flag to indicate the contract has been set in to a suspended state
+            by a user of the application
+          example: false
+        TerminationDate:
+          type: string
+          description: >-
+            The date on which the contract will become terminated. This is used
+            when the contract needs to end prior to it's normal End Date
+          example: {}
+        TerminationReference:
+          type: string
+          description: Optional reference field for when a contract is being terminated
+          example: Contract expired
+        PendingTermination:
+          type: boolean
+          description: >-
+            A true/false flag indicating the contract has been set to terminate
+            early, on the Termination Date
+          example: true
+        ContractStatus:
+          type: string
+          description: >-
+            Status of the contract, can be the following values
+            InitialCreation,WaitingApproval,Approved,FailedApproval,Activated,FailedActivation,Effective,Expired,Terminated,Archived
+          example: Effective
+        AdditionalProperties:
+          type: array
+          xml:
+            name: AdditionalProperties
+            wrapped: false
+          description: Custom fields linked to Medius (Key/Value)
+          items:
+            $ref: '#/components/schemas/AdditionalProperties'
+    ContractUpdate:
+      type: array
+      xml:
+        name: ContractUpdate
+        wrapped: false
+      items:
+        $ref: '#/components/schemas/Fields'
+    Fields:
+      xml:
+        name: Items
+        wrapped: false
+      properties:
+        ContractNumber:
+          type: string
+          description: Unique Id of the contract in medius.
+          example: C00314
+        ContractSpendToDate:
+          type: string
+          description: Contract spend.
+          example: 638664.9
+    Error:
+      required:
+        - Type
+      properties:
+        Type:
+          type: string
+          format: url
+          description: >-
+            Error type identifier, cannonical reference for implemenors and
+            recipients, providing detailed description of the error and
+            corrective actions if possible
+          example: https://tenant.wax-live.com/S2C/bespoke/tenant/api-errors/
+        Status:
+          type: integer
+          description: HTTP status code returned with this error
+          example: 401
+        Title:
+          type: string
+          description: >-
+            Human readable short description of the error, more details
+            available from 'type' url
+          example: API key is missing or invalid
+        Instance:
+          type: string
+          description: >-
+            Specific error instance identifier, useful for API implementors to
+            investigate an error
+          example: 07c8c057-89ae-45a1-98b3-2fcb92725289
