@@ -5981,6 +5981,15 @@
                 "SendPurchaseOrderAsPdf": {
                     "type": "boolean",
                     "description": "Enable this option to be able to send the purchase order as a PDF file attached to an email directly in Medius. You can combine this option with sending the purchase order as an integration message."
+                },
+                "RegisterGoodsReceiptType": {
+                    "type": "string",
+                    "description": "Change this parameter if the default behavior for the supplier should be to skip the goods receipt step and work with two-way match. If not provided, setting in Medius is kept.",
+                    "enum": [
+                        "Yes_ThreeWayMatch",
+                        "Yes_ExceptForService",
+                        "No_TwoWayMatch"
+                    ]
                 }
             }
         },
@@ -10710,6 +10719,15 @@
                     "format": "date",
                     "example": "2021-04-10",
                     "description": "Invoice Due Date in format yyyy-MM-dd. Note: If not specified the date payment batch was received by Nvoicepay will be displayed"
+                },
+                "preferredPaymentDate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "PreferredPaymentDate"
+                    },
+                    "format": "date",
+                    "example": "2021-04-10",
+                    "description": "The date on which payment should be executed. If left empty, current date will be used."
                 },
                 "invoiceAmount": {
                     "type": "number",
