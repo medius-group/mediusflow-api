@@ -103,7 +103,7 @@
           "xml": {
             "name": "InvoiceNumber"
           },
-          "maxLength": 50,
+          "maxLength": 140,
           "example": "2/2021",
           "description": "Payee-assigned invoice number. Must not appear twice for the same payee within a payments batch file."
         },
@@ -147,7 +147,7 @@
           "xml": {
             "name": "PayeeName"
           },
-          "maxLength": 100,
+          "maxLength": 140,
           "example": "Larson - Roob",
           "description": "Payee name - should be same as supplier name in Medius AP Automation. Up to 255 characters allowed for domestic payments"
         },
@@ -174,7 +174,7 @@
           "xml": {
             "name": "PayeeCity"
           },
-          "maxLength": 20,
+          "maxLength": 35,
           "example": "Lake Miller",
           "description": "City of the payee. __Note:__ required for international payments."
         },
@@ -183,7 +183,7 @@
           "xml": {
             "name": "PayeeZipOrPostalCode"
           },
-          "maxLength": 10,
+          "maxLength": 16,
           "example": "89262-8263",
           "description": "Zip or Postal Code of the payee. __Note:__ required for international payments."
         },
@@ -192,7 +192,7 @@
           "xml": {
             "name": "PayeeStateCode"
           },
-          "maxLength": 2,
+          "maxLength": 35,
           "example": "RI",
           "description": "State of the payee. ISO Alfa 2 code. __Note:__ required for international payments."
         },
@@ -221,7 +221,7 @@
           },
           "maxLength": 3,
           "example": "USD",
-          "description": "Currency in which vendor will be paid. ISO Alfa 3 code."
+          "description": "Currency in which vendor will be paid. ISO Alfa 3 code. When payeeBankgiroNumber is provided, paymentCurrencyCode needs to be in 'SEK'."
         },
         "invoiceDate": {
           "type": "string",
@@ -240,6 +240,15 @@
           "format": "date",
           "example": "2021-04-10",
           "description": "Invoice Due Date in format yyyy-MM-dd."
+        },
+        "preferredPaymentDate": {
+          "type": "string",
+          "xml": {
+            "name": "PreferredPaymentDate"
+          },
+          "format": "date",
+          "example": "2021-04-10",
+          "description": "The date on which payment should be executed. If left empty, current date will be used."
         },
         "invoiceAmount": {
           "type": "number",
@@ -282,7 +291,7 @@
           "xml": {
             "name": "PayeeBankName"
           },
-          "maxLength": 50,
+          "maxLength": 140,
           "example": "Bank Zachodni WBK S.A.",
           "description": "Name of the beneficiary bank."
         },
@@ -336,7 +345,7 @@
           "xml": {
             "name": "PayeeBankgiroNumber"
           },
-          "maxLength": 8,
+          "maxLength": 34,
           "example": "3452334",
           "description": "When payeeBankgiroNumber is provided, payeeAccountNumber, payeeRoutingNumber and payeeBankSwiftCode are optional. If both payeeBankgiroNumber and combination of payeeAccountNumber, payeeRoutingNumber and payeeBankSwiftCode are provided, the combination of (payeeAccountNumber and payeeBankSwiftCode) or (payeeAccountNumber and payeeRoutingNumber) are used for payment execution."
         },
@@ -345,7 +354,7 @@
           "xml": {
             "name": "PayeeRoutingNumber"
           },
-          "maxLength": 15,
+          "maxLength": 35,
           "example": "202020",
           "description": "Required field when basic account number provided in payeeAccountNumber field. Optional if IBAN provided. This could be known as RoutingNumber, BranchCode, ABA number, transit number, MICR, IFSC, etc. Required for international payments in some countries."
         },
@@ -356,7 +365,8 @@
           },
           "maxLength": 11,
           "example": "WBKPPLPP",
-          "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally."
+          "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Needs to match regex included as pattern.",
+          "pattern": "^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$"
         },
         "payeeType": {
           "type": "string",
@@ -389,7 +399,7 @@
           "xml": {
             "name": "PaymentReference"
           },
-          "maxLength": 13,
+          "maxLength": 35,
           "example": "P012701",
           "description": "A payment reference number from the customers accounting system. If not provided, invoiceNumber will be used as payment reference."
         },
@@ -416,7 +426,7 @@
           "xml": {
             "name": "PayeeTaxRegistrationNumber"
           },
-          "maxLength": 20,
+          "maxLength": 35,
           "example": "12598",
           "description": "The payee tax registration number."
         }
