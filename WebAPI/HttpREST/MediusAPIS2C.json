@@ -3,6 +3,7 @@
   "info": {
     "version": "2.0.0",
     "title": "Medius Supplier & Contracts Data Model",
+    "description": "Full list of available APIs for Medius S2C. Here you can see the model and examples of the APIs, but there is currently no test capabilities.",
     "license": {
       "name": "MIT"
     }
