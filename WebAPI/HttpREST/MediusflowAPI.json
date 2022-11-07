@@ -58,10 +58,14 @@
                     "description": "ExternalSystemId to corresponding entity"
                 },
                 "accrualCodeString": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                        }
+                    ],
                     "xml": {
                         "name": "AccrualCodeString"
-                    },
-                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                    }
                 },
                 "accrualPeriods": {
                     "type": "array",
@@ -70,9 +74,6 @@
                         "wrapped": true
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationImportAccrualPeriodDto"
-                        },
                         "$ref": "#/definitions/IntegrationImportAccrualPeriodDto"
                     }
                 },
@@ -259,6 +260,9 @@
         "IntegrationCodingDimensionsDto": {
             "type": "object",
             "additionalProperties": false,
+            "xml": {
+                "name": "Dimensions"
+            },
             "properties": {
                 "dimension1": {
                     "type": "string",
@@ -489,9 +493,6 @@
                         "name": "Errors"
                     },
                     "items": {
-                        "xml": {
-                            "name": "BatchErrorDto"
-                        },
                         "$ref": "#/definitions/BatchErrorDto"
                     }
                 },
@@ -844,9 +845,6 @@
             "additionalProperties": false,
             "properties": {
                 "actualPaymentDate": {
-                    "xml": {
-                        "name": "ActualPaymentDate"
-                    },
                     "$ref": "#/definitions/IntegrationActualPaymentDateDto"
                 },
                 "correlationKey": {
@@ -1033,6 +1031,9 @@
         },
         "StatusLink": {
             "type": "object",
+            "xml": {
+                "name": "StatusLink"
+            },
             "additionalProperties": false,
             "properties": {
                 "ref": {
@@ -1089,16 +1090,10 @@
                         "name": "Companies"
                     },
                     "items": {
-                        "xml": {
-                            "name": "CompanyDto"
-                        },
                         "$ref": "#/definitions/CompanyDto"
                     }
                 },
                 "paging": {
-                    "xml": {
-                        "name": "Paging"
-                    },
                     "$ref": "#/definitions/Paging"
                 }
             }
@@ -1163,9 +1158,6 @@
                         "name": "Identifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IdentifierDto"
-                        },
                         "$ref": "#/definitions/IdentifierDto"
                     }
                 },
@@ -1176,9 +1168,6 @@
                         "name": "Addresses"
                     },
                     "items": {
-                        "xml": {
-                            "name": "AddressDto"
-                        },
                         "$ref": "#/definitions/AddressDto"
                     }
                 },
@@ -1300,6 +1289,9 @@
         },
         "Paging": {
             "type": "object",
+            "xml": {
+                "name": "Paging"
+            },
             "additionalProperties": false,
             "properties": {
                 "previous": {
@@ -1565,9 +1557,6 @@
                         "name": "CompanyIdentifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationCompanyIdentifierDto"
-                        },
                         "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
                     }
                 }
@@ -2327,9 +2316,6 @@
                         "name": "Responsibles"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationDimensionValueConfigurationResponsibleDto"
-                        },
                         "$ref": "#/definitions/IntegrationDimensionValueConfigurationResponsibleDto"
                     }
                 }
@@ -2629,6 +2615,9 @@
         },
         "FileLink": {
             "type": "object",
+            "xml": {
+                "name": "FileLink"
+            },
             "additionalProperties": false,
             "properties": {
                 "ref": {
@@ -2665,9 +2654,6 @@
                         "name": "Errors"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationErrorDto"
-                        },
                         "$ref": "#/definitions/IntegrationErrorDto"
                     }
                 },
@@ -2763,9 +2749,6 @@
                         "name": "SupplierItems"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationSupplierItemDto"
-                        },
                         "$ref": "#/definitions/IntegrationSupplierItemDto"
                     }
                 },
@@ -3174,15 +3157,9 @@
             "additionalProperties": false,
             "properties": {
                 "invoice": {
-                    "xml": {
-                        "name": "Invoice"
-                    },
                     "$ref": "#/definitions/IntegrationPaymentInformationInvoiceDto"
                 },
                 "paymentLine": {
-                    "xml": {
-                        "name": "PaymentLine"
-                    },
                     "$ref": "#/definitions/IntegrationPaymentLineDto"
                 },
                 "customField_Boolean1": {
@@ -3661,9 +3638,6 @@
                         "name": "Lines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPaymentTermLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationPaymentTermLineDto"
                     }
                 },
@@ -3718,9 +3692,6 @@
                     "maxLength": 10
                 },
                 "startDate": {
-                    "xml": {
-                        "name": "StartDate"
-                    },
                     "$ref": "#/definitions/IntegrationPaymentTermStartDateDto"
                 }
             }
@@ -4100,9 +4071,6 @@
                         "name": "PurchaseOrders"
                     },
                     "items": {
-                        "xml": {
-                            "name": "PurchaseOrderDto"
-                        },
                         "$ref": "#/definitions/PurchaseOrderDto"
                     }
                 },
@@ -4128,9 +4096,6 @@
                     }
                 },
                 "paging": {
-                    "xml": {
-                        "name": "Paging"
-                    },
                     "$ref": "#/definitions/Paging"
                 }
             }
@@ -4203,9 +4168,6 @@
                         "name": "PurchaseOrderLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "PurchaseOrderLineDto"
-                        },
                         "$ref": "#/definitions/PurchaseOrderLineDto"
                     }
                 },
@@ -4548,9 +4510,6 @@
                         "name": "CodingLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "PurchaseOrderCodingLineDto"
-                        },
                         "$ref": "#/definitions/PurchaseOrderCodingLineDto"
                     }
                 },
@@ -4561,9 +4520,6 @@
                         "name": "DeliveryLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "DeliveryLineDto"
-                        },
                         "$ref": "#/definitions/DeliveryLineDto"
                     }
                 },
@@ -4574,9 +4530,6 @@
                         "name": "SupplierItems"
                     },
                     "items": {
-                        "xml": {
-                            "name": "SupplierItemDto"
-                        },
                         "$ref": "#/definitions/SupplierItemDto"
                     }
                 },
@@ -4760,9 +4713,6 @@
             ],
             "properties": {
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/PurchaseOrderCodingLineDimensionsDto"
                 },
                 "amount": {
@@ -4783,7 +4733,7 @@
         "PurchaseOrderCodingLineDimensionsDto": {
             "type": "object",
             "xml": {
-                "name": "PurchaseOrderCodingLineDimensions"
+                "name": "Dimensions"
             },
             "additionalProperties": false,
             "properties": {
@@ -5759,9 +5709,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 },
@@ -5772,9 +5719,6 @@
                         "name": "PurchaseOrderLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPurchaseOrderLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationPurchaseOrderLineDto"
                     }
                 },
@@ -5785,9 +5729,6 @@
                         "name": "PurchaseOrderComments"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPurchaseOrderCommentDto"
-                        },
                         "$ref": "#/definitions/IntegrationPurchaseOrderCommentDto"
                     }
                 },
@@ -6018,9 +5959,6 @@
                         "name": "CodingLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPreCodingLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationPreCodingLineDto"
                     }
                 },
@@ -6112,9 +6050,6 @@
                         "name": "DeliveryLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationDeliveryLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationDeliveryLineDto"
                     }
                 },
@@ -6164,9 +6099,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 }
@@ -6191,9 +6123,6 @@
                     "description": "~~NET~~ amount for pre coding line. Amount field is mandatory in case there are multiple coding lines with same Type imported for one PO. Decimal format (28,14)"
                 },
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "type": {
@@ -6525,9 +6454,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 }
@@ -6631,9 +6557,6 @@
                     }
                 },
                 "from": {
-                    "xml": {
-                        "name": "From"
-                    },
                     "$ref": "#/definitions/CompanyProcurementDto"
                 },
                 "documentId": {
@@ -6644,9 +6567,6 @@
                     }
                 },
                 "to": {
-                    "xml": {
-                        "name": "To"
-                    },
                     "$ref": "#/definitions/SupplierContactDto"
                 },
                 "supplierId": {
@@ -6701,10 +6621,14 @@
                     }
                 },
                 "shipToAddressDetails": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/AddressProcurementDto"
+                        }
+                    ],
                     "xml": {
                         "name": "ShipToAddressDetails"
-                    },
-                    "$ref": "#/definitions/AddressProcurementDto"
+                    }
                 },
                 "billToAddress": {
                     "type": "string",
@@ -6713,10 +6637,14 @@
                     }
                 },
                 "billToAddressDetails": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/AddressProcurementDto"
+                        }
+                    ],
                     "xml": {
                         "name": "BillToAddressDetails"
-                    },
-                    "$ref": "#/definitions/AddressProcurementDto"
+                    }
                 },
                 "paymentTermId": {
                     "type": "string",
@@ -6821,9 +6749,6 @@
                         "name": "Lines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "PurchaseOrderLineDto"
-                        },
                         "$ref": "#/definitions/PurchaseOrderLineProcurementDto"
                     }
                 },
@@ -6834,9 +6759,6 @@
                         "name": "SupplierContactPersons"
                     },
                     "items": {
-                        "xml": {
-                            "name": "SupplierContactPersonDto"
-                        },
                         "$ref": "#/definitions/SupplierContactPersonDto"
                     }
                 }
@@ -6846,7 +6768,7 @@
             "title": "CompanyDto",
             "type": "object",
             "xml": {
-                "name": "Company"
+                "name": "From"
             },
             "additionalProperties": false,
             "properties": {
@@ -6863,9 +6785,6 @@
                         "name": "Identifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IdentifierDto"
-                        },
                         "$ref": "#/definitions/IdentifierDto"
                     }
                 },
@@ -6876,9 +6795,6 @@
                         "name": "Addresses"
                     },
                     "items": {
-                        "xml": {
-                            "name": "AddressDto"
-                        },
                         "$ref": "#/definitions/AddressProcurementDto"
                     }
                 }
@@ -6987,7 +6903,7 @@
         "SupplierContactDto": {
             "type": "object",
             "xml": {
-                "name": "Supplier"
+                "name": "To"
             },
             "additionalProperties": false,
             "properties": {
@@ -7004,16 +6920,10 @@
                         "name": "Identifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IdentifierDto"
-                        },
                         "$ref": "#/definitions/IdentifierDto"
                     }
                 },
                 "address": {
-                    "xml": {
-                        "name": "Address"
-                    },
                     "$ref": "#/definitions/AddressProcurementDto"
                 }
             }
@@ -7309,9 +7219,6 @@
                     }
                 },
                 "from": {
-                    "xml": {
-                        "name": "From"
-                    },
                     "$ref": "#/definitions/CompanyProcurementDto"
                 },
                 "documentId": {
@@ -7322,9 +7229,6 @@
                     }
                 },
                 "to": {
-                    "xml": {
-                        "name": "To"
-                    },
                     "$ref": "#/definitions/SupplierContactDto"
                 },
                 "supplierId": {
@@ -7385,10 +7289,14 @@
                     }
                 },
                 "shipToAddressDetails": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/AddressProcurementDto"
+                        }
+                    ],
                     "xml": {
                         "name": "ShipToAddressDetails"
-                    },
-                    "$ref": "#/definitions/AddressProcurementDto"
+                    }
                 },
                 "billToAddress": {
                     "type": "string",
@@ -7397,10 +7305,14 @@
                     }
                 },
                 "billToAddressDetails": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/AddressProcurementDto"
+                        }
+                    ],
                     "xml": {
                         "name": "BillToAddressDetails"
-                    },
-                    "$ref": "#/definitions/AddressProcurementDto"
+                    }
                 },
                 "paymentTermId": {
                     "type": "string",
@@ -7517,9 +7429,6 @@
                         "name": "Lines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "Line"
-                        },
                         "$ref": "#/definitions/GrnPurchaseOrderLineDto"
                     }
                 },
@@ -7530,9 +7439,6 @@
                         "name": "SupplierContactPersons"
                     },
                     "items": {
-                        "xml": {
-                            "name": "SupplierContactPersonDto"
-                        },
                         "$ref": "#/definitions/SupplierContactPersonDto"
                     }
                 }
@@ -7570,9 +7476,6 @@
                     }
                 },
                 "from": {
-                    "xml": {
-                        "name": "From"
-                    },
                     "$ref": "#/definitions/CompanyProcurementDto"
                 },
                 "documentId": {
@@ -7583,9 +7486,6 @@
                     }
                 },
                 "to": {
-                    "xml": {
-                        "name": "To"
-                    },
                     "$ref": "#/definitions/SupplierContactDto"
                 },
                 "supplierId": {
@@ -7646,10 +7546,14 @@
                     }
                 },
                 "shipToAddressDetails": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/AddressProcurementDto"
+                        }
+                    ],
                     "xml": {
                         "name": "ShipToAddressDetails"
-                    },
-                    "$ref": "#/definitions/AddressProcurementDto"
+                    }
                 },
                 "billToAddress": {
                     "type": "string",
@@ -7658,10 +7562,14 @@
                     }
                 },
                 "billToAddressDetails": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/AddressProcurementDto"
+                        }
+                    ],
                     "xml": {
                         "name": "BillToAddressDetails"
-                    },
-                    "$ref": "#/definitions/AddressProcurementDto"
+                    }
                 },
                 "paymentTermId": {
                     "type": "string",
@@ -7766,9 +7674,6 @@
                         "name": "Lines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "Line"
-                        },
                         "$ref": "#/definitions/GrnPurchaseOrderLineDto"
                     }
                 },
@@ -7779,22 +7684,12 @@
                         "name": "SupplierContactPersons"
                     },
                     "items": {
-                        "xml": {
-                            "name": "SupplierContactPersonDto"
-                        },
                         "$ref": "#/definitions/SupplierContactPersonDto"
                     }
                 },
                 "goodsReceiptNote": {
                     "type": "array",
-                    "xml": {
-                        "wrapped": true,
-                        "name": "GoodsReceiptNote"
-                    },
                     "items": {
-                        "xml": {
-                            "name": "GoodsReceiptNote"
-                        },
                         "$ref": "#/definitions/GoodsReceiptNoteDto"
                     }
                 }
@@ -7803,7 +7698,8 @@
         "GrnPurchaseOrderLineDto": {
             "type": "object",
             "xml": {
-                "name": "Line"
+                "name": "Line",
+                "namespace": "PurchaseOrder"
             },
             "additionalProperties": false,
             "required": [
@@ -7918,9 +7814,6 @@
                         "name": "CodingLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "CodingDto"
-                        },
                         "$ref": "#/definitions/CodingDto"
                     }
                 },
@@ -7932,9 +7825,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 },
@@ -7972,6 +7862,9 @@
         },
         "GoodsReceiptNoteDto": {
             "type": "object",
+            "xml": {
+                "name": "GoodsReceiptNote"
+            },
             "additionalProperties": false,
             "required": [
                 "date"
@@ -8009,11 +7902,6 @@
                         "name": "Lines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "",
-                            "wrapped": true,
-                            "namespace": "GoodsReceiptNote"
-                        },
                         "$ref": "#/definitions/GoodsReceiptNoteLineDto"
                     }
                 }
@@ -8022,7 +7910,8 @@
         "GoodsReceiptNoteLineDto": {
             "type": "object",
             "xml": {
-                "name": "Line"
+                "name": "Line",
+                "namespace": "GoodsReceiptNote"
             },
             "additionalProperties": false,
             "required": [
@@ -8123,9 +8012,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 }
@@ -8133,6 +8019,9 @@
         },
         "Link": {
             "type": "object",
+            "xml": {
+                "name": "Link"
+            },
             "additionalProperties": false,
             "properties": {
                 "url": {
@@ -8329,21 +8218,18 @@
                     }
                 },
                 "purchaseOrderConfirmation": {
-                    "xml": {
-                        "name": "PurchaseOrderConfirmation"
-                    },
                     "$ref": "#/definitions/PurchaseOrderConfirmationDto"
                 },
                 "goodsReceiptNoteConfirmation": {
-                    "xml": {
-                        "name": "GoodsReceiptNoteConfirmation"
-                    },
                     "$ref": "#/definitions/GoodsReceiptNoteConfirmationDto"
                 }
             }
         },
         "PurchaseOrderConfirmationDto": {
             "type": "object",
+            "xml": {
+                "name": "PurchaseOrderConfirmation"
+            },
             "additionalProperties": false,
             "properties": {
                 "orderNumber": {
@@ -8366,9 +8252,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 },
@@ -8411,9 +8294,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 }
@@ -8421,6 +8301,9 @@
         },
         "GoodsReceiptNoteConfirmationDto": {
             "type": "object",
+            "xml": {
+                "name": "GoodsReceiptNoteConfirmation"
+            },
             "additionalProperties": false,
             "properties": {
                 "referenceNumber": {
@@ -8474,9 +8357,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 }
@@ -8515,9 +8395,6 @@
                         "name": "RestrictedDimensions"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationRestrictedDimensionDto"
-                        },
                         "$ref": "#/definitions/IntegrationRestrictedDimensionDto"
                     }
                 }
@@ -8637,9 +8514,6 @@
                         "name": "RestrictionRules"
                     },
                     "items": {
-                        "xml": {
-                            "name": "RestrictionRuleDto"
-                        },
                         "$ref": "#/definitions/RestrictionRuleDto"
                     }
                 }
@@ -8681,9 +8555,6 @@
                         "name": "ControllingDimensionValues"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ControllingDimensionDto"
-                        },
                         "$ref": "#/definitions/ControllingDimensionDto"
                     }
                 },
@@ -8694,9 +8565,6 @@
                         "name": "RestrictedOrderedDimensionGroups"
                     },
                     "items": {
-                        "xml": {
-                            "name": "RestrictedDimensionGroupDto"
-                        },
                         "$ref": "#/definitions/RestrictedDimensionGroupDto"
                     }
                 }
@@ -8822,9 +8690,6 @@
                         "name": "ChildRules"
                     },
                     "items": {
-                        "xml": {
-                            "name": "RuleDto"
-                        },
                         "$ref": "#/definitions/RuleDto"
                     }
                 }
@@ -8844,9 +8709,6 @@
                     }
                 },
                 "dimensionValues": {
-                    "xml": {
-                        "name": "DimensionValueDto"
-                    },
                     "$ref": "#/definitions/DimensionValueDto"
                 }
             }
@@ -8992,9 +8854,6 @@
                         "name": "ContactPersons"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationContactPersonDto"
-                        },
                         "$ref": "#/definitions/IntegrationContactPersonDto"
                     }
                 },
@@ -9166,9 +9025,6 @@
                         "name": "Suppliers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "SupplierDto"
-                        },
                         "$ref": "#/definitions/SupplierDto"
                     }
                 },
@@ -9194,9 +9050,6 @@
                     }
                 },
                 "paging": {
-                    "xml": {
-                        "name": "Paging"
-                    },
                     "$ref": "#/definitions/Paging"
                 }
             }
@@ -9329,9 +9182,6 @@
                         "name": "Identifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IdentifierDto"
-                        },
                         "$ref": "#/definitions/IdentifierDto"
                     }
                 },
@@ -9342,9 +9192,6 @@
                         "name": "PaymentDetails"
                     },
                     "items": {
-                        "xml": {
-                            "name": "PaymentDetailsDto"
-                        },
                         "$ref": "#/definitions/PaymentDetailsDto"
                     }
                 },
@@ -9629,9 +9476,6 @@
                         "name": "Identifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationSupplierIdentifierDto"
-                        },
                         "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
                     }
                 },
@@ -10161,9 +10005,6 @@
                         "name": "PaymentDetails"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPaymentDetailsDto"
-                        },
                         "$ref": "#/definitions/IntegrationPaymentDetailsDto"
                     }
                 }
@@ -10254,9 +10095,6 @@
                         "name": "Identifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPaymentDetailsIdentifierDto"
-                        },
                         "$ref": "#/definitions/IntegrationPaymentDetailsIdentifierDto"
                     }
                 },
@@ -10662,9 +10500,6 @@
                     }
                 },
                 "invoice": {
-                    "xml": {
-                        "name": "Invoice"
-                    },
                     "$ref": "#/definitions/IntegrationSupplierInvoiceDto"
                 },
                 "tag": {
@@ -10721,9 +10556,6 @@
                     "description": "Unique Id to document in Medius"
                 },
                 "balanceCodeString": {
-                    "xml": {
-                        "name": "BalanceCodeString"
-                    },
                     "$ref": "#/definitions/IntegrationBalanceCodeStringDto"
                 },
                 "companyExternalSystemId": {
@@ -10757,9 +10589,6 @@
                         "name": "CompanyIdentifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationCompanyIdentifierDto"
-                        },
                         "$ref": "#/definitions/IntegrationCompanyIdentifierDto"
                     }
                 },
@@ -11495,9 +11324,6 @@
                         "name": "SupplierIdentifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationSupplierIdentifierDto"
-                        },
                         "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
                     }
                 },
@@ -11628,9 +11454,6 @@
                         "name": "InvoiceLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationSupplierInvoiceLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationSupplierInvoiceLineDto"
                     }
                 },
@@ -11641,9 +11464,6 @@
                         "name": "CodingLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationCodingLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationCodingLineDto"
                     }
                 },
@@ -11654,9 +11474,6 @@
                         "name": "TaxLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationTaxLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationTaxLineDto"
                     }
                 },
@@ -11667,9 +11484,6 @@
                         "name": "POLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPurchaseOrderLineInformationDto"
-                        },
                         "$ref": "#/definitions/IntegrationPurchaseOrderLineInformationDto"
                     }
                 },
@@ -11680,9 +11494,6 @@
                         "name": "POConnectionLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationPurchaseOrderLineConnectionDto"
-                        },
                         "$ref": "#/definitions/IntegrationPurchaseOrderLineConnectionDto"
                     }
                 },
@@ -11693,9 +11504,6 @@
                         "name": "DeviationLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationDeviationLineDto"
-                        },
                         "$ref": "#/definitions/IntegrationDeviationLineDto"
                     }
                 },
@@ -11706,9 +11514,6 @@
                         "name": "ExceptionTypeConnections"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationExceptionTypeConnectionDto"
-                        },
                         "$ref": "#/definitions/IntegrationExceptionTypeConnectionDto"
                     }
                 },
@@ -11967,9 +11772,6 @@
             ],
             "properties": {
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "amount": {
@@ -12237,15 +12039,9 @@
                     "description": "Only used with CrossCompanyPosting feature. ExternalSystemId for company connected to coding line."
                 },
                 "accrual": {
-                    "xml": {
-                        "name": "Accrual"
-                    },
                     "$ref": "#/definitions/IntegrationAccrualInformationDto"
                 },
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "amount": {
@@ -12385,7 +12181,7 @@
         "IntegrationAccrualInformationDto": {
             "type": "object",
             "xml": {
-                "name": "AccrualInformation"
+                "name": "Accrual"
             },
             "additionalProperties": false,
             "required": [
@@ -12403,9 +12199,6 @@
                     "description": "ExternalSystemId to corresponding entity."
                 },
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "numberOfPeriods": {
@@ -12431,9 +12224,6 @@
                         "name": "AccrualPeriods"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationAccrualPeriodDto"
-                        },
                         "$ref": "#/definitions/IntegrationAccrualPeriodDto"
                     }
                 },
@@ -12495,9 +12285,6 @@
             ],
             "properties": {
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "amount": {
@@ -12729,9 +12516,6 @@
                         "name": "PurchaseOrderExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 },
@@ -12742,9 +12526,6 @@
                         "name": "PurchaseOrderLineExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 }
@@ -13101,9 +12882,6 @@
                         "name": "ExternalSystemMetadata"
                     },
                     "items": {
-                        "xml": {
-                            "name": "ExternalSystemMetadataEntry"
-                        },
                         "$ref": "#/definitions/ExternalSystemMetadataEntry"
                     }
                 }
@@ -13507,9 +13285,6 @@
                         "name": "Lines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationTaxCodeDto"
-                        },
                         "$ref": "#/definitions/IntegrationTaxCodeDto"
                     }
                 },
@@ -13722,16 +13497,17 @@
                     "description": "ExternalSystemId to corresponding entity"
                 },
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 },
                 "nondeductibleDimensions": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                        }
+                    ],
                     "xml": {
                         "name": "NondeductibleDimensions"
-                    },
-                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                    }
                 },
                 "isActive": {
                     "type": "boolean",
@@ -14026,10 +13802,14 @@
                     "description": "Roles role name (of the users supervisor). ResponsibleRole is only used when Responsible is left empty"
                 },
                 "preCodingDimensions": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                        }
+                    ],
                     "xml": {
                         "name": "PreCodingDimensions"
-                    },
-                    "$ref": "#/definitions/IntegrationCodingDimensionsDto"
+                    }
                 },
                 "authorizationGroups": {
                     "type": "array",
@@ -14038,9 +13818,6 @@
                         "name": "AuthorizationGroups"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationAuthorizationGroupDto"
-                        },
                         "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
                     }
                 },
@@ -14051,9 +13828,6 @@
                         "name": "FollowupGroups"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationFollowupGroupDto"
-                        },
                         "$ref": "#/definitions/IntegrationFollowupGroupDto"
                     }
                 },
@@ -14064,9 +13838,6 @@
                         "name": "TemporaryDelegations"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationTemporaryDelegationDto"
-                        },
                         "$ref": "#/definitions/IntegrationTemporaryDelegationDto"
                     }
                 }
@@ -14311,9 +14082,6 @@
                         "name": "Roles"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationRoleCompanyDto"
-                        },
                         "$ref": "#/definitions/IntegrationRoleCompanyDto"
                     }
                 },
@@ -14324,9 +14092,6 @@
                         "name": "IdentityProviders"
                     },
                     "items": {
-                        "xml": {
-                            "name": "IntegrationIdentityProviderDto"
-                        },
                         "$ref": "#/definitions/IntegrationIdentityProviderDto"
                     }
                 },
@@ -14577,9 +14342,6 @@
             "additionalProperties": false,
             "properties": {
                 "voucher": {
-                    "xml": {
-                        "name": "Voucher"
-                    },
                     "$ref": "#/definitions/IntegrationResponseVoucherDto"
                 },
                 "correlationKey": {
@@ -14782,7 +14544,7 @@
                         "wrapped": true
                     },
                     "properties": {
-                        "EdiSupplierInvoice": {
+                        "ediSupplierInvoice": {
                             "$ref": "#/definitions/EdiSupplierInvoiceDto"
                         }
                     }
@@ -14822,9 +14584,6 @@
                         "name": "CompanyIdentifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "EdiCompanyIdentifierDto"
-                        },
                         "$ref": "#/definitions/EdiCompanyIdentifierDto"
                     }
                 },
@@ -15034,9 +14793,6 @@
                         "name": "SupplierIdentifiers"
                     },
                     "items": {
-                        "xml": {
-                            "name": "EdiSupplierIdentifierDto"
-                        },
                         "$ref": "#/definitions/EdiSupplierIdentifierDto"
                     }
                 },
@@ -15047,9 +14803,6 @@
                         "name": "Lines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "EdiSupplierInvoiceLineDto"
-                        },
                         "$ref": "#/definitions/EdiSupplierInvoiceLineDto"
                     }
                 },
@@ -15060,9 +14813,6 @@
                         "name": "CodingLines"
                     },
                     "items": {
-                        "xml": {
-                            "name": "EdiCodingLineDto"
-                        },
                         "$ref": "#/definitions/EdiCodingLineDto"
                     }
                 },
@@ -15074,9 +14824,6 @@
                     },
                     "description": "For information on how to set-up Split tax, see Success documentation.",
                     "items": {
-                        "xml": {
-                            "name": "EdiSplitTaxLineDto"
-                        },
                         "$ref": "#/definitions/EdiSplitTaxLineDto"
                     }
                 },
@@ -15087,9 +14834,6 @@
                         "name": "CustomTaxFields"
                     },
                     "items": {
-                        "xml": {
-                            "name": "EdiCustomTaxFieldDto"
-                        },
                         "$ref": "#/definitions/EdiCustomTaxFieldDto"
                     }
                 },
@@ -15570,9 +15314,6 @@
                     "description": "Counter for Line number. Serial number, starts with 1."
                 },
                 "dimensions": {
-                    "xml": {
-                        "name": "Dimensions"
-                    },
                     "$ref": "#/definitions/IntegrationCodingDimensionsDto"
                 }
             }
@@ -16478,9 +16219,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationAccrualTemplateDto"
-                                },
                                 "$ref": "#/definitions/IntegrationAccrualTemplateDto"
                             },
                             "xml": {
@@ -16705,9 +16443,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationCompanyDto"
-                                },
                                 "$ref": "#/definitions/IntegrationCompanyDto"
                             },
                             "xml": {
@@ -16793,9 +16528,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationCurrencyDto"
-                                },
                                 "$ref": "#/definitions/IntegrationCurrencyDto"
                             },
                             "xml": {
@@ -16881,9 +16613,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationCurrencyRateDto"
-                                },
                                 "$ref": "#/definitions/IntegrationCurrencyRateDto"
                             },
                             "xml": {
@@ -16969,9 +16698,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationDeliveryLineDto"
-                                },
                                 "$ref": "#/definitions/IntegrationDeliveryLineDto"
                             },
                             "xml": {
@@ -17034,9 +16760,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationDeliveryTermDto"
-                                },
                                 "$ref": "#/definitions/IntegrationDeliveryTermDto"
                             },
                             "xml": {
@@ -17122,9 +16845,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationDimensionValueConfigurationDto"
-                                },
                                 "$ref": "#/definitions/IntegrationDimensionValueConfigurationDto"
                             },
                             "xml": {
@@ -17210,9 +16930,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationDimensionValueDto"
-                                },
                                 "$ref": "#/definitions/IntegrationDimensionValueDto"
                             },
                             "xml": {
@@ -17308,10 +17025,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "FileLink"
-                                },
                                 "$ref": "#/definitions/FileLink"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfFileLink"
                             }
                         },
                         "x-nullable": true
@@ -17382,10 +17100,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "FileLink"
-                                },
                                 "$ref": "#/definitions/FileLink"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfFileLink"
                             }
                         },
                         "x-nullable": true
@@ -17539,9 +17258,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationItemDto"
-                                },
                                 "$ref": "#/definitions/IntegrationItemDto"
                             },
                             "xml": {
@@ -17772,9 +17488,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationPaymentTermDto"
-                                },
                                 "$ref": "#/definitions/IntegrationPaymentTermDto"
                             },
                             "xml": {
@@ -17808,9 +17521,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationPeriodDto"
-                                },
                                 "$ref": "#/definitions/IntegrationPeriodDto"
                             },
                             "xml": {
@@ -17950,9 +17660,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationPurchaseOrderDto"
-                                },
                                 "$ref": "#/definitions/IntegrationPurchaseOrderDto"
                             },
                             "xml": {
@@ -18166,10 +17873,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -18247,10 +17955,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -18328,10 +18037,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -18409,10 +18119,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -18490,10 +18201,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -18571,10 +18283,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -18940,10 +18653,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19005,10 +18719,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19070,10 +18785,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19135,10 +18851,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19200,10 +18917,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19265,10 +18983,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19330,10 +19049,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19395,10 +19115,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19460,10 +19181,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19525,10 +19247,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19590,10 +19313,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19655,10 +19379,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -19737,9 +19462,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationBasicRestrictionsDto"
-                                },
                                 "$ref": "#/definitions/IntegrationBasicRestrictionsDto"
                             },
                             "xml": {
@@ -19825,9 +19547,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "RestrictionRuleGroupDto"
-                                },
                                 "$ref": "#/definitions/RestrictionRuleGroupDto"
                             },
                             "xml": {
@@ -19889,9 +19608,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationSupplierConfigurationDto"
-                                },
                                 "$ref": "#/definitions/IntegrationSupplierConfigurationDto"
                             },
                             "xml": {
@@ -20037,9 +19753,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationSupplierDto"
-                                },
                                 "$ref": "#/definitions/IntegrationSupplierDto"
                             },
                             "xml": {
@@ -20377,10 +20090,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -20456,10 +20170,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -20535,10 +20250,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -20614,10 +20330,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -20693,10 +20410,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -20772,10 +20490,11 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "Link"
-                                },
                                 "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
                             }
                         },
                         "x-nullable": true
@@ -20888,9 +20607,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationTaxGroupDto"
-                                },
                                 "$ref": "#/definitions/IntegrationTaxGroupDto"
                             },
                             "xml": {
@@ -20924,9 +20640,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationUnitDto"
-                                },
                                 "$ref": "#/definitions/IntegrationUnitDto"
                             },
                             "xml": {
@@ -21012,9 +20725,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationUserConfigurationDto"
-                                },
                                 "$ref": "#/definitions/IntegrationUserConfigurationDto"
                             },
                             "xml": {
@@ -21100,9 +20810,6 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "xml": {
-                                    "name": "IntegrationUserDto"
-                                },
                                 "$ref": "#/definitions/IntegrationUserDto"
                             },
                             "xml": {
