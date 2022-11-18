@@ -19,6 +19,92 @@
         "application/json",
         "application/xml"
     ],
+    "tags": [
+        {
+            "name": "General master data (import)",
+            "description": "Master data import used by the suite",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#master-data-import"
+            }
+        },
+        {
+            "name": "General master data (export)",
+            "description": "Companies and suppliers",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
+            }
+        },
+        {
+            "name": "Transactional data (import)",
+            "description": "Purchase orders, currency rates...",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#master-data-import"
+            }
+        },
+        {
+            "name": "Transactional data (export)",
+            "description": "Purchase orders, currency rates...",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
+            }
+        },
+        {
+            "name": "User related data",
+            "description": "User import, OpenId connect...",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
+            }
+        },
+        {
+            "name": "Accounts payable",
+            "description": "Document import, supplier invoice message exchange",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#supplier-invoice-messages"
+            }
+        },
+        {
+            "name": "Procurement",
+            "description": "Order and goods receipt postings and confirmations",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#procurement-messages"
+            }
+        },
+        {
+            "name": "Buy",
+            "description": "Send to supplier",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#procurement-messages"
+            }
+        },
+        {
+            "name": "Payments",
+            "description": "Import of payment batches and reconciliation",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#payment-batch-import"
+            }
+        },
+        {
+            "name": "Supplier Management",
+            "description": "",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#payment-batch-import"
+            }
+        },
+        {
+            "name": "File/media",
+            "description": "Images and attachments"    
+        }
+    ],
     "definitions": {
         "IntegrationAccrualTemplateDto": {
             "type": "object",
@@ -16207,7 +16293,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Post",
@@ -16240,7 +16326,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Get",
@@ -16267,7 +16353,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Delete",
@@ -16289,103 +16375,10 @@
                 }
             }
         },
-        "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "Deprecated API, please use paymentInformations instead.",
-                "operationId": "ActualPaymentDate_Get",
-                "description": "Deprecated API, please use paymentInformations instead. This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "messageId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The id of the message",
-                        "format": "int32"
-                    },
-                    {
-                        "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/ActualPaymentDateResponseDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "Deprecated API, please use paymentInformations instead.",
-                "operationId": "ActualPaymentDate_GetStatus",
-                "description": "Deprecated API, please use paymentInformations instead. This method will return a status and an effective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "messageId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message id of the message to find/check status",
-                        "format": "int32"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/StatusLink"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/actualpaymentdates": {
-            "post": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "Deprecated API, please use paymentInformations instead.",
-                "operationId": "ActualPaymentDate_Post",
-                "description": "Deprecated API, please use paymentInformations instead. This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
-                "parameters": [
-                    {
-                        "name": "actualPaymentDate",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/ActualPaymentDateResponseDto"
-                        },
-                        "x-nullable": true
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": ""
-                    }
-                }
-            }
-        },
         "/integration/masterdata/v1/companies": {
             "get": {
                 "tags": [
-                    "Export of data"
+                    "General master data (export)"
                 ],
                 "summary": "",
                 "operationId": "CompanyExport_Get",
@@ -16431,7 +16424,7 @@
         "/integration/masterdata/v1/CompanyImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Post",
@@ -16464,7 +16457,7 @@
         "/integration/masterdata/v1/CompanyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Get",
@@ -16491,7 +16484,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Delete",
@@ -16516,7 +16509,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Post",
@@ -16549,7 +16542,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Get",
@@ -16576,7 +16569,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Delete",
@@ -16601,7 +16594,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Post",
@@ -16634,7 +16627,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Get",
@@ -16661,7 +16654,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Delete",
@@ -16686,7 +16679,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "DeliveryLinesImportBatch_Post",
@@ -16719,7 +16712,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "DeliveryLinesImportBatch_Get",
@@ -16748,7 +16741,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Post",
@@ -16781,7 +16774,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Get",
@@ -16808,7 +16801,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Delete",
@@ -16833,7 +16826,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
@@ -16866,7 +16859,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Get",
@@ -16893,7 +16886,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
@@ -16918,7 +16911,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Post",
@@ -16951,7 +16944,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Get",
@@ -16978,7 +16971,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Delete",
@@ -17003,7 +16996,7 @@
         "/integration/media/v1/document/{documentId}/images": {
             "get": {
                 "tags": [
-                    "Export of data"
+                    "File/media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetDocumentImagesLinks",
@@ -17040,7 +17033,7 @@
         "/integration/media/v1/document/{documentId}/images/{imageHash}": {
             "get": {
                 "tags": [
-                    "Export of data"
+                    "File/media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetImage",
@@ -17078,7 +17071,7 @@
         "/integration/media/v1/document/{documentId}/attachments": {
             "get": {
                 "tags": [
-                    "Export of data"
+                    "File/media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetDocumentAttachmentsLinks",
@@ -17115,7 +17108,7 @@
         "/integration/media/v1/document/{documentId}/attachments/{attachmentHash}": {
             "get": {
                 "tags": [
-                    "Export of data"
+                    "File/media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetAttachment",
@@ -17153,7 +17146,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice messages"
+                    "Accounts payable"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Get",
@@ -17191,7 +17184,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice messages"
+                    "Accounts payable"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_GetStatus",
@@ -17221,7 +17214,7 @@
         "/integration/message/v1/supplierinvoice/errors": {
             "post": {
                 "tags": [
-                    "Supplier invoice messages"
+                    "Accounts payable"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Post",
@@ -17246,7 +17239,7 @@
         "/integration/masterdata/v1/ItemImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Post",
@@ -17279,7 +17272,7 @@
         "/integration/masterdata/v1/ItemImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Get",
@@ -17306,7 +17299,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Delete",
@@ -17331,7 +17324,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice messages"
+                    "Accounts payable"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Get",
@@ -17369,7 +17362,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageId}": {
             "get": {
                 "tags": [
-                    "Supplier invoice messages"
+                    "Accounts payable"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_GetStatus",
@@ -17399,7 +17392,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations": {
             "post": {
                 "tags": [
-                    "Supplier invoice messages"
+                    "Accounts payable"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Post",
@@ -17424,7 +17417,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Get",
@@ -17451,7 +17444,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Delete",
@@ -17476,7 +17469,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Post",
@@ -17509,7 +17502,7 @@
         "/integration/masterdata/v1/PeriodImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Post",
@@ -17542,7 +17535,7 @@
         "/integration/masterdata/v1/PeriodImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Get",
@@ -17569,7 +17562,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Delete",
@@ -17594,7 +17587,7 @@
         "/integration/masterdata/v1/purchaseorders": {
             "get": {
                 "tags": [
-                    "Export of data"
+                    "Transactional data (export)"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderExport_Get",
@@ -17648,7 +17641,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Post",
@@ -17681,7 +17674,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Get",
@@ -17708,7 +17701,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "Transactional data (import)"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Delete",
@@ -17733,8 +17726,8 @@
         "/integration/message/v1/procurement/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Get",
@@ -17770,8 +17763,8 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Put",
@@ -17814,8 +17807,8 @@
         "/integration/message/v1/procurement/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetStatus",
@@ -17845,8 +17838,8 @@
         "/integration/message/v1/procurement/purchaseorders/posted": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_MessagesIds",
@@ -17886,8 +17879,8 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_Put",
@@ -17927,8 +17920,8 @@
         "/integration/message/v1/procurement/purchaseorders/fetched": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_MessagesIds",
@@ -17968,8 +17961,8 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_Put",
@@ -18009,8 +18002,8 @@
         "/integration/message/v1/procurement/purchaseorders/processing": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_MessagesIds",
@@ -18050,8 +18043,8 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_Put",
@@ -18091,8 +18084,8 @@
         "/integration/message/v1/procurement/purchaseorders/sent": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_MessagesIds",
@@ -18132,8 +18125,8 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_Put",
@@ -18173,8 +18166,8 @@
         "/integration/message/v1/procurement/purchaseorders/closed": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_MessagesIds",
@@ -18214,8 +18207,8 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_Put",
@@ -18255,8 +18248,8 @@
         "/integration/message/v1/procurement/purchaseorders/error": {
             "get": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_MessagesIds",
@@ -18296,8 +18289,8 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_Put",
@@ -18337,8 +18330,8 @@
         "/integration/message/v1/procurement/errors": {
             "post": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Post_Errors",
@@ -18363,8 +18356,8 @@
         "/integration/message/v1/procurement/purchaseorderrequestconfirmation": {
             "post": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Post_Confirmation",
@@ -18389,8 +18382,8 @@
         "/integration/message/v1/procurement/purchaseordercancelationconfirmation": {
             "post": {
                 "tags": [
-                    "Procurement messages",
-                    "Buy messages"
+                    "Procurement",
+                    "Buy"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Post_Cancellation",
@@ -18415,7 +18408,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetGrn",
@@ -18451,7 +18444,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PutGrn",
@@ -18494,7 +18487,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetPurchaseOrders",
@@ -18530,7 +18523,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PutPo",
@@ -18573,7 +18566,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetPoToErpStatus",
@@ -18603,7 +18596,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetGrnStatus",
@@ -18633,7 +18626,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/posted": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetGrnMessagesIds",
@@ -18666,7 +18659,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutGrn",
@@ -18699,7 +18692,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/fetched": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetGrnMessagesIds",
@@ -18732,7 +18725,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutGrn",
@@ -18765,7 +18758,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/processing": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetGrnMessagesIds",
@@ -18798,7 +18791,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutGrn",
@@ -18831,7 +18824,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/sent": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetGrnMessagesIds",
@@ -18864,7 +18857,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutGrn",
@@ -18897,7 +18890,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/closed": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetGrnMessagesIds",
@@ -18930,7 +18923,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutGrn",
@@ -18963,7 +18956,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/error": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetGrnMessagesIds",
@@ -18996,7 +18989,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutGrn",
@@ -19029,7 +19022,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/posted": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetPoMessagesIds",
@@ -19062,7 +19055,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutPo",
@@ -19095,7 +19088,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/fetched": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetPoMessagesIds",
@@ -19128,7 +19121,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutPo",
@@ -19161,7 +19154,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/processing": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetPoMessagesIds",
@@ -19194,7 +19187,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutPo",
@@ -19227,7 +19220,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/sent": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetPoMessagesIds",
@@ -19260,7 +19253,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutPo",
@@ -19293,7 +19286,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/closed": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetPoMessagesIds",
@@ -19326,7 +19319,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutPo",
@@ -19359,7 +19352,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/error": {
             "get": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetPoMessagesIds",
@@ -19392,7 +19385,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutPo",
@@ -19425,7 +19418,7 @@
         "/integration/message/v1/procurement/externalsystemsync/confirmations": {
             "post": {
                 "tags": [
-                    "Procurement messages"
+                    "Procurement"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
@@ -19450,7 +19443,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Post",
@@ -19483,7 +19476,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Get",
@@ -19510,7 +19503,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Delete",
@@ -19535,7 +19528,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "RestrictionRuleImportBatch_Post",
@@ -19567,7 +19560,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "RestrictionRuleImportBatch_Get",
@@ -19596,7 +19589,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Post",
@@ -19629,7 +19622,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Get",
@@ -19656,7 +19649,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Delete",
@@ -19681,7 +19674,7 @@
         "/integration/masterdata/v1/suppliers": {
             "get": {
                 "tags": [
-                    "Export of data"
+                    "General master data (export)"
                 ],
                 "summary": "",
                 "operationId": "SupplierExport_Get",
@@ -19741,7 +19734,7 @@
         "/integration/masterdata/v1/SupplierImportBatches": {
             "post": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Post",
@@ -19774,7 +19767,7 @@
         "/integration/masterdata/v1/SupplierImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Get",
@@ -19801,7 +19794,7 @@
             },
             "delete": {
                 "tags": [
-                    "Master data import"
+                    "General master data (import)"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Delete",
@@ -19823,12 +19816,1034 @@
                 }
             }
         },
+        "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Get",
+                "description": "The GET method returns the supplier invoice content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The id of the message",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/InvoiceRequestDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Put",
+                "description": "This method updates the status for a supplier invoice message when processing it.",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status to set. Possible statuses are: Fetched, Processing or Sent"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message id to change status for",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The status that the message is in before the status change"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_GetStatus",
+                "description": "The GET method with message id as input will return a status and an effective link to the real supplier invoice content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/posted": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
+                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Posted_Put",
+                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/fetched": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
+                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Fetched_Put",
+                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/processing": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
+                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Processing_Put",
+                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/sent": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
+                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Sent_Put",
+                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/closed": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
+                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Closed_Put",
+                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/invoices/error": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
+                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Link"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfLink"
+                            }
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "SupplierInvoiceMessage_Error_Put",
+                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
+                "parameters": [
+                    {
+                        "name": "statusRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/StatusRequest"
+                        },
+                        "x-nullable": true,
+                        "description": "The status that you want to change"
+                    },
+                    {
+                        "type": "string",
+                        "name": "tag",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
+                    },
+                    {
+                        "type": "string",
+                        "name": "correlationKeyFilter",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "The Correlation key filter as explained in the summary "
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/TaxGroupImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "General master data (import)"
+                ],
+                "summary": "",
+                "operationId": "TaxGroupImportBatch_Get",
+                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "General master data (import)"
+                ],
+                "summary": "",
+                "operationId": "TaxGroupImportBatch_Delete",
+                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/TaxGroupImportBatches": {
+            "post": {
+                "tags": [
+                    "General master data (import)"
+                ],
+                "summary": "",
+                "operationId": "TaxGroupImportBatch_Post",
+                "description": "The POST method allows the client to send tax groups that will be imported by the Medius master data import queue.\nThe tax group have company as mandatory prerequisite.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Medius.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
+                "parameters": [
+                    {
+                        "name": "taxGroups",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationTaxGroupDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfTaxGroup"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The tax groups to import"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/UnitImportBatches": {
+            "post": {
+                "tags": [
+                    "General master data (import)"
+                ],
+                "summary": "",
+                "operationId": "UnitImportBatch_Post",
+                "description": "The POST method allows the client to send units that will be imported by the Medius master data import queue.\nThe units have no prerequisite.\nRemember that the functionality around units is limited in Medius and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Medius =&gt; '-'",
+                "parameters": [
+                    {
+                        "name": "unit",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationUnitDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfUnit"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The units to import"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/UnitImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "General master data (import)"
+                ],
+                "summary": "",
+                "operationId": "UnitImportBatch_Get",
+                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "General master data (import)"
+                ],
+                "summary": "",
+                "operationId": "UnitImportBatch_Delete",
+                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/UserImportBatches": {
+            "post": {
+                "tags": [
+                    "User related data"
+                ],
+                "summary": "",
+                "operationId": "UserImportBatch_Post",
+                "description": "The POST method allows the client to send users that will be imported by the Medius master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
+                "parameters": [
+                    {
+                        "name": "users",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationUserDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfUser"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The users to import"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/UserImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "User related data"
+                ],
+                "summary": "",
+                "operationId": "UserImportBatch_Get",
+                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User related data"
+                ],
+                "summary": "",
+                "operationId": "UserImportBatch_Delete",
+                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/UserConfigurationImportBatches": {
+            "post": {
+                "tags": [
+                    "User related data"
+                ],
+                "summary": "",
+                "operationId": "UserConfigurationImportBatch_Post",
+                "description": "The POST method allows the client to send user configurations that will be imported by the Medius master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
+                "parameters": [
+                    {
+                        "name": "userConfigurations",
+                        "in": "body",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/IntegrationUserConfigurationDto"
+                            },
+                            "xml": {
+                                "wrapped": true,
+                                "name": "ArrayOfUserConfiguration"
+                            }
+                        },
+                        "x-nullable": true,
+                        "description": "The user configurations to import"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/UserConfigurationImportBatches/{importId}": {
+            "get": {
+                "tags": [
+                    "User related data"
+                ],
+                "summary": "",
+                "operationId": "UserConfigurationImportBatch_Get",
+                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/BatchDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User related data"
+                ],
+                "summary": "",
+                "operationId": "UserConfigurationImportBatch_Delete",
+                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "VoucherMessage_Get",
+                "description": "This method returns the voucher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The id of the message",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/VoucherResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "VoucherMessage_GetStatus",
+                "description": "This method will return a status and an effective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/vouchers": {
+            "post": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "",
+                "operationId": "VoucherMessage_Post",
+                "description": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "parameters": [
+                    {
+                        "name": "voucher",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/VoucherResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
         "/integration/documentImport/v1/supplierinvoices/{id}": {
             "get": {
                 "tags": [
-                    "Document import"
+                    "Accounts payable"
                 ],
-                "summary": "",
+                "summary": "Document import status",
                 "operationId": "SupplierInvoice_Get",
                 "description": "The GET Method returns the status for a given DocumentImport document in Medius.\nIt also returns the \"real\" invoice that was created by the imported document.",
                 "parameters": [
@@ -19862,9 +20877,9 @@
         "/integration/documentImport/v1/supplierinvoices": {
             "post": {
                 "tags": [
-                    "Document import"
+                    "Accounts payable"
                 ],
-                "summary": "",
+                "summary": "Document import",
                 "operationId": "SupplierInvoice_Post",
                 "description": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/receipt that Medius received the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self testing experience in Swagger UI is limited.\nTo get the full test experience, please test this method in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/36b522ecbddf6a8934d4",
                 "parameters": [
@@ -19894,9 +20909,9 @@
         "/integration/documentImport/v1/file/supplierinvoices/": {
             "post": {
                 "tags": [
-                    "Document import"
+                    "Accounts payable"
                 ],
-                "summary": "",
+                "summary": "Document file import",
                 "operationId": "File_SupplierInvoice_Post",
                 "description": "The POST method uploads a PDF or XML invoice file from body to Capture.\nIt returns id of uploaded file. Note: the self testing experience in Swagger UI is limited. It is only possible to paste the XML body. Please use Postman or other test tools to send in PDF and XML files as binary.",
                 "consumes":[
@@ -19947,1028 +20962,6 @@
                             "$ref": "#/definitions/BadRequest"
                         },
                         "description": "Bad Request"
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Get",
-                "description": "The GET method returns the supplier invoice content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
-                    },
-                    {
-                        "type": "integer",
-                        "name": "messageId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The id of the message",
-                        "format": "int32"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/InvoiceRequestDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Put",
-                "description": "This method updates the status for a supplier invoice message when processing it.",
-                "parameters": [
-                    {
-                        "name": "statusRequest",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/StatusRequest"
-                        },
-                        "x-nullable": true,
-                        "description": "The status to set. Possible statuses are: Fetched, Processing or Sent"
-                    },
-                    {
-                        "type": "integer",
-                        "name": "messageId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message id to change status for",
-                        "format": "int32"
-                    },
-                    {
-                        "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The status that the message is in before the status change"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_GetStatus",
-                "description": "The GET method with message id as input will return a status and an effective link to the real supplier invoice content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "messageId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message id of the message to find/check status",
-                        "format": "int32"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/StatusLink"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/posted": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
-                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Link"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfLink"
-                            }
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Posted_Put",
-                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "parameters": [
-                    {
-                        "name": "statusRequest",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/StatusRequest"
-                        },
-                        "x-nullable": true,
-                        "description": "The status that you want to change"
-                    },
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/fetched": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
-                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Link"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfLink"
-                            }
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Fetched_Put",
-                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "parameters": [
-                    {
-                        "name": "statusRequest",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/StatusRequest"
-                        },
-                        "x-nullable": true,
-                        "description": "The status that you want to change"
-                    },
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/processing": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
-                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Link"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfLink"
-                            }
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Processing_Put",
-                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "parameters": [
-                    {
-                        "name": "statusRequest",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/StatusRequest"
-                        },
-                        "x-nullable": true,
-                        "description": "The status that you want to change"
-                    },
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/sent": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
-                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Link"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfLink"
-                            }
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Sent_Put",
-                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "parameters": [
-                    {
-                        "name": "statusRequest",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/StatusRequest"
-                        },
-                        "x-nullable": true,
-                        "description": "The status that you want to change"
-                    },
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/closed": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
-                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Link"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfLink"
-                            }
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Closed_Put",
-                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "parameters": [
-                    {
-                        "name": "statusRequest",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/StatusRequest"
-                        },
-                        "x-nullable": true,
-                        "description": "The status that you want to change"
-                    },
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/invoices/error": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
-                "description": "This method returns all messages that matches the parameters sent in.\nThe mandatory parameter is the status parameter, besides that the other parameters are sent in as querystring parameters to narrow down the result.\nThe query string parameters are used to for instance limit on message type e.g. Preliminary or Posted.\nThe correlation key filter is used to filter out messages by the correlation key, typically used to filter on invoice type or by company.\nThe correlation key filter is built on a set of properties on the invoice with a delimiter: ';'.\n(Please check the number of ';' you have in your correlation key settings.)\nSeeing all messages would be ;;;;;; for a correlation key looking as: company[49];company[49];supplier1;company[49];supplier1;Invoice1;\nListing for a given company would give the following filter: company[49];;;;;;",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Link"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfLink"
-                            }
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "SupplierInvoiceMessage_Error_Put",
-                "description": "This method updates the status for all supplier invoice messages that meet the filter parameters.\nThis method behaves the same as the GET method that returns supplier invoice messages, please read there for details.",
-                "parameters": [
-                    {
-                        "name": "statusRequest",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/StatusRequest"
-                        },
-                        "x-nullable": true,
-                        "description": "The status that you want to change"
-                    },
-                    {
-                        "type": "string",
-                        "name": "tag",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The message tags, these can be the following for an invoice PRELIMINARY, FINAL or CANCEL"
-                    },
-                    {
-                        "type": "string",
-                        "name": "correlationKeyFilter",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "The Correlation key filter as explained in the summary "
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/TaxGroupImportBatches/{importId}": {
-            "get": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "TaxGroupImportBatch_Get",
-                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/BatchDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "TaxGroupImportBatch_Delete",
-                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/TaxGroupImportBatches": {
-            "post": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "TaxGroupImportBatch_Post",
-                "description": "The POST method allows the client to send tax groups that will be imported by the Medius master data import queue.\nThe tax group have company as mandatory prerequisite.\nThe tax group consists of a set of tax codes, in many \"less advance\" systems the translation is that tax code is the same as the tax group entity in Medius.\nThis means that if a tax code from the ERP i X, then tax group will be X and there will be one tax code line with X within the tax group.\nWhen performing accounting on an invoice, the tax group is the one used. When providing a TaxIndicator on Supplier or dimensions, the Tax Group is the one to reference.\nThere is a property IndicatorNumber, this one decides if the TaxGroup is going to work with TaxIndicator 1 or 2. ",
-                "parameters": [
-                    {
-                        "name": "taxGroups",
-                        "in": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/IntegrationTaxGroupDto"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfTaxGroup"
-                            }
-                        },
-                        "x-nullable": true,
-                        "description": "The tax groups to import"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/UnitImportBatches": {
-            "post": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UnitImportBatch_Post",
-                "description": "The POST method allows the client to send units that will be imported by the Medius master data import queue.\nThe units have no prerequisite.\nRemember that the functionality around units is limited in Medius and the reason for importing them should probably be considered\nbefore doing it. The usual case is to set the Unit on purchase order line to the default unit in Medius =&gt; '-'",
-                "parameters": [
-                    {
-                        "name": "unit",
-                        "in": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/IntegrationUnitDto"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfUnit"
-                            }
-                        },
-                        "x-nullable": true,
-                        "description": "The units to import"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/UnitImportBatches/{importId}": {
-            "get": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UnitImportBatch_Get",
-                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/BatchDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UnitImportBatch_Delete",
-                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/UserConfigurationImportBatches": {
-            "post": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UserConfigurationImportBatch_Post",
-                "description": "The POST method allows the client to send user configurations that will be imported by the Medius master data import queue.\nThe user configurations have the company and the corresponding user as prerequisites.\nRemember that by sending configurations for users the integration will updated them all the time, so manual changes of the properties included\nin this data is not possible to set within Medius. ",
-                "parameters": [
-                    {
-                        "name": "userConfigurations",
-                        "in": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/IntegrationUserConfigurationDto"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfUserConfiguration"
-                            }
-                        },
-                        "x-nullable": true,
-                        "description": "The user configurations to import"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/UserConfigurationImportBatches/{importId}": {
-            "get": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UserConfigurationImportBatch_Get",
-                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/BatchDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UserConfigurationImportBatch_Delete",
-                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/UserImportBatches": {
-            "post": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UserImportBatch_Post",
-                "description": "The POST method allows the client to send users that will be imported by the Medius master data import queue.\nThe users have the company and the corresponding role to set for the user as prerequisites.",
-                "parameters": [
-                    {
-                        "name": "users",
-                        "in": "body",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/IntegrationUserDto"
-                            },
-                            "xml": {
-                                "wrapped": true,
-                                "name": "ArrayOfUser"
-                            }
-                        },
-                        "x-nullable": true,
-                        "description": "The users to import"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Response includes Location header with a link to the import batch, this link will give the status of how the batch is processing within Medius"
-                    }
-                }
-            }
-        },
-        "/integration/masterdata/v1/UserImportBatches/{importId}": {
-            "get": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UserImportBatch_Get",
-                "description": "The GET method will allow you to check status for an imported batch. When performing a POST, the link returned is pointing to this method.\nThis method allows the client to orchestrate so that the client can wait until dependent master data is imported correctly before sending that data.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/BatchDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Master data import"
-                ],
-                "summary": "",
-                "operationId": "UserImportBatch_Delete",
-                "description": "The DELETE method allows a client to remove an import item from the queue, this to allow an integration to take full responsibility\nof resending master data batches and handle all error on the client side instead of within Medius. it's only possible to remove items that are not in a running state.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "name": "importId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The import id is either retrieved by the full link from the result of the POST or from within the Medius master data import queue"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "VoucherMessage_Get",
-                "description": "This method returns the voucher content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "messageId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The id of the message",
-                        "format": "int32"
-                    },
-                    {
-                        "type": "string",
-                        "name": "messageStatus",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/VoucherResponseDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
-            "get": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "VoucherMessage_GetStatus",
-                "description": "This method will return a status and an effective link to the real voucher content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "messageId",
-                        "in": "path",
-                        "required": true,
-                        "x-nullable": false,
-                        "description": "The message id of the message to find/check status",
-                        "format": "int32"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/StatusLink"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
-        "/integration/message/v1/supplierinvoice/vouchers": {
-            "post": {
-                "tags": [
-                    "Supplier invoice messages"
-                ],
-                "summary": "",
-                "operationId": "VoucherMessage_Post",
-                "description": "This method accepts a voucher as a response to the supplier invoice message that was retrieved in earlier step.\nThe voucher requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
-                "parameters": [
-                    {
-                        "name": "voucher",
-                        "in": "body",
-                        "schema": {
-                            "$ref": "#/definitions/VoucherResponseDto"
-                        },
-                        "x-nullable": true
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": ""
                     }
                 }
             }
@@ -21104,6 +21097,116 @@
                     },
                     "404": {
                         "description": "Payment batch with given paymentBatchId not found"
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "Deprecated API, please use paymentInformations instead.",
+                "operationId": "ActualPaymentDate_Get",
+                "description": "Deprecated API, please use paymentInformations instead. This method returns the payment date content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The id of the message",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ActualPaymentDateResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
+            "get": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "Deprecated API, please use paymentInformations instead.",
+                "operationId": "ActualPaymentDate_GetStatus",
+                "description": "Deprecated API, please use paymentInformations instead. This method will return a status and an effective link to the real actual payment date content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/integration/message/v1/supplierinvoice/actualpaymentdates": {
+            "post": {
+                "tags": [
+                    "Accounts payable"
+                ],
+                "summary": "Deprecated API, please use paymentInformations instead.",
+                "operationId": "ActualPaymentDate_Post",
+                "description": "Deprecated API, please use paymentInformations instead. This method accepts a actual payment date as a response to the supplier invoice message that was retrieved in earlier step.\nThe actual payment date object requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "parameters": [
+                    {
+                        "name": "actualPaymentDate",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ActualPaymentDateResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/connect/userinfo": {
+            "get": {
+                "tags": [
+                    "User related data"
+                ],
+                "summary": "Returns user claims as JSON object (XML is not allowed by OpenId Connect specification). Claims includes: user's external system id, e-mail, first name, last name, locale, personal role id, preffered format, username and default company id.",
+                "operationId": "UserInfo_Get",
+                "responses": {
+                    "200": {
+                        "description": "JSON object with claims"
                     }
                 }
             }
