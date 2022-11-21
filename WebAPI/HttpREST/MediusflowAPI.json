@@ -4544,6 +4544,109 @@
                 }
             }
         },
+        "ReleasePaymentResponseDto": {
+            "type": "object",
+            "xml": {
+                "name": "ReleasePaymentResponse"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "CorrelationKey": {
+                    "type": "string"
+                },
+                "ReleasePayment": {
+                    "xml": {
+                        "name": "ReleasePayment"
+                    },
+                    "$ref": "#/definitions/IntegrationResponseReleasePaymentDto"
+                }
+            }
+        },
+        "IntegrationResponseReleasePaymentDto": {
+            "type": "object",
+            "xml": {
+                "name": "ReleasePayment"
+            },
+            "additionalProperties": false,
+            "required": [
+                "ReleasePayment"
+            ],
+            "properties": {
+                "CustomField_Boolean1": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean2": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean3": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean4": {
+                    "type": "boolean"
+                },
+                "CustomField_Boolean5": {
+                    "type": "boolean"
+                },
+                "CustomField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "CustomField_Text1": {
+                    "type": "string"
+                },
+                "CustomField_Text2": {
+                    "type": "string"
+                },
+                "CustomField_Text3": {
+                    "type": "string"
+                },
+                "CustomField_Text4": {
+                    "type": "string"
+                },
+                "CustomField_Text5": {
+                    "type": "string"
+                },
+                "CustomField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CustomField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ReleasePayment": {
+                    "type": "boolean"
+                }
+            }
+        },
         "IntegrationRequiredListRestrictionDto": {
             "type": "object",
             "xml": {
@@ -10351,6 +10454,96 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/releasepayment/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "ReleasePaymentMessage"
+                ],
+                "summary": "This method returns the release payment content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "operationId": "ReleasePaymentMessage_Get",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The id of the message",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ReleasePaymentResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/releasepayment/{messageId}": {
+            "get": {
+                "tags": [
+                    "ReleasePaymentMessage"
+                ],
+                "summary": "This method will return a status and an effective link to the real releasepayment content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
+                "operationId": "ReleasePaymentMessage_GetStatus",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/releasepayment": {
+            "post": {
+                "tags": [
+                    "ReleasePaymentMessage"
+                ],
+                "summary": "This method accepts a release payment as a response to the supplier invoice message that was retrieved in earlier step.\nThe release payment requires a CorrelationKey that needs to match the corresponding supplier invoice message.",
+                "operationId": "ReleasePaymentMessage_Post",
+                "parameters": [
+                    {
+                        "name": "releasePaymentResponseDto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ReleasePaymentResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
                         "description": ""
                     }
                 }
