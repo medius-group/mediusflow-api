@@ -11063,8 +11063,9 @@
                 "id": {
                     "type": "integer",
                     "xml": {
-                        "name": "Internal payment item id."
+                        "name": "Id"
                     },
+                    "description": "Internal payment item id.",
                     "example": 100
                 },
                 "payorBankAccountIdentifier": {
@@ -16189,6 +16190,20 @@
                     },
                     "404": {
                         "description": "Payment batch with given paymentBatchId not found"
+                    }
+                }
+            }
+        },
+        "/connect/userinfo": {
+            "get": {
+                "tags": [
+                    "OpenIdConnect"
+                ],
+                "summary": "Returns user claims as JSON object (XML is not allowed by OpenId Connect specification). Claims includes: user's external system id, e-mail, first name, last name, locale, personal role id, preffered format, username and default company id.",
+                "operationId": "UserInfo_Get",
+                "responses": {
+                    "200": {
+                        "description": "JSON object with claims"
                     }
                 }
             }
