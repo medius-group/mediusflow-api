@@ -11063,7 +11063,7 @@
                 "id": {
                     "type": "integer",
                     "xml": {
-                        "name": "Id"
+                        "name": "Internal payment item id."
                     },
                     "example": 100
                 },
@@ -11139,13 +11139,13 @@
                     "description": "The amount paid for the invoice, may vary from invoice amount in case of partial payments or short payments"
                 },
                 "paymentCurrency": {
-                    "type": "number",
-                    "format": "double",
+                    "type": "string",
+                    "maxLength": 3,
                     "xml": {
                         "name": "PaymentCurrency"
                     },
-                    "example": 142.43,
-                    "description": "The amount paid in payment currency"
+                    "example": "USD",
+                    "description": "Currency in which the invoice was paid. ISO Alfa 3 code."
                 },
                 "paidAmountInSettlementCurrency": {
                     "type": "number",
