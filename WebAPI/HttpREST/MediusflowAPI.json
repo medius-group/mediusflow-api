@@ -451,7 +451,8 @@
                 "AUTHORIZATION_GROUP_SUPPLIER_DOES_NOT_EXIST_IN_COMPANY_TREE",
                 "AUTHORIZATION_GROUP_DIMENSION_DOES_NOT_EXIST",
                 "AUTHORIZATION_GROUP_CREDITLIMIT_MUST_BE_NEGATIVE",
-                "AUTHORIZATION_GROUP_DEBITLIMIT_MUST_BE_POSITIVE"
+                "AUTHORIZATION_GROUP_DEBITLIMIT_MUST_BE_POSITIVE",
+                "DIMENSION_ALREADY_EXIST"
             ],
             "enum": [
                 0,
@@ -611,7 +612,8 @@
                 154,
                 155,
                 156,
-                157
+                157,
+                158
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -8244,6 +8246,14 @@
                         "in": "query",
                         "x-nullable": true,
                         "description": "Tells the service that we only want companies that have been changed after this date and time"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "includeRoot",
+                        "in": "query",
+                        "x-nullable": false,
+                        "description": "Tells the service that Root company should be returned on the list (it's not by default)",
+                        "default": false
                     }
                 ],
                 "responses": {
