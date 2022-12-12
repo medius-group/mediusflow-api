@@ -21,7 +21,7 @@
     ],
     "tags": [
         {
-            "name": "General master data (import)",
+            "name": "General master data - import",
             "description": "Master data import used by the suite",
             "externalDocs": {
                 "description": "Find out more",
@@ -29,7 +29,7 @@
             }
         },
         {
-            "name": "General master data (export)",
+            "name": "General master data - export",
             "description": "Companies and suppliers",
             "externalDocs": {
                 "description": "Find out more",
@@ -37,7 +37,7 @@
             }
         },
         {
-            "name": "Transactional data (import)",
+            "name": "Transactional data - import",
             "description": "Purchase orders, currency rates...",
             "externalDocs": {
                 "description": "Find out more",
@@ -45,7 +45,7 @@
             }
         },
         {
-            "name": "Transactional data (export)",
+            "name": "Transactional data - export",
             "description": "Purchase orders, currency rates...",
             "externalDocs": {
                 "description": "Find out more",
@@ -16286,7 +16286,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Post",
@@ -16319,7 +16319,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Get",
@@ -16346,7 +16346,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Delete",
@@ -16371,7 +16371,7 @@
         "/integration/masterdata/v1/companies": {
             "get": {
                 "tags": [
-                    "General master data (export)"
+                    "General master data - export"
                 ],
                 "summary": "",
                 "operationId": "CompanyExport_Get",
@@ -16417,7 +16417,7 @@
         "/integration/masterdata/v1/CompanyImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Post",
@@ -16450,7 +16450,7 @@
         "/integration/masterdata/v1/CompanyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Get",
@@ -16477,7 +16477,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Delete",
@@ -16502,7 +16502,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Post",
@@ -16535,7 +16535,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Get",
@@ -16562,7 +16562,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Delete",
@@ -16587,7 +16587,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches": {
             "post": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Post",
@@ -16620,7 +16620,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Get",
@@ -16647,7 +16647,7 @@
             },
             "delete": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Delete",
@@ -16672,7 +16672,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches": {
             "post": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryLinesImportBatch_Post",
@@ -16705,7 +16705,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryLinesImportBatch_Get",
@@ -16734,7 +16734,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Post",
@@ -16767,7 +16767,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Get",
@@ -16794,7 +16794,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Delete",
@@ -16819,7 +16819,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
@@ -16852,7 +16852,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Get",
@@ -16879,7 +16879,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
@@ -16904,7 +16904,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Post",
@@ -16937,7 +16937,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Get",
@@ -16964,7 +16964,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Delete",
@@ -17232,7 +17232,7 @@
         "/integration/masterdata/v1/ItemImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Post",
@@ -17265,7 +17265,7 @@
         "/integration/masterdata/v1/ItemImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Get",
@@ -17292,7 +17292,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Delete",
@@ -17410,7 +17410,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Get",
@@ -17437,7 +17437,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Delete",
@@ -17462,7 +17462,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Post",
@@ -17495,7 +17495,7 @@
         "/integration/masterdata/v1/PeriodImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Post",
@@ -17528,7 +17528,7 @@
         "/integration/masterdata/v1/PeriodImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Get",
@@ -17555,7 +17555,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Delete",
@@ -17580,7 +17580,7 @@
         "/integration/masterdata/v1/purchaseorders": {
             "get": {
                 "tags": [
-                    "Transactional data (export)"
+                    "Transactional data - export"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderExport_Get",
@@ -17634,7 +17634,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches": {
             "post": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Post",
@@ -17667,7 +17667,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Get",
@@ -17694,7 +17694,7 @@
             },
             "delete": {
                 "tags": [
-                    "Transactional data (import)"
+                    "Transactional data - import"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Delete",
@@ -19418,7 +19418,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Post",
@@ -19451,7 +19451,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Get",
@@ -19478,7 +19478,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Delete",
@@ -19503,7 +19503,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionRuleImportBatch_Post",
@@ -19535,7 +19535,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionRuleImportBatch_Get",
@@ -19564,7 +19564,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Post",
@@ -19597,7 +19597,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Get",
@@ -19624,7 +19624,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Delete",
@@ -19649,7 +19649,7 @@
         "/integration/masterdata/v1/suppliers": {
             "get": {
                 "tags": [
-                    "General master data (export)"
+                    "General master data - export"
                 ],
                 "summary": "",
                 "operationId": "SupplierExport_Get",
@@ -19709,7 +19709,7 @@
         "/integration/masterdata/v1/SupplierImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Post",
@@ -19742,7 +19742,7 @@
         "/integration/masterdata/v1/SupplierImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Get",
@@ -19769,7 +19769,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Delete",
@@ -20383,7 +20383,7 @@
         "/integration/masterdata/v1/TaxGroupImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "TaxGroupImportBatch_Get",
@@ -20410,7 +20410,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "TaxGroupImportBatch_Delete",
@@ -20435,7 +20435,7 @@
         "/integration/masterdata/v1/TaxGroupImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "TaxGroupImportBatch_Post",
@@ -20468,7 +20468,7 @@
         "/integration/masterdata/v1/UnitImportBatches": {
             "post": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "UnitImportBatch_Post",
@@ -20501,7 +20501,7 @@
         "/integration/masterdata/v1/UnitImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "UnitImportBatch_Get",
@@ -20528,7 +20528,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data (import)"
+                    "General master data - import"
                 ],
                 "summary": "",
                 "operationId": "UnitImportBatch_Delete",
