@@ -46,15 +46,15 @@
         },
         {
             "name": "Transactional data - export",
-            "description": "Purchase orders, currency rates...",
+            "description": "Purchase orders",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
             }
         },
         {
-            "name": "User related data",
-            "description": "User import, OpenId connect...",
+            "name": "User import",
+            "description": "User import",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
@@ -77,7 +77,7 @@
             }
         },
         {
-            "name": "Payments",
+            "name": "Pay",
             "description": "Import of payment batches and reconciliation",
             "externalDocs": {
                 "description": "Find out more",
@@ -20553,7 +20553,7 @@
         "/integration/masterdata/v1/UserImportBatches": {
             "post": {
                 "tags": [
-                    "User related data"
+                    "User import"
                 ],
                 "summary": "",
                 "operationId": "UserImportBatch_Post",
@@ -20586,7 +20586,7 @@
         "/integration/masterdata/v1/UserImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "User related data"
+                    "User import"
                 ],
                 "summary": "",
                 "operationId": "UserImportBatch_Get",
@@ -20613,7 +20613,7 @@
             },
             "delete": {
                 "tags": [
-                    "User related data"
+                    "User import"
                 ],
                 "summary": "",
                 "operationId": "UserImportBatch_Delete",
@@ -20638,7 +20638,7 @@
         "/integration/masterdata/v1/UserConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "User related data"
+                    "User import"
                 ],
                 "summary": "",
                 "operationId": "UserConfigurationImportBatch_Post",
@@ -20671,7 +20671,7 @@
         "/integration/masterdata/v1/UserConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "User related data"
+                    "User import"
                 ],
                 "summary": "",
                 "operationId": "UserConfigurationImportBatch_Get",
@@ -20698,7 +20698,7 @@
             },
             "delete": {
                 "tags": [
-                    "User related data"
+                    "User import"
                 ],
                 "summary": "",
                 "operationId": "UserConfigurationImportBatch_Delete",
@@ -20944,7 +20944,7 @@
         "/integration/payment/v1/paymentBatches": {
             "post": {
                 "tags": [
-                    "Payments"
+                    "Pay"
                 ],
                 "summary": "",
                 "operationId": "paymentBatches_Post",
@@ -20974,7 +20974,7 @@
             },
             "get": {
                 "tags": [
-                    "Payments"
+                    "Pay"
                 ],
                 "summary": "",
                 "operationId": "paymentBatches_Get_externalBatchId",
@@ -21009,7 +21009,7 @@
         "/integration/payment/v1/paymentBatches/{paymentBatchId}": {
             "get": {
                 "tags": [
-                    "Payments"
+                    "Pay"
                 ],
                 "summary": "",
                 "operationId": "paymentBatches_Get_paymentBatchId",
@@ -21040,7 +21040,7 @@
         "/integration/payment/v1/paymentBatches/{paymentBatchId}/items": {
             "get": {
                 "tags": [
-                    "Payments"
+                    "Pay"
                 ],
                 "summary": "",
                 "operationId": "paymentBatches_Get_paymentBatchId_Items",
@@ -21175,7 +21175,7 @@
         "/connect/userinfo": {
             "get": {
                 "tags": [
-                    "User related data"
+                    "OpenIdConnect"
                 ],
                 "summary": "Returns user claims as JSON object (XML is not allowed by OpenId Connect specification). Claims includes: user's external system id, e-mail, first name, last name, locale, personal role id, preffered format, username and default company id.",
                 "operationId": "UserInfo_Get",
