@@ -21,7 +21,7 @@
     ],
     "tags": [
         {
-            "name": "General master data - import",
+            "name": "Master data - import",
             "description": "Master data import used by the suite",
             "externalDocs": {
                 "description": "Find out more",
@@ -29,7 +29,7 @@
             }
         },
         {
-            "name": "General master data - export",
+            "name": "Master data - export",
             "description": "Companies and suppliers",
             "externalDocs": {
                 "description": "Find out more",
@@ -61,7 +61,7 @@
             }
         },
         {
-            "name": "Accounts payable",
+            "name": "AP Automation",
             "description": "Document import, supplier invoice message exchange",
             "externalDocs": {
                 "description": "Find out more",
@@ -16286,7 +16286,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Post",
@@ -16319,7 +16319,7 @@
         "/integration/masterdata/v1/AccrualTemplateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Get",
@@ -16346,7 +16346,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "AccrualTemplateImportBatch_Delete",
@@ -16371,7 +16371,7 @@
         "/integration/masterdata/v1/companies": {
             "get": {
                 "tags": [
-                    "General master data - export"
+                    "Master data - export"
                 ],
                 "summary": "",
                 "operationId": "CompanyExport_Get",
@@ -16417,7 +16417,7 @@
         "/integration/masterdata/v1/CompanyImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Post",
@@ -16450,7 +16450,7 @@
         "/integration/masterdata/v1/CompanyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Get",
@@ -16477,7 +16477,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CompanyImportBatch_Delete",
@@ -16502,7 +16502,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Post",
@@ -16535,7 +16535,7 @@
         "/integration/masterdata/v1/CurrencyImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Get",
@@ -16562,7 +16562,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyImportBatch_Delete",
@@ -16734,7 +16734,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Post",
@@ -16767,7 +16767,7 @@
         "/integration/masterdata/v1/DeliveryTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Get",
@@ -16794,7 +16794,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DeliveryTermImportBatch_Delete",
@@ -16819,7 +16819,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Post",
@@ -16852,7 +16852,7 @@
         "/integration/masterdata/v1/DimensionValueConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Get",
@@ -16879,7 +16879,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueConfigurationImportBatch_Delete",
@@ -16904,7 +16904,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Post",
@@ -16937,7 +16937,7 @@
         "/integration/masterdata/v1/DimensionValueImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Get",
@@ -16964,7 +16964,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "DimensionValueImportBatch_Delete",
@@ -17139,7 +17139,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Get",
@@ -17177,7 +17177,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_GetStatus",
@@ -17207,7 +17207,7 @@
         "/integration/message/v1/supplierinvoice/errors": {
             "post": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Post",
@@ -17232,7 +17232,7 @@
         "/integration/masterdata/v1/ItemImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Post",
@@ -17265,7 +17265,7 @@
         "/integration/masterdata/v1/ItemImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Get",
@@ -17292,7 +17292,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "ItemImportBatch_Delete",
@@ -17317,7 +17317,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Get",
@@ -17355,7 +17355,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_GetStatus",
@@ -17385,7 +17385,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations": {
             "post": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Post",
@@ -17410,7 +17410,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Get",
@@ -17437,7 +17437,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Delete",
@@ -17462,7 +17462,7 @@
         "/integration/masterdata/v1/PaymentTermImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "PaymentTermImportBatch_Post",
@@ -17495,7 +17495,7 @@
         "/integration/masterdata/v1/PeriodImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Post",
@@ -17528,7 +17528,7 @@
         "/integration/masterdata/v1/PeriodImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Get",
@@ -17555,7 +17555,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "PeriodImportBatch_Delete",
@@ -19418,7 +19418,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Post",
@@ -19451,7 +19451,7 @@
         "/integration/masterdata/v1/BasicRestrictionImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Get",
@@ -19478,7 +19478,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionImportBatch_Delete",
@@ -19503,7 +19503,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionRuleImportBatch_Post",
@@ -19535,7 +19535,7 @@
         "/integration/masterdata/v1/RestrictionRuleImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "RestrictionRuleImportBatch_Get",
@@ -19564,7 +19564,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Post",
@@ -19597,7 +19597,7 @@
         "/integration/masterdata/v1/SupplierConfigurationImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Get",
@@ -19624,7 +19624,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierConfigurationBatch_Delete",
@@ -19649,7 +19649,7 @@
         "/integration/masterdata/v1/suppliers": {
             "get": {
                 "tags": [
-                    "General master data - export"
+                    "Master data - export"
                 ],
                 "summary": "",
                 "operationId": "SupplierExport_Get",
@@ -19709,7 +19709,7 @@
         "/integration/masterdata/v1/SupplierImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Post",
@@ -19742,7 +19742,7 @@
         "/integration/masterdata/v1/SupplierImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Get",
@@ -19769,7 +19769,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "SupplierImportBatch_Delete",
@@ -19794,7 +19794,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get",
@@ -19830,7 +19830,7 @@
             },
             "put": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Put",
@@ -19873,7 +19873,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
@@ -19903,7 +19903,7 @@
         "/integration/message/v1/supplierinvoice/invoices/posted": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
@@ -19943,7 +19943,7 @@
             },
             "put": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Posted_Put",
@@ -19983,7 +19983,7 @@
         "/integration/message/v1/supplierinvoice/invoices/fetched": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
@@ -20023,7 +20023,7 @@
             },
             "put": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Fetched_Put",
@@ -20063,7 +20063,7 @@
         "/integration/message/v1/supplierinvoice/invoices/processing": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
@@ -20103,7 +20103,7 @@
             },
             "put": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Processing_Put",
@@ -20143,7 +20143,7 @@
         "/integration/message/v1/supplierinvoice/invoices/sent": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
@@ -20183,7 +20183,7 @@
             },
             "put": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Sent_Put",
@@ -20223,7 +20223,7 @@
         "/integration/message/v1/supplierinvoice/invoices/closed": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
@@ -20263,7 +20263,7 @@
             },
             "put": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Closed_Put",
@@ -20303,7 +20303,7 @@
         "/integration/message/v1/supplierinvoice/invoices/error": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
@@ -20343,7 +20343,7 @@
             },
             "put": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Error_Put",
@@ -20383,7 +20383,7 @@
         "/integration/masterdata/v1/TaxGroupImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "TaxGroupImportBatch_Get",
@@ -20410,7 +20410,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "TaxGroupImportBatch_Delete",
@@ -20435,7 +20435,7 @@
         "/integration/masterdata/v1/TaxGroupImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "TaxGroupImportBatch_Post",
@@ -20468,7 +20468,7 @@
         "/integration/masterdata/v1/UnitImportBatches": {
             "post": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "UnitImportBatch_Post",
@@ -20501,7 +20501,7 @@
         "/integration/masterdata/v1/UnitImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "UnitImportBatch_Get",
@@ -20528,7 +20528,7 @@
             },
             "delete": {
                 "tags": [
-                    "General master data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "UnitImportBatch_Delete",
@@ -20723,7 +20723,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_Get",
@@ -20761,7 +20761,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_GetStatus",
@@ -20791,7 +20791,7 @@
         "/integration/message/v1/supplierinvoice/vouchers": {
             "post": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_Post",
@@ -20816,7 +20816,7 @@
         "/integration/documentImport/v1/supplierinvoices/{id}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "Document import status",
                 "operationId": "SupplierInvoice_Get",
@@ -20852,7 +20852,7 @@
         "/integration/documentImport/v1/supplierinvoices": {
             "post": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "Document import",
                 "operationId": "SupplierInvoice_Post",
@@ -20884,7 +20884,7 @@
         "/integration/documentImport/v1/file/supplierinvoices/": {
             "post": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "Document file import",
                 "operationId": "File_SupplierInvoice_Post",
@@ -21079,7 +21079,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_Get",
@@ -21118,7 +21118,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
             "get": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_GetStatus",
@@ -21149,7 +21149,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates": {
             "post": {
                 "tags": [
-                    "Accounts payable"
+                    "AP Automation"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_Post",
