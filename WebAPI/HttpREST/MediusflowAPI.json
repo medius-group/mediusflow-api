@@ -16587,7 +16587,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches": {
             "post": {
                 "tags": [
-                    "Transactional data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Post",
@@ -16620,7 +16620,7 @@
         "/integration/masterdata/v1/CurrencyRateImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "Transactional data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Get",
@@ -16647,7 +16647,7 @@
             },
             "delete": {
                 "tags": [
-                    "Transactional data - import"
+                    "Master data - import"
                 ],
                 "summary": "",
                 "operationId": "CurrencyRateImportBatch_Delete",
