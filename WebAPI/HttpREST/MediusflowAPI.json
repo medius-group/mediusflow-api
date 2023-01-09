@@ -38,7 +38,7 @@
         },
         {
             "name": "Transactional data - import",
-            "description": "Purchase orders, currency rates...",
+            "description": "Purchase orders and goods receipt",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#master-data-import"
