@@ -30,7 +30,7 @@
         },
         {
             "name": "Master data - export",
-            "description": "Companies and suppliers",
+            "description": "Companies and suppliers export",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
@@ -38,15 +38,15 @@
         },
         {
             "name": "User import",
-            "description": "User import",
+            "description": "User and user configuration import",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
             }
         },
         {
-            "name": "AP Automation: Supplier invoice ERP sync",
-            "description": "Supplier invoice message exchange",
+            "name": "AP Automation: Supplier invoice",
+            "description": "Supplier invoice ERP synchronization",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#supplier-invoice-messages"
@@ -62,7 +62,7 @@
         },
         {
             "name": "AP Automation: Invoice import",
-            "description": "Invoice import",
+            "description": "Import supplier invoices from external source.",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#supplier-invoice-messages"
@@ -87,14 +87,6 @@
         {
             "name": "Pay",
             "description": "Import of payment batches and reconciliation",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#payment-batch-import"
-            }
-        },
-        {
-            "name": "Supplier Management",
-            "description": "",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#payment-batch-import"
@@ -17147,7 +17139,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Get",
@@ -17185,7 +17177,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_GetStatus",
@@ -17215,7 +17207,7 @@
         "/integration/message/v1/supplierinvoice/errors": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Post",
@@ -17325,7 +17317,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Get",
@@ -17363,7 +17355,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_GetStatus",
@@ -17393,7 +17385,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Post",
@@ -17585,60 +17577,6 @@
                 }
             }
         },
-        "/integration/masterdata/v1/purchaseorders": {
-            "get": {
-                "tags": [
-                    "AP Automation: Purchase order"
-                ],
-                "summary": "Purchase order export",
-                "operationId": "PurchaseOrderExport_Get",
-                "description": "When calling this endpoint a list of purchase orders will be returned.\nThere exists one filter parameter to this request, that is updatedSince, it filters out purchase orders that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "name": "offset",
-                        "in": "query",
-                        "x-nullable": false,
-                        "description": "The offset",
-                        "format": "int32",
-                        "default": 0
-                    },
-                    {
-                        "type": "integer",
-                        "name": "limit",
-                        "in": "query",
-                        "x-nullable": false,
-                        "description": "The number of records returned(max 1000)",
-                        "format": "int32",
-                        "default": 1000
-                    },
-                    {
-                        "type": "boolean",
-                        "name": "includeLines",
-                        "in": "query",
-                        "x-nullable": false,
-                        "description": "Include purchase order lines with delivery lines and items data in the response or not",
-                        "default": false
-                    },
-                    {
-                        "type": "string",
-                        "name": "updatedSince",
-                        "in": "query",
-                        "x-nullable": true,
-                        "description": "Tells the service that we only want purchase orders with or without lines that have been changed after this date and time"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/PurchaseOrderExportPageDto"
-                        },
-                        "x-nullable": true
-                    }
-                }
-            }
-        },
         "/integration/masterdata/v1/PurchaseOrderImportBatches": {
             "post": {
                 "tags": [
@@ -17720,6 +17658,60 @@
                 "responses": {
                     "200": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/masterdata/v1/purchaseorders": {
+            "get": {
+                "tags": [
+                    "AP Automation: Purchase order"
+                ],
+                "summary": "Purchase order export",
+                "operationId": "PurchaseOrderExport_Get",
+                "description": "When calling this endpoint a list of purchase orders will be returned.\nThere exists one filter parameter to this request, that is updatedSince, it filters out purchase orders that have been changed since\nthe updatedSince time stamp.\nIt's possible adjust page sizes and offsets.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "offset",
+                        "in": "query",
+                        "x-nullable": false,
+                        "description": "The offset",
+                        "format": "int32",
+                        "default": 0
+                    },
+                    {
+                        "type": "integer",
+                        "name": "limit",
+                        "in": "query",
+                        "x-nullable": false,
+                        "description": "The number of records returned(max 1000)",
+                        "format": "int32",
+                        "default": 1000
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "includeLines",
+                        "in": "query",
+                        "x-nullable": false,
+                        "description": "Include purchase order lines with delivery lines and items data in the response or not",
+                        "default": false
+                    },
+                    {
+                        "type": "string",
+                        "name": "updatedSince",
+                        "in": "query",
+                        "x-nullable": true,
+                        "description": "Tells the service that we only want purchase orders with or without lines that have been changed after this date and time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/PurchaseOrderExportPageDto"
+                        },
+                        "x-nullable": true
                     }
                 }
             }
@@ -19802,7 +19794,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get",
@@ -19838,7 +19830,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Put",
@@ -19881,7 +19873,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
@@ -19911,7 +19903,7 @@
         "/integration/message/v1/supplierinvoice/invoices/posted": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
@@ -19951,7 +19943,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Posted_Put",
@@ -19991,7 +19983,7 @@
         "/integration/message/v1/supplierinvoice/invoices/fetched": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
@@ -20031,7 +20023,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Fetched_Put",
@@ -20071,7 +20063,7 @@
         "/integration/message/v1/supplierinvoice/invoices/processing": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
@@ -20111,7 +20103,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Processing_Put",
@@ -20151,7 +20143,7 @@
         "/integration/message/v1/supplierinvoice/invoices/sent": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
@@ -20191,7 +20183,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Sent_Put",
@@ -20231,7 +20223,7 @@
         "/integration/message/v1/supplierinvoice/invoices/closed": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
@@ -20271,7 +20263,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Closed_Put",
@@ -20311,7 +20303,7 @@
         "/integration/message/v1/supplierinvoice/invoices/error": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
@@ -20351,7 +20343,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Error_Put",
@@ -20731,7 +20723,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_Get",
@@ -20769,7 +20761,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_GetStatus",
@@ -20799,7 +20791,7 @@
         "/integration/message/v1/supplierinvoice/vouchers": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_Post",
@@ -20826,7 +20818,7 @@
                 "tags": [
                     "AP Automation: Invoice import"
                 ],
-                "summary": "Document import status",
+                "summary": "Supplier invoice import status from APA",
                 "operationId": "SupplierInvoice_Get",
                 "description": "The GET Method returns the status for a given DocumentImport document in Medius.\nIt also returns the \"real\" invoice that was created by the imported document.",
                 "parameters": [
@@ -20862,7 +20854,7 @@
                 "tags": [
                     "AP Automation: Invoice import"
                 ],
-                "summary": "Document import",
+                "summary": "Supplier invoice import to APA",
                 "operationId": "SupplierInvoice_Post",
                 "description": "The POST method imports a supplier invoice, this is done with multipart/form content.\nThe location header in the response includes a full link to the GET method, this link can be stored as a ticket/receipt that Medius received the imported document.\nNOTE: Due to that it needs to be sent in as multipart/form, the self testing experience in Swagger UI is limited.\nTo get the full test experience, please test this method in the Postman tool, all examples can be found here: https://www.getpostman.com/collections/36b522ecbddf6a8934d4",
                 "parameters": [
@@ -20894,7 +20886,7 @@
                 "tags": [
                     "AP Automation: Invoice import"
                 ],
-                "summary": "Document file import",
+                "summary": "Supplier invoice file import to Capture",
                 "operationId": "File_SupplierInvoice_Post",
                 "description": "The POST method uploads a PDF or XML invoice file from body to Capture.\nIt returns id of uploaded file. Note: the self testing experience in Swagger UI is limited. It is only possible to paste the XML body. Please use Postman or other test tools to send in PDF and XML files as binary.",
                 "consumes":[
@@ -21087,7 +21079,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_Get",
@@ -21126,7 +21118,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_GetStatus",
@@ -21157,7 +21149,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice ERP sync"
+                    "AP Automation: Supplier invoice"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_Post",
