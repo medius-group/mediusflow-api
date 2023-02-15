@@ -22,75 +22,39 @@
     "tags": [
         {
             "name": "Master data - import",
-            "description": "Master data import used by the suite",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#master-data-import"
-            }
+            "description": "Master data import used by the suite"
         },
         {
             "name": "Master data - export",
-            "description": "Companies and suppliers export",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
-            }
+            "description": "Companies and suppliers export"
         },
         {
             "name": "User import",
-            "description": "User and user configuration import",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#exporting-data"
-            }
+            "description": "User and user configuration import"
         },
         {
-            "name": "AP Automation: Supplier invoice",
-            "description": "Supplier invoice ERP synchronization",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#supplier-invoice-messages"
-            }
+            "name": "AP Automation: Supplier invoices",
+            "description": "Supplier invoices ERP synchronization"
         },
         {
-            "name": "AP Automation: Purchase order",
-            "description": "Purchase order import/export",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#supplier-invoice-messages"
-            }
+            "name": "AP Automation: Purchase orders",
+            "description": "Purchase order import/export"
         },
         {
             "name": "AP Automation: Invoice import",
-            "description": "Import supplier invoices from external source.",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#supplier-invoice-messages"
-            }
+            "description": "Import of supplier invoices from external source."
         },
         {
-            "name": "Procurement: Send order to supplier",
-            "description": "Send order to supplier",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#procurement-messages"
-            }
+            "name": "Procurement: Send orders to supplier",
+            "description": "Send orders to supplier"
         },
         {
-            "name": "Procurement: ERP sync",
-            "description": "Order and goods receipt postings, confirmations",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#procurement-messages"
-            }
+            "name": "Procurement: Purchase orders and Receipts",
+            "description": "Purchase order and goods receipt ERP synchronization"
         },
         {
             "name": "Pay",
-            "description": "Import of payment batches and reconciliation",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "https://success.medius.com/documentation/integration-documentation/technical/rest/scenarios/#payment-batch-import"
-            }
+            "description": "Import of payment batches and reconciliation"
         },
         {
             "name": "File/media",
@@ -16672,7 +16636,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches": {
             "post": {
                 "tags": [
-                    "AP Automation: Purchase order"
+                    "AP Automation: Purchase orders"
                 ],
                 "summary": "",
                 "operationId": "DeliveryLinesImportBatch_Post",
@@ -16705,7 +16669,7 @@
         "/integration/masterdata/v1/DeliveryLineImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Purchase order"
+                    "AP Automation: Purchase orders"
                 ],
                 "summary": "",
                 "operationId": "DeliveryLinesImportBatch_Get",
@@ -17139,7 +17103,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Get",
@@ -17177,7 +17141,7 @@
         "/integration/message/v1/supplierinvoice/errors/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_GetStatus",
@@ -17207,7 +17171,7 @@
         "/integration/message/v1/supplierinvoice/errors": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "ErrorMessage_Post",
@@ -17317,7 +17281,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Get",
@@ -17355,7 +17319,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_GetStatus",
@@ -17385,7 +17349,7 @@
         "/integration/message/v1/supplierinvoice/paymentinformations": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "PaymentInformationMessage_Post",
@@ -17580,7 +17544,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches": {
             "post": {
                 "tags": [
-                    "AP Automation: Purchase order"
+                    "AP Automation: Purchase orders"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Post",
@@ -17613,7 +17577,7 @@
         "/integration/masterdata/v1/PurchaseOrderImportBatches/{importId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Purchase order"
+                    "AP Automation: Purchase orders"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Get",
@@ -17640,7 +17604,7 @@
             },
             "delete": {
                 "tags": [
-                    "AP Automation: Purchase order"
+                    "AP Automation: Purchase orders"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderImportBatch_Delete",
@@ -17665,7 +17629,7 @@
         "/integration/masterdata/v1/purchaseorders": {
             "get": {
                 "tags": [
-                    "AP Automation: Purchase order"
+                    "AP Automation: Purchase orders"
                 ],
                 "summary": "Purchase order export",
                 "operationId": "PurchaseOrderExport_Get",
@@ -17719,7 +17683,7 @@
         "/integration/message/v1/procurement/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Get",
@@ -17755,7 +17719,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Put",
@@ -17798,7 +17762,7 @@
         "/integration/message/v1/procurement/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetStatus",
@@ -17828,7 +17792,7 @@
         "/integration/message/v1/procurement/purchaseorders/posted": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_MessagesIds",
@@ -17868,7 +17832,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_Put",
@@ -17908,7 +17872,7 @@
         "/integration/message/v1/procurement/purchaseorders/fetched": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_MessagesIds",
@@ -17948,7 +17912,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_Put",
@@ -17988,7 +17952,7 @@
         "/integration/message/v1/procurement/purchaseorders/processing": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_MessagesIds",
@@ -18028,7 +17992,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_Put",
@@ -18068,7 +18032,7 @@
         "/integration/message/v1/procurement/purchaseorders/sent": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_MessagesIds",
@@ -18108,7 +18072,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_Put",
@@ -18148,7 +18112,7 @@
         "/integration/message/v1/procurement/purchaseorders/closed": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_MessagesIds",
@@ -18188,7 +18152,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_Put",
@@ -18228,7 +18192,7 @@
         "/integration/message/v1/procurement/purchaseorders/error": {
             "get": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_MessagesIds",
@@ -18268,7 +18232,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_Put",
@@ -18308,7 +18272,7 @@
         "/integration/message/v1/procurement/errors": {
             "post": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Post_Errors",
@@ -18333,7 +18297,7 @@
         "/integration/message/v1/procurement/purchaseorderrequestconfirmation": {
             "post": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Post_Confirmation",
@@ -18358,7 +18322,7 @@
         "/integration/message/v1/procurement/purchaseordercancelationconfirmation": {
             "post": {
                 "tags": [
-                    "Procurement: Send order to supplier"
+                    "Procurement: Send orders to supplier"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Post_Cancellation",
@@ -18383,7 +18347,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetGrn",
@@ -18419,7 +18383,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PutGrn",
@@ -18462,7 +18426,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetPurchaseOrders",
@@ -18498,7 +18462,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PutPo",
@@ -18541,7 +18505,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetPoToErpStatus",
@@ -18571,7 +18535,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetGrnStatus",
@@ -18601,7 +18565,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/posted": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetGrnMessagesIds",
@@ -18634,7 +18598,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutGrn",
@@ -18667,7 +18631,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/fetched": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetGrnMessagesIds",
@@ -18700,7 +18664,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutGrn",
@@ -18733,7 +18697,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/processing": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetGrnMessagesIds",
@@ -18766,7 +18730,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutGrn",
@@ -18799,7 +18763,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/sent": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetGrnMessagesIds",
@@ -18832,7 +18796,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutGrn",
@@ -18865,7 +18829,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/closed": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetGrnMessagesIds",
@@ -18898,7 +18862,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutGrn",
@@ -18931,7 +18895,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/error": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetGrnMessagesIds",
@@ -18964,7 +18928,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutGrn",
@@ -18997,7 +18961,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/posted": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetPoMessagesIds",
@@ -19030,7 +18994,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutPo",
@@ -19063,7 +19027,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/fetched": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetPoMessagesIds",
@@ -19096,7 +19060,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutPo",
@@ -19129,7 +19093,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/processing": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetPoMessagesIds",
@@ -19162,7 +19126,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutPo",
@@ -19195,7 +19159,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/sent": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetPoMessagesIds",
@@ -19228,7 +19192,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutPo",
@@ -19261,7 +19225,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/closed": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetPoMessagesIds",
@@ -19294,7 +19258,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutPo",
@@ -19327,7 +19291,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/error": {
             "get": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetPoMessagesIds",
@@ -19360,7 +19324,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutPo",
@@ -19393,7 +19357,7 @@
         "/integration/message/v1/procurement/externalsystemsync/confirmations": {
             "post": {
                 "tags": [
-                    "Procurement: ERP sync"
+                    "Procurement: Purchase orders and Receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
@@ -19794,7 +19758,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get",
@@ -19830,7 +19794,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Put",
@@ -19873,7 +19837,7 @@
         "/integration/message/v1/supplierinvoice/invoices/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_GetStatus",
@@ -19903,7 +19867,7 @@
         "/integration/message/v1/supplierinvoice/invoices/posted": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Posted_MessagesIds",
@@ -19943,7 +19907,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Posted_Put",
@@ -19983,7 +19947,7 @@
         "/integration/message/v1/supplierinvoice/invoices/fetched": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Fetched_MessagesIds",
@@ -20023,7 +19987,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Fetched_Put",
@@ -20063,7 +20027,7 @@
         "/integration/message/v1/supplierinvoice/invoices/processing": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Processing_MessagesIds",
@@ -20103,7 +20067,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Processing_Put",
@@ -20143,7 +20107,7 @@
         "/integration/message/v1/supplierinvoice/invoices/sent": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Sent_MessagesIds",
@@ -20183,7 +20147,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Sent_Put",
@@ -20223,7 +20187,7 @@
         "/integration/message/v1/supplierinvoice/invoices/closed": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Closed_MessagesIds",
@@ -20263,7 +20227,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Closed_Put",
@@ -20303,7 +20267,7 @@
         "/integration/message/v1/supplierinvoice/invoices/error": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Get_Error_MessagesIds",
@@ -20343,7 +20307,7 @@
             },
             "put": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "SupplierInvoiceMessage_Error_Put",
@@ -20723,7 +20687,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_Get",
@@ -20761,7 +20725,7 @@
         "/integration/message/v1/supplierinvoice/vouchers/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_GetStatus",
@@ -20791,7 +20755,7 @@
         "/integration/message/v1/supplierinvoice/vouchers": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "",
                 "operationId": "VoucherMessage_Post",
@@ -21079,7 +21043,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_Get",
@@ -21118,7 +21082,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates/{messageId}": {
             "get": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_GetStatus",
@@ -21149,7 +21113,7 @@
         "/integration/message/v1/supplierinvoice/actualpaymentdates": {
             "post": {
                 "tags": [
-                    "AP Automation: Supplier invoice"
+                    "AP Automation: Supplier invoices"
                 ],
                 "summary": "Deprecated API, please use paymentInformations instead.",
                 "operationId": "ActualPaymentDate_Post",
