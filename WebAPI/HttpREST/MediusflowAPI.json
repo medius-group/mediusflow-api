@@ -49,7 +49,7 @@
             "description": "Send orders to supplier"
         },
         {
-            "name": "Procurement: Purchase orders and Receipts",
+            "name": "Procurement: Purchase orders and receipts",
             "description": "Purchase order and goods receipt ERP synchronization"
         },
         {
@@ -18272,7 +18272,8 @@
         "/integration/message/v1/procurement/errors": {
             "post": {
                 "tags": [
-                    "Procurement: Send orders to supplier"
+                    "Procurement: Send orders to supplier",
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Post_Errors",
