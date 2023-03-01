@@ -18348,7 +18348,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetGrn",
@@ -18384,7 +18384,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PutGrn",
@@ -18427,7 +18427,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageStatus}/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetPurchaseOrders",
@@ -18463,7 +18463,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PutPo",
@@ -18506,7 +18506,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetPoToErpStatus",
@@ -18536,7 +18536,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/{messageId}": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_GetGrnStatus",
@@ -18566,7 +18566,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/posted": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetGrnMessagesIds",
@@ -18599,7 +18599,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutGrn",
@@ -18632,7 +18632,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/fetched": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetGrnMessagesIds",
@@ -18665,7 +18665,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutGrn",
@@ -18698,7 +18698,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/processing": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetGrnMessagesIds",
@@ -18731,7 +18731,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutGrn",
@@ -18764,7 +18764,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/sent": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetGrnMessagesIds",
@@ -18797,7 +18797,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutGrn",
@@ -18830,7 +18830,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/closed": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetGrnMessagesIds",
@@ -18863,7 +18863,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutGrn",
@@ -18896,7 +18896,7 @@
         "/integration/message/v1/procurement/externalsystemsync/goodsreceiptnotes/error": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetGrnMessagesIds",
@@ -18929,7 +18929,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutGrn",
@@ -18962,7 +18962,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/posted": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_GetPoMessagesIds",
@@ -18995,7 +18995,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Posted_PutPo",
@@ -19028,7 +19028,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/fetched": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_GetPoMessagesIds",
@@ -19061,7 +19061,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Fetched_PutPo",
@@ -19094,7 +19094,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/processing": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_GetPoMessagesIds",
@@ -19127,7 +19127,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Processing_PutPo",
@@ -19160,7 +19160,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/sent": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_GetPoMessagesIds",
@@ -19193,7 +19193,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Sent_PutPo",
@@ -19226,7 +19226,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/closed": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_GetPoMessagesIds",
@@ -19259,7 +19259,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Closed_PutPo",
@@ -19292,7 +19292,7 @@
         "/integration/message/v1/procurement/externalsystemsync/purchaseorders/error": {
             "get": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_GetPoMessagesIds",
@@ -19325,7 +19325,7 @@
             },
             "put": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_Error_PutPo",
@@ -19358,7 +19358,7 @@
         "/integration/message/v1/procurement/externalsystemsync/confirmations": {
             "post": {
                 "tags": [
-                    "Procurement: Purchase orders and Receipts"
+                    "Procurement: Purchase orders and receipts"
                 ],
                 "summary": "",
                 "operationId": "PurchaseOrderRequestMessage_PostPoToErpOrGrnConfirmation",
