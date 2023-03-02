@@ -156,7 +156,7 @@
           "xml": {
             "name": "PayeeStreetLine1"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "3346 Pagac Union",
           "description": "Street address of the payee. __Note:__ required for international payments."
         },
@@ -165,7 +165,7 @@
           "xml": {
             "name": "PayeeStreetLine2"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "PO box 1202",
           "description": "Second line of street address of the payee."
         },
@@ -192,9 +192,9 @@
           "xml": {
             "name": "PayeeStateCode"
           },
-          "maxLength": 35,
+          "maxLength": 2,
           "example": "RI",
-          "description": "State of the payee. ISO Alfa 2 code. __Note:__ required for international payments."
+          "description": "State code of the payee. The country subdivision code, ISO 3166-2. __Note:__ required for international payments."
         },
         "payeeCountryCode": {
           "type": "string",
@@ -203,7 +203,7 @@
           },
           "maxLength": 2,
           "example": "US",
-          "description": "Country of the payee. ISO Alpha2 code"
+          "description": "Country code of the payee. ISO 3166-1 alpha-2 code."
         },
         "paymentAmount": {
           "type": "number",
@@ -300,7 +300,7 @@
           "xml": {
             "name": "PayeeBankStreetLine1"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "PL.WOLNOSCI 15",
           "description": "Payees banks address line 1."
         },
@@ -309,7 +309,7 @@
           "xml": {
             "name": "PayeeBankStreetLine2"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "BUILDING B",
           "description": "Payees banks address line 2."
         },
@@ -441,7 +441,6 @@
         "payeeCountryCode",
         "payeeId",
         "payeeName",
-        "payeeStateCode",
         "payeeType",
         "paymentAmount",
         "paymentCurrencyCode",
