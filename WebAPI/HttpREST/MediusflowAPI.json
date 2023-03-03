@@ -8404,6 +8404,201 @@
                 }
             }
         },
+        "ReleasePaymentResponseDto": {
+            "type": "object",
+            "xml": {
+                "name": "ReleasePaymentResponse"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "correlationKey": {
+                    "type": "string",
+                    "xml": {
+                        "name": "CorrelationKey"
+                    }
+                },
+                "releasePayment": {
+                    "xml": {
+                        "name": "ReleasePayment"
+                    },
+                    "$ref": "#/definitions/IntegrationResponseReleasePaymentDto"
+                }
+            }
+        },
+        "IntegrationResponseReleasePaymentDto": {
+            "type": "object",
+            "xml": {
+                "name": "ReleasePayment"
+            },
+            "additionalProperties": false,
+            "required": [
+                "releasePayment"
+            ],
+            "properties": {
+                "customField_Boolean1": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "CustomField_Boolean1"
+                    },
+                    "description": "Custom field of type bit."
+                },
+                "customField_Boolean2": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "CustomField_Boolean2"
+                    },
+                    "description": "Custom field of type bit."
+                },
+                "customField_Boolean3": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "CustomField_Boolean3"
+                    },
+                    "description": "Custom field of type bit."
+                },
+                "customField_Boolean4": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "CustomField_Boolean4"
+                    },
+                    "description": "Custom field of type bit."
+                },
+                "customField_Boolean5": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "CustomField_Boolean5"
+                    },
+                    "description": "Custom field of type bit."
+                },
+                "customField_Numeric1": {
+                    "type": "number",
+                    "format": "decimal",
+                    "xml": {
+                        "name": "CustomField_Numeric1"
+                    },
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "customField_Numeric2": {
+                    "type": "number",
+                    "format": "decimal",
+                    "xml": {
+                        "name": "CustomField_Numeric2"
+                    },
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "customField_Numeric3": {
+                    "type": "number",
+                    "format": "decimal",
+                    "xml": {
+                        "name": "CustomField_Numeric3"
+                    },
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "customField_Numeric4": {
+                    "type": "number",
+                    "format": "decimal",
+                    "xml": {
+                        "name": "CustomField_Numeric4"
+                    },
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "customField_Numeric5": {
+                    "type": "number",
+                    "format": "decimal",
+                    "xml": {
+                        "name": "CustomField_Numeric5"
+                    },
+                    "description": "Custom field of type numeric. Decimal format (28,14)."
+                },
+                "customField_Text1": {
+                    "type": "string",
+                    "xml": {
+                        "name": "CustomField_Text1"
+                    },
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "customField_Text2": {
+                    "type": "string",
+                    "xml": {
+                        "name": "CustomField_Text2"
+                    },
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "customField_Text3": {
+                    "type": "string",
+                    "xml": {
+                        "name": "CustomField_Text3"
+                    },
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "customField_Text4": {
+                    "type": "string",
+                    "xml": {
+                        "name": "CustomField_Text4"
+                    },
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "customField_Text5": {
+                    "type": "string",
+                    "xml": {
+                        "name": "CustomField_Text5"
+                    },
+                    "maxLength": 450,
+                    "description": "Custom field of type text."
+                },
+                "customField_DateTime1": {
+                    "type": "string",
+                    "format": "date-time",
+                    "xml": {
+                        "name": "CustomField_DateTime1"
+                    },
+                    "description": "Custom Field of type datetime."
+                },
+                "customField_DateTime2": {
+                    "type": "string",
+                    "format": "date-time",
+                    "xml": {
+                        "name": "CustomField_DateTime2"
+                    },
+                    "description": "Custom Field of type datetime."
+                },
+                "customField_DateTime3": {
+                    "type": "string",
+                    "format": "date-time",
+                    "xml": {
+                        "name": "CustomField_DateTime3"
+                    },
+                    "description": "Custom Field of type datetime."
+                },
+                "customField_DateTime4": {
+                    "type": "string",
+                    "format": "date-time",
+                    "xml": {
+                        "name": "CustomField_DateTime4"
+                    },
+                    "description": "Custom Field of type datetime."
+                },
+                "customField_DateTime5": {
+                    "type": "string",
+                    "format": "date-time",
+                    "xml": {
+                        "name": "CustomField_DateTime5"
+                    },
+                    "description": "Custom Field of type datetime."
+                },
+                "releasePayment": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "ReleasePayment"
+                    },
+                    "description": "Updates the related invoice with 'paymentBlocked = NO' when true value is passed."
+                }
+            }
+        },
         "IntegrationBasicRestrictionsDto": {
             "type": "object",
             "xml": {
@@ -20767,6 +20962,99 @@
                         "in": "body",
                         "schema": {
                             "$ref": "#/definitions/VoucherResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/releasepayment/{messageStatus}/{messageId}": {
+            "get": {
+                "tags": [
+                    "AP Automation: Supplier invoices"
+                ],
+                "summary": "",
+                "operationId": "ReleasePaymentMessage_Get",
+                "description": "This method returns the release payment content from a message that matches the status and the id.\nIf the message id is in another status, nothing will be returned. To find a message, use the other GET method that only provides message id as input.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The id of the message",
+                        "format": "int32"
+                    },
+                    {
+                        "type": "string",
+                        "name": "messageStatus",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message status, can be Posted, Fetched, Processing, Sent, Closed or Error"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ReleasePaymentResponseDto"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/releasepayment/{messageId}": {
+            "get": {
+                "tags": [
+                    "AP Automation: Supplier invoices"
+                ],
+                "summary": "",
+                "operationId": "ReleasePaymentMessage_GetStatus",
+                "description": "This method will return a status and an effective link to the real releasepayment content.\nThe main idea with this method is to be able to check status for a give message and to be able to find where a message is in terms of statuses.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "messageId",
+                        "in": "path",
+                        "required": true,
+                        "x-nullable": false,
+                        "description": "The message id of the message to find/check status",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/StatusLink"
+                        },
+                        "x-nullable": true
+                    }
+                }
+            }
+        },
+        "/integration/message/v1/supplierinvoice/releasepayment": {
+            "post": {
+                "tags": [
+                    "AP Automation: Supplier invoices"
+                ],
+                "summary": "",
+                "operationId": "ReleasePaymentMessage_Post",
+                "description": "This method accepts a release payment response to the release payment that was retrieved in earlier step.\nThe release payment requires a CorrelationKey that needs to match the corresponding release payment message.",
+                "parameters": [
+                    {
+                        "name": "releasePaymentResponseDto",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ReleasePaymentResponseDto"
                         },
                         "x-nullable": true
                     }
