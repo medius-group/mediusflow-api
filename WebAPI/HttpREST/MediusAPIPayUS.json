@@ -156,7 +156,7 @@
           "xml": {
             "name": "PayeeStreetLine1"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "3346 Pagac Union",
           "description": "Street address of the payee. Up to 60 characters allowed for domestic payments."
         },
@@ -165,7 +165,7 @@
           "xml": {
             "name": "PayeeStreetLine2"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "PO box 1202",
           "description": "Second line of street address of the payee. Up to 60 characters allowed for domestic payments."
         },
@@ -195,7 +195,7 @@
           },
           "maxLength": 2,
           "example": "RI",
-          "description": "State of the payee. Optional for international payments. ISO Alfa 2 code. Required for US and Canadian payments."
+          "description": "State code of the payee. The country subdivision code, ISO 3166-2. Optional for international payments. Required for US and Canadian payments."
         },
         "payeeCountryCode": {
           "type": "string",
@@ -204,7 +204,7 @@
           },
           "maxLength": 2,
           "example": "US",
-          "description": "Country of the payee. ISO Alpha2 code"
+          "description": "Country code of the payee. ISO 3166-1 alpha-2 code."
         },
         "paymentAmount": {
           "type": "number",
@@ -318,7 +318,7 @@
           "xml": {
             "name": "PayeeBankStreetLine1"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "PL.WOLNOSCI 15",
           "description": "Payees banks address line 1. Required for international payments."
         },
@@ -327,7 +327,7 @@
           "xml": {
             "name": "PayeeBankStreetLine2"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "BUILDING B",
           "description": "Payees banks address line 2. Required for international payments."
         },
@@ -384,23 +384,6 @@
           "maxLength": 50,
           "example": "BillPayment",
           "description": "Purpose of payment. Required for international payment. Allowed values are: BillPayment, BusinessVenture, CharitableDonation, EstateSettlementOrInheritance, GovernmentRelatedPayment, IntercompanyPayment, InvestmentRelatedPayment, PaymentForALoanOrDeposit, PayrollOrPersonnelPayment, ProfessionalFeesPayment, PurchaseOfGoods, PurchaseOfPropertyOrRealEstate, PurchaseOfServices, ResearchAndDevelopment"
-        },
-        "payeeType": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeType"
-          },
-          "example": "Business",
-          "description": "Payee classification. Required for international payments. Individual or Business (Case Sensitive)."
-        },
-        "payeeContactPhone": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeContactPhone"
-          },
-          "maxLength": 15,
-          "example": "123456789",
-          "description": "Payees phone number. Do not include + or ()"
         },
         "payeeContactEmail": {
           "type": "string",
