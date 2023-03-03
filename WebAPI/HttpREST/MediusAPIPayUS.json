@@ -385,23 +385,6 @@
           "example": "BillPayment",
           "description": "Purpose of payment. Required for international payment. Allowed values are: BillPayment, BusinessVenture, CharitableDonation, EstateSettlementOrInheritance, GovernmentRelatedPayment, IntercompanyPayment, InvestmentRelatedPayment, PaymentForALoanOrDeposit, PayrollOrPersonnelPayment, ProfessionalFeesPayment, PurchaseOfGoods, PurchaseOfPropertyOrRealEstate, PurchaseOfServices, ResearchAndDevelopment"
         },
-        "payeeType": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeType"
-          },
-          "example": "Business",
-          "description": "Payee classification. Required for international payments. Individual or Business (Case Sensitive)."
-        },
-        "payeeContactPhone": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeContactPhone"
-          },
-          "maxLength": 15,
-          "example": "123456789",
-          "description": "Payees phone number. Do not include + or ()"
-        },
         "payeeContactEmail": {
           "type": "string",
           "xml": {

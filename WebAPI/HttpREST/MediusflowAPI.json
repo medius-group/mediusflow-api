@@ -15872,23 +15872,6 @@
                     "example": "BillPayment",
                     "description": "Purpose of payment. Required for international payment. Allowed values are: BillPayment, BusinessVenture, CharitableDonation, EstateSettlementOrInheritance, GovernmentRelatedPayment, IntercompanyPayment, InvestmentRelatedPayment, PaymentForALoanOrDeposit, PayrollOrPersonnelPayment, ProfessionalFeesPayment, PurchaseOfGoods, PurchaseOfPropertyOrRealEstate, PurchaseOfServices, ResearchAndDevelopment"
                 },
-                "payeeType": {
-                    "type": "string",
-                    "xml": {
-                        "name": "PayeeType"
-                    },
-                    "example": "Business",
-                    "description": "Payee classification. Required for international payments. Individual or Business (Case Sensitive)."
-                },
-                "payeeContactPhone": {
-                    "type": "string",
-                    "xml": {
-                        "name": "PayeeContactPhone"
-                    },
-                    "maxLength": 15,
-                    "example": "123456789",
-                    "description": "Payees phone number. Do not include + or ()"
-                },
                 "payeeContactEmail": {
                     "type": "string",
                     "xml": {
@@ -15907,25 +15890,7 @@
                     "example": "P012701",
                     "description": "A payment reference number or check number from the customers accounting system. Will be displayed on remittance advice."
                 },
-                "payeeDateOfBirth": {
-                    "type": "string",
-                    "xml": {
-                        "name": "PayeeDateOfBirth"
-                    },
-                    "maxLength": 10,
-                    "example": "1985-10-20",
-                    "description": "Date of birth in yyyy-MM-dd format"
-                },
-                  "payeePassportNumber": {
-                    "type": "string",
-                    "xml": {
-                        "name": "PayeePassportNumber"
-                    },
-                    "maxLength": 20,
-                    "example": "PL128765",
-                    "description": "The Passport number of the payee."
-                },
-                  "payeeTaxRegistrationNumber": {
+                "payeeTaxRegistrationNumber": {
                     "type": "string",
                     "xml": {
                         "name": "PayeeTaxRegistrationNumber"
@@ -16040,7 +16005,8 @@
                         "ImportDataError",
                         "ReadyForPayment",
                         "PaymentFailed",
-                        "ReloadingPaymentInformation"
+                        "ReloadingPaymentInformation",
+                        "Issued"
                     ]
                 }
             }
@@ -16218,19 +16184,14 @@
                     "example": "AwaitingApproval",
                     "description": "Possible statuses, see list.",
                     "enum": [
-                        "New",
                         "AwaitingApproval",
                         "PaymentInProgress",
                         "SentForPayment",
-                        "AwaitingFunds",
-                        "FundsReceived",
                         "Paid",
                         "Rejected",
                         "ReadyForPayment",
                         "PaymentFailed",
                         "ReloadingPaymentInformation",
-                        "Cancelled",
-                        "Recalled",
                         "Issued"
                     ]
                 },

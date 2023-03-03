@@ -368,23 +368,6 @@
           "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Needs to match regex included as pattern.",
           "pattern": "^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$"
         },
-        "payeeType": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeType"
-          },
-          "example": "Individual",
-          "description": "Payee classification. Individual or Business."
-        },
-        "payeeContactPhone": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeContactPhone"
-          },
-          "maxLength": 15,
-          "example": "123456789",
-          "description": "Payees phone number. Do not include + or ()."
-        },
         "payeeContactEmail": {
           "type": "string",
           "xml": {
@@ -402,24 +385,6 @@
           "maxLength": 35,
           "example": "P012701",
           "description": "A payment reference number from the customers accounting system. If not provided, invoiceNumber will be used as payment reference."
-        },
-        "payeeDateOfBirth": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeDateOfBirth"
-          },
-          "maxLength": 10,
-          "example": "1985-10-20",
-          "description": "Date of birth in yyyy-MM-dd format"
-        },
-        "payeePassportNumber": {
-          "type": "string",
-          "xml": {
-            "name": "PayeePassportNumber"
-          },
-          "maxLength": 20,
-          "example": "PL128765",
-          "description": "The Passport number of the payee."
         },
         "payeeTaxRegistrationNumber": {
           "type": "string",
@@ -441,7 +406,6 @@
         "payeeCountryCode",
         "payeeId",
         "payeeName",
-        "payeeType",
         "paymentAmount",
         "paymentCurrencyCode",
         "voucherNumber",
