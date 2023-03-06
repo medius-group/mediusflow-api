@@ -156,7 +156,7 @@
           "xml": {
             "name": "PayeeStreetLine1"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "3346 Pagac Union",
           "description": "Street address of the payee. __Note:__ required for international payments."
         },
@@ -165,7 +165,7 @@
           "xml": {
             "name": "PayeeStreetLine2"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "PO box 1202",
           "description": "Second line of street address of the payee."
         },
@@ -192,9 +192,9 @@
           "xml": {
             "name": "PayeeStateCode"
           },
-          "maxLength": 35,
+          "maxLength": 2,
           "example": "RI",
-          "description": "State of the payee. ISO Alfa 2 code. __Note:__ required for international payments."
+          "description": "State code of the payee. The country subdivision code, ISO 3166-2. __Note:__ required for international payments."
         },
         "payeeCountryCode": {
           "type": "string",
@@ -203,7 +203,7 @@
           },
           "maxLength": 2,
           "example": "US",
-          "description": "Country of the payee. ISO Alpha2 code"
+          "description": "Country code of the payee. ISO 3166-1 alpha-2 code."
         },
         "paymentAmount": {
           "type": "number",
@@ -300,7 +300,7 @@
           "xml": {
             "name": "PayeeBankStreetLine1"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "PL.WOLNOSCI 15",
           "description": "Payees banks address line 1."
         },
@@ -309,7 +309,7 @@
           "xml": {
             "name": "PayeeBankStreetLine2"
           },
-          "maxLength": 35,
+          "maxLength": 34,
           "example": "BUILDING B",
           "description": "Payees banks address line 2."
         },
@@ -368,23 +368,6 @@
           "description": "A unique identification code assigned to a specific bank to proceed money transfer between banks internationally. Needs to match regex included as pattern.",
           "pattern": "^[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}$"
         },
-        "payeeType": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeType"
-          },
-          "example": "Individual",
-          "description": "Payee classification. Individual or Business."
-        },
-        "payeeContactPhone": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeContactPhone"
-          },
-          "maxLength": 15,
-          "example": "123456789",
-          "description": "Payees phone number. Do not include + or ()."
-        },
         "payeeContactEmail": {
           "type": "string",
           "xml": {
@@ -402,24 +385,6 @@
           "maxLength": 35,
           "example": "P012701",
           "description": "A payment reference number from the customers accounting system. If not provided, invoiceNumber will be used as payment reference."
-        },
-        "payeeDateOfBirth": {
-          "type": "string",
-          "xml": {
-            "name": "PayeeDateOfBirth"
-          },
-          "maxLength": 10,
-          "example": "1985-10-20",
-          "description": "Date of birth in yyyy-MM-dd format"
-        },
-        "payeePassportNumber": {
-          "type": "string",
-          "xml": {
-            "name": "PayeePassportNumber"
-          },
-          "maxLength": 20,
-          "example": "PL128765",
-          "description": "The Passport number of the payee."
         },
         "payeeTaxRegistrationNumber": {
           "type": "string",
@@ -441,8 +406,6 @@
         "payeeCountryCode",
         "payeeId",
         "payeeName",
-        "payeeStateCode",
-        "payeeType",
         "paymentAmount",
         "paymentCurrencyCode",
         "voucherNumber",
