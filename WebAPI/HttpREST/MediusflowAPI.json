@@ -57,7 +57,7 @@
             "description": "Import of payment batches and reconciliation"
         },
         {
-            "name": "File/media",
+            "name": "File and media",
             "description": "Images and attachments"    
         }
     ],
@@ -17117,7 +17117,7 @@
         "/integration/media/v1/document/{documentId}/images": {
             "get": {
                 "tags": [
-                    "File/media"
+                    "File and media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetDocumentImagesLinks",
@@ -17154,7 +17154,7 @@
         "/integration/media/v1/document/{documentId}/images/{imageHash}": {
             "get": {
                 "tags": [
-                    "File/media"
+                    "File and media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetImage",
@@ -17192,7 +17192,7 @@
         "/integration/media/v1/document/{documentId}/attachments": {
             "get": {
                 "tags": [
-                    "File/media"
+                    "File and media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetDocumentAttachmentsLinks",
@@ -17229,7 +17229,7 @@
         "/integration/media/v1/document/{documentId}/attachments/{attachmentHash}": {
             "get": {
                 "tags": [
-                    "File/media"
+                    "File and media"
                 ],
                 "summary": "",
                 "operationId": "DocumentMediaExport_GetAttachment",
