@@ -865,6 +865,20 @@
                 "TotalAdjustedAmount": {
                     "type": "number",
                     "format": "decimal"
+                },
+                "InvoiceNumber": {
+                    "type": "string"
+                },
+                "InvoiceAmount": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "InvoiceDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Language": {
+                    "type": "string"
                 }
             }
         },
@@ -1026,6 +1040,14 @@
                 },
                 "Unit": {
                     "type": "string"
+                },
+                "OrderQuantity": {
+                    "type": "number",
+                    "format": "decimal"
+                },
+                "OrderLineAmount": {
+                    "type": "number",
+                    "format": "decimal"
                 }
             }
         },
@@ -1343,7 +1365,9 @@
             "additionalProperties": false,
             "required": [
                 "IsVirtualCompany",
-                "IsActive"
+                "IsActive",
+                "MediusFlowSystemId",
+                "GlobalId"
             ],
             "properties": {
                 "ErpSourceId": {
@@ -1395,10 +1419,12 @@
                     "type": "boolean"
                 },
                 "MediusFlowSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "GlobalId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "AccountingCurrencyCode": {
                     "type": "string"
@@ -3091,6 +3117,10 @@
             },
             "additionalProperties": false,
             "required": [
+                "SupplierGlobalId",
+                "CompanyGlobalId",
+                "MediusFlowSystemId",
+                "GlobalId",
                 "Amount",
                 "RegisterDate",
                 "DueDate"
@@ -3103,7 +3133,8 @@
                     "type": "string"
                 },
                 "SupplierGlobalId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "CurrencyCode": {
                     "type": "string"
@@ -3121,7 +3152,8 @@
                     "type": "string"
                 },
                 "CompanyGlobalId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "PurchaseOrderLines": {
                     "type": "array",
@@ -3148,10 +3180,12 @@
                     "type": "string"
                 },
                 "MediusFlowSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "GlobalId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "Amount": {
                     "type": "number",
@@ -5350,6 +5384,11 @@
                 "name": "Supplier"
             },
             "additionalProperties": false,
+            "required": [
+                "CompanyGlobalId",
+                "MediusFlowSystemId",
+                "GlobalId"
+            ],
             "properties": {
                 "Name": {
                     "type": "string"
@@ -5376,7 +5415,8 @@
                     "type": "string"
                 },
                 "CompanyGlobalId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "StreetAddress": {
                     "type": "string"
@@ -5406,7 +5446,8 @@
                     "type": "string"
                 },
                 "MediusFlowSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 },
                 "Identifiers": {
                     "type": "array",
@@ -5433,7 +5474,8 @@
                     }
                 },
                 "GlobalId": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "guid"
                 }
             },
             "allOf": [
@@ -6422,6 +6464,18 @@
                 "PaymentReference": {
                     "type": "string"
                 },
+                "ReferencedDocuments": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationReferencedDocumentDto"
+                        },
+                        "$ref": "#/definitions/IntegrationReferencedDocumentDto"
+                    }
+                },
                 "TaxAmount": {
                     "type": "number",
                     "format": "decimal"
@@ -6677,6 +6731,38 @@
                 }
             }
         },
+        "IntegrationReferencedDocumentDto": {
+            "type": "object",
+            "xml": {
+                "name": "ReferencedDocument"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "InvoiceNumber": {
+                    "type": "string"
+                },
+                "PreliminaryVoucherNumber": {
+                    "type": "string"
+                },
+                "PreliminaryBookingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "FinalVoucherNumber": {
+                    "type": "string"
+                },
+                "FinalBookingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "CompanyId": {
+                    "type": "string"
+                },
+                "CompanyExternalSystemId": {
+                    "type": "string"
+                }
+            }
+        },
         "IntegrationSupplierInvoiceLineDto": {
             "type": "object",
             "xml": {
@@ -6878,7 +6964,6 @@
             "additionalProperties": false,
             "required": [
                 "NumberOfPeriods",
-                "StartDate",
                 "UseLinesWithAccrualPeriods"
             ],
             "properties": {
@@ -6896,6 +6981,10 @@
                     "format": "int32"
                 },
                 "StartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "EndDate": {
                     "type": "string",
                     "format": "date-time"
                 },
