@@ -1118,10 +1118,10 @@
                 }
             }
         },
-        "IntegrationAuthorizationGroupDto": {
+        "IntegrationApprovalGroupDto": {
             "type": "object",
             "xml": {
-                "name": "AuthorizationGroup"
+                "name": "ApprovalGroup"
             },
             "additionalProperties": false,
             "required": [
@@ -7864,6 +7864,27 @@
                 }
             }
         },
+        "IntegrationAuthorizationGroupDto": {
+            "type": "object",
+            "xml": {
+                "name": "AuthorizationGroup"
+            },
+            "additionalProperties": false,
+            "required": [
+                "ToBeRemoved"
+            ],
+            "properties": {
+                "CompanyId": {
+                    "type": "string"
+                },
+                "AuthorizationGroupName": {
+                    "type": "string"
+                },
+                "ToBeRemoved": {
+                    "type": "boolean"
+                }
+            }
+        },
         "IntegrationFollowupGroupDto": {
             "type": "object",
             "xml": {
@@ -8614,7 +8635,7 @@
                 }
             }
         },
-        "/integration/masterdata/v1/AuthorizationGroupImportBatches/{importId}": {
+        "/integration/masterdata/v1/ApprovalGroupImportBatches/{importId}": {
             "get": {
                 "tags": [
                     "AuthorizationGroupBatchImportBatch"
@@ -8664,28 +8685,28 @@
                 }
             }
         },
-        "/integration/masterdata/v1/AuthorizationGroupImportBatches": {
+        "/integration/masterdata/v1/ApprovalGroupImportBatches": {
             "post": {
                 "tags": [
                     "AuthorizationGroupBatchImportBatch"
                 ],
-                "summary": "The POST method allows the client to send authorization groups that will be imported by the Mediusflow master data import queue.\nThe authorization groups have company and currency prerequisite.",
+                "summary": "The POST method allows the client to send approval groups that will be imported by the Mediusflow master data import queue.\nThe approval groups have company and currency prerequisite.",
                 "operationId": "AuthorizationGroupBatchImportBatch_Post",
                 "parameters": [
                     {
-                        "name": "authorizationGroupDtos",
+                        "name": "approvalGroupDtos",
                         "in": "body",
                         "schema": {
                             "type": "array",
                             "items": {
                                 "xml": {
-                                    "name": "IntegrationAuthorizationGroupDto"
+                                    "name": "IntegrationApprovalGroupDto"
                                 },
-                                "$ref": "#/definitions/IntegrationAuthorizationGroupDto"
+                                "$ref": "#/definitions/IntegrationApprovalGroupDto"
                             }
                         },
                         "x-nullable": true,
-                        "description": "The authorization groups to import"
+                        "description": "The approval groups to import"
                     }
                 ],
                 "responses": {
