@@ -452,7 +452,8 @@
                 "AUTHORIZATION_GROUP_DIMENSION_DOES_NOT_EXIST",
                 "AUTHORIZATION_GROUP_CREDITLIMIT_MUST_BE_NEGATIVE",
                 "AUTHORIZATION_GROUP_DEBITLIMIT_MUST_BE_POSITIVE",
-                "DIMENSION_ALREADY_EXIST"
+                "DIMENSION_ALREADY_EXIST",
+                "ISSUE_WITH_SAVING_ITEM_TRANSIENT_ERROR_DETECTED"
             ],
             "enum": [
                 0,
@@ -613,7 +614,8 @@
                 155,
                 156,
                 157,
-                158
+                158,
+                159
             ]
         },
         "ActualPaymentDateResponseDto": {
