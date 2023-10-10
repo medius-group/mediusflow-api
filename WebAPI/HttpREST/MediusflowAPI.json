@@ -976,7 +976,10 @@
                 "OriginOrderIdentifier": {
                     "type": "string"
                 },
-                "ItemNumber": {
+                "OrderItemNumber": {
+                    "type": "string"
+                },
+                "InvoiceItemNumber": {
                     "type": "string"
                 },
                 "ItemDescription": {
@@ -1055,7 +1058,15 @@
         },
         "IntegrationSupplierItemDto": {
             "type": "object",
-            "additionalProperties": false
+            "xml": {
+                "name": "SupplierItem"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "PartNumber": {
+                    "type": "string"
+                }
+            }
         },
         "Link": {
             "type": "object",
