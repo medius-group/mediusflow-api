@@ -453,7 +453,10 @@
                 "AUTHORIZATION_GROUP_CREDITLIMIT_MUST_BE_NEGATIVE",
                 "AUTHORIZATION_GROUP_DEBITLIMIT_MUST_BE_POSITIVE",
                 "DIMENSION_ALREADY_EXIST",
-                "ISSUE_WITH_SAVING_ITEM_TRANSIENT_ERROR_DETECTED"
+                "ISSUE_WITH_SAVING_ITEM_TRANSIENT_ERROR_DETECTED",
+                "SUPPLIER_MANAGEMENT_FIELD_VALIDATION_ERROR",
+                "PAYMENT_DETAILS_INVALID_COUNTRY_CODE",
+                "PAYMENT_DETAILS_INVALID_STATE_CODE"
             ],
             "enum": [
                 0,
@@ -615,7 +618,10 @@
                 156,
                 157,
                 158,
-                159
+                159,
+                160,
+                161,
+                162
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -5848,6 +5854,34 @@
                         },
                         "$ref": "#/definitions/IntegrationPaymentDetailsDto"
                     }
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
+                },
+                "OwningCompanyId": {
+                    "type": "string"
+                },
+                "ManagementFields": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationSupplierManagementFieldDto"
+                        },
+                        "$ref": "#/definitions/IntegrationSupplierManagementFieldDto"
+                    }
                 }
             }
         },
@@ -5957,6 +5991,72 @@
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time"
+                },
+                "RemitToId": {
+                    "type": "string"
+                },
+                "StreetLine1": {
+                    "type": "string"
+                },
+                "StreetLine2": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "ZipOrPostalCode": {
+                    "type": "string"
+                },
+                "StateCode": {
+                    "type": "string"
+                },
+                "CountryCode": {
+                    "type": "string"
+                },
+                "CurrencyCode": {
+                    "type": "string"
+                },
+                "PayorBankAccountIdentifier": {
+                    "type": "string"
+                },
+                "BankName": {
+                    "type": "string"
+                },
+                "BankStreetLine1": {
+                    "type": "string"
+                },
+                "BankStreetLine2": {
+                    "type": "string"
+                },
+                "BankCity": {
+                    "type": "string"
+                },
+                "BankCountryCode": {
+                    "type": "string"
+                },
+                "AccountNumber": {
+                    "type": "string"
+                },
+                "BankgiroNumber": {
+                    "type": "string"
+                },
+                "RoutingNumber": {
+                    "type": "string"
+                },
+                "RoutingNumberType": {
+                    "type": "string"
+                },
+                "BankSwiftCode": {
+                    "type": "string"
+                },
+                "ContactEmail": {
+                    "type": "string"
+                },
+                "TaxRegistrationNumber": {
+                    "type": "string"
+                },
+                "PaymentMethod": {
+                    "type": "string"
                 }
             }
         },
@@ -6045,6 +6145,29 @@
                 "CustomField_DateTime5": {
                     "type": "string",
                     "format": "date-time"
+                }
+            }
+        },
+        "IntegrationSupplierManagementFieldDto": {
+            "type": "object",
+            "xml": {
+                "name": "SupplierManagementField"
+            },
+            "additionalProperties": false,
+            "required": [
+                "FieldName",
+                "Value",
+                "FieldType"
+            ],
+            "properties": {
+                "FieldName": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "string"
+                },
+                "FieldType": {
+                    "type": "string"
                 }
             }
         },
@@ -6466,6 +6589,19 @@
                             "name": "IntegrationSupplierIdentifierDto"
                         },
                         "$ref": "#/definitions/IntegrationSupplierIdentifierDto"
+                    }
+                },
+                "SupplierExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "SupplierExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
                     }
                 },
                 "SupplierName": {
