@@ -287,6 +287,9 @@
                 },
                 "ValidationTag": {
                     "$ref": "#/definitions/IntegrationErrorTag"
+                },
+                "ValidationTagText": {
+                    "type": "string"
                 }
             }
         },
@@ -5871,7 +5874,7 @@
                 "OwningCompanyId": {
                     "type": "string"
                 },
-                "ManagementFields": {
+                "SupplierManagementFields": {
                     "type": "array",
                     "xml": {
                         "wrapped": true
