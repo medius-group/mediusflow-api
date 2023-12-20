@@ -10999,11 +10999,11 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
-                "operationId": "PurchaseOrderRequestMessage_ExternalSystemSyncConfirmation2",
+                "summary": "This method accepts a purchase-oder-to-ERP cancellation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "operationId": "PurchaseOrderRequestMessage_ExternalSystemSyncCancellation",
                 "parameters": [
                     {
-                        "name": "confirmationDto",
+                        "name": "cancellationDto",
                         "in": "body",
                         "schema": {
                             "$ref": "#/definitions/PurchaseOrderRequestResponseDto"
