@@ -6752,6 +6752,30 @@
                         "$ref": "#/definitions/IntegrationExceptionTypeConnectionDto"
                     }
                 },
+                "PrepaymentPOConnections": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationPrepaymentPOConnectionDto"
+                        },
+                        "$ref": "#/definitions/IntegrationPrepaymentPOConnectionDto"
+                    }
+                },
+                "LinkedPrepayments": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationLinkedPrepaymentDto"
+                        },
+                        "$ref": "#/definitions/IntegrationLinkedPrepaymentDto"
+                    }
+                },
                 "OrderType": {
                     "type": "string"
                 },
@@ -7614,6 +7638,54 @@
                 },
                 "IsManual": {
                     "type": "boolean"
+                }
+            }
+        },
+        "IntegrationPrepaymentPOConnectionDto": {
+            "type": "object",
+            "xml": {
+                "name": "PrepaymentPOConnection"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "SupplierId": {
+                    "type": "string"
+                },
+                "ConnectedOrderIdentifier": {
+                    "type": "string"
+                }
+            }
+        },
+        "IntegrationLinkedPrepaymentDto": {
+            "type": "object",
+            "xml": {
+                "name": "LinkedPrepayment"
+            },
+            "additionalProperties": false,
+            "required": [
+                "InvoiceDate",
+                "PrepaidAmount"
+            ],
+            "properties": {
+                "InvoiceNumber": {
+                    "type": "string"
+                },
+                "InvoiceDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierId": {
+                    "type": "string"
+                },
+                "OrderIdentifier": {
+                    "type": "string"
+                },
+                "VoucherNumber": {
+                    "type": "string"
+                },
+                "PrepaidAmount": {
+                    "type": "number",
+                    "format": "decimal"
                 }
             }
         },
