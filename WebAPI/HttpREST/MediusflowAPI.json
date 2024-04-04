@@ -4020,6 +4020,14 @@
                 "OrderNumber": {
                     "type": "string"
                 },
+                "RevisionNumber": {
+                    "type": "string"
+                },
+                "RevisionCreatedDate": {
+                    "xml": {
+                        "name": "RevisionCreatedDate"
+                    }
+                },
                 "RequisitionId": {
                     "type": "string"
                 },
@@ -11047,7 +11055,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "summary": "This method accepts a purchase-oder-to-ERP confirmation with or without the goods-receipt-note part or cancellations\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
                 "operationId": "PurchaseOrderRequestMessage_ExternalSystemSyncConfirmation",
                 "parameters": [
                     {
@@ -11071,7 +11079,7 @@
                 "tags": [
                     "PurchaseOrderRequestMessage"
                 ],
-                "summary": "This method accepts a purchase-oder-to-ERP cancellation with or without the goods-receipt-note part\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note confirmation or cancellation message, that was retrieved in the earlier step.\nThe confirmation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
+                "summary": "This method accepts a purchase-oder-to-ERP cancellations\nas a response to either the purchase-oder-to-ERP or the goods-receipt-note cancellation message, that was retrieved in the earlier step.\nThe cancellation object includes a CorrelationKey that needs to match the corresponding purchase-order-to-ERP or goods-receipt-note message.",
                 "operationId": "PurchaseOrderRequestMessage_ExternalSystemSyncCancellation",
                 "parameters": [
                     {
@@ -11087,7 +11095,8 @@
                     "201": {
                         "description": ""
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/integration/message/v1/procurement/purchaseordercancelationconfirmation": {
