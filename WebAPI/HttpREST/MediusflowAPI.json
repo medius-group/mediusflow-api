@@ -7688,7 +7688,7 @@
                 "OrderIdentifier": {
                     "type": "string"
                 },
-                "VoucherNumber": {
+                "FinalVoucherNumber": {
                     "type": "string"
                 },
                 "PrepaidAmount": {
