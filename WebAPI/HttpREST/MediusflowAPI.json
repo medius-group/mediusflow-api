@@ -2294,6 +2294,19 @@
                 },
                 "UsableInPurchase": {
                     "type": "boolean"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
                 }
             }
         },
@@ -2923,6 +2936,19 @@
                         "name": "StartDate"
                     },
                     "$ref": "#/definitions/IntegrationPaymentTermStartDateDto"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
                 }
             }
         },
@@ -6573,6 +6599,19 @@
                 "PaymentTerm": {
                     "type": "string"
                 },
+                "PaymentTermExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "PaymentTermExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
+                },
                 "PreferredPaymentDate": {
                     "type": "string",
                     "format": "date-time"
@@ -6650,8 +6689,34 @@
                 "TaxIndicator": {
                     "type": "string"
                 },
+                "TaxIndicatorExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "TaxIndicatorExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
+                },
                 "TaxIndicator2": {
                     "type": "string"
+                },
+                "TaxIndicator2ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "TaxIndicator2ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
                 },
                 "SupplierTaxIndicator1": {
                     "type": "string"
@@ -7271,6 +7336,19 @@
                 "TaxCode": {
                     "type": "string"
                 },
+                "TaxCodeExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "TaxCodeExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
+                },
                 "TaxLineNumber": {
                     "type": "integer",
                     "format": "int32"
@@ -7278,8 +7356,34 @@
                 "TaxIndicator1": {
                     "type": "string"
                 },
+                "TaxIndicator1ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "TaxIndicator1ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
+                },
                 "TaxIndicator2": {
                     "type": "string"
+                },
+                "TaxIndicator2ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "TaxIndicator2ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
                 }
             }
         },
@@ -7825,6 +7929,19 @@
                 "IndicatorNumber": {
                     "type": "integer",
                     "format": "int32"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
                 }
             }
         },
@@ -7947,6 +8064,19 @@
                 "Percentage": {
                     "type": "number",
                     "format": "decimal"
+                },
+                "ExternalSystemMetadata": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "ExternalSystemMetadataEntry",
+                            "wrapped": true
+                        },
+                        "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
+                    }
                 }
             }
         },
