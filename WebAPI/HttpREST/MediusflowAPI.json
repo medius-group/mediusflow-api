@@ -6606,7 +6606,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "PaymentTermExternalSystemMetadataEntry",
+                            "name": "ExternalSystemMetadataEntry",
                             "wrapped": true
                         },
                         "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
@@ -6655,7 +6655,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "SupplierExternalSystemMetadataEntry",
+                            "name": "ExternalSystemMetadataEntry",
                             "wrapped": true
                         },
                         "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
@@ -6696,7 +6696,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "TaxIndicatorExternalSystemMetadataEntry",
+                            "name": "ExternalSystemMetadataEntry",
                             "wrapped": true
                         },
                         "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
@@ -6712,7 +6712,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "TaxIndicator2ExternalSystemMetadataEntry",
+                            "name": "ExternalSystemMetadataEntry",
                             "wrapped": true
                         },
                         "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
@@ -6964,6 +6964,9 @@
                     "format": "date-time"
                 },
                 "EInvoiceTrackingId": {
+                    "type": "string"
+                },
+                "PrepaymentCategory": {
                     "type": "string"
                 }
             }
@@ -7343,7 +7346,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "TaxCodeExternalSystemMetadataEntry",
+                            "name": "ExternalSystemMetadataEntry",
                             "wrapped": true
                         },
                         "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
@@ -7363,7 +7366,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "TaxIndicator1ExternalSystemMetadataEntry",
+                            "name": "ExternalSystemMetadataEntry",
                             "wrapped": true
                         },
                         "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
@@ -7379,7 +7382,7 @@
                     },
                     "items": {
                         "xml": {
-                            "name": "TaxIndicator2ExternalSystemMetadataEntry",
+                            "name": "ExternalSystemMetadataEntry",
                             "wrapped": true
                         },
                         "$ref": "#/definitions/ExternalSystemMetadataEntryDto"
