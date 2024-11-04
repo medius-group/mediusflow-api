@@ -3943,6 +3943,19 @@
                     "type": "number",
                     "format": "decimal"
                 },
+                "AdditionalItemNumbers": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AdditionalItemNumber",
+                            "wrapped": true
+                        }
+                    }
+                },
                 "ExternalSystemMetadata": {
                     "type": "array",
                     "xml": {
@@ -6968,6 +6981,18 @@
                 },
                 "PrepaymentCategory": {
                     "type": "string"
+                },
+                "AddressInformation": {
+                    "type": "array",
+                    "xml": {
+                        "wrapped": true
+                    },
+                    "items": {
+                        "xml": {
+                            "name": "IntegrationAddressInformationDto"
+                        },
+                        "$ref": "#/definitions/IntegrationAddressInformationDto"
+                    }
                 }
             }
         },
@@ -7815,6 +7840,33 @@
                 "PrepaidAmount": {
                     "type": "number",
                     "format": "decimal"
+                }
+            }
+        },
+        "IntegrationAddressInformationDto": {
+            "type": "object",
+            "xml": {
+                "name": "AddressInformation"
+            },
+            "additionalProperties": false,
+            "properties": {
+                "AddressInformationType": {
+                    "type": "string"
+                },
+                "Street": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "PostalCode": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
                 }
             }
         },
