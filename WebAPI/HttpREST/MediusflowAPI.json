@@ -463,7 +463,8 @@
                 "COMPANY_INVALID_COUNTRY_CODE",
                 "PAYMENT_DETAILS_INVALID_DESCRIPTION",
                 "PURCHASE_ORDER_TOO_MANY_ITEM_NUMBERS",
-                "PURCHASE_ORDER_ITEM_NUMBERS_CONTAIN_DUPLICATES"
+                "PURCHASE_ORDER_ITEM_NUMBERS_CONTAIN_DUPLICATES",
+                "MULTIPLE_RESTRICTIONS_TYPE_DEFINED_FOR_SAME_CONTROLLING_VALUE"
             ],
             "enum": [
                 0,
@@ -632,7 +633,8 @@
                 163,
                 164,
                 165,
-                166
+                166,
+                167
             ]
         },
         "ActualPaymentDateResponseDto": {
