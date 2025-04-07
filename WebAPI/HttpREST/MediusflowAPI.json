@@ -464,7 +464,8 @@
                 "PAYMENT_DETAILS_INVALID_DESCRIPTION",
                 "PURCHASE_ORDER_TOO_MANY_ITEM_NUMBERS",
                 "PURCHASE_ORDER_ITEM_NUMBERS_CONTAIN_DUPLICATES",
-                "MULTIPLE_RESTRICTIONS_TYPE_DEFINED_FOR_SAME_CONTROLLING_VALUE"
+                "MULTIPLE_RESTRICTIONS_TYPE_DEFINED_FOR_SAME_CONTROLLING_VALUE",
+                "ISSUE_WITH_SAVING_WHOLE_BATCH_OF_MASTERDATA_PLEASE_REPROCESS"
             ],
             "enum": [
                 0,
@@ -634,7 +635,8 @@
                 164,
                 165,
                 166,
-                167
+                167,
+                168
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -6683,6 +6685,9 @@
                 "SupplierName": {
                     "type": "string"
                 },
+                "ContractNumber": {
+                    "type": "string"
+                },
                 "InvoiceReference": {
                     "type": "string"
                 },
@@ -6999,6 +7004,9 @@
                         },
                         "$ref": "#/definitions/IntegrationAddressInformationDto"
                     }
+                },
+                "InvoiceRemark": {
+                    "type": "string"
                 }
             }
         },
