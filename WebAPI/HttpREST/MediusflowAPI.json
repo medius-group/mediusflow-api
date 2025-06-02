@@ -465,7 +465,8 @@
                 "PURCHASE_ORDER_TOO_MANY_ITEM_NUMBERS",
                 "PURCHASE_ORDER_ITEM_NUMBERS_CONTAIN_DUPLICATES",
                 "MULTIPLE_RESTRICTIONS_TYPE_DEFINED_FOR_SAME_CONTROLLING_VALUE",
-                "ISSUE_WITH_SAVING_WHOLE_BATCH_OF_MASTERDATA_PLEASE_REPROCESS"
+                "ISSUE_WITH_SAVING_WHOLE_BATCH_OF_MASTERDATA_PLEASE_REPROCESS",
+                "SUPPLIER_COUNTRY_CODE_NOT_EXIST"
             ],
             "enum": [
                 0,
@@ -636,7 +637,8 @@
                 165,
                 166,
                 167,
-                168
+                168,
+                169
             ]
         },
         "ActualPaymentDateResponseDto": {
@@ -1461,6 +1463,9 @@
                     "format": "guid"
                 },
                 "AccountingCurrencyCode": {
+                    "type": "string"
+                },
+                "CountryCode": {
                     "type": "string"
                 }
             }
@@ -5560,6 +5565,9 @@
                 "GlobalId": {
                     "type": "string",
                     "format": "guid"
+                },
+                "CountryCode": {
+                    "type": "string"
                 }
             },
             "allOf": [
@@ -5907,6 +5915,9 @@
                 },
                 "Prepayment": {
                     "type": "boolean"
+                },
+                "CountryCode": {
+                    "type": "string"
                 },
                 "PaymentDetails": {
                     "type": "array",
@@ -7455,6 +7466,9 @@
                     "type": "string"
                 },
                 "PurchaseOrderLineNumber": {
+                    "type": "string"
+                },
+                "PurchaseOrderType": {
                     "type": "string"
                 },
                 "ItemNumber": {
